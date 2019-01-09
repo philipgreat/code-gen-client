@@ -8,7 +8,7 @@ public class MySQLPatchTask extends MySQLGenTask {
 	protected String getSourceSQLFilePath(){
 		String sourcePath = super.getDestPath(TASK_NAME);
 		
-		return sourcePath+"sql/mysql_"+getModel()+"_patch.sql";
+		return sourcePath+"WEB-INF/"+"sql/mysql_"+getModel()+"_patch.sql";
 		
 	}
 }

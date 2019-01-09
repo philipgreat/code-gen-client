@@ -55,14 +55,14 @@ public class MySQLGenTask extends CodeGenTask {
 	protected String getSourceSQLFilePath(){
 		String sourcePath = super.getDestPath(TASK_NAME);
 		
-		return sourcePath+getModel()+"_core_src/META-INF/"+getModel()+"_mysql.sql";
+		return sourcePath+"WEB-INF/"+getModel()+"_core_src/META-INF/"+getModel()+"_mysql.sql";
 		
 	}
 	protected String getBackupSQLFilePath(){
 		String sourcePath = super.getDestPath(TASK_NAME);
 		DateFormat format=new SimpleDateFormat("yyyyMMddHHmmss");
 		
-		return sourcePath+getModel()+"_core_src/META-INF/"+getModel()+"_mysql_"+format.format(new Date())+".sql";
+		return sourcePath+"WEB-INF/"+getModel()+"_core_src/META-INF/"+getModel()+"_mysql_"+format.format(new Date())+".sql";
 		
 	}
 	
