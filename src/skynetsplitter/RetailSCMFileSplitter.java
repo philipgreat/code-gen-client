@@ -16,7 +16,8 @@ public class RetailSCMFileSplitter {
 		//System.setProperty("skynet.model", "cis");
 		//System.setProperty("skynet.model", "decoration_docs");
 		System.setProperty("skynet.model", "retailscm");
-		run(new MySQLGenTask());
+		//System.setProperty("skynet.env", "xp");
+		//run(new MySQLGenTask()):;
 		run(new JavaTask());
 		//run(new ReactTask());
 		//Double a= null;

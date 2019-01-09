@@ -30,6 +30,26 @@ public class CodeGenContext {
 		return this;
 
 	}
+	public  CodeGenContext mysqlPassword(String model) {
+		set(MYSQL_PASSWORD_PARAM,model);
+		return this;
+
+	}
+	public  CodeGenContext mysqlUsername(String model) {
+		set(MYSQL_USER_PARAM,model);
+		return this;
+
+	}
+	public  CodeGenContext mysqlExecPath(String model) {
+		set(MYSQL_EXEC_PATH_PARAM,model);
+		return this;
+
+	}
+	public  CodeGenContext mysqlDumpExecPath(String model) {
+		set(MYSQL_DUMP_PATH_PARAM,model);
+		return this;
+
+	}
 	public  CodeGenContext withXP() {
 		set(ENV_PARAM,"xp");
 		return this;

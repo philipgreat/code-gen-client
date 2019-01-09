@@ -100,7 +100,7 @@ public class CodeGenTask {
 		
 		Map<String, String > pathMap = new HashMap<String,String>();
 		pathMap.put("jsp", "bizcore");
-		pathMap.put("java", "bizcore/WEB-INF/");
+		pathMap.put("java", "bizcore/");
 		pathMap.put("dict", "./");
 		pathMap.put("react", "bizui");
 		pathMap.put("bigdata", "databrain");
@@ -111,7 +111,7 @@ public class CodeGenTask {
 		if(path!=null){
 			return path;
 		}
-		return "bizcore/WEB-INF/";
+		return "bizcore/";
 		
 	}
 	
