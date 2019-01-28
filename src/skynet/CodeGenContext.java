@@ -6,6 +6,8 @@ public class CodeGenContext {
 	
 	public static final String MYSQL_USER_PARAM="skynet.mysql.user";
 	public static final String MYSQL_PASSWORD_PARAM="skynet.mysql.password";
+	public static final String MYSQL_SKIP_IMPORT_PARAM="skynet.mysql.skipimport";
+	
 	public static final String MODEL_PARAM="skynet.model";
 	public static final String ENV_PARAM="skynet.env";
 	public static final String USE_ENGLISH_PARAM="skynet.english";
@@ -40,6 +42,10 @@ public class CodeGenContext {
 		return this;
 
 	}
+	public  CodeGenContext mysqlSkipImport() {
+		set(MYSQL_SKIP_IMPORT_PARAM,"yes");
+		return this;
+	}
 	public  CodeGenContext mysqlExecPath(String model) {
 		set(MYSQL_EXEC_PATH_PARAM,model);
 		return this;
@@ -60,6 +66,9 @@ public class CodeGenContext {
 	}
 	public  boolean forEnglish() {
 		return get(USE_ENGLISH_PARAM,"no").equals("yes");
+	}
+	public  boolean skipMySQLImport() {
+		return get(MYSQL_SKIP_IMPORT_PARAM,"no").equals("yes");
 	}
 	public  CodeGenContext ofEnv() {
 		get(ENV_PARAM,null);

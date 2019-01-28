@@ -26,6 +26,8 @@ public class MySQLGenTask extends CodeGenTask {
 		doSingleTask("data_spec");
 		doSingleTask(TASK_NAME);
 		//backupOldData();
+		
+		
 		importNewData();
 		//importOldData();
 	}
@@ -37,6 +39,13 @@ public class MySQLGenTask extends CodeGenTask {
 		
 	}
 	protected  void importNewData() throws IOException{
+		
+		CodeGenContext context=CodeGenContext.start();
+		if(context.skipMySQLImport()) {
+			log("Skip mysql data import for model "+getModel());
+			return;
+		}
+		
 		
 		
 		String output = executeCommand();
