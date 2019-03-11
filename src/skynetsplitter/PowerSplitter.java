@@ -68,14 +68,6 @@ public class PowerSplitter {
 			
 			
 			
-			Arrays.stream(tasks).forEach(task->{
-				try {
-					task.end();
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			});
 			
 			
 			
