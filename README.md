@@ -19,10 +19,14 @@ https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
 ## 上传到服务器（临时）
 
-pscp his.xml -P 4422  -pw YOURPASSWORD username@t420.doublechaintech.cn:/home/username/
+
 
 * username 需要替换成你的用户名
 * YOURPASSWORD 需要替换成你的密码
+
+```
+pscp his.xml -P 4422  -pw YOURPASSWORD username@t420.doublechaintech.cn:/home/username/
+```
 
 
 ## 更新客户端
