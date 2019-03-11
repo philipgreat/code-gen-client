@@ -1,5 +1,9 @@
 package skynetsplitter;
 
+import java.util.Arrays;
+
+import com.sun.xml.internal.txw2.output.StreamSerializer;
+
 import skynet.CodeGenContext;
 import skynet.CodeGenTask;
 import skynet.FullTask;
@@ -9,42 +13,80 @@ import skynet.MySQLGenTask;
 import skynet.ReactTask;
 
 
-public class GenericSplitter {
+public class PowerSplitter {
 	
 	
 	public static void main(String[] args) throws Exception {
 		CodeGenContext context = CodeGenContext.start();
 		
+		context.withURLPrefix("http://t420.doublechaintech.cn:2080/sky/");
 		
-		//String models[]= {"ugc","cms","oms","payment","search","inventory","iam"};
 		
+		
+		
+		
+		//String models[]= {"ugc","cms","oms","payment","search","inventory","iam","pim"};
+		/*
 		if(args.length<1) {
 			logln("Please add models to arguments");
 			return;
-		}
+		}*/
 		
-		String models[]= args;
+		//String models[]= args;
 		//String models[]= {"b2c"};
 		//String models[]= {"mini"};
 		//String models[]= {"lsc"};
 		//String models[]= {"retailscm"};
-		//String models[]= {"course"};
+		//String models[]= {"cms"};
 		//String models[]= {"pim"};
 		//String models[]= {"ugc","inventory"};
+		//String models[]= {"demodata"};
+		String models[]= {"his"};
+		
+		
+		
+		
 		
 		for(String model:models) {
-			context.withModel(model).withEnglish().mysqlSkipImport();
-			//run(new JavaTask());
-			//run(new JSPTask());
-			run(new FullTask());
-			run(new ReactTask());
+			//context.withModel(model).withEnglish().mysqlSkipImport();
+			//context.withModel(model).withEnglish().mysqlSkipImport();
+			context.withModel(model).mysqlSkipImport();
+			
+			
+			CodeGenTask tasks[]=new CodeGenTask[] {
+					new FullTask(),
+					new ReactTask()};
+			
+			Arrays.stream(tasks).forEach(task->{
+				try {
+					run(task);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			});
+			
+			
+			
+			Arrays.stream(tasks).forEach(task->{
+				try {
+					task.end();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			});
+			
+			
+			
+			
 			//run(new MySQLGenTask());
 			
 		}
 		
 		
 		//printOutTempCommand(models);
-		printOutCommand(models);
+		//printOutCommand(models);
 
 		
 	}
@@ -82,7 +124,34 @@ public class GenericSplitter {
 		for(String model:models) {
 			//logln("cd ~/githome/pim-biz-suite/bizui/src && cp -Ra common launcher permission ~/githome/"+model+"-biz-suite/bizui/src");
 			
+			//logln("cd ~/githome/"+model+"-biz-suite/ && git reset --hard HEAD");
+			
 			logln("cd ~/githome/"+model+"-biz-suite/ && commit \"Update to new version\"");
+			
+			//logln("cd ~/githome/"+model+"-biz-suite/ && git pull");
+
+		}
+		logln("-------------------------Local Regular Time with Update CAF-------------------------------");
+		
+		
+		for(String model:models) {
+			//logln("cd ~/githome/pim-biz-suite/bizui/src && cp -Ra common launcher permission ~/githome/"+model+"-biz-suite/bizui/src");
+			
+			logln("cd ~/githome/ && cp -Ra skynet-common-app-framework/*  ~/githome/"+model+"-biz-suite/bizcore/");
+			
+			logln("cd ~/githome/"+model+"-biz-suite/ && commit \"Update to new version\"");
+			
+			//logln("cd ~/githome/"+model+"-biz-suite/ && git pull");
+
+		}
+		logln("-------------------------Remote Regular Time-------------------------------");
+		
+		
+		for(String model:models) {
+			//logln("cd ~/githome/pim-biz-suite/bizui/src && cp -Ra common launcher permission ~/githome/"+model+"-biz-suite/bizui/src");
+			
+			logln("cd ~/githome/"+model+"-biz-suite/ && git pull --allow-unrelated-histories && cd ../");
+			//cd ~/githome/ugc-biz-suite/&& git pull --allow-unrelated-histories && cd ../
 			//logln("cd ~/githome/"+model+"-biz-suite/ && git pull");
 
 		}
@@ -101,10 +170,10 @@ public class GenericSplitter {
 		for(String model:models) {
 			logln("cd ~/githome/"+model+"-biz-suite/&& git pull --allow-unrelated-histories && cd ../");
 			logln("cd ~/githome/"+model+"-biz-suite/bizcore&& gradle classes && cd ../../");
-			logln("cd ~/githome/"+model+"-biz-suite/bizui&& yarn install && yarn build && cd ../../");
 			logln("cd ~/githome/"+model+"-biz-suite/ && rsync -avz   bizcore/* philipz@philip.doublechaintech.cn:~/resin-3.1.12/webapps/"+model+"/");
-			logln("cd ~/githome/"+model+"-biz-suite/bizui && rsync -avz   dist/* philipz@philip.doublechaintech.cn:~/resin-3.1.12/webapps/ROOT/admin/"+model+"/");
 			logln("ssh philipz@philip.doublechaintech.cn \"mysql -uroot -p0254891276 -h 127.0.0.1 < resin-3.1.12/webapps/"+model+"/WEB-INF/"+model+"_core_src/META-INF/"+model+"_mysql.sql\"");
+			logln("cd ~/githome/"+model+"-biz-suite/bizui&& yarn install && yarn build && cd ../../");
+			logln("cd ~/githome/"+model+"-biz-suite/bizui && rsync -avz   dist/* philipz@philip.doublechaintech.cn:~/resin-3.1.12/webapps/ROOT/admin/"+model+"/");
 			
 		}
 		logln("-------------------------Local First Time-------------------------------");
@@ -117,6 +186,7 @@ public class GenericSplitter {
 		for(String model:models) {
 			logln("cd ~/githome && git clone https://github.com/doublechaintech/"+model+"-biz-suite.git");
 			logln("cd ~/githome/"+model+"-biz-suite/bizcore&& gradle classes && cd ../../");
+			logln("cd ~/githome/"+model+"-biz-suite/bizui&& cp -Ra ~/githome/pim-biz-suite/bizui/src/common/* src/common/ ");
 			logln("cd ~/githome/"+model+"-biz-suite/bizui&& yarn install && yarn build && cd ../../");
 			logln("ssh philipz@philip.doublechaintech.cn \"mkdir ~/resin-3.1.12/webapps/"+model+"\"");
 			logln("ssh philipz@philip.doublechaintech.cn \"mkdir ~/resin-3.1.12/webapps/ROOT/admin/"+model+"\"");

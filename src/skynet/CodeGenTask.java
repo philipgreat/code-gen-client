@@ -15,6 +15,7 @@ public class CodeGenTask {
 	
 	public static final String MYSQL_USER_PARAM="skynet.mysql.user";
 	public static final String MYSQL_PASSWORD_PARAM="skynet.mysql.password";
+	public static final String CODE_ENGINE_URL_PREFIX="skynet.engine.url.prefix";
 	
 	protected String model = "b2b2c";
 	
@@ -53,8 +54,11 @@ public class CodeGenTask {
 	protected String getURIPrefix(){
 		String prefix = "http://localhost:8080/sky/";
 		
-		
-		return prefix;
+		String candidates[]={
+				System.getProperty(CODE_ENGINE_URL_PREFIX),
+				prefix};
+		return this.firstNotNull(candidates);
+
 		
 	}
 	protected String getHomePath(){
