@@ -8,18 +8,23 @@
 ### putty 工具集（Windows）或者FileZilla
 
 下载链接
-
+```
 https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+```
 
-我们使用pscp来上传文件
+
+FileZilla 下载地址
+
+```
+https://filezilla-project.org/
+```
+
 
 ## 建立模型
 
 编辑需要的的xml文件
 
 ## 上传到服务器（临时）
-
-
 
 * username 需要替换成你的用户名
 * YOURPASSWORD 需要替换成你的密码
