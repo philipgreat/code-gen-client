@@ -46,6 +46,14 @@ wget -O splitter.jar https://github.com/philipgreat/code-gen-client/raw/master/d
 ```
 java -jar splitter.jar his
 ```
+这个会生成到$HOME/githome/his-biz-suite/下面
+
+大多数情况下，需要指定输出目录
+```
+java -Dskynet.output.basefolder=/Users/Philip/gittemp/  -jar splitter.jar  his
+```
+
+
 his 对应上传目录里面 his.xml
 
 ## 检查生成的代码
