@@ -20,9 +20,13 @@ https://filezilla-project.org/
 ```
 
 
-## 建立模型
+## 准备模型
 
+### 编写文件
 编辑需要的的xml文件
+
+
+
 
 ## 上传到服务器（临时）
 
@@ -40,6 +44,13 @@ pscp his.xml -P 4422  -pw YOURPASSWORD username@t420.doublechaintech.cn:/home/us
 wget -O splitter.jar https://github.com/philipgreat/code-gen-client/raw/master/dist/splitter.jar
 
 ```
+
+## 验证模型
+
+```
+http://t420.doublechaintech.cn:2080/sky/javaweb/report.jsp?name=his
+```
+
 
 ## 运行客户端 
 
