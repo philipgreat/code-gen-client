@@ -5,37 +5,15 @@
 ### Java 8 
 本软件已经更新到Java8，工作在Java8以上环境中，JDK7不再支持
 
-### putty 工具集（Windows）或者FileZilla
-
-下载链接
-```
-https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
-```
 
 
-FileZilla 下载地址
 
-```
-https://filezilla-project.org/
-```
-
-
-## 准备模型
+## 准备模型，推荐使用vscode编辑上传
 
 ### 编写文件
 编辑需要的的xml文件
 
-
-
-
-## 上传到服务器（临时）
-
-* username 需要替换成你的用户名
-* YOURPASSWORD 需要替换成你的密码
-
-```
-pscp his.xml -P 4422  -pw YOURPASSWORD username@t420.doublechaintech.cn:/home/username/
-```
+### 同步到服务器
 
 
 ## 更新客户端
@@ -90,6 +68,7 @@ java.io.IOException: Server returned HTTP response code: 500 for URL: http://t42
 
 
 ```
+
 
 
 
