@@ -46,6 +46,7 @@ wget -O splitter.jar https://github.com/philipgreat/code-gen-client/raw/master/d
 ```
 java -jar splitter.jar his
 ```
+his 对应上传目录里面 his.xml
 
 ## 检查生成的代码
 
