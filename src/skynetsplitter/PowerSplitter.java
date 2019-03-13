@@ -26,13 +26,13 @@ public class PowerSplitter {
 		
 		
 		//String models[]= {"ugc","cms","oms","payment","search","inventory","iam","pim"};
-		/*
+		
 		if(args.length<1) {
 			logln("Please add models to arguments");
 			return;
-		}*/
+		}/**/
 		
-		//String models[]= args;
+		String models[]= args;
 		//String models[]= {"b2c"};
 		//String models[]= {"mini"};
 		//String models[]= {"lsc"};
@@ -41,17 +41,13 @@ public class PowerSplitter {
 		//String models[]= {"pim"};
 		//String models[]= {"ugc","inventory"};
 		//String models[]= {"demodata"};
-		String models[]= {"his"};
+		//String models[]= {"his"};
 		
 		
 		
 		
-		
-		for(String model:models) {
-			//context.withModel(model).withEnglish().mysqlSkipImport();
-			//context.withModel(model).withEnglish().mysqlSkipImport();
-			context.withModel(model).mysqlSkipImport();
-			
+		Arrays.stream(models).forEach(model->{
+			context.withModel(model);
 			
 			CodeGenTask tasks[]=new CodeGenTask[] {
 					new FullTask(),
@@ -66,15 +62,8 @@ public class PowerSplitter {
 				}
 			});
 			
-			
-			
-			
-			
-			
-			
-			//run(new MySQLGenTask());
-			
-		}
+		});
+		
 		
 		
 		//printOutTempCommand(models);

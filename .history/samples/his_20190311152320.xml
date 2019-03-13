@@ -1,0 +1,21 @@
+
+<?xml version='1.0' ?>
+<root org="panfeng" 
+	chinese_name="医生排班系统" 
+	english_name="Doctor Scheduling System">
+
+	
+    <hospital
+
+        name="上和医院"
+        
+    
+    />
+	
+    <expense_type
+        name=""
+        hospital="$(hospital)"
+    />
+
+</root>
+ 

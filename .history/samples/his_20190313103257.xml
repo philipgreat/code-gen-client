@@ -1,0 +1,29 @@
+<?xml version='1.0' ?>
+<root org="doublechaintech" 
+	chinese_name="医生排班系统" 
+	english_name="Doctor Scheduling System">
+
+	
+    <hospital
+
+        name="上和医院|[1,200]"
+        address="毕升路22号"
+        telephone="028-9123123"
+
+    />
+	
+   
+
+    <doctor
+        name="魏松全"
+        shot_image="snap.shot-400-300-red.jpg"
+        hospital="$(hospital)"
+        update_time="updateTime()"
+        
+    />
+
+   
+
+
+</root>
+ 
