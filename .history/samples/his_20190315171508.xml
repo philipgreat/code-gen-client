@@ -25,7 +25,6 @@
     <period
          name="上午|下午|夜班"
          hospital="$(hospital)"
-          _features="status"
 
     />
      <expense_item

@@ -25,9 +25,8 @@
     <period
          name="上午|下午|夜班"
          hospital="$(hospital)"
-          _features="status"
 
-    />
+    >
      <expense_item
         name="专家诊疗费|血常规|煎药费"
         price="$99.00"
