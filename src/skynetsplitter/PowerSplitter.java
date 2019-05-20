@@ -19,7 +19,7 @@ public class PowerSplitter {
 	public static void main(String[] args) throws Exception {
 		CodeGenContext context = CodeGenContext.start();
 		
-		context.withURLPrefix("http://t420.doublechaintech.cn:2080/sky/");
+		//context.withURLPrefix("http://t420.doublechaintech.cn:2080/sky/");
 		
 		
 		
@@ -29,11 +29,11 @@ public class PowerSplitter {
 		
 		if(args.length<1) {
 			logln("Please add models to arguments");
-			return;
+			//return;
 		}/**/
 		
-		String models[]= args;
-		//String models[]= {"b2c"};
+		//String models[]= args;
+		String models[]= {"his"};
 		//String models[]= {"mini"};
 		//String models[]= {"lsc"};
 		//String models[]= {"retailscm"};

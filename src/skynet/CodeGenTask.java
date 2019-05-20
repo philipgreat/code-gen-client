@@ -175,7 +175,7 @@ public class CodeGenTask {
 	
 	
 	static final String IOS 	= "ios/ios_app_index.jsp";
-	static final String MYSQL 	= "javaweb/mysql.jsp";
+	static final String MYSQL 	= "database/mysql.jsp";
 	static final String DATA_SPEC 	= "javaweb/data_specification.jsp";
 	static final String REPORT 	= "javaweb/report.jsp";
 	static final String DICT 	= "locale/dictionary.jsp";
