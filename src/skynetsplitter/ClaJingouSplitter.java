@@ -3,13 +3,13 @@ package skynetsplitter;
 import skynet.CodeGenTask;
 import skynet.*;
 
-public class ClaMoyiSplitter {
+public class ClaJingouSplitter {
 
     public static void main(String[] args) throws Exception {
-	 System.setProperty("skynet.model", "moyi");
+	 System.setProperty("skynet.model", "jingou");
 //	System.setProperty("skynet.model", "pulupulu");
-	System.setProperty("skynet.output.basefolder", "/works/jobs/moyi_v2/workspace");
-	System.setProperty("skynet.output.basefolder.specs", "/works/jobs/moyi_v2/workspace/web-code-generator/sky/WEB-INF/src");
+	System.setProperty("skynet.output.basefolder", "/works/jobs/jingou_v1/workspace");
+	System.setProperty("skynet.output.basefolder.specs", "/works/jobs/jingou_v1/workspace/web-code-generator/sky/WEB-INF/src");
 	System.setProperty("skynet.mysql.path", "/usr/local/mysql/bin/mysql");
 	System.setProperty("skynet.mysqldump.path", "/usr/local/mysql/bin/mysqldump");
 	// System.setProperty("skynet.mysql.path", "/usr/bin/mysql");
