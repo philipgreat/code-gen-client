@@ -19,7 +19,7 @@ public class PowerSplitter {
 	public static void main(String[] args) throws Exception {
 		CodeGenContext context = CodeGenContext.start();
 		
-		context.withURLPrefix("http://t420.doublechaintech.cn:2080/sky/");
+		//context.withURLPrefix("http://t420.doublechaintech.cn:2080/sky/");
 		
 		
 		
@@ -29,11 +29,11 @@ public class PowerSplitter {
 		
 		if(args.length<1) {
 			logln("Please add models to arguments");
-			return;
+			//return;
 		}/**/
 		
-		String models[]= args;
-		//String models[]= {"b2c"};
+		//String models[]= args;
+		String models[]= {"bank"};
 		//String models[]= {"mini"};
 		//String models[]= {"lsc"};
 		//String models[]= {"retailscm"};
@@ -51,14 +51,15 @@ public class PowerSplitter {
 			
 			CodeGenTask tasks[]=new CodeGenTask[] {
 					new FullTask(),
-					new ReactTask()};
+					//new ReactTask(),
+					//new MySQLGenTask()
+					};
 			
 			Arrays.stream(tasks).forEach(task->{
 				try {
 					run(task);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					System.err.println(e.getMessage());
 				}
 			});
 			
@@ -68,7 +69,7 @@ public class PowerSplitter {
 		
 		//printOutTempCommand(models);
 		//printOutCommand(models);
-
+		
 		
 	}
 	private static void logln(String string) {
