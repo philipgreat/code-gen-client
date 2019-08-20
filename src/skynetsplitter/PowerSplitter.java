@@ -17,7 +17,7 @@ public class PowerSplitter {
 	
 	
 	public static void main(String[] args) throws Exception {
-		CodeGenContext context = CodeGenContext.start();
+		CodeGenContext context = CodeGenContext.start().withXP().mysqlSkipImport();
 		
 		//context.withURLPrefix("http://t420.doublechaintech.cn:2080/sky/");
 		
@@ -33,7 +33,7 @@ public class PowerSplitter {
 		}/**/
 		
 		//String models[]= args;
-		String models[]= {"his"};
+		String models[]= {"bank"};
 		//String models[]= {"mini"};
 		//String models[]= {"lsc"};
 		//String models[]= {"retailscm"};
@@ -50,8 +50,9 @@ public class PowerSplitter {
 			context.withModel(model);
 			
 			CodeGenTask tasks[]=new CodeGenTask[] {
-					new FullTask(),
-					new ReactTask()};
+					new FullTask()
+					//,new ReactTask()
+					};
 			
 			Arrays.stream(tasks).forEach(task->{
 				try {

@@ -5,9 +5,17 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
+import java.util.Arrays;
 public class Test {
-
+	
+	public void testArray() {
+		
+		String [] source = {"a","b","c"};
+		Object []objs = source;
+		
+		
+		
+	}
 	public static Map<String, Long> countVotes(String[] votes) {
 		Map<String, Long> counterMap = new HashMap<>();
 
@@ -23,6 +31,9 @@ public class Test {
 		if(value != 0) {
 			return value;
 		}
+		
+		
+		
 		return c1.getKey().compareTo(c2.getKey());
 		
 		
