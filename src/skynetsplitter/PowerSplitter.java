@@ -29,11 +29,11 @@ public class PowerSplitter {
 		
 		if(args.length<1) {
 			logln("Please add models to arguments");
-			//return;
+			return;
 		}/**/
 		
-		//String models[]= args;
-		String models[]= {"bank"};
+		String models[]= args;
+		//String models[]= {"bank"};
 
 		//String models[]= {"mini"};
 		//String models[]= {"lsc"};
