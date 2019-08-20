@@ -34,6 +34,7 @@ public class PowerSplitter {
 		
 		//String models[]= args;
 		String models[]= {"bank"};
+
 		//String models[]= {"mini"};
 		//String models[]= {"lsc"};
 		//String models[]= {"retailscm"};
