@@ -2,14 +2,9 @@ package skynetsplitter;
 
 import java.util.Arrays;
 
-import com.sun.xml.internal.txw2.output.StreamSerializer;
-
 import skynet.CodeGenContext;
 import skynet.CodeGenTask;
 import skynet.FullTask;
-import skynet.JSPTask;
-import skynet.JavaTask;
-import skynet.MySQLGenTask;
 import skynet.ReactTask;
 
 
@@ -19,7 +14,7 @@ public class PowerSplitter {
 	public static void main(String[] args) throws Exception {
 		CodeGenContext context = CodeGenContext.start();
 		
-		//context.withURLPrefix("http://t420.doublechaintech.cn:2080/sky/");
+		context.withURLPrefix("http://t420.doublechaintech.cn:2080/sky/");
 		
 		
 		
@@ -52,7 +47,7 @@ public class PowerSplitter {
 			
 			CodeGenTask tasks[]=new CodeGenTask[] {
 					new FullTask(),
-					//new ReactTask(),
+					new ReactTask()
 					//new MySQLGenTask()
 					};
 			
