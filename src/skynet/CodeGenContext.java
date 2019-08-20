@@ -48,7 +48,7 @@ public class CodeGenContext {
 		return this;
 
 	}
-	public  CodeGenContext mysqlSkipImport() {
+	public  CodeGenContext skipMysqlImport() {
 		set(MYSQL_SKIP_IMPORT_PARAM,"yes");
 		return this;
 	}
@@ -73,7 +73,7 @@ public class CodeGenContext {
 	public  boolean forEnglish() {
 		return get(USE_ENGLISH_PARAM,"no").equals("yes");
 	}
-	public  boolean skipMySQLImport() {
+	public  boolean isSkippedMySQLImport() {
 		return get(MYSQL_SKIP_IMPORT_PARAM,"no").equals("yes");
 	}
 	public  CodeGenContext ofEnv() {

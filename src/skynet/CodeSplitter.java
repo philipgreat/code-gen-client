@@ -9,7 +9,11 @@ import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-
+class IllegalModelException extends RuntimeException{
+	public IllegalModelException(String message) {
+		super(message);
+	}
+}
 public class CodeSplitter {
 	protected List<BaseFileProcessor> processors;
 
@@ -40,13 +44,15 @@ public class CodeSplitter {
 		for (BaseFileProcessor processor : processors) {
 			processor.addBreakingTokens(tokens);;
 		}
-		//process each line
+		StringBuilder errorLog = new StringBuilder();
 		while ((line = reader.readLine()) != null) {
 			
 			if(line.trim().startsWith("Error#")){
-				String message = "Found error line: "+ line;
-				System.err.println(message);
-				throw new IllegalStateException(message);
+				String message =  line;
+				errorLog.append("\n");
+				errorLog.append(message);
+				
+				continue;
 			}
 			if(line.trim().startsWith("@warning")){
 				System.err.println("Found: "+ line);
@@ -57,10 +63,21 @@ public class CodeSplitter {
 				processor.handleLine(line);
 			}
 		}
+		
+		if(errorLog.length()>0) {
+			reader.close();
+			throw new Exception(errorLog.toString());
+		}
+		
 		for (BaseFileProcessor processor : processors) {
 			processor.end();
 		}
 		reader.close();
+		
+		if(errorLog.length()>0) {
+			throw new IllegalModelException(errorLog.toString());
+		}
+		
 		// throw new IOException("重试次数超过"+count+"次，只好放弃了",lastException);
 
 	}

@@ -70,10 +70,12 @@ public class Test {
 		System.out.println(object);
 		
 	}
-
+	protected static long parseLong(String longExpr){
+		  return  Long.decode(longExpr);
+	}
 	public static void main(String[] args) {
 
 		String[] votes = new String[] { "Glenn", "Emily", "Emily", "Glenn" };
-		System.out.println(Test.voteWinner(votes));
+		System.out.println(parseLong("10000000"));
 	}
 }

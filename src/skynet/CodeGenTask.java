@@ -19,9 +19,10 @@ public class CodeGenTask {
 	
 	protected String model = "b2b2c";
 	
-	public void doStart(){
+	public void doStart() throws Exception{
 		System.setProperty("file.encoding", "UTF-8");
 		log("start task with model: "+ this.getModel()+"");
+		doSingleTask("report");
 		
 		
 	}

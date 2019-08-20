@@ -18,7 +18,7 @@ import java.util.Scanner;
 public class MySQLGenTask extends CodeGenTask {
 	
 	static  String TASK_NAME="mysql";
-	public void doStart(){
+	public void doStart() throws Exception{
 		super.doStart();
 		log("mysql task source file will be: "+ getSourceSQLFilePath());		
 	}
@@ -41,7 +41,7 @@ public class MySQLGenTask extends CodeGenTask {
 	protected  void importNewData() throws IOException{
 		
 		CodeGenContext context=CodeGenContext.start();
-		if(context.skipMySQLImport()) {
+		if(context.isSkippedMySQLImport()) {
 			log("Skip mysql data import for model "+getModel());
 			return;
 		}

@@ -6,8 +6,8 @@ public class FullTask extends MySQLGenTask {
 		doSingleTask("dict");
 		doSingleTask("jsp");
 		doSingleTask("java");
-		super.doTask();
 		
+		super.doTask();
 		
 	}
 }
