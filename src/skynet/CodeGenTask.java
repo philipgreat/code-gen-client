@@ -172,6 +172,7 @@ public class CodeGenTask {
 	static final String WXA_RENDER = "dssc_lab/wxa_render_index.jsp";
 	static final String UI_FORM_SPEC = "uiform/ui_form_spec_index.jsp";
 	static final String UI_FORM_GEN = "uiform/ui_form_gen_index.jsp";
+	static final String PREPARE_QUERY_SCRIPT = "gen_script/gen_script_index.jsp";
 	
 	
 	
@@ -232,6 +233,8 @@ public class CodeGenTask {
 			componentMap.put("wxa_render", WXA_RENDER);
 			componentMap.put("ui_form_spec", UI_FORM_SPEC);
 			componentMap.put("ui_form_gen", UI_FORM_GEN);
+			
+			componentMap.put("prepare_query_script", PREPARE_QUERY_SCRIPT);
 		}
 	}
 	protected String getSourceURI(String name){		
