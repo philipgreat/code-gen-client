@@ -1,6 +1,5 @@
 package skynetsplitter;
 
-import skynet.CodeGenTask;
 import skynet.*;
 
 public class ClaJingouSplitter {
@@ -8,10 +7,10 @@ public class ClaJingouSplitter {
 	public static void main(String[] args) throws Exception {
 		System.setProperty("skynet.model", "jingou");
 		// System.setProperty("skynet.model", "pulupulu");
-		System.setProperty("skynet.output.basefolder", "/works/jobs/jingou_v1/workspace");
+		System.setProperty("skynet.output.basefolder", "/Users/jackytian/git");
 		System.setProperty("skynet.output.basefolder.specs",
-				"/works/jobs/jingou_v1/workspace/web-code-generator/sky/WEB-INF/src");
-		System.setProperty("skynet.mysql.path", "/usr/local/mysql/bin/mysql");
+				"/Users/jackytian/git/web-code-generator/sky/WEB-INF/src");
+		System.setProperty("skynet.mysql.path", "/usr/local/bin/mysql");
 		System.setProperty("skynet.mysqldump.path", "/usr/local/mysql/bin/mysqldump");
 		// System.setProperty("skynet.mysql.path", "/usr/bin/mysql");
 		// System.setProperty("skynet.mysqldump.path", "/usr/bin/mysqldump");
@@ -32,11 +31,12 @@ public class ClaJingouSplitter {
 		// Double a= null;
 		// testDouble(a);
 
-//		String mode = "nothing";
-		 String mode = "all";
+//		String mode = "nothing";6c24a3e86e4bff454efa84fead14d9fa1effaa93
+//		 String mode = "all";
+		 String mode = "bigdata";
 //		 String mode = "java";
-//		 String mode = "form";
-		// String mode = "data";
+//		 String mode = "data";
+//		String mode = "form";
 
 		if (mode.equals("all")) {
 			run(new FullTask());
@@ -52,6 +52,10 @@ public class ClaJingouSplitter {
 		}
 		if (mode.equals("data")) {
 			run(new MySQLGenTask());
+		}
+
+		if ("bigdata".equals(mode)) {
+			run(new BigdataTask());
 		}
 	}
 

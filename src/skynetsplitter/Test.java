@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import java.util.Arrays;
 public class Test {
 	
 	public void testArray() {
@@ -75,7 +74,6 @@ public class Test {
 	}
 	public static void main(String[] args) {
 
-		String[] votes = new String[] { "Glenn", "Emily", "Emily", "Glenn" };
-		System.out.println(parseLong("10000000"));
+		System.out.println(String.join("," ,"/codeGen/bank/all".split("/")));
 	}
 }
