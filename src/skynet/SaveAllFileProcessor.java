@@ -11,17 +11,17 @@ import static skynet.SaveIfNotExistProcessor.CREATE_IF_NOT_EXIST_FILE_FLAG;
 
 public class SaveAllFileProcessor extends BaseFileProcessor {
 
-    private boolean started;
+    boolean started;
 
-    private Set<String> createdPath = new HashSet<>();
+    Set<String> createdPath = new HashSet<>();
 
     protected String getFileName(String line) {
         if (isBreakLine(line)) {
-            if (line.startsWith(SaveFileProcessor.NEW_FILE_FLAG)){
+            if (line.startsWith(SaveFileProcessor.NEW_FILE_FLAG)) {
                 return line.substring(SaveFileProcessor.NEW_FILE_FLAG.length());
             }
 
-            if (line.startsWith(CREATE_IF_NOT_EXIST_FILE_FLAG)){
+            if (line.startsWith(CREATE_IF_NOT_EXIST_FILE_FLAG)) {
                 return line.substring(CREATE_IF_NOT_EXIST_FILE_FLAG.length());
             }
         }
@@ -31,7 +31,7 @@ public class SaveAllFileProcessor extends BaseFileProcessor {
 
     public void handleLine(String line, ZipOutputStream zos, String prefix) throws Exception {
         if (!isBreakLine(line)) {
-            if (!started){
+            if (!started) {
                 return;
             }
             zos.write(line.getBytes());
@@ -47,29 +47,26 @@ public class SaveAllFileProcessor extends BaseFileProcessor {
     private void ensureEntry(String line, ZipOutputStream zos, String prefix) throws IOException {
         String fileName = prefix + "/" + getFileName(line);
 
-//        new File(fileName).getCanonicalPath()
-
         String[] parts = fileName.trim().split("/");
         String current = null;
 
         for (int i = 0; i < parts.length; i++) {
-            if (current != null){
+            if (current != null) {
                 current = current + "/" + parts[i];
-            }else {
+            } else {
                 current = parts[i];
             }
 
-            if (i < parts.length - 1){
+            if (i < parts.length - 1) {
                 current += "/";
             }
 
-            if (createdPath.contains(current)){
+            if (createdPath.contains(current)) {
                 continue;
             }
 
-            if (line.startsWith(CREATE_IF_NOT_EXIST_FILE_FLAG) && !current.endsWith("/")){
+            if (line.startsWith(CREATE_IF_NOT_EXIST_FILE_FLAG) && !current.endsWith("/")) {
                 current = current + "__CREATE_IF_NOT_EXIST_FILE_FLAG";
-                System.out.println("special path:" + current);
             }
             zos.putNextEntry(new ZipEntry(current));
             createdPath.add(current);

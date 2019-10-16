@@ -13,6 +13,7 @@ import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 class IllegalModelException extends RuntimeException {
@@ -24,34 +25,35 @@ class IllegalModelException extends RuntimeException {
 public class CodeSplitter {
     protected List<BaseFileProcessor> processors;
 
-    public static void splitIntoZipStream(URI uri, ZipOutputStream zos, SaveAllFileProcessor processor) throws Exception {
+    public static void splitIntoZipStream(URI uri, ZipOutputStream zos, SaveAllFileProcessor processor, StringBuilder pErrBuilder, StringBuilder pLog) throws Exception {
         URLConnection conn;
-        System.out.println("Connect to " + uri);
         conn = uri.toURL().openConnection();
-        if (!(conn instanceof HttpURLConnection)) {
-            throw new IllegalArgumentException("The URI must be HTTP URI");
-        }
+
         BufferedReader reader = new BufferedReader(new InputStreamReader(
                 conn.getInputStream(), StandardCharsets.UTF_8));
         String line;
-        StringBuilder errorLog = new StringBuilder();
         String prefix = getPrefix(uri);
         while ((line = reader.readLine()) != null) {
             if (line.trim().startsWith("Error#")) {
-                String message = line;
-                errorLog.append("\n");
-                errorLog.append(message);
+                log(pErrBuilder, line);
                 continue;
             }
             if (line.trim().startsWith("@warning")) {
-                System.err.println("Found: " + line);
+                log(pLog, line);
             }
             processor.handleLine(line, zos, prefix);
         }
     }
 
+
+    public static void log(StringBuilder logger, String messageTemplate, Object... paramters) {
+        String message = String.format(messageTemplate + "\n", paramters);
+        logger.append(message);
+        System.err.println(message);
+    }
+
     private static String getPrefix(URI uri) {
-        if (uri.getPath().startsWith("/sky/react")){
+        if (uri.getPath().startsWith("/sky/react")) {
             return "bizui";
         }
         return "bizcore";
@@ -150,63 +152,208 @@ public class CodeSplitter {
 
     public static void main(String[] args) throws Exception {
         HttpServerProvider provider = HttpServerProvider.provider();
-        String port = System.getProperty("port");
+        String port = System.getProperty("agentPort");
         if (port == null || port.trim().isEmpty()) {
-            port = "8080";
+            port = "8081";
+        }
+
+        String genServer = System.getProperty("genServer");
+        if (genServer == null || genServer.trim().isEmpty()) {
+            genServer = "http://localhost:8080";
         }
 
         HttpServer httpserver = provider.createHttpServer(new InetSocketAddress(Integer.parseInt(port)), 100);
 
-        Map<String, String[]> scopeMapping = new HashMap<>();
-        scopeMapping.put("all", new String[]{
-                "react/dva_app_index.jsp"
-                ,"javaweb/java_app_index.jsp"
-        });
+        Map<String, String[]> scopeMapping = createMapping();
 
-        httpserver.createContext("/codegen", new GenCodeHandler(scopeMapping));
+        httpserver.createContext("/codegen", new GenCodeHandler(scopeMapping, genServer));
         httpserver.start();
+    }
+
+    private static Map<String, String[]> createMapping() throws Exception {
+        Map<String, String[]> scopeMapping = new HashMap<>();
+        String mappingFile = System.getProperty("scopeMapping");
+        if (mappingFile == null || mappingFile.trim().length() == 0) {
+            System.out.println("no scopeMapping file, please set in the java system property -DscopeMapping=scopeMapping file, default to scopeMapping.txt");
+            mappingFile = "scopeMapping.txt";
+        }
+        Properties p = new Properties();
+        try (FileReader reader = new FileReader(mappingFile)) {
+            p.load(reader);
+            p.entrySet().forEach(e -> {
+                String scope = (String) e.getKey();
+                String services = (String) e.getValue();
+                System.out.println(scope + ":" + services);
+                scopeMapping.put(scope, services.trim().split(","));
+            });
+        }
+        return scopeMapping;
     }
 
     private static class GenCodeHandler implements HttpHandler {
 
         private Map<String, String[]> scopeMapping;
+        private String genServer;
 
-        public GenCodeHandler(Map<String, String[]> pScopeMapping) {
+        public GenCodeHandler(Map<String, String[]> pScopeMapping, String pGenServer) {
             scopeMapping = pScopeMapping;
+            genServer = pGenServer;
         }
 
         @Override
         public void handle(HttpExchange pHttpExchange) throws IOException {
-            String path = pHttpExchange.getRequestURI().toString();
-            String[] parts = path.split("/");
-            String project = (String) parts[2];
-            String scope = (String) parts[3];
+            try {
+                String path = pHttpExchange.getRequestURI().toString();
+                String[] parts = path.split("/");
+                String project = (String) parts[2];
+                String scope = (String) parts[3];
 
-            List<String> serverURIs = calculateServiceURL(project, scope);
-
-            pHttpExchange.getResponseHeaders().set("Content-disposition", "attachment;filename=" + project +".zip");
-            pHttpExchange.sendResponseHeaders(200, 0);
-            OutputStream responseBody = pHttpExchange.getResponseBody();
-
-            ZipOutputStream zip = new ZipOutputStream(responseBody);
-
-            SaveAllFileProcessor processor = new SaveAllFileProcessor();
-            processor.addBreakingToken(SaveIfNotExistProcessor.CREATE_IF_NOT_EXIST_FILE_FLAG);
-            processor.addBreakingToken(SaveFileProcessor.NEW_FILE_FLAG);
-            serverURIs.forEach(serverURI -> {
-                try {
-                    CodeSplitter.splitIntoZipStream(new URI(serverURI), zip, processor);
-                } catch (Exception pE) {
-                    pE.printStackTrace();
+                String daasToken = pHttpExchange.getRequestHeaders().getFirst("daasToken");
+                if (daasToken == null) {
+                    daasToken = "";
                 }
-            });
-            zip.finish();
 
-            responseBody.close();
+                String daasServer = pHttpExchange.getRequestHeaders().getFirst("daasServer");
+                if (daasServer == null) {
+                    daasServer = "";
+                }
+
+                System.out.println("received download request for :" + path);
+                List<String> serverURIs = calculateServiceURL(project, scope, daasToken, daasServer);
+
+                pHttpExchange.getResponseHeaders().set("Content-disposition", "attachment;filename=" + project + ".zip");
+                pHttpExchange.sendResponseHeaders(200, 0);
+
+                OutputStream responseBody = pHttpExchange.getResponseBody();
+
+                ZipOutputStream zip = new ZipOutputStream(responseBody);
+
+                ByteArrayOutputStream memBytes = new ByteArrayOutputStream();
+                ZipOutputStream mem = new ZipOutputStream(new BufferedOutputStream(memBytes));
+
+                SaveAllFileProcessor processor = new SaveAllFileProcessor();
+                processor.addBreakingToken(SaveIfNotExistProcessor.CREATE_IF_NOT_EXIST_FILE_FLAG);
+                processor.addBreakingToken(SaveFileProcessor.NEW_FILE_FLAG);
+
+                StringBuilder errBuilder = new StringBuilder();
+                StringBuilder warnBuilder = new StringBuilder();
+                for (String serverURI : serverURIs) {
+                    try {
+                        CodeSplitter.splitIntoZipStream(new URI(serverURI), mem, processor, errBuilder, warnBuilder);
+                    } catch (Exception pE) {
+                        pE.printStackTrace();
+                        errBuilder.append(pE.toString());
+                        break;
+                    }
+                }
+
+                String errlogs = errBuilder.toString();
+                String warnlogs = warnBuilder.toString();
+                if (errlogs != null && !errlogs.trim().isEmpty()) {
+                    System.out.println("write error:" + errlogs);
+                    zip.putNextEntry(new ZipEntry("error.log"));
+                    zip.write(errlogs.getBytes());
+                    zip.finish();
+                } else {
+                    readAndPackConstantFiles(mem, processor);
+
+                    if (warnlogs != null && !warnlogs.trim().isEmpty()) {
+                        mem.putNextEntry(new ZipEntry("warn.log"));
+                        mem.write(warnBuilder.toString().getBytes());
+                    }
+                    mem.finish();
+                    System.out.println("finished");
+                    memBytes.writeTo(responseBody);
+                }
+                responseBody.close();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
 
-        private List<String> calculateServiceURL(String pProject, String pScope) {
-            String template = "http://t420.doublechaintech.cn:2080/sky/%s?name=%s";
+        private void readAndPackConstantFiles(ZipOutputStream pMem, SaveAllFileProcessor pProcessor) throws IOException {
+            String commonDir = System.getProperty("skynet.commonfiles");
+            if (commonDir == null || commonDir.trim().isEmpty()){
+                return;
+            }
+
+            System.out.println("common files:" + commonDir);
+            String[] files = commonDir.split(",");
+
+            for (String f : files){
+                if (f == null || f.isEmpty()){
+                    continue;
+                }
+
+                File file = new File(f);
+                if (!file.exists()){
+                    continue;
+                }
+
+                if (file.isDirectory()){
+                    File[] subs = file.listFiles();
+
+                    for (File sub : subs){
+                        readAndPackConstantFile(pMem, sub, pProcessor, "bizcore");
+                    }
+                }else {
+                    readAndPackConstantFile(pMem, file, pProcessor, "bizcore");
+                }
+
+            }
+        }
+
+        private void readAndPackConstantFile(ZipOutputStream pMem, File pFile, SaveAllFileProcessor pProcessor, String prefix) throws IOException {
+            //hidden files
+            if (pFile.getName().startsWith(".")){
+                return;
+            }
+
+            ensureFileEntry(pMem, pProcessor, prefix + "/" + pFile.getName(), pFile.isDirectory());
+            byte[] buff = new byte[1024];
+
+            if (pFile.isDirectory()){
+                File[] files = pFile.listFiles();
+                for (File sub : files){
+                    readAndPackConstantFile(pMem, sub, pProcessor, prefix + "/" + pFile.getName());
+                }
+            }else {
+                try(BufferedInputStream br = new BufferedInputStream(new FileInputStream(pFile))){
+                    int read = -1;
+                    while ( (read = br.read(buff)) > 0){
+                        pMem.write(buff, 0 , read);
+                    };
+                }
+            }
+        }
+
+        private void ensureFileEntry(ZipOutputStream pMem, SaveAllFileProcessor pProcessor, String filepath, boolean folder) throws IOException {
+            if (!pProcessor.createdPath.contains(filepath)){
+                String[] parts = filepath.trim().split("/");
+                String current = null;
+                for (int i = 0; i < parts.length; i++) {
+                    if (current != null) {
+                        current = current + "/" + parts[i];
+                    } else {
+                        current = parts[i];
+                    }
+
+                    if (i < parts.length - 1 || folder) {
+                        current += "/";
+                    }
+
+                    if (pProcessor.createdPath.contains(current)) {
+                        continue;
+                    }
+
+                    pMem.putNextEntry(new ZipEntry(current));
+                    pProcessor.createdPath.add(current);
+                }
+            }
+        }
+
+        private List<String> calculateServiceURL(String pProject, String pScope, String token, String daasServer) {
+            String template = "%s/sky/%s?name=%s&daasToken=%s&daasServer=%s";
 
             String[] services = scopeMapping.get(pScope);
             if (services == null) {
@@ -214,7 +361,7 @@ public class CodeSplitter {
             }
 
             return Arrays.asList(services).stream().map(s ->
-                    String.format(template, s, pProject)
+                    String.format(template, genServer, s, pProject, token, daasServer)
             ).collect(Collectors.toList());
         }
     }
