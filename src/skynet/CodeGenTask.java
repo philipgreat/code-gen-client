@@ -173,6 +173,7 @@ public class CodeGenTask {
 	static final String UI_FORM_SPEC = "uiform/ui_form_spec_index.jsp";
 	static final String UI_FORM_GEN = "uiform/ui_form_gen_index.jsp";
 	static final String PREPARE_QUERY_SCRIPT = "gen_script/gen_script_index.jsp";
+	static final String PREPARE_DB_QUERY_SCRIPT = "gen_script/gen_script_db_index.jsp";
 	
 	
 	
@@ -235,6 +236,7 @@ public class CodeGenTask {
 			componentMap.put("ui_form_gen", UI_FORM_GEN);
 			
 			componentMap.put("prepare_query_script", PREPARE_QUERY_SCRIPT);
+			componentMap.put("prepare_db_query_script", PREPARE_DB_QUERY_SCRIPT);
 		}
 	}
 	protected String getSourceURI(String name){		
