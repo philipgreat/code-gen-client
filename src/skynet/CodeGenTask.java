@@ -189,6 +189,7 @@ public class CodeGenTask {
 	static final String BIGDATA = "bigdata/bigdata_app_index.jsp";
 	static final String DATACOMPASS = "datacompass/compass_app_index.jsp";
 	
+	static final String MOBILE_APP_BACKEND = "javaweb/mobile_app_backend_index.jsp";
 	
 	
 	protected String getFinalPath(String path) {
@@ -237,6 +238,8 @@ public class CodeGenTask {
 			
 			componentMap.put("prepare_query_script", PREPARE_QUERY_SCRIPT);
 			componentMap.put("prepare_db_query_script", PREPARE_DB_QUERY_SCRIPT);
+			
+			componentMap.put("mobile_app_backend", MOBILE_APP_BACKEND);
 		}
 	}
 	protected String getSourceURI(String name){		
