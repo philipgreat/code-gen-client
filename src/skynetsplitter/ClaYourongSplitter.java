@@ -39,9 +39,9 @@ public class ClaYourongSplitter {
 //		 String mode = "all";
 //		 String mode = "java";
 //		 String mode = "form";
-//		 String mode = "data";
+		 String mode = "data";
 //		 String mode = "jsp";
-		 String mode = "query";
+//		 String mode = "query";
 		 
 		if (mode.equals("all")) {
 			run(new FullTask());

@@ -4,6 +4,7 @@ import skynet.*;
 
 public class ClaJingouSplitter {
 
+
 	public static void main(String[] args) throws Exception {
 		System.setProperty("skynet.model", "hfgw");
 		// System.setProperty("skynet.model", "pulupulu");
@@ -38,14 +39,17 @@ public class ClaJingouSplitter {
 //		 String mode = "java";
 //		 String mode = "data";
 //		String mode = "form";
-
+	
 		if (mode.equals("all")) {
 			run(new FullTask());
+			run(new MobileAppBackendTask());
 			run(new UiFormTask());
 			run(new UiFormGenTask());
+			run(new MySQLGenTask());
 		}
 		if (mode.equals("java")) {
 			run(new JavaTask());
+			run(new MobileAppBackendTask());
 		}
 		if (mode.equals("form")) {
 			run(new UiFormTask());
@@ -54,26 +58,39 @@ public class ClaJingouSplitter {
 		if (mode.equals("data")) {
 			run(new MySQLGenTask());
 		}
-
-		if ("bigdata".equals(mode)) {
-			run(new BigdataTask());
+		if (mode.equals("query")) {
+			run(new PrepareDBQueryScriptTask());
+//			run(new BigdataTask());
 		}
 
 		if ("ui".equals(mode)){
 			run(new ReactTask());
 		}
+
+    }
+
+
+    public static void run(CodeGenTask task) throws Exception {
+
+	task.doStart();
+	task.doTask();
+	task.end();
+
+    }
+
+    private static String getProjectScriptOutputFolder(String projectFolder) {
+		return String.format("/works/jobs/%s/workspace/event-driven-generation/src", projectFolder);
+	}
+
+	private static String getFormSpecOutpurFolder(String projectFolder) {
+		return String.format("/works/jobs/%s/workspace/web-code-generator/sky/WEB-INF/src", projectFolder);
+	}
+
+	private static String getWorkSpaceFolder(String projectFolder) {
+		return String.format("/works/jobs/%s/workspace", projectFolder);
 	}
 
 	public static void testDouble(double a) {
 
 	}
-
-	public static void run(CodeGenTask task) throws Exception {
-
-		task.doStart();
-		task.doTask();
-		task.end();
-
-	}
-
 }
