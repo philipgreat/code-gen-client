@@ -5,7 +5,7 @@ import skynet.*;
 public class ClaJingouSplitter {
 
 	public static void main(String[] args) throws Exception {
-		System.setProperty("skynet.model", "jingou");
+		System.setProperty("skynet.model", "hfgw");
 		// System.setProperty("skynet.model", "pulupulu");
 		System.setProperty("skynet.output.basefolder", "/Users/jackytian/git");
 		System.setProperty("skynet.output.basefolder.specs",
@@ -15,7 +15,7 @@ public class ClaJingouSplitter {
 		// System.setProperty("skynet.mysql.path", "/usr/bin/mysql");
 		// System.setProperty("skynet.mysqldump.path", "/usr/bin/mysqldump");
 
-		// System.setProperty("skynet.model", "mini");
+		// System.setProperty("skynet.model", "mini");modeling/_systemtypes.xml
 		// System.setProperty("skynet.model", "b2b2c");
 		// run(new JSPTask());
 		// run(new FullTaskWithoutDBImport());
@@ -33,7 +33,8 @@ public class ClaJingouSplitter {
 
 //		String mode = "nothing";6c24a3e86e4bff454efa84fead14d9fa1effaa93
 //		 String mode = "all";
-		 String mode = "bigdata";
+		 String mode = "all";
+//		 String mode = "bigdata";
 //		 String mode = "java";
 //		 String mode = "data";
 //		String mode = "form";
@@ -56,6 +57,10 @@ public class ClaJingouSplitter {
 
 		if ("bigdata".equals(mode)) {
 			run(new BigdataTask());
+		}
+
+		if ("ui".equals(mode)){
+			run(new ReactTask());
 		}
 	}
 

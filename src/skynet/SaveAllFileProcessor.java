@@ -71,5 +71,6 @@ public class SaveAllFileProcessor extends BaseFileProcessor {
             zos.putNextEntry(new ZipEntry(current));
             createdPath.add(current);
         }
+
     }
 }

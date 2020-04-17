@@ -88,7 +88,7 @@ public class NumberTests {
 		System.out.println(0.05 + 0.01);
 		System.out.println(0.06 + 0.01);
 		System.out.println(round(0.06 + 0.01));
-		System.out.println(String.valueOf(0.06 + 0.01));
+		System.out.println((0.06 + 0.01));
 		System.out.println(0.1);
 
 		System.out.println(addWithBigDecimal(0.01, 0.05) == 0.06);
@@ -101,7 +101,7 @@ public class NumberTests {
 		System.out.println(((0.0001 * 100 + 0.0005 * 100)));
 		System.out.println(((0.01 * 100 + 0.05 * 100)) == 6.00);
 		System.out.println(round(1 / 3.0));
-		double ret[] = split(1, 3);
+		double[] ret = split(1, 3);
 		for (double item : ret) {
 			System.out.println(" -> " + item);
 		}

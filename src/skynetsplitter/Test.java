@@ -41,7 +41,7 @@ public class Test {
 
 	public static Comparator<Map.Entry<String, Long>> comparingByValueThenName() {
 		//return (Comparator<Map.Entry<String, Long>>) (c1, c2) -> compare(c1, c2);
-		return (Comparator<Map.Entry<String, Long>>) (c1, c2) -> {
+		return (c1, c2) -> {
 			int value = c1.getValue().compareTo(c2.getValue());
 			if(value != 0) {
 				return value;

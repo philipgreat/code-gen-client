@@ -29,7 +29,7 @@ public class PowerSplitter {
 		
 
 		//String models[]= args;
-		String models[]= {"bank"};
+		String[] models = {"bank"};
 		//String models[]= {"bank"};
 
 		//String models[]= {"mini"};
@@ -47,7 +47,7 @@ public class PowerSplitter {
 		Arrays.stream(models).forEach(model->{
 			context.withModel(model);
 			
-			CodeGenTask tasks[]=new CodeGenTask[] {
+			CodeGenTask[] tasks =new CodeGenTask[] {
 
 					new FullTask(),
 					new ReactTask()

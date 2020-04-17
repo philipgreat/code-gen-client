@@ -33,6 +33,7 @@ public class CodeSplitter {
                 conn.getInputStream(), StandardCharsets.UTF_8));
         String line;
         String prefix = getPrefix(uri);
+        System.out.println("prefix for uri[" + uri.getPath() + "] is " + prefix);
         while ((line = reader.readLine()) != null) {
             if (line.trim().startsWith("Error#")) {
                 log(pErrBuilder, line);
@@ -53,7 +54,24 @@ public class CodeSplitter {
     }
 
     private static String getPrefix(URI uri) {
-        if (uri.getPath().startsWith("/sky/react")) {
+
+        String generateTargetMapping = System.getProperty("generateTargetMapping");
+
+        if (generateTargetMapping != null && !generateTargetMapping.trim().isEmpty()){
+            String[] parts = generateTargetMapping.split(",");
+
+            for (String part: parts){
+                String[] targets = part.split(":");
+                String target = targets[0];
+                String uri0 = targets[1];
+
+                if (uri.getPath().startsWith(uri0)){
+                    return target;
+                }
+            }
+        }
+
+        if (uri.getPath().contains("react")) {
             return "bizui";
         }
         return "bizcore";
@@ -85,7 +103,6 @@ public class CodeSplitter {
         //set tokens for each processor, make them know each other
         for (BaseFileProcessor processor : processors) {
             processor.addBreakingTokens(tokens);
-            ;
         }
         StringBuilder errorLog = new StringBuilder();
         while ((line = reader.readLine()) != null) {
@@ -159,7 +176,7 @@ public class CodeSplitter {
 
         String genServer = System.getProperty("genServer");
         if (genServer == null || genServer.trim().isEmpty()) {
-            genServer = "http://localhost:8080";
+            genServer = "http://localhost:8080/sky";
         }
 
         HttpServer httpserver = provider.createHttpServer(new InetSocketAddress(Integer.parseInt(port)), 100);
@@ -205,8 +222,8 @@ public class CodeSplitter {
             try {
                 String path = pHttpExchange.getRequestURI().toString();
                 String[] parts = path.split("/");
-                String project = (String) parts[2];
-                String scope = (String) parts[3];
+                String project = parts[2];
+                String scope = parts[3];
 
                 String daasToken = pHttpExchange.getRequestHeaders().getFirst("daasToken");
                 if (daasToken == null) {
@@ -255,7 +272,7 @@ public class CodeSplitter {
                     zip.write(errlogs.getBytes());
                     zip.finish();
                 } else {
-                    readAndPackConstantFiles(mem, processor);
+                    readAndPackConstantFiles(mem, processor, warnBuilder);
 
                     if (warnlogs != null && !warnlogs.trim().isEmpty()) {
                         mem.putNextEntry(new ZipEntry("warn.log"));
@@ -271,7 +288,7 @@ public class CodeSplitter {
             }
         }
 
-        private void readAndPackConstantFiles(ZipOutputStream pMem, SaveAllFileProcessor pProcessor) throws IOException {
+        private void readAndPackConstantFiles(ZipOutputStream pMem, SaveAllFileProcessor pProcessor, StringBuilder pWarnBuilder) throws IOException {
             String commonDir = System.getProperty("skynet.commonfiles");
             if (commonDir == null || commonDir.trim().isEmpty()){
                 return;
@@ -285,7 +302,10 @@ public class CodeSplitter {
                     continue;
                 }
 
-                File file = new File(f);
+                String[] parts = f.split(":");
+                String prefix = parts[0].trim();
+                String filePath = parts[1].trim();
+                File file = new File(filePath);
                 if (!file.exists()){
                     continue;
                 }
@@ -294,40 +314,68 @@ public class CodeSplitter {
                     File[] subs = file.listFiles();
 
                     for (File sub : subs){
-                        readAndPackConstantFile(pMem, sub, pProcessor, "bizcore");
+                        readAndPackConstantFile(pMem, sub, pProcessor, prefix, pWarnBuilder);
                     }
                 }else {
-                    readAndPackConstantFile(pMem, file, pProcessor, "bizcore");
+                    readAndPackConstantFile(pMem, file, pProcessor, prefix, pWarnBuilder);
                 }
 
             }
         }
 
-        private void readAndPackConstantFile(ZipOutputStream pMem, File pFile, SaveAllFileProcessor pProcessor, String prefix) throws IOException {
-            //hidden files
-            if (pFile.getName().startsWith(".")){
+        private void readAndPackConstantFile(ZipOutputStream pMem, File pFile, SaveAllFileProcessor pProcessor, String prefix, StringBuilder pWarnBuilder) throws IOException {
+            //.git files
+            if (shouldSkip(pFile)){
                 return;
             }
 
-            ensureFileEntry(pMem, pProcessor, prefix + "/" + pFile.getName(), pFile.isDirectory());
+            boolean created = ensureFileEntry(pMem, pProcessor, prefix + "/" + pFile.getName(), pFile.isDirectory());
             byte[] buff = new byte[1024];
 
             if (pFile.isDirectory()){
                 File[] files = pFile.listFiles();
                 for (File sub : files){
-                    readAndPackConstantFile(pMem, sub, pProcessor, prefix + "/" + pFile.getName());
+                    readAndPackConstantFile(pMem, sub, pProcessor, prefix + "/" + pFile.getName(), pWarnBuilder);
                 }
             }else {
+
+                if (!created){
+                    System.out.println("ignore duplicate file: " + prefix + "/" + pFile.getName());
+                    pWarnBuilder.append("ignore duplicate file: " + prefix + "/" + pFile.getName());
+                    return;
+                }
+
                 try(BufferedInputStream br = new BufferedInputStream(new FileInputStream(pFile))){
                     int read = -1;
                     while ( (read = br.read(buff)) > 0){
                         pMem.write(buff, 0 , read);
-                    };
+                    }
                 }
             }
         }
 
-        private void ensureFileEntry(ZipOutputStream pMem, SaveAllFileProcessor pProcessor, String filepath, boolean folder) throws IOException {
+        private boolean shouldSkip(File pFile) {
+
+            String skipFiles = System.getProperty("skipFiles");
+            if (skipFiles == null || skipFiles.trim().isEmpty()){
+                return false;
+            }
+
+            String[] filePartterns = skipFiles.split(",");
+            for (String f: filePartterns){
+                if(f == null || f.trim().isEmpty()){
+                    continue;
+                }
+
+                if(pFile.getName().matches(f)){
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private boolean ensureFileEntry(ZipOutputStream pMem, SaveAllFileProcessor pProcessor, String filepath, boolean folder) throws IOException {
             if (!pProcessor.createdPath.contains(filepath)){
                 String[] parts = filepath.trim().split("/");
                 String current = null;
@@ -348,12 +396,15 @@ public class CodeSplitter {
 
                     pMem.putNextEntry(new ZipEntry(current));
                     pProcessor.createdPath.add(current);
+                    return  true;
                 }
             }
+
+            return false;
         }
 
         private List<String> calculateServiceURL(String pProject, String pScope, String token, String daasServer) {
-            String template = "%s/sky/%s?name=%s&daasToken=%s&daasServer=%s";
+            String template = "%s/%s?name=%s&daasToken=%s&daasServer=%s";
 
             String[] services = scopeMapping.get(pScope);
             if (services == null) {

@@ -55,7 +55,7 @@ public class CodeGenTask {
 	protected String getURIPrefix(){
 		String prefix = "http://localhost:8080/sky/";
 		
-		String candidates[]={
+		String[] candidates ={
 				System.getProperty(CODE_ENGINE_URL_PREFIX),
 				prefix};
 		return this.firstNotNull(candidates);
@@ -88,7 +88,7 @@ public class CodeGenTask {
 		return homePath+"/githome";
 		
 		*/
-		String candidates[]={
+		String[] candidates ={
 				System.getProperty("skynet.output.basefolder"),
 				System.getProperty("user.home")+"/githome"};
 		return this.firstNotNull(candidates);

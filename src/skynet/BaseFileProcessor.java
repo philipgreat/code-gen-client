@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,11 +26,11 @@ public  class BaseFileProcessor {
 	
 	protected BufferedReader readerFromFile(String fileName) throws UnsupportedEncodingException, FileNotFoundException{
 		return new BufferedReader(new InputStreamReader(
-                new FileInputStream(fileName), "UTF8"));
+                new FileInputStream(fileName), StandardCharsets.UTF_8));
 	}
 	protected BufferedWriter writerToFile(String fileName) throws UnsupportedEncodingException, FileNotFoundException{
 		return new BufferedWriter(new OutputStreamWriter(
-                new FileOutputStream(fileName), "UTF8"));
+                new FileOutputStream(fileName), StandardCharsets.UTF_8));
 	}
 	
 	public void addBreakingToken(String token){
