@@ -33,6 +33,7 @@ public class SaveFileProcessor extends BaseFileProcessor {
 		}
 		if (out != null) {
 			out.close();
+			onOutpotClosed();
 			out = null;
 		}
 		//is my job?
@@ -66,6 +67,7 @@ public class SaveFileProcessor extends BaseFileProcessor {
 		//log(getName()+": totally generates '"+lineCount + "' lines and '" + charsCount + "' chars");
 		if (out != null) {
 			out.close();
+			onOutpotClosed();
 			out = null;
 		}
 	}

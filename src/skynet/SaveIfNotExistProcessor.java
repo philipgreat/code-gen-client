@@ -31,6 +31,7 @@ public class SaveIfNotExistProcessor extends SaveFileProcessor{
 		// System.out.println("file created: "+ result);
 		// out = new BufferedWriter(new FileWriter(destFile));
 		out = new BufferedWriter(new FileWriter(destFile));
+		this.onNewFile(destFile.getAbsolutePath());
 		// Charset.forName("UTF-8").newDecoder()
 		
 		log("saveif to file: " + destFile.getAbsolutePath());

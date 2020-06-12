@@ -1,15 +1,11 @@
 package skynet;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
+import com.google.common.io.CharSource;
+import com.google.googlejavaformat.java.Formatter;
+import com.google.googlejavaformat.java.FormatterException;
+import com.google.googlejavaformat.java.JavaFormatterOptions;
+
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 import java.util.Set;
@@ -21,6 +17,7 @@ public  class BaseFileProcessor {
 	protected int charsCount = 0;
 	protected int filesCount = 0;
 	protected File directory;
+	protected String curFilePath;
 	
 	private Set<String> breakingTokens;
 	
@@ -113,11 +110,13 @@ public  class BaseFileProcessor {
 
 	}
 	public void end() throws Exception{
-		
+
 		log(getName()+"("+getToken()+")"+": totally generates '"+lineCount + "' lines and '" + charsCount + "' chars, '"+filesCount+"' files");
 		System.out.println();
 	}
-	
+
+
+
 	//private CLASS_NAME=
 	private long previousTime = System.currentTimeMillis();
 	//private final String CLASS_NAME=
@@ -130,11 +129,68 @@ public  class BaseFileProcessor {
 	}
 
 	public void setDirectory(File directory) {
-		// TODO Auto-generated method stub
 		this.directory = directory;
 	}
 	protected void onNewFile(String absolutePath) {
-		// TODO Auto-generated method stub
+		curFilePath = absolutePath;
 		filesCount++;
+	}
+
+	protected void formatOutputJavaSourceFile(String curFilePath) {
+		String fileName = curFilePath.replaceAll("^(.*)?src", "...");
+//		log("Format java source file " + fileName );
+//		Formatter fmt = new Formatter(JavaFormatterOptions.builder()
+//				.style(JavaFormatterOptions.Style.GOOGLE)
+//				.build());
+		Formatter fmt = new Formatter();
+		String orgContent=null;
+		try {
+			String srcString = readFileAsString(curFilePath);
+			orgContent = srcString;
+			String formattedStr = fmt.formatSource(srcString);
+			writeFile(curFilePath, formattedStr);
+		} catch (FormatterException e) {
+			log("Exception when format " + curFilePath);
+			log(orgContent);
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+
+	private void writeFile(String curFilePath, String formattedStr) {
+		try {
+			FileWriter fw = new FileWriter(curFilePath);
+			fw.write(formattedStr);
+			fw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+
+	private String readFileAsString(String curFilePath) {
+		try {
+			FileInputStream fin = new FileInputStream(curFilePath);
+			InputStreamReader reader = new InputStreamReader(fin, StandardCharsets.UTF_8);
+			StringBuilder sb = new StringBuilder();
+			char[] buff = new char[1024];
+			int n;
+			while ((n = reader.read(buff)) > 0) {
+				sb.append(buff, 0, n);
+			}
+			fin.close();
+			return sb.toString();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "";
+		}
+	}
+
+	protected void onOutpotClosed() {
+		if (curFilePath != null){
+			if (curFilePath.endsWith(".java")) {
+				formatOutputJavaSourceFile(curFilePath);
+			}
+		}
 	}
 }
