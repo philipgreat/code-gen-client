@@ -18,6 +18,9 @@ public class P5_UserProfilePageFlow extends PieceOfScript {
                 .request("check in")
                     .comments("签到打卡").need_login().no_footprint()
                     .got_me_page()
+                .request("my demand list").with_string("filter").with_last_record_id()
+                    .comments("查看我的需求列表").need_login()
+                    .got_page("my demand list").list_of("card").title("需求列表")
                 ;
     }
 }

@@ -13,9 +13,6 @@ public class X1_MiscPageFlow extends PieceOfScript {
                     .when("domestic trail")
                         .got_page("domestic article")
 
-                .request("search").with_string("search key").with_string("filter").with_last_record_id()
-                    .comments("简单的全文搜索")
-                    .got_page("search result").list_of("card").title("搜索结果")
 
                 ;
     }

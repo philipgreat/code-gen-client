@@ -13,6 +13,10 @@ public class P6_CRPageFlow extends PieceOfScript {
                 .request_with_changerequest("review knowledge base article").with_string("article id")
                     .comments("发表知识库评论").need_login()
                     .got_page("domestic article")
+
+                .request_with_changerequest("post demand")
+                    .comments("提交一个新需求").need_login()
+                    .got_page("my demand list")
                 ;
     }
 }
