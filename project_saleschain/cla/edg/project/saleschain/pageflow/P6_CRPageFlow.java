@@ -17,6 +17,14 @@ public class P6_CRPageFlow extends PieceOfScript {
                 .request_with_changerequest("post demand")
                     .comments("提交一个新需求").need_login()
                     .got_page("my demand list")
+
+                .request_with_changerequest("with draw application")
+                    .comments("申请提现").need_login()
+                    .got_page("my account")
+
+                .request_with_changerequest("post feedback")
+                    .comments("意见反馈").need_login()
+                    .got_me_page()
                 ;
     }
 }

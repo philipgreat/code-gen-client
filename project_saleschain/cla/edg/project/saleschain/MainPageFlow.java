@@ -3,10 +3,7 @@ package cla.edg.project.saleschain;
 import cla.edg.pageflow.BasePageFlowDescriptionScript;
 import cla.edg.pageflow.PageFlowScript;
 import cla.edg.project.saleschain.pageflow.*;
-import cla.edg.project.saleschain.query.Q1_Page;
-import cla.edg.project.saleschain.query.Q2_Product;
-import cla.edg.project.saleschain.query.Q3_Brand;
-import cla.edg.project.saleschain.query.Q4_Supplier;
+import cla.edg.project.saleschain.query.*;
 
 
 public class MainPageFlow extends BasePageFlowDescriptionScript {
@@ -37,6 +34,11 @@ public class MainPageFlow extends BasePageFlowDescriptionScript {
                 .import_from(new Q2_Product())
                 .import_from(new Q3_Brand())
                 .import_from(new Q4_Supplier())
+                .import_from(new Q5_Content())
+                .import_from(new Q6_Message())
+                .import_from(new Q7_Money())
+                .import_from(new Q8_People())
+                .import_from(new Q9_Trade())
             ;
     }
 }

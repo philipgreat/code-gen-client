@@ -31,10 +31,13 @@ public class P1_HomePageFlow extends PieceOfScript {
 //                    .got_page("brand list").list_of("card").title("品牌详情")
 //                        .may_request("brand detail")
 
-                .request("brand detail").with_string("brand id").with_string("category id")
+                .request("brand detail").with_string("brand id").with_string("tab name").with_string("category id").with_last_record_id()
                     .comments("从某个category查看品牌的详情: 首页-二级产品列表-品牌").no_login().has_footprint()
                     .got_page("brand detail").list_of("card").title("品牌详情")
 
+                .request("brand case detail").with_string("brand case id")
+                    .comments("查看品牌商的 服务案例 文章详情").no_login().has_footprint()
+                    .got_page("brand case detail").list_of("card").title("品牌案例")
 
                 // 从 供应商 进去
 //                .request("supplier list in category").with_string("category id")
@@ -42,10 +45,13 @@ public class P1_HomePageFlow extends PieceOfScript {
 //                    .got_page("supplier list").list_of("card").title("供应商详情")
 //                        .may_request("supplier detail")
 
-                .request("supplier detail").with_string("supplier id").with_string("category id")
+                .request("supplier detail").with_string("supplier id").with_string("tab name").with_string("category id").with_last_record_id()
                     .comments("从某个category查看供应商的详情: 首页-二级产品列表-供应商").no_login().has_footprint()
                     .got_page("supplier detail").list_of("card").title("供应商详情")
 
+                .request("supplier case detail").with_string("supplier case id")
+                    .comments("查看供应商的 服务案例 文章详情").no_login().has_footprint()
+                    .got_page("supplier case detail").list_of("card").title("供应商案例")
 
                 // 产品详情页
                 .request("product detail").with_string("product id").with_string("from")

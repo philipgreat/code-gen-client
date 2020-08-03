@@ -1,5 +1,6 @@
 package cla.edg.project.saleschain;
 
+import cla.edg.project.saleschain.changerequest.AccountChangeRequest;
 import cla.edg.project.saleschain.changerequest.ContentChangeRequest;
 import cla.edg.project.saleschain.changerequest.DemandChangeRequest;
 import cla.edg.project.saleschain.changerequest.DemoChangeRequest;
@@ -23,6 +24,7 @@ public class MainChangeRequest implements ChangeRequestSpecFactory {
                 .import_from(new DemoChangeRequest())
                 .import_from(new ContentChangeRequest())
                 .import_from(new DemandChangeRequest())
+                .import_from(new AccountChangeRequest())
 
                 .getChangeRequestSpec();
     }

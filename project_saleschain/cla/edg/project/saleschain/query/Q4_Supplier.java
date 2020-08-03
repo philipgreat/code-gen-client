@@ -27,6 +27,13 @@ public class Q4_Supplier extends PieceOfScript {
                         .order_by(MODEL.supplier().displayOrder()).asc()
                         .order_by(MODEL.supplier().name()).asc_by_pinyin()
                         .order_by(MODEL.supplier().id()).desc()
+
+                .query(MODEL.supplier()).list_of("by mobile").with_string("mobile")
+                    .comments("根据手机号,查找被负责的公司")
+                    .do_it_as()
+                        .where(MODEL.supplier().adminMobile().eq("${mobile}"),
+                                MODEL.supplier().merchant().not_null())
+
                 ;
     }
 }
