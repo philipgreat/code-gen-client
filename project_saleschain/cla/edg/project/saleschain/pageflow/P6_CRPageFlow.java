@@ -8,11 +8,11 @@ public class P6_CRPageFlow extends PieceOfScript {
         return script
                 .request_with_changerequest("review domestic article").with_string("article id")
                     .comments("发表国产试用评论").need_login()
-                    .got_page("domestic article")
+                    .got_page("domestic article detail")
 
                 .request_with_changerequest("review knowledge base article").with_string("article id")
                     .comments("发表知识库评论").need_login()
-                    .got_page("domestic article")
+                    .got_page("knowledge base article detail")
 
                 .request_with_changerequest("post demand")
                     .comments("提交一个新需求").need_login()

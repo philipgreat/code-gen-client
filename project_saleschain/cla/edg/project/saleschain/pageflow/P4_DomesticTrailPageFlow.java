@@ -10,9 +10,9 @@ public class P4_DomesticTrailPageFlow extends PieceOfScript {
                     .comments("查看国产试用列表").no_login().no_footprint()
                     .got_page("domestic article list").list_of("card").title("国产试用")
 
-                .request("domestic article detail").with_string("article id")
+                .request("domestic article detail").with_string("article id").with_last_record_id()
                     .comments("查看国产试用详情").no_login().no_footprint()
-                    .got_page("knowledge base article").list_of("card").title("知识库文章")
+                    .got_page("domestic article detail").list_of("card").title("国产试用文章")
 
 
 

@@ -11,7 +11,7 @@ public class P3_KnowledgeBasePageFlow extends PieceOfScript {
                     .got_page("knowledge base article list").list_of("card").title("知识库")
                         .may_request("knowledge base article detail")
 
-                .request("knowledge base article detail").with_string("article id")
+                .request("knowledge base article detail").with_string("article id").with_last_record_id()
                     .comments("查看知识库文章").no_login().has_footprint()
                     .got_page("knowledge base article detail").list_of("card").title("知识库文章")
                         .may_request("submit cr review knowledge base article")

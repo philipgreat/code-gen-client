@@ -38,7 +38,7 @@ public class P5_UserProfilePageFlow extends PieceOfScript {
                     .got_page("my demand list").list_of("card").title("需求列表")
                 .request("my q and a").with_string("tab name").with_last_record_id()
                     .comments("我的问答").need_login()
-                    .got_page("my review list").list_of("card").title("我的问答")
+                    .got_page("my review list").list_of("card").title("我的评论")
 
                 .request("update profile info").with_string("name").with_string("avatar")
                     .comments("更新用户名称").no_login()
