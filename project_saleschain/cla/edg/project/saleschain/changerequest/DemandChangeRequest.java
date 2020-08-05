@@ -30,6 +30,45 @@ public class DemandChangeRequest implements ChangeRequestSpecFactory {
                         .place_holder("请尽量细致的说明需要的物品细节")
                         .which_type_of(FieldType.MULTI_TEXT)
 
+
+                .change_request("user confirm connect").zh_CN("用户确认对接")
+                    .contains_event("confirmation")
+                    .has_field("confirm type").zh_CN("确认类型")
+                        .value("user_confirm_connect")
+                        .range(1,30)
+                        .hidden()
+                    .has_field("proposal").zh_CN("需求推荐")
+                        .which_model_of(MODEL.demandProposal())
+                        .fill_by_request("proposal id")
+                    .has_field("title").zh_CN("类型")
+                         .fill_by_request("proposal id", MODEL.demandProposal().title())
+                    .has_field("amount").zh_CN("金额")
+                        .defaule_value("0")
+                        .hidden()
+                    .has_field("comments").zh_CN("备注")
+                        .which_type_of(FieldType.MULTI_TEXT)
+                        .optional()
+
+                .change_request("supplier confirm connect").zh_CN("供应商确认对接")
+                    .contains_event("confirmation")
+                    .has_field("confirm type")
+                        .value("supplier_confirm_connect")
+
+                .change_request("user confirm deal").zh_CN("用户确认成交")
+                    .contains_event("confirmation")
+                    .has_field("confirm type")
+                        .value("user_confirm_deal")
+                    .has_field("amount")
+                        .unhidden()
+
+                .change_request("supplier confirm deal").zh_CN("供应商确认成交")
+                    .contains_event("confirmation")
+                    .has_field("confirm type")
+                        .value("supplier_confirm_deal")
+                    .has_field("amount")
+                        .unhidden()
+
+
                 ;
     }
 

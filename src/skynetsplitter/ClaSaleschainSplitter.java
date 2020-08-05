@@ -37,6 +37,7 @@ public class ClaSaleschainSplitter {
             Thread.sleep(3 * SECOND_IN_MS);
             run(new MySQLGenTask());
             run(new PrepareDBQueryScriptTask());
+            run(new ReactTask());
         }
         if (mode.equals("java")) {
             run(new JavaTask());

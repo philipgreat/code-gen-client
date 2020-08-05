@@ -35,7 +35,7 @@ public class P5_UserProfilePageFlow extends PieceOfScript {
                     .got_page("invited list").list_of("card").title("我邀请的好友")
                 .request("my demand list").with_string("filter").with_last_record_id()
                     .comments("查看我的需求列表").need_login()
-                    .got_page("my demand list").list_of("card").title("需求列表")
+                    .got_page("user demand list").list_of("card").title("需求列表")
                 .request("my q and a").with_string("tab name").with_last_record_id()
                     .comments("我的问答").need_login()
                     .got_page("my review list").list_of("card").title("我的评论")
