@@ -12,6 +12,12 @@ public class Q8_People extends PieceOfScript {
                     .do_it_as()
                         .where(MODEL.userInvite().inviter().eq("${user id}"))
                         .wants(MODEL.userInvite().invitee())
+
+                .find(MODEL.mobileUser()).which("by mobile").with_string("mobile")
+                    .comments("根据手机号找用户")
+                    .do_it_as()
+                        .where(MODEL.mobileUser().mobile().eq("${mobile}"))
+                        .wants(MODEL.mobileUser().merchant())
                 ;
     }
 }

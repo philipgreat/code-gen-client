@@ -13,7 +13,7 @@ public class P1_HomePageFlow extends PieceOfScript {
                         .may_request("knowledge base footer")
                         .may_request("domestic trial footer")
                 .request("filter in homepage").with_string("brand id").variable().with_string("city id").variable().with_string("functionality id").variable()
-                    .comments("首页上简单的过滤: 首页")
+                    .comments("首页上简单的过滤: 首页").no_login()
                     .got_home_page()
 
 

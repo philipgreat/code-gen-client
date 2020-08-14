@@ -40,7 +40,15 @@ public class P6_CRPageFlow extends PieceOfScript {
 
                 .request_with_changerequest("supplier confirm deal").with_string("proposal id")
                     .comments("供应商确认成交")
-                    .got_page("supplier demand detail")
+                    .got_page("supplier demand proposal detail")
+
+                .request_with_changerequest("domestic trial application").with_string("domestic trail id").with_string("product id")
+                    .comments("提交试用申请")
+                    .got_page("domestic article detail")
+
+                .request_with_changerequest("supplier reject connect").with_string("proposal id")
+                    .comments("供应商取消对接")
+                    .got_page("supplier demand proposal detail")
                 ;
     }
 }

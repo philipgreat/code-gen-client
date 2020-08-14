@@ -1,9 +1,6 @@
 package cla.edg.project.saleschain;
 
-import cla.edg.project.saleschain.changerequest.AccountChangeRequest;
-import cla.edg.project.saleschain.changerequest.ContentChangeRequest;
-import cla.edg.project.saleschain.changerequest.DemandChangeRequest;
-import cla.edg.project.saleschain.changerequest.DemoChangeRequest;
+import cla.edg.project.saleschain.changerequest.*;
 import cla.edg.project.saleschain.query.Q1_Page;
 import com.terapico.changerequest.builder.ChangeRequestSpecBuilder;
 import com.terapico.changerequest.builder.ChangeRequestSpecFactory;
@@ -25,6 +22,7 @@ public class MainChangeRequest implements ChangeRequestSpecFactory {
                 .import_from(new ContentChangeRequest())
                 .import_from(new DemandChangeRequest())
                 .import_from(new AccountChangeRequest())
+                .import_from(new DomesticTrialChangeRequest())
 
                 .getChangeRequestSpec();
     }

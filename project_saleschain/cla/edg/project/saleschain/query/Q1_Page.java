@@ -29,6 +29,14 @@ public class Q1_Page extends PieceOfScript {
                     .do_it_as()
                         .where(MODEL.functionality().platform().not_null())
                         .order_by(MODEL.functionality().name()).asc_by_pinyin()
+
+                .query(MODEL.province()).list_of("candidate in home page").no_pagination()
+                    .comments("为首页上的地区查询候选值")
+                    .do_it_as()
+                        .where(MODEL.province().platform().not_null())
+                        .order_by(MODEL.province().name()).asc_by_pinyin()
+                        .wants(MODEL.province().cityList())
+
                 ;
     }
 }

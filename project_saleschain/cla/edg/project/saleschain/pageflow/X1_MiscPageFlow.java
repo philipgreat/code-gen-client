@@ -13,7 +13,6 @@ public class X1_MiscPageFlow extends PieceOfScript {
                     .when("domestic trail")
                         .got_page("domestic article")
 
-
                 ;
     }
 }

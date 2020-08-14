@@ -34,6 +34,8 @@ public class AccountChangeRequest implements ChangeRequestSpecFactory {
                 .change_request("post feedback").zh_CN("意见反馈")
                     .has_field("title").zh_CN("标题")
                         .range(1,100)
+                    .has_field("mobile").zh_CN("联系电话")
+                        .which_type_of(FieldType.MOBILE)
                     .has_field("content").zh_CN("反馈内容")
                         .range(1,1000)
                         .which_type_of(FieldType.MULTI_TEXT)

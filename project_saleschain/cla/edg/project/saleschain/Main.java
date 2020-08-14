@@ -3,6 +3,8 @@ package cla.edg.project.saleschain;
 import cla.edg.generator.PageFlowGenerator;
 import cla.edg.pageflow.BasePageFlowDescriptionScript;
 import cla.edg.pageflow.BasePageFlowScript;
+import cla.poc.workflow.WorkProcessorBuilder;
+import cla.poc.workflow.generator.ProcessorGenerator;
 import com.terapico.changerequest.generator.ChangeRequestGenerator;
 import com.terapico.generator.GenrationResult;
 import com.terapico.generator.Utils;
@@ -63,6 +65,19 @@ public class Main {
 //		testV3EventService(new V3InkDeedService());
 //		testV3EventService(new V3AuctionService());
         generateChangeRequestForm(new MainChangeRequest().getSpec());
+
+        generateWorkProcessor(new MainWorkProcessor().getBuilder());
+	}
+
+	private static void generateWorkProcessor(WorkProcessorBuilder builder) throws Exception {
+		ProcessorGenerator generator = new ProcessorGenerator();
+		generator.setFolderName(OUTPUT_PAGEFLOW_FOLDER_NAME);
+		generator.setBasePackageName(builder.getBasePackage());
+
+		generator.setAllSpec(builder.build());
+		List<GenrationResult> resultList = generator.runJob();
+		generator.saveToFiles( Utils.put("ALL", new File(OUTPUT_JAVA_FOLDER))
+				.into_map(File.class), resultList);
 	}
 
 	private static void generatePageFlow(BasePageFlowDescriptionScript test) throws Exception {

@@ -34,7 +34,7 @@ public class P5_UserProfilePageFlow extends PieceOfScript {
                     .comments("查看我邀请的人").need_login()
                     .got_page("invited list").list_of("card").title("我邀请的好友")
                 .request("my demand list").with_string("filter").with_last_record_id()
-                    .comments("查看我的需求列表").need_login()
+                    .comments("查看我提供的需求列表").need_login()
                     .got_page("user demand list").list_of("card").title("需求列表")
                 .request("my q and a").with_string("tab name").with_last_record_id()
                     .comments("我的问答").need_login()
@@ -47,6 +47,10 @@ public class P5_UserProfilePageFlow extends PieceOfScript {
                 .request("click system message detail").with_string("message id")
                     .comments("用户点击了某个系统消息")
                     .got_ajax_response()
+
+                .request("view contact info")
+                    .comments("查看 联系我们 页面").no_login()
+                    .got_page("contact info").list_of("card").title("联系我们")
                 ;
     }
 }

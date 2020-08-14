@@ -39,6 +39,7 @@ public class MainPageFlow extends BasePageFlowDescriptionScript {
                 .import_from(new Q7_Money())
                 .import_from(new Q8_People())
                 .import_from(new Q9_Trade())
+                .import_from(new Q10_TrailApplication())
             ;
     }
 }

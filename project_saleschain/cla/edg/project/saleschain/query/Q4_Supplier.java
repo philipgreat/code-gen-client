@@ -34,6 +34,8 @@ public class Q4_Supplier extends PieceOfScript {
                         .where(MODEL.supplier().adminMobile().eq("${mobile}"),
                                 MODEL.supplier().merchant().not_null())
 
+
+
                 ;
     }
 }

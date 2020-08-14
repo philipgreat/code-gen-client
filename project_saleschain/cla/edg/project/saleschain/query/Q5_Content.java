@@ -27,10 +27,20 @@ public class Q5_Content extends PieceOfScript {
                 .query(MODEL.knowledgeBase()).list_of("all").pagination()
                     .comments("查询知识库文章")
                     .do_it_as()
-                        .where(MODEL.knowledgeBase().platform().not_null())
+                        .where(MODEL.knowledgeBase().article().not_null())
                         .order_by(MODEL.knowledgeBase().article().postDate()).desc()
                         .order_by(MODEL.knowledgeBase().id()).desc()
                         .wants(MODEL.knowledgeBase().article())
+
+                .query(MODEL.knowledgeBase()).list_of("searched by title").pagination().with_string("search key")
+                    .comments("查询知识库文章")
+                    .do_it_as()
+                        .where(MODEL.knowledgeBase().article().not_null(),
+                                MODEL.knowledgeBase().article().title().like("${search key}"))
+                        .order_by(MODEL.knowledgeBase().article().postDate()).desc()
+                        .order_by(MODEL.knowledgeBase().id()).desc()
+                        .wants(MODEL.knowledgeBase().article())
+
                 .query(MODEL.domesticTryOn()).list_of("all").pagination()
                     .comments("查询国产试用文章")
                     .do_it_as()
@@ -39,6 +49,14 @@ public class Q5_Content extends PieceOfScript {
                         .order_by(MODEL.domesticTryOn().id()).desc()
                         .wants(MODEL.domesticTryOn().article())
 
+                .query(MODEL.domesticTryOn()).list_of("searched by title").pagination().with_string("search key")
+                    .comments("查询国产试用文章")
+                    .do_it_as()
+                        .where(MODEL.domesticTryOn().article().not_null(),
+                                MODEL.domesticTryOn().article().title().like("${search key}"))
+                        .order_by(MODEL.domesticTryOn().article().postDate()).desc()
+                        .order_by(MODEL.domesticTryOn().id()).desc()
+                        .wants(MODEL.domesticTryOn().article())
 
                 .query(MODEL.articleReview()).list_of("article").pagination().with_string("article id")
                     .comments("查询文章的评论")
