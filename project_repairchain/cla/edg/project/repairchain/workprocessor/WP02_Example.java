@@ -3,7 +3,7 @@ package cla.edg.project.repairchain.workprocessor;
 import cla.poc.workflow.WorkProcessorBuilder;
 import cla.poc.workflow.WorkProcessorScript;
 
-public class WP01_Example implements WorkProcessorScript {
+public class WP02_Example implements WorkProcessorScript {
     @Override
     public WorkProcessorBuilder makeSequel(WorkProcessorBuilder builder) {
         return builder.processing("demand proposal").zh_CN("需求处理流程")
