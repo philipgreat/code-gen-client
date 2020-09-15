@@ -58,11 +58,44 @@ public class ChangeRequest extends BaseModelBean {
     return member;
   }
 
-  public EventAddFactory eventAddFactoryList() {
-    EventAddFactory member = new EventAddFactory();
-    member.setModelTypeName("event_add_factory");
+  public EventFactoryBasicInfo eventFactoryBasicInfoList() {
+    EventFactoryBasicInfo member = new EventFactoryBasicInfo();
+    member.setModelTypeName("event_factory_basic_info");
     member.setName("change_request");
-    member.setMemberName("eventAddFactoryList");
+    member.setMemberName("eventFactoryBasicInfoList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventMachineBasicInfo eventMachineBasicInfoList() {
+    EventMachineBasicInfo member = new EventMachineBasicInfo();
+    member.setModelTypeName("event_machine_basic_info");
+    member.setName("change_request");
+    member.setMemberName("eventMachineBasicInfoList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventEmployeeBasicInfo eventEmployeeBasicInfoList() {
+    EventEmployeeBasicInfo member = new EventEmployeeBasicInfo();
+    member.setModelTypeName("event_employee_basic_info");
+    member.setName("change_request");
+    member.setMemberName("eventEmployeeBasicInfoList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventBindInfo eventBindInfoList() {
+    EventBindInfo member = new EventBindInfo();
+    member.setModelTypeName("event_bind_info");
+    member.setName("change_request");
+    member.setMemberName("eventBindInfoList");
     member.setRelationName("changeRequest");
     member.setReferDirection(false);
     append(member);

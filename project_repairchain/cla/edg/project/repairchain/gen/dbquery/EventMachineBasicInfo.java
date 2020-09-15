@@ -4,21 +4,21 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class UserAllowList extends BaseModelBean {
+public class EventMachineBasicInfo extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.repairchain.userallowlist.UserAllowList";
+    return "com.doublechaintech.repairchain.eventmachinebasicinfo.EventMachineBasicInfo";
   }
   // 枚举对象
 
   // 引用的对象
 
-  public UserDomain domain() {
-    UserDomain member = new UserDomain();
-    member.setModelTypeName("user_domain");
-    member.setName("domain");
-    member.setMemberName("domain");
+  public ChangeRequest changeRequest() {
+    ChangeRequest member = new ChangeRequest();
+    member.setModelTypeName("change_request");
+    member.setName("change_request");
+    member.setMemberName("changeRequest");
     member.setReferDirection(true);
-    member.setRelationName("domain");
+    member.setRelationName("changeRequest");
     append(member);
     return member;
   }
@@ -36,20 +36,11 @@ public class UserAllowList extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute userIdentity() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string_china_mobile_phone");
-    // member.setName("userIdentity");
-    member.setName("user_identity");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute userSpecialFunctions() {
+  public StringAttribute name() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
-    // member.setName("userSpecialFunctions");
-    member.setName("user_special_functions");
+    // member.setName("name");
+    member.setName("name");
     useMember(member);
     return member;
   }

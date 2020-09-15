@@ -9,23 +9,115 @@ public class ChangeRequestType extends BaseModelBean {
     return "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType";
   }
   // 枚举对象
+  public static EnumAttribute START_PLAN_JOB =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
+              "START_PLAN_JOB")
+          .chineseName("执行任务");
+  public static EnumAttribute REPAIRING_FEEDBACK =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
+              "REPAIRING_FEEDBACK")
+          .chineseName("维修反馈");
+  public static EnumAttribute UPDATE_PLAN_JOB =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
+              "UPDATE_PLAN_JOB")
+          .chineseName("更新任务");
+  public static EnumAttribute REPAIRING_REPORT =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
+              "REPAIRING_REPORT")
+          .chineseName("维修报告");
+  public static EnumAttribute REPAIR_APPLICATION =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
+              "REPAIR_APPLICATION")
+          .chineseName("报修单");
+  public static EnumAttribute UPDATE_FACTORY =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
+              "UPDATE_FACTORY")
+          .chineseName("更新工厂信息");
+  public static EnumAttribute REPAIRING_AUDIT =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
+              "REPAIRING_AUDIT")
+          .chineseName("任务审核");
+  public static EnumAttribute ADD_PLAN_JOB =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType", "ADD_PLAN_JOB")
+          .chineseName("新建计划任务");
+  public static EnumAttribute ADD_FACTORY =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType", "ADD_FACTORY")
+          .chineseName("添加工厂");
+  public static EnumAttribute UPDATE_REPAIR_APPLICATION =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
+              "UPDATE_REPAIR_APPLICATION")
+          .chineseName("完善报修单");
+  public static EnumAttribute APPOINTMENT_APPLICATION =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
+              "APPOINTMENT_APPLICATION")
+          .chineseName("预约单");
+  public static EnumAttribute ADD_MACHINE_BY_AGENT =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
+              "ADD_MACHINE_BY_AGENT")
+          .chineseName("更新工厂信息");
+  public static EnumAttribute QRCODE_BIND_MACHINE =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
+              "QRCODE_BIND_MACHINE")
+          .chineseName("绑定设备");
+  public static EnumAttribute MACHINE_BIND_QRCODE =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
+              "MACHINE_BIND_QRCODE")
+          .chineseName("绑定二维码");
+  public static EnumAttribute ADD_EMPLOYEE_BY_AGENT =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
+              "ADD_EMPLOYEE_BY_AGENT")
+          .chineseName("添加人员");
   public static EnumAttribute DEMO_ALL_FIELD =
       new EnumAttribute(
               "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
               "DEMO_ALL_FIELD")
           .chineseName("演示所有的字段类型");
-  public static EnumAttribute BIND_TO_MACHINE =
+  public static EnumAttribute CANCEL_PLAN_JOB =
       new EnumAttribute(
               "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
-              "BIND_TO_MACHINE")
-          .chineseName("添加工厂");
-  public static EnumAttribute ADD_FACTORY =
+              "CANCEL_PLAN_JOB")
+          .chineseName("取消任务");
+  public static EnumAttribute UNBOUND =
       new EnumAttribute(
-              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType", "ADD_FACTORY")
-          .chineseName("添加工厂");
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType", "UNBOUND")
+          .chineseName("解绑二维码");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {DEMO_ALL_FIELD, BIND_TO_MACHINE, ADD_FACTORY};
+    return new EnumAttribute[] {
+      START_PLAN_JOB,
+      REPAIRING_FEEDBACK,
+      UPDATE_PLAN_JOB,
+      REPAIRING_REPORT,
+      REPAIR_APPLICATION,
+      UPDATE_FACTORY,
+      REPAIRING_AUDIT,
+      ADD_PLAN_JOB,
+      ADD_FACTORY,
+      UPDATE_REPAIR_APPLICATION,
+      APPOINTMENT_APPLICATION,
+      ADD_MACHINE_BY_AGENT,
+      QRCODE_BIND_MACHINE,
+      MACHINE_BIND_QRCODE,
+      ADD_EMPLOYEE_BY_AGENT,
+      DEMO_ALL_FIELD,
+      CANCEL_PLAN_JOB,
+      UNBOUND
+    };
   }
 
   // 引用的对象

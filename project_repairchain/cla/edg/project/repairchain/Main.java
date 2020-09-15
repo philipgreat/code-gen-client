@@ -56,7 +56,7 @@ public class Main {
 	// 生成的项目的基本包名, 通常是 com.<TARGET_ORGANIZATION_NAME>.<TARGET_PROJECT_NAME>
 	public static String TARGET_BASE_PACKAGE_NAME = "com." + TARGET_ORGANIZATION_NAME +"." + TARGET_PROJECT_NAME;
 	// 生成page_flow代码时,基类的完整类名
-	public static String TARGET_PAGEFLOW_JAVA_PARENT_CLASS_FULL_NAME = "com.doublechaintech.repairchain.wxappclient.WxappCustomService";
+	public static String TARGET_PAGEFLOW_JAVA_PARENT_CLASS_FULL_NAME = "com.doublechaintech.repairchain.wxapp.WxappCustomService";
 	// 生成page_flow代码时,目标的bean名字, 通常就是 TARGET_PAGEFLOW_JAVA_PARENT_CLASS_FULL_NAME 原来的bean 名字
 	public static String TARGET_PAGEFLOW_JAVA_BEAN_NAME = "wxappService";
 

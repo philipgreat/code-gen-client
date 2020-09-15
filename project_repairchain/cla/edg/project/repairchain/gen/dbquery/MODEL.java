@@ -14,6 +14,279 @@ public class MODEL {
     return rst;
   }
 
+  public static Province province() {
+    Province rst = new Province();
+    rst.setModelTypeName("province");
+    rst.setBeanPath(new BeanPath().name("province"));
+    return rst;
+  }
+
+  public static City city() {
+    City rst = new City();
+    rst.setModelTypeName("city");
+    rst.setBeanPath(new BeanPath().name("city"));
+    return rst;
+  }
+
+  public static District district() {
+    District rst = new District();
+    rst.setModelTypeName("district");
+    rst.setBeanPath(new BeanPath().name("district"));
+    return rst;
+  }
+
+  public static Roo roo() {
+    Roo rst = new Roo();
+    rst.setModelTypeName("roo");
+    rst.setBeanPath(new BeanPath().name("roo"));
+    return rst;
+  }
+
+  public static PersonalUser personalUser() {
+    PersonalUser rst = new PersonalUser();
+    rst.setModelTypeName("personal_user");
+    rst.setBeanPath(new BeanPath().name("personal_user"));
+    return rst;
+  }
+
+  public static Agent agent() {
+    Agent rst = new Agent();
+    rst.setModelTypeName("agent");
+    rst.setBeanPath(new BeanPath().name("agent"));
+    return rst;
+  }
+
+  public static Employee employee() {
+    Employee rst = new Employee();
+    rst.setModelTypeName("employee");
+    rst.setBeanPath(new BeanPath().name("employee"));
+    return rst;
+  }
+
+  public static SubordinateEmployee subordinateEmployee() {
+    SubordinateEmployee rst = new SubordinateEmployee();
+    rst.setModelTypeName("subordinate_employee");
+    rst.setBeanPath(new BeanPath().name("subordinate_employee"));
+    return rst;
+  }
+
+  public static ActiveStatus activeStatus() {
+    ActiveStatus rst = new ActiveStatus();
+    rst.setModelTypeName("active_status");
+    rst.setBeanPath(new BeanPath().name("active_status"));
+    return rst;
+  }
+
+  public static WorkPosition workPosition() {
+    WorkPosition rst = new WorkPosition();
+    rst.setModelTypeName("work_position");
+    rst.setBeanPath(new BeanPath().name("work_position"));
+    return rst;
+  }
+
+  public static Merchant merchant() {
+    Merchant rst = new Merchant();
+    rst.setModelTypeName("merchant");
+    rst.setBeanPath(new BeanPath().name("merchant"));
+    return rst;
+  }
+
+  public static AuditResult auditResult() {
+    AuditResult rst = new AuditResult();
+    rst.setModelTypeName("audit_result");
+    rst.setBeanPath(new BeanPath().name("audit_result"));
+    return rst;
+  }
+
+  public static TodoTask todoTask() {
+    TodoTask rst = new TodoTask();
+    rst.setModelTypeName("todo_task");
+    rst.setBeanPath(new BeanPath().name("todo_task"));
+    return rst;
+  }
+
+  public static IconConfiguration iconConfiguration() {
+    IconConfiguration rst = new IconConfiguration();
+    rst.setModelTypeName("icon_configuration");
+    rst.setBeanPath(new BeanPath().name("icon_configuration"));
+    return rst;
+  }
+
+  public static SystemLevelConfiguration systemLevelConfiguration() {
+    SystemLevelConfiguration rst = new SystemLevelConfiguration();
+    rst.setModelTypeName("system_level_configuration");
+    rst.setBeanPath(new BeanPath().name("system_level_configuration"));
+    return rst;
+  }
+
+  public static SystemLevelImages systemLevelImages() {
+    SystemLevelImages rst = new SystemLevelImages();
+    rst.setModelTypeName("system_level_images");
+    rst.setBeanPath(new BeanPath().name("system_level_images"));
+    return rst;
+  }
+
+  public static SystemLevelContent systemLevelContent() {
+    SystemLevelContent rst = new SystemLevelContent();
+    rst.setModelTypeName("system_level_content");
+    rst.setBeanPath(new BeanPath().name("system_level_content"));
+    return rst;
+  }
+
+  public static SystemLevelNumber systemLevelNumber() {
+    SystemLevelNumber rst = new SystemLevelNumber();
+    rst.setModelTypeName("system_level_number");
+    rst.setBeanPath(new BeanPath().name("system_level_number"));
+    return rst;
+  }
+
+  public static QrCodeStatus qrCodeStatus() {
+    QrCodeStatus rst = new QrCodeStatus();
+    rst.setModelTypeName("qr_code_status");
+    rst.setBeanPath(new BeanPath().name("qr_code_status"));
+    return rst;
+  }
+
+  public static QrCode qrCode() {
+    QrCode rst = new QrCode();
+    rst.setModelTypeName("qr_code");
+    rst.setBeanPath(new BeanPath().name("qr_code"));
+    return rst;
+  }
+
+  public static QrCodeOperationRecord qrCodeOperationRecord() {
+    QrCodeOperationRecord rst = new QrCodeOperationRecord();
+    rst.setModelTypeName("qr_code_operation_record");
+    rst.setBeanPath(new BeanPath().name("qr_code_operation_record"));
+    return rst;
+  }
+
+  public static FactoryAgency factoryAgency() {
+    FactoryAgency rst = new FactoryAgency();
+    rst.setModelTypeName("factory_agency");
+    rst.setBeanPath(new BeanPath().name("factory_agency"));
+    return rst;
+  }
+
+  public static Factory factory() {
+    Factory rst = new Factory();
+    rst.setModelTypeName("factory");
+    rst.setBeanPath(new BeanPath().name("factory"));
+    return rst;
+  }
+
+  public static MachineModel machineModel() {
+    MachineModel rst = new MachineModel();
+    rst.setModelTypeName("machine_model");
+    rst.setBeanPath(new BeanPath().name("machine_model"));
+    return rst;
+  }
+
+  public static MachineStandardDocument machineStandardDocument() {
+    MachineStandardDocument rst = new MachineStandardDocument();
+    rst.setModelTypeName("machine_standard_document");
+    rst.setBeanPath(new BeanPath().name("machine_standard_document"));
+    return rst;
+  }
+
+  public static Machine machine() {
+    Machine rst = new Machine();
+    rst.setModelTypeName("machine");
+    rst.setBeanPath(new BeanPath().name("machine"));
+    return rst;
+  }
+
+  public static RepairApplication repairApplication() {
+    RepairApplication rst = new RepairApplication();
+    rst.setModelTypeName("repair_application");
+    rst.setBeanPath(new BeanPath().name("repair_application"));
+    return rst;
+  }
+
+  public static RepairApplicationRecord repairApplicationRecord() {
+    RepairApplicationRecord rst = new RepairApplicationRecord();
+    rst.setModelTypeName("repair_application_record");
+    rst.setBeanPath(new BeanPath().name("repair_application_record"));
+    return rst;
+  }
+
+  public static RepairApplicationAuditRecord repairApplicationAuditRecord() {
+    RepairApplicationAuditRecord rst = new RepairApplicationAuditRecord();
+    rst.setModelTypeName("repair_application_audit_record");
+    rst.setBeanPath(new BeanPath().name("repair_application_audit_record"));
+    return rst;
+  }
+
+  public static RegularMaintainPlan regularMaintainPlan() {
+    RegularMaintainPlan rst = new RegularMaintainPlan();
+    rst.setModelTypeName("regular_maintain_plan");
+    rst.setBeanPath(new BeanPath().name("regular_maintain_plan"));
+    return rst;
+  }
+
+  public static MaintenanceTask maintenanceTask() {
+    MaintenanceTask rst = new MaintenanceTask();
+    rst.setModelTypeName("maintenance_task");
+    rst.setBeanPath(new BeanPath().name("maintenance_task"));
+    return rst;
+  }
+
+  public static MaintenanceTaskAuditRecord maintenanceTaskAuditRecord() {
+    MaintenanceTaskAuditRecord rst = new MaintenanceTaskAuditRecord();
+    rst.setModelTypeName("maintenance_task_audit_record");
+    rst.setBeanPath(new BeanPath().name("maintenance_task_audit_record"));
+    return rst;
+  }
+
+  public static MaintenanceTaskRecord maintenanceTaskRecord() {
+    MaintenanceTaskRecord rst = new MaintenanceTaskRecord();
+    rst.setModelTypeName("maintenance_task_record");
+    rst.setBeanPath(new BeanPath().name("maintenance_task_record"));
+    return rst;
+  }
+
+  public static MaintenanceTaskReview maintenanceTaskReview() {
+    MaintenanceTaskReview rst = new MaintenanceTaskReview();
+    rst.setModelTypeName("maintenance_task_review");
+    rst.setBeanPath(new BeanPath().name("maintenance_task_review"));
+    return rst;
+  }
+
+  public static MaintenanceRecord maintenanceRecord() {
+    MaintenanceRecord rst = new MaintenanceRecord();
+    rst.setModelTypeName("maintenance_record");
+    rst.setBeanPath(new BeanPath().name("maintenance_record"));
+    return rst;
+  }
+
+  public static RepairingStatus repairingStatus() {
+    RepairingStatus rst = new RepairingStatus();
+    rst.setModelTypeName("repairing_status");
+    rst.setBeanPath(new BeanPath().name("repairing_status"));
+    return rst;
+  }
+
+  public static MaintenanceTaskType maintenanceTaskType() {
+    MaintenanceTaskType rst = new MaintenanceTaskType();
+    rst.setModelTypeName("maintenance_task_type");
+    rst.setBeanPath(new BeanPath().name("maintenance_task_type"));
+    return rst;
+  }
+
+  public static MaintenanceTaskStatus maintenanceTaskStatus() {
+    MaintenanceTaskStatus rst = new MaintenanceTaskStatus();
+    rst.setModelTypeName("maintenance_task_status");
+    rst.setBeanPath(new BeanPath().name("maintenance_task_status"));
+    return rst;
+  }
+
+  public static RegularPeriod regularPeriod() {
+    RegularPeriod rst = new RegularPeriod();
+    rst.setModelTypeName("regular_period");
+    rst.setBeanPath(new BeanPath().name("regular_period"));
+    return rst;
+  }
+
   public static ChangeRequestType changeRequestType() {
     ChangeRequestType rst = new ChangeRequestType();
     rst.setModelTypeName("change_request_type");
@@ -42,10 +315,31 @@ public class MODEL {
     return rst;
   }
 
-  public static EventAddFactory eventAddFactory() {
-    EventAddFactory rst = new EventAddFactory();
-    rst.setModelTypeName("event_add_factory");
-    rst.setBeanPath(new BeanPath().name("event_add_factory"));
+  public static EventFactoryBasicInfo eventFactoryBasicInfo() {
+    EventFactoryBasicInfo rst = new EventFactoryBasicInfo();
+    rst.setModelTypeName("event_factory_basic_info");
+    rst.setBeanPath(new BeanPath().name("event_factory_basic_info"));
+    return rst;
+  }
+
+  public static EventMachineBasicInfo eventMachineBasicInfo() {
+    EventMachineBasicInfo rst = new EventMachineBasicInfo();
+    rst.setModelTypeName("event_machine_basic_info");
+    rst.setBeanPath(new BeanPath().name("event_machine_basic_info"));
+    return rst;
+  }
+
+  public static EventEmployeeBasicInfo eventEmployeeBasicInfo() {
+    EventEmployeeBasicInfo rst = new EventEmployeeBasicInfo();
+    rst.setModelTypeName("event_employee_basic_info");
+    rst.setBeanPath(new BeanPath().name("event_employee_basic_info"));
+    return rst;
+  }
+
+  public static EventBindInfo eventBindInfo() {
+    EventBindInfo rst = new EventBindInfo();
+    rst.setModelTypeName("event_bind_info");
+    rst.setBeanPath(new BeanPath().name("event_bind_info"));
     return rst;
   }
 

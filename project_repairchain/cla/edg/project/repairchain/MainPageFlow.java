@@ -1,6 +1,5 @@
 package cla.edg.project.repairchain;
 
-import cla.edg.pageflow.BasePageFlowDescriptionScript;
 import cla.edg.pageflow.PageFlowBuilder;
 import cla.edg.pageflow.PageFlowScript;
 import cla.edg.project.repairchain.pageflow.*;
@@ -22,7 +21,8 @@ public class MainPageFlow extends PageFlowBuilder {
     public PageFlowScript getScript() {
         return SCRIPT.request("heart beat").comments("服务器心跳检查")
                 .got_toast_page()
-                .import_from(new P01_Example())
+                .import_from(new P01_LoadFromFile())
+                .import_from(new P02_CrRequestFixing())
             ;
     }
 }
