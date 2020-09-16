@@ -13,6 +13,8 @@ public class CR03_Employee implements ChangeRequestSpecFactory {
 
 
 
+            .change_request("bind with mobile").zh_CN("绑定手机号")
+                .contains_event("employee basic info")
                 ;
     }
 

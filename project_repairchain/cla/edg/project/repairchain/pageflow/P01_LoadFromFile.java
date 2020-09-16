@@ -15,11 +15,11 @@ public class P01_LoadFromFile extends PieceOfScript {
         File baseFolder = new File("/works/jobs/project_script/workspace/project-script/projects/project_repairchain/resource");
 //        File baseFolder = new File("/Users/clariones/Downloads");
             return script.load_page_flow_from(baseFolder, fileName)
-//                    .for_request("view agency factory detail")
-//                        .reset_params().with_string("factory id")
-//
-//                    .for_request("view agency machine")
-//                        .reset_params().with_string("machine id")
+                    .for_request("view agency factory detail")
+                        .reset_params().with_string("factory id")
+
+                    .for_request("view agency machine")
+                        .reset_params().with_string("machine id")
 
                 ;
 //        return script
