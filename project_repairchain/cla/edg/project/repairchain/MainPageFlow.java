@@ -3,7 +3,7 @@ package cla.edg.project.repairchain;
 import cla.edg.pageflow.PageFlowBuilder;
 import cla.edg.pageflow.PageFlowScript;
 import cla.edg.project.repairchain.pageflow.*;
-//import cla.edg.project.repairchain.query.*;
+import cla.edg.project.repairchain.query.*;
 
 
 public class MainPageFlow extends PageFlowBuilder {
@@ -23,6 +23,12 @@ public class MainPageFlow extends PageFlowBuilder {
                 .got_toast_page()
                 .import_from(new P01_LoadFromFile())
                 .import_from(new P02_CrRequestFixing())
+                .import_from(new P03_PersonalUser())
+                .import_from(new P04_Machine())
+
+                .import_from(new Q01_PersonalUser())
+                .import_from(new Q02_Factory())
+                .import_from(new Q03_Machine())
             ;
     }
 }

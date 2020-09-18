@@ -56,40 +56,7 @@ public class MaintenanceTask extends BaseModelBean {
     return member;
   }
 
-  public Employee responsibleEmployee() {
-    Employee member = new Employee();
-    member.setModelTypeName("employee");
-    member.setName("responsible_employee");
-    member.setMemberName("responsibleEmployee");
-    member.setReferDirection(true);
-    member.setRelationName("responsibleEmployee");
-    append(member);
-    return member;
-  }
-
   // 被引用的对象
-
-  public MaintenanceTaskAuditRecord maintenanceTaskAuditRecordList() {
-    MaintenanceTaskAuditRecord member = new MaintenanceTaskAuditRecord();
-    member.setModelTypeName("maintenance_task_audit_record");
-    member.setName("maintenance_task");
-    member.setMemberName("maintenanceTaskAuditRecordList");
-    member.setRelationName("maintenanceTask");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public MaintenanceTaskRecord maintenanceTaskRecordList() {
-    MaintenanceTaskRecord member = new MaintenanceTaskRecord();
-    member.setModelTypeName("maintenance_task_record");
-    member.setName("task");
-    member.setMemberName("maintenanceTaskRecordList");
-    member.setRelationName("task");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
 
   public MaintenanceTaskReview maintenanceTaskReviewList() {
     MaintenanceTaskReview member = new MaintenanceTaskReview();
@@ -108,6 +75,39 @@ public class MaintenanceTask extends BaseModelBean {
     member.setName("maintenance_task");
     member.setMemberName("maintenanceRecordList");
     member.setRelationName("maintenanceTask");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public MaintenanceTaskAssignment maintenanceTaskAssignmentList() {
+    MaintenanceTaskAssignment member = new MaintenanceTaskAssignment();
+    member.setModelTypeName("maintenance_task_assignment");
+    member.setName("maintenance_task");
+    member.setMemberName("maintenanceTaskAssignmentList");
+    member.setRelationName("maintenanceTask");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public MaintenanceTaskAuditRecord maintenanceTaskAuditRecordList() {
+    MaintenanceTaskAuditRecord member = new MaintenanceTaskAuditRecord();
+    member.setModelTypeName("maintenance_task_audit_record");
+    member.setName("maintenance_task");
+    member.setMemberName("maintenanceTaskAuditRecordList");
+    member.setRelationName("maintenanceTask");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public MaintenanceTaskRecord maintenanceTaskRecordList() {
+    MaintenanceTaskRecord member = new MaintenanceTaskRecord();
+    member.setModelTypeName("maintenance_task_record");
+    member.setName("task");
+    member.setMemberName("maintenanceTaskRecordList");
+    member.setRelationName("task");
     member.setReferDirection(false);
     append(member);
     return member;
@@ -138,6 +138,15 @@ public class MaintenanceTask extends BaseModelBean {
     member.setModelTypeName("date_time_create");
     // member.setName("createTime");
     member.setName("create_time");
+    useMember(member);
+    return member;
+  }
+
+  public DateTimeAttribute lastUpdateTime() {
+    DateTimeAttribute member = new DateTimeAttribute();
+    member.setModelTypeName("date_time_update");
+    // member.setName("lastUpdateTime");
+    member.setName("last_update_time");
     useMember(member);
     return member;
   }

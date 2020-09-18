@@ -47,6 +47,17 @@ public class PersonalUser extends BaseModelBean {
     return member;
   }
 
+  public Employee employeeList() {
+    Employee member = new Employee();
+    member.setModelTypeName("employee");
+    member.setName("personal_user");
+    member.setMemberName("employeeList");
+    member.setRelationName("personalUser");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

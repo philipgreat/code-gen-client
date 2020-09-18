@@ -9,14 +9,22 @@ public class SystemLevelImages extends BaseModelBean {
     return "com.doublechaintech.repairchain.systemlevelimages.SystemLevelImages";
   }
   // 枚举对象
-  public static EnumAttribute INVITE_BG_IMAGE =
+  public static EnumAttribute PERSONAL_AVATAR =
       new EnumAttribute(
               "com.doublechaintech.repairchain.systemlevelimages.SystemLevelImages",
-              "INVITE_BG_IMAGE")
-          .chineseName("背景图-邀请");
+              "PERSONAL_AVATAR")
+          .chineseName("默认用户头像");
+  public static EnumAttribute AGENT_LOGO =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.systemlevelimages.SystemLevelImages", "AGENT_LOGO")
+          .chineseName("默认代理商头像");
+  public static EnumAttribute FACTORY_LOGO =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.systemlevelimages.SystemLevelImages", "FACTORY_LOGO")
+          .chineseName("默认工厂图片");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {INVITE_BG_IMAGE};
+    return new EnumAttribute[] {PERSONAL_AVATAR, AGENT_LOGO, FACTORY_LOGO};
   }
 
   // 引用的对象

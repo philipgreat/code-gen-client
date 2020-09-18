@@ -4,23 +4,24 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class AuditResult extends BaseModelBean {
+public class MachineStatus extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.repairchain.auditresult.AuditResult";
+    return "com.doublechaintech.repairchain.machinestatus.MachineStatus";
   }
   // 枚举对象
-  public static EnumAttribute PASS =
-      new EnumAttribute("com.doublechaintech.repairchain.auditresult.AuditResult", "PASS")
-          .chineseName("通过");
-  public static EnumAttribute PENDING =
-      new EnumAttribute("com.doublechaintech.repairchain.auditresult.AuditResult", "PENDING")
-          .chineseName("待完善");
-  public static EnumAttribute REJECT =
-      new EnumAttribute("com.doublechaintech.repairchain.auditresult.AuditResult", "REJECT")
-          .chineseName("不通过");
+  public static EnumAttribute RUNNING =
+      new EnumAttribute("com.doublechaintech.repairchain.machinestatus.MachineStatus", "RUNNING")
+          .chineseName("正常运行");
+  public static EnumAttribute CLOSED =
+      new EnumAttribute("com.doublechaintech.repairchain.machinestatus.MachineStatus", "CLOSED")
+          .chineseName("已停机");
+  public static EnumAttribute RUNNING_WITH_FAULT =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.machinestatus.MachineStatus", "RUNNING_WITH_FAULT")
+          .chineseName("带病运行");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {PASS, PENDING, REJECT};
+    return new EnumAttribute[] {RUNNING, CLOSED, RUNNING_WITH_FAULT};
   }
 
   // 引用的对象
@@ -38,12 +39,34 @@ public class AuditResult extends BaseModelBean {
 
   // 被引用的对象
 
-  public MaintenanceTaskAuditRecord maintenanceTaskAuditRecordList() {
-    MaintenanceTaskAuditRecord member = new MaintenanceTaskAuditRecord();
-    member.setModelTypeName("maintenance_task_audit_record");
-    member.setName("result");
-    member.setMemberName("maintenanceTaskAuditRecordList");
-    member.setRelationName("result");
+  public Machine machineList() {
+    Machine member = new Machine();
+    member.setModelTypeName("machine");
+    member.setName("machine_status");
+    member.setMemberName("machineList");
+    member.setRelationName("machineStatus");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public MachineRunningRecord machineRunningRecordList() {
+    MachineRunningRecord member = new MachineRunningRecord();
+    member.setModelTypeName("machine_running_record");
+    member.setName("machine_status");
+    member.setMemberName("machineRunningRecordList");
+    member.setRelationName("machineStatus");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public RepairApplication repairApplicationList() {
+    RepairApplication member = new RepairApplication();
+    member.setModelTypeName("repair_application");
+    member.setName("machine_status");
+    member.setMemberName("repairApplicationList");
+    member.setRelationName("machineStatus");
     member.setReferDirection(false);
     append(member);
     return member;

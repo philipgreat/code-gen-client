@@ -102,6 +102,17 @@ public class Platform extends BaseModelBean {
     return member;
   }
 
+  public OnJobStatus onJobStatusList() {
+    OnJobStatus member = new OnJobStatus();
+    member.setModelTypeName("on_job_status");
+    member.setName("platform");
+    member.setMemberName("onJobStatusList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public Merchant merchantList() {
     Merchant member = new Merchant();
     member.setModelTypeName("merchant");
@@ -212,50 +223,6 @@ public class Platform extends BaseModelBean {
     return member;
   }
 
-  public Factory factoryList() {
-    Factory member = new Factory();
-    member.setModelTypeName("factory");
-    member.setName("platform");
-    member.setMemberName("factoryList");
-    member.setRelationName("platform");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public MachineModel machineModelList() {
-    MachineModel member = new MachineModel();
-    member.setModelTypeName("machine_model");
-    member.setName("platform");
-    member.setMemberName("machineModelList");
-    member.setRelationName("platform");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public MachineStandardDocument machineStandardDocumentList() {
-    MachineStandardDocument member = new MachineStandardDocument();
-    member.setModelTypeName("machine_standard_document");
-    member.setName("platform");
-    member.setMemberName("machineStandardDocumentList");
-    member.setRelationName("platform");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public RepairApplication repairApplicationList() {
-    RepairApplication member = new RepairApplication();
-    member.setModelTypeName("repair_application");
-    member.setName("platform");
-    member.setMemberName("repairApplicationList");
-    member.setRelationName("platform");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
   public RepairingStatus repairingStatusList() {
     RepairingStatus member = new RepairingStatus();
     member.setModelTypeName("repairing_status");
@@ -294,6 +261,94 @@ public class Platform extends BaseModelBean {
     member.setModelTypeName("regular_period");
     member.setName("platform");
     member.setMemberName("regularPeriodList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public MachineStatus machineStatusList() {
+    MachineStatus member = new MachineStatus();
+    member.setModelTypeName("machine_status");
+    member.setName("platform");
+    member.setMemberName("machineStatusList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public Factory factoryList() {
+    Factory member = new Factory();
+    member.setModelTypeName("factory");
+    member.setName("platform");
+    member.setMemberName("factoryList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public MachineModel machineModelList() {
+    MachineModel member = new MachineModel();
+    member.setModelTypeName("machine_model");
+    member.setName("platform");
+    member.setMemberName("machineModelList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public MachineStandardDocument machineStandardDocumentList() {
+    MachineStandardDocument member = new MachineStandardDocument();
+    member.setModelTypeName("machine_standard_document");
+    member.setName("platform");
+    member.setMemberName("machineStandardDocumentList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public FailureType failureTypeList() {
+    FailureType member = new FailureType();
+    member.setModelTypeName("failure_type");
+    member.setName("platform");
+    member.setMemberName("failureTypeList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public FailureBehave failureBehaveList() {
+    FailureBehave member = new FailureBehave();
+    member.setModelTypeName("failure_behave");
+    member.setName("platform");
+    member.setMemberName("failureBehaveList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public RepairApplication repairApplicationList() {
+    RepairApplication member = new RepairApplication();
+    member.setModelTypeName("repair_application");
+    member.setName("platform");
+    member.setMemberName("repairApplicationList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public TaskAssignmentType taskAssignmentTypeList() {
+    TaskAssignmentType member = new TaskAssignmentType();
+    member.setModelTypeName("task_assignment_type");
+    member.setName("platform");
+    member.setMemberName("taskAssignmentTypeList");
     member.setRelationName("platform");
     member.setReferDirection(false);
     append(member);

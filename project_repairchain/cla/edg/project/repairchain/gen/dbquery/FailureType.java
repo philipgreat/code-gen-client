@@ -4,37 +4,37 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class MaintenanceTaskRecord extends BaseModelBean {
+public class FailureType extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.repairchain.maintenancetaskrecord.MaintenanceTaskRecord";
+    return "com.doublechaintech.repairchain.failuretype.FailureType";
   }
   // 枚举对象
 
   // 引用的对象
 
-  public Employee executor() {
-    Employee member = new Employee();
-    member.setModelTypeName("employee");
-    member.setName("executor");
-    member.setMemberName("executor");
+  public Platform platform() {
+    Platform member = new Platform();
+    member.setModelTypeName("platform");
+    member.setName("platform");
+    member.setMemberName("platform");
     member.setReferDirection(true);
-    member.setRelationName("executor");
-    append(member);
-    return member;
-  }
-
-  public MaintenanceTask task() {
-    MaintenanceTask member = new MaintenanceTask();
-    member.setModelTypeName("maintenance_task");
-    member.setName("task");
-    member.setMemberName("task");
-    member.setReferDirection(true);
-    member.setRelationName("task");
+    member.setRelationName("platform");
     append(member);
     return member;
   }
 
   // 被引用的对象
+
+  public RepairApplication repairApplicationList() {
+    RepairApplication member = new RepairApplication();
+    member.setModelTypeName("repair_application");
+    member.setName("failure_type");
+    member.setMemberName("repairApplicationList");
+    member.setRelationName("failureType");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
 
   // 普通属性
 
@@ -47,20 +47,11 @@ public class MaintenanceTaskRecord extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute reason() {
+  public StringAttribute title() {
     StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string_longtext");
-    // member.setName("reason");
-    member.setName("reason");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute treatment() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string_longtext");
-    // member.setName("treatment");
-    member.setName("treatment");
+    member.setModelTypeName("string");
+    // member.setName("title");
+    member.setName("title");
     useMember(member);
     return member;
   }

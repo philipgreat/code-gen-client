@@ -87,6 +87,11 @@ public class ChangeRequestType extends BaseModelBean {
               "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
               "DEMO_ALL_FIELD")
           .chineseName("演示所有的字段类型");
+  public static EnumAttribute BIND_WITH_MOBILE =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
+              "BIND_WITH_MOBILE")
+          .chineseName("验证手机号");
   public static EnumAttribute CANCEL_PLAN_JOB =
       new EnumAttribute(
               "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
@@ -115,6 +120,7 @@ public class ChangeRequestType extends BaseModelBean {
       MACHINE_BIND_QRCODE,
       ADD_EMPLOYEE_BY_AGENT,
       DEMO_ALL_FIELD,
+      BIND_WITH_MOBILE,
       CANCEL_PLAN_JOB,
       UNBOUND
     };

@@ -22,6 +22,9 @@ public class P02_CrRequestFixing extends PieceOfScript {
 
                 .for_change_request("unbound")
                     .with_string("machine id")
+
+                .for_request("submit cr add factory")
+                    .with_string("agent id")
                     ;
     }
 }

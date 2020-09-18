@@ -23,6 +23,17 @@ public class Machine extends BaseModelBean {
     return member;
   }
 
+  public MachineStatus machineStatus() {
+    MachineStatus member = new MachineStatus();
+    member.setModelTypeName("machine_status");
+    member.setName("machine_status");
+    member.setMemberName("machineStatus");
+    member.setReferDirection(true);
+    member.setRelationName("machineStatus");
+    append(member);
+    return member;
+  }
+
   public Factory factory() {
     Factory member = new Factory();
     member.setModelTypeName("factory");
@@ -47,11 +58,11 @@ public class Machine extends BaseModelBean {
     return member;
   }
 
-  public RepairApplication repairApplicationList() {
-    RepairApplication member = new RepairApplication();
-    member.setModelTypeName("repair_application");
+  public MachineRunningRecord machineRunningRecordList() {
+    MachineRunningRecord member = new MachineRunningRecord();
+    member.setModelTypeName("machine_running_record");
     member.setName("machine");
-    member.setMemberName("repairApplicationList");
+    member.setMemberName("machineRunningRecordList");
     member.setRelationName("machine");
     member.setReferDirection(false);
     append(member);
@@ -80,6 +91,17 @@ public class Machine extends BaseModelBean {
     return member;
   }
 
+  public RepairApplication repairApplicationList() {
+    RepairApplication member = new RepairApplication();
+    member.setModelTypeName("repair_application");
+    member.setName("machine");
+    member.setMemberName("repairApplicationList");
+    member.setRelationName("machine");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {
@@ -100,11 +122,47 @@ public class Machine extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute location() {
+  public StringAttribute modelName() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
-    // member.setName("location");
-    member.setName("location");
+    // member.setName("modelName");
+    member.setName("model_name");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute operationSystem() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("operationSystem");
+    member.setName("operation_system");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute machineIdentifier() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("machineIdentifier");
+    member.setName("machine_identifier");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute machineLocation() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("machineLocation");
+    member.setName("machine_location");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute machineImage() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string_image");
+    // member.setName("machineImage");
+    member.setName("machine_image");
     useMember(member);
     return member;
   }

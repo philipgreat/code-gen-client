@@ -9,23 +9,70 @@ public class MaintenanceTaskStatus extends BaseModelBean {
     return "com.doublechaintech.repairchain.maintenancetaskstatus.MaintenanceTaskStatus";
   }
   // 枚举对象
-  public static EnumAttribute PENDING =
+  public static EnumAttribute CREATED =
       new EnumAttribute(
               "com.doublechaintech.repairchain.maintenancetaskstatus.MaintenanceTaskStatus",
-              "PENDING")
-          .chineseName("待处理");
+              "CREATED")
+          .chineseName("已提交");
+  public static EnumAttribute MORE_DETAIL =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.maintenancetaskstatus.MaintenanceTaskStatus",
+              "MORE_DETAIL")
+          .chineseName("待完善");
+  public static EnumAttribute SUBMITTED =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.maintenancetaskstatus.MaintenanceTaskStatus",
+              "SUBMITTED")
+          .chineseName("已报修");
+  public static EnumAttribute ASSIGNED =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.maintenancetaskstatus.MaintenanceTaskStatus",
+              "ASSIGNED")
+          .chineseName("已派单");
   public static EnumAttribute PROCESSING =
       new EnumAttribute(
               "com.doublechaintech.repairchain.maintenancetaskstatus.MaintenanceTaskStatus",
               "PROCESSING")
-          .chineseName("处理中");
-  public static EnumAttribute DONE =
+          .chineseName("维修中");
+  public static EnumAttribute NEED_REVIEW =
       new EnumAttribute(
-              "com.doublechaintech.repairchain.maintenancetaskstatus.MaintenanceTaskStatus", "DONE")
-          .chineseName("关闭");
+              "com.doublechaintech.repairchain.maintenancetaskstatus.MaintenanceTaskStatus",
+              "NEED_REVIEW")
+          .chineseName("待核验");
+  public static EnumAttribute NEED_VERIFY =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.maintenancetaskstatus.MaintenanceTaskStatus",
+              "NEED_VERIFY")
+          .chineseName("待确认");
+  public static EnumAttribute FINISHED_AS_REPAIRED =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.maintenancetaskstatus.MaintenanceTaskStatus",
+              "FINISHED_AS_REPAIRED")
+          .chineseName("已修复");
+  public static EnumAttribute FINISHED_AS_DAMAGED =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.maintenancetaskstatus.MaintenanceTaskStatus",
+              "FINISHED_AS_DAMAGED")
+          .chineseName("不可修复");
+  public static EnumAttribute PROCESS_MANUALLY =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.maintenancetaskstatus.MaintenanceTaskStatus",
+              "PROCESS_MANUALLY")
+          .chineseName("急需干预");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {PENDING, PROCESSING, DONE};
+    return new EnumAttribute[] {
+      CREATED,
+      MORE_DETAIL,
+      SUBMITTED,
+      ASSIGNED,
+      PROCESSING,
+      NEED_REVIEW,
+      NEED_VERIFY,
+      FINISHED_AS_REPAIRED,
+      FINISHED_AS_DAMAGED,
+      PROCESS_MANUALLY
+    };
   }
 
   // 引用的对象
@@ -88,6 +135,15 @@ public class MaintenanceTaskStatus extends BaseModelBean {
     member.setModelTypeName("string_image");
     // member.setName("icon");
     member.setName("icon");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute description() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("description");
+    member.setName("description");
     useMember(member);
     return member;
   }

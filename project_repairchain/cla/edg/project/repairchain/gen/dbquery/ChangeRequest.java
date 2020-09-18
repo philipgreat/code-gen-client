@@ -91,6 +91,17 @@ public class ChangeRequest extends BaseModelBean {
     return member;
   }
 
+  public EventBindMobile eventBindMobileList() {
+    EventBindMobile member = new EventBindMobile();
+    member.setModelTypeName("event_bind_mobile");
+    member.setName("change_request");
+    member.setMemberName("eventBindMobileList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventBindInfo eventBindInfoList() {
     EventBindInfo member = new EventBindInfo();
     member.setModelTypeName("event_bind_info");

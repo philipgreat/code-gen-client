@@ -4,43 +4,43 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class FactoryAgency extends BaseModelBean {
+public class MaintenanceTaskAssignment extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.repairchain.factoryagency.FactoryAgency";
+    return "com.doublechaintech.repairchain.maintenancetaskassignment.MaintenanceTaskAssignment";
   }
   // 枚举对象
 
   // 引用的对象
 
-  public Agent agent() {
-    Agent member = new Agent();
-    member.setModelTypeName("agent");
-    member.setName("agent");
-    member.setMemberName("agent");
+  public TaskAssignmentType taskAssignmentType() {
+    TaskAssignmentType member = new TaskAssignmentType();
+    member.setModelTypeName("task_assignment_type");
+    member.setName("task_assignment_type");
+    member.setMemberName("taskAssignmentType");
     member.setReferDirection(true);
-    member.setRelationName("agent");
+    member.setRelationName("taskAssignmentType");
     append(member);
     return member;
   }
 
-  public Factory factory() {
-    Factory member = new Factory();
-    member.setModelTypeName("factory");
-    member.setName("factory");
-    member.setMemberName("factory");
+  public MaintenanceTask maintenanceTask() {
+    MaintenanceTask member = new MaintenanceTask();
+    member.setModelTypeName("maintenance_task");
+    member.setName("maintenance_task");
+    member.setMemberName("maintenanceTask");
     member.setReferDirection(true);
-    member.setRelationName("factory");
+    member.setRelationName("maintenanceTask");
     append(member);
     return member;
   }
 
-  public Platform platform() {
-    Platform member = new Platform();
-    member.setModelTypeName("platform");
-    member.setName("platform");
-    member.setMemberName("platform");
+  public Employee employee() {
+    Employee member = new Employee();
+    member.setModelTypeName("employee");
+    member.setName("employee");
+    member.setMemberName("employee");
     member.setReferDirection(true);
-    member.setRelationName("platform");
+    member.setRelationName("employee");
     append(member);
     return member;
   }
@@ -58,29 +58,29 @@ public class FactoryAgency extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute contactName() {
+  public StringAttribute title() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
-    // member.setName("contactName");
-    member.setName("contact_name");
+    // member.setName("title");
+    member.setName("title");
     useMember(member);
     return member;
   }
 
-  public StringAttribute contactMobile() {
+  public BooleanAttribute finished() {
+    BooleanAttribute member = new BooleanAttribute();
+    member.setModelTypeName("bool");
+    // member.setName("finished");
+    member.setName("finished");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute displayStatus() {
     StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string_china_mobile_phone");
-    // member.setName("contactMobile");
-    member.setName("contact_mobile");
-    useMember(member);
-    return member;
-  }
-
-  public DateTimeAttribute serviceValidity() {
-    DateTimeAttribute member = new DateTimeAttribute();
-    member.setModelTypeName("date_time");
-    // member.setName("serviceValidity");
-    member.setName("service_validity");
+    member.setModelTypeName("string");
+    // member.setName("displayStatus");
+    member.setName("display_status");
     useMember(member);
     return member;
   }

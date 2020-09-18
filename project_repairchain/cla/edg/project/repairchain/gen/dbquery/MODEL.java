@@ -84,6 +84,13 @@ public class MODEL {
     return rst;
   }
 
+  public static OnJobStatus onJobStatus() {
+    OnJobStatus rst = new OnJobStatus();
+    rst.setModelTypeName("on_job_status");
+    rst.setBeanPath(new BeanPath().name("on_job_status"));
+    return rst;
+  }
+
   public static Merchant merchant() {
     Merchant rst = new Merchant();
     rst.setModelTypeName("merchant");
@@ -168,6 +175,41 @@ public class MODEL {
     return rst;
   }
 
+  public static RepairingStatus repairingStatus() {
+    RepairingStatus rst = new RepairingStatus();
+    rst.setModelTypeName("repairing_status");
+    rst.setBeanPath(new BeanPath().name("repairing_status"));
+    return rst;
+  }
+
+  public static MaintenanceTaskType maintenanceTaskType() {
+    MaintenanceTaskType rst = new MaintenanceTaskType();
+    rst.setModelTypeName("maintenance_task_type");
+    rst.setBeanPath(new BeanPath().name("maintenance_task_type"));
+    return rst;
+  }
+
+  public static MaintenanceTaskStatus maintenanceTaskStatus() {
+    MaintenanceTaskStatus rst = new MaintenanceTaskStatus();
+    rst.setModelTypeName("maintenance_task_status");
+    rst.setBeanPath(new BeanPath().name("maintenance_task_status"));
+    return rst;
+  }
+
+  public static RegularPeriod regularPeriod() {
+    RegularPeriod rst = new RegularPeriod();
+    rst.setModelTypeName("regular_period");
+    rst.setBeanPath(new BeanPath().name("regular_period"));
+    return rst;
+  }
+
+  public static MachineStatus machineStatus() {
+    MachineStatus rst = new MachineStatus();
+    rst.setModelTypeName("machine_status");
+    rst.setBeanPath(new BeanPath().name("machine_status"));
+    return rst;
+  }
+
   public static Factory factory() {
     Factory rst = new Factory();
     rst.setModelTypeName("factory");
@@ -196,24 +238,10 @@ public class MODEL {
     return rst;
   }
 
-  public static RepairApplication repairApplication() {
-    RepairApplication rst = new RepairApplication();
-    rst.setModelTypeName("repair_application");
-    rst.setBeanPath(new BeanPath().name("repair_application"));
-    return rst;
-  }
-
-  public static RepairApplicationRecord repairApplicationRecord() {
-    RepairApplicationRecord rst = new RepairApplicationRecord();
-    rst.setModelTypeName("repair_application_record");
-    rst.setBeanPath(new BeanPath().name("repair_application_record"));
-    return rst;
-  }
-
-  public static RepairApplicationAuditRecord repairApplicationAuditRecord() {
-    RepairApplicationAuditRecord rst = new RepairApplicationAuditRecord();
-    rst.setModelTypeName("repair_application_audit_record");
-    rst.setBeanPath(new BeanPath().name("repair_application_audit_record"));
+  public static MachineRunningRecord machineRunningRecord() {
+    MachineRunningRecord rst = new MachineRunningRecord();
+    rst.setModelTypeName("machine_running_record");
+    rst.setBeanPath(new BeanPath().name("machine_running_record"));
     return rst;
   }
 
@@ -221,27 +249,6 @@ public class MODEL {
     RegularMaintainPlan rst = new RegularMaintainPlan();
     rst.setModelTypeName("regular_maintain_plan");
     rst.setBeanPath(new BeanPath().name("regular_maintain_plan"));
-    return rst;
-  }
-
-  public static MaintenanceTask maintenanceTask() {
-    MaintenanceTask rst = new MaintenanceTask();
-    rst.setModelTypeName("maintenance_task");
-    rst.setBeanPath(new BeanPath().name("maintenance_task"));
-    return rst;
-  }
-
-  public static MaintenanceTaskAuditRecord maintenanceTaskAuditRecord() {
-    MaintenanceTaskAuditRecord rst = new MaintenanceTaskAuditRecord();
-    rst.setModelTypeName("maintenance_task_audit_record");
-    rst.setBeanPath(new BeanPath().name("maintenance_task_audit_record"));
-    return rst;
-  }
-
-  public static MaintenanceTaskRecord maintenanceTaskRecord() {
-    MaintenanceTaskRecord rst = new MaintenanceTaskRecord();
-    rst.setModelTypeName("maintenance_task_record");
-    rst.setBeanPath(new BeanPath().name("maintenance_task_record"));
     return rst;
   }
 
@@ -259,31 +266,59 @@ public class MODEL {
     return rst;
   }
 
-  public static RepairingStatus repairingStatus() {
-    RepairingStatus rst = new RepairingStatus();
-    rst.setModelTypeName("repairing_status");
-    rst.setBeanPath(new BeanPath().name("repairing_status"));
+  public static FailureType failureType() {
+    FailureType rst = new FailureType();
+    rst.setModelTypeName("failure_type");
+    rst.setBeanPath(new BeanPath().name("failure_type"));
     return rst;
   }
 
-  public static MaintenanceTaskType maintenanceTaskType() {
-    MaintenanceTaskType rst = new MaintenanceTaskType();
-    rst.setModelTypeName("maintenance_task_type");
-    rst.setBeanPath(new BeanPath().name("maintenance_task_type"));
+  public static FailureBehave failureBehave() {
+    FailureBehave rst = new FailureBehave();
+    rst.setModelTypeName("failure_behave");
+    rst.setBeanPath(new BeanPath().name("failure_behave"));
     return rst;
   }
 
-  public static MaintenanceTaskStatus maintenanceTaskStatus() {
-    MaintenanceTaskStatus rst = new MaintenanceTaskStatus();
-    rst.setModelTypeName("maintenance_task_status");
-    rst.setBeanPath(new BeanPath().name("maintenance_task_status"));
+  public static RepairApplication repairApplication() {
+    RepairApplication rst = new RepairApplication();
+    rst.setModelTypeName("repair_application");
+    rst.setBeanPath(new BeanPath().name("repair_application"));
     return rst;
   }
 
-  public static RegularPeriod regularPeriod() {
-    RegularPeriod rst = new RegularPeriod();
-    rst.setModelTypeName("regular_period");
-    rst.setBeanPath(new BeanPath().name("regular_period"));
+  public static MaintenanceTask maintenanceTask() {
+    MaintenanceTask rst = new MaintenanceTask();
+    rst.setModelTypeName("maintenance_task");
+    rst.setBeanPath(new BeanPath().name("maintenance_task"));
+    return rst;
+  }
+
+  public static TaskAssignmentType taskAssignmentType() {
+    TaskAssignmentType rst = new TaskAssignmentType();
+    rst.setModelTypeName("task_assignment_type");
+    rst.setBeanPath(new BeanPath().name("task_assignment_type"));
+    return rst;
+  }
+
+  public static MaintenanceTaskAssignment maintenanceTaskAssignment() {
+    MaintenanceTaskAssignment rst = new MaintenanceTaskAssignment();
+    rst.setModelTypeName("maintenance_task_assignment");
+    rst.setBeanPath(new BeanPath().name("maintenance_task_assignment"));
+    return rst;
+  }
+
+  public static MaintenanceTaskAuditRecord maintenanceTaskAuditRecord() {
+    MaintenanceTaskAuditRecord rst = new MaintenanceTaskAuditRecord();
+    rst.setModelTypeName("maintenance_task_audit_record");
+    rst.setBeanPath(new BeanPath().name("maintenance_task_audit_record"));
+    return rst;
+  }
+
+  public static MaintenanceTaskRecord maintenanceTaskRecord() {
+    MaintenanceTaskRecord rst = new MaintenanceTaskRecord();
+    rst.setModelTypeName("maintenance_task_record");
+    rst.setBeanPath(new BeanPath().name("maintenance_task_record"));
     return rst;
   }
 
@@ -333,6 +368,13 @@ public class MODEL {
     EventEmployeeBasicInfo rst = new EventEmployeeBasicInfo();
     rst.setModelTypeName("event_employee_basic_info");
     rst.setBeanPath(new BeanPath().name("event_employee_basic_info"));
+    return rst;
+  }
+
+  public static EventBindMobile eventBindMobile() {
+    EventBindMobile rst = new EventBindMobile();
+    rst.setModelTypeName("event_bind_mobile");
+    rst.setBeanPath(new BeanPath().name("event_bind_mobile"));
     return rst;
   }
 

@@ -12,6 +12,28 @@ public class RepairApplication extends BaseModelBean {
 
   // 引用的对象
 
+  public FailureType failureType() {
+    FailureType member = new FailureType();
+    member.setModelTypeName("failure_type");
+    member.setName("failure_type");
+    member.setMemberName("failureType");
+    member.setReferDirection(true);
+    member.setRelationName("failureType");
+    append(member);
+    return member;
+  }
+
+  public MachineStatus machineStatus() {
+    MachineStatus member = new MachineStatus();
+    member.setModelTypeName("machine_status");
+    member.setName("machine_status");
+    member.setMemberName("machineStatus");
+    member.setReferDirection(true);
+    member.setRelationName("machineStatus");
+    append(member);
+    return member;
+  }
+
   public Machine machine() {
     Machine member = new Machine();
     member.setModelTypeName("machine");
@@ -30,17 +52,6 @@ public class RepairApplication extends BaseModelBean {
     member.setMemberName("submitter");
     member.setReferDirection(true);
     member.setRelationName("submitter");
-    append(member);
-    return member;
-  }
-
-  public Employee responsibleEmployee() {
-    Employee member = new Employee();
-    member.setModelTypeName("employee");
-    member.setName("responsible_employee");
-    member.setMemberName("responsibleEmployee");
-    member.setReferDirection(true);
-    member.setRelationName("responsibleEmployee");
     append(member);
     return member;
   }
@@ -69,28 +80,6 @@ public class RepairApplication extends BaseModelBean {
 
   // 被引用的对象
 
-  public RepairApplicationRecord repairApplicationRecordList() {
-    RepairApplicationRecord member = new RepairApplicationRecord();
-    member.setModelTypeName("repair_application_record");
-    member.setName("repair_application");
-    member.setMemberName("repairApplicationRecordList");
-    member.setRelationName("repairApplication");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public RepairApplicationAuditRecord repairApplicationAuditRecordList() {
-    RepairApplicationAuditRecord member = new RepairApplicationAuditRecord();
-    member.setModelTypeName("repair_application_audit_record");
-    member.setName("repair_application");
-    member.setMemberName("repairApplicationAuditRecordList");
-    member.setRelationName("repairApplication");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
   public MaintenanceTask maintenanceTaskList() {
     MaintenanceTask member = new MaintenanceTask();
     member.setModelTypeName("maintenance_task");
@@ -118,6 +107,24 @@ public class RepairApplication extends BaseModelBean {
     member.setModelTypeName("string");
     // member.setName("title");
     member.setName("title");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute failureTags() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("failureTags");
+    member.setName("failure_tags");
+    useMember(member);
+    return member;
+  }
+
+  public DateTimeAttribute appointment() {
+    DateTimeAttribute member = new DateTimeAttribute();
+    member.setModelTypeName("date_time");
+    // member.setName("appointment");
+    member.setName("appointment");
     useMember(member);
     return member;
   }
@@ -154,15 +161,6 @@ public class RepairApplication extends BaseModelBean {
     member.setModelTypeName("string_document");
     // member.setName("attachment");
     member.setName("attachment");
-    useMember(member);
-    return member;
-  }
-
-  public DateTimeAttribute appointment() {
-    DateTimeAttribute member = new DateTimeAttribute();
-    member.setModelTypeName("date_time");
-    // member.setName("appointment");
-    member.setName("appointment");
     useMember(member);
     return member;
   }

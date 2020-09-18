@@ -4,32 +4,43 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class MaintenanceTaskRecord extends BaseModelBean {
+public class MachineRunningRecord extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.repairchain.maintenancetaskrecord.MaintenanceTaskRecord";
+    return "com.doublechaintech.repairchain.machinerunningrecord.MachineRunningRecord";
   }
   // 枚举对象
 
   // 引用的对象
 
-  public Employee executor() {
-    Employee member = new Employee();
-    member.setModelTypeName("employee");
-    member.setName("executor");
-    member.setMemberName("executor");
+  public Machine machine() {
+    Machine member = new Machine();
+    member.setModelTypeName("machine");
+    member.setName("machine");
+    member.setMemberName("machine");
     member.setReferDirection(true);
-    member.setRelationName("executor");
+    member.setRelationName("machine");
     append(member);
     return member;
   }
 
-  public MaintenanceTask task() {
-    MaintenanceTask member = new MaintenanceTask();
-    member.setModelTypeName("maintenance_task");
-    member.setName("task");
-    member.setMemberName("task");
+  public MachineStatus machineStatus() {
+    MachineStatus member = new MachineStatus();
+    member.setModelTypeName("machine_status");
+    member.setName("machine_status");
+    member.setMemberName("machineStatus");
     member.setReferDirection(true);
-    member.setRelationName("task");
+    member.setRelationName("machineStatus");
+    append(member);
+    return member;
+  }
+
+  public Employee submitter() {
+    Employee member = new Employee();
+    member.setModelTypeName("employee");
+    member.setName("submitter");
+    member.setMemberName("submitter");
+    member.setReferDirection(true);
+    member.setRelationName("submitter");
     append(member);
     return member;
   }
@@ -43,24 +54,6 @@ public class MaintenanceTaskRecord extends BaseModelBean {
     member.setModelTypeName("string");
     // member.setName("id");
     member.setName("id");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute reason() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string_longtext");
-    // member.setName("reason");
-    member.setName("reason");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute treatment() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string_longtext");
-    // member.setName("treatment");
-    member.setName("treatment");
     useMember(member);
     return member;
   }

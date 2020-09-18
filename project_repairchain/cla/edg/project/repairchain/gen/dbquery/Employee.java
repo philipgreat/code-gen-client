@@ -23,6 +23,17 @@ public class Employee extends BaseModelBean {
     return member;
   }
 
+  public PersonalUser personalUser() {
+    PersonalUser member = new PersonalUser();
+    member.setModelTypeName("personal_user");
+    member.setName("personal_user");
+    member.setMemberName("personalUser");
+    member.setReferDirection(true);
+    member.setRelationName("personalUser");
+    append(member);
+    return member;
+  }
+
   public Factory factory() {
     Factory member = new Factory();
     member.setModelTypeName("factory");
@@ -30,6 +41,17 @@ public class Employee extends BaseModelBean {
     member.setMemberName("factory");
     member.setReferDirection(true);
     member.setRelationName("factory");
+    append(member);
+    return member;
+  }
+
+  public OnJobStatus status() {
+    OnJobStatus member = new OnJobStatus();
+    member.setModelTypeName("on_job_status");
+    member.setName("status");
+    member.setMemberName("status");
+    member.setReferDirection(true);
+    member.setRelationName("status");
     append(member);
     return member;
   }
@@ -80,34 +102,12 @@ public class Employee extends BaseModelBean {
     return member;
   }
 
-  public RepairApplication repairApplicationListAsSubmitter() {
-    RepairApplication member = new RepairApplication();
-    member.setModelTypeName("repair_application");
+  public MachineRunningRecord machineRunningRecordList() {
+    MachineRunningRecord member = new MachineRunningRecord();
+    member.setModelTypeName("machine_running_record");
     member.setName("submitter");
-    member.setMemberName("repairApplicationListAsSubmitter");
+    member.setMemberName("machineRunningRecordList");
     member.setRelationName("submitter");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public RepairApplication repairApplicationListAsResponsibleEmployee() {
-    RepairApplication member = new RepairApplication();
-    member.setModelTypeName("repair_application");
-    member.setName("responsible_employee");
-    member.setMemberName("repairApplicationListAsResponsibleEmployee");
-    member.setRelationName("submitter");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public RepairApplicationAuditRecord repairApplicationAuditRecordList() {
-    RepairApplicationAuditRecord member = new RepairApplicationAuditRecord();
-    member.setModelTypeName("repair_application_audit_record");
-    member.setName("reviewer");
-    member.setMemberName("repairApplicationAuditRecordList");
-    member.setRelationName("reviewer");
     member.setReferDirection(false);
     append(member);
     return member;
@@ -119,28 +119,6 @@ public class Employee extends BaseModelBean {
     member.setName("creator");
     member.setMemberName("regularMaintainPlanList");
     member.setRelationName("creator");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public MaintenanceTask maintenanceTaskList() {
-    MaintenanceTask member = new MaintenanceTask();
-    member.setModelTypeName("maintenance_task");
-    member.setName("responsible_employee");
-    member.setMemberName("maintenanceTaskList");
-    member.setRelationName("responsibleEmployee");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public MaintenanceTaskAuditRecord maintenanceTaskAuditRecordList() {
-    MaintenanceTaskAuditRecord member = new MaintenanceTaskAuditRecord();
-    member.setModelTypeName("maintenance_task_audit_record");
-    member.setName("reviewer");
-    member.setMemberName("maintenanceTaskAuditRecordList");
-    member.setRelationName("reviewer");
     member.setReferDirection(false);
     append(member);
     return member;
@@ -168,6 +146,50 @@ public class Employee extends BaseModelBean {
     return member;
   }
 
+  public RepairApplication repairApplicationList() {
+    RepairApplication member = new RepairApplication();
+    member.setModelTypeName("repair_application");
+    member.setName("submitter");
+    member.setMemberName("repairApplicationList");
+    member.setRelationName("submitter");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public MaintenanceTaskAssignment maintenanceTaskAssignmentList() {
+    MaintenanceTaskAssignment member = new MaintenanceTaskAssignment();
+    member.setModelTypeName("maintenance_task_assignment");
+    member.setName("employee");
+    member.setMemberName("maintenanceTaskAssignmentList");
+    member.setRelationName("employee");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public MaintenanceTaskAuditRecord maintenanceTaskAuditRecordList() {
+    MaintenanceTaskAuditRecord member = new MaintenanceTaskAuditRecord();
+    member.setModelTypeName("maintenance_task_audit_record");
+    member.setName("reviewer");
+    member.setMemberName("maintenanceTaskAuditRecordList");
+    member.setRelationName("reviewer");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public MaintenanceTaskRecord maintenanceTaskRecordList() {
+    MaintenanceTaskRecord member = new MaintenanceTaskRecord();
+    member.setModelTypeName("maintenance_task_record");
+    member.setName("executor");
+    member.setMemberName("maintenanceTaskRecordList");
+    member.setRelationName("executor");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {
@@ -184,6 +206,15 @@ public class Employee extends BaseModelBean {
     member.setModelTypeName("string");
     // member.setName("title");
     member.setName("title");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute mobile() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string_china_mobile_phone");
+    // member.setName("mobile");
+    member.setName("mobile");
     useMember(member);
     return member;
   }

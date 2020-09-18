@@ -4,23 +4,20 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class AuditResult extends BaseModelBean {
+public class OnJobStatus extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.repairchain.auditresult.AuditResult";
+    return "com.doublechaintech.repairchain.onjobstatus.OnJobStatus";
   }
   // 枚举对象
-  public static EnumAttribute PASS =
-      new EnumAttribute("com.doublechaintech.repairchain.auditresult.AuditResult", "PASS")
-          .chineseName("通过");
-  public static EnumAttribute PENDING =
-      new EnumAttribute("com.doublechaintech.repairchain.auditresult.AuditResult", "PENDING")
-          .chineseName("待完善");
-  public static EnumAttribute REJECT =
-      new EnumAttribute("com.doublechaintech.repairchain.auditresult.AuditResult", "REJECT")
-          .chineseName("不通过");
+  public static EnumAttribute ACTIVE =
+      new EnumAttribute("com.doublechaintech.repairchain.onjobstatus.OnJobStatus", "ACTIVE")
+          .chineseName("在职");
+  public static EnumAttribute INACTIVE =
+      new EnumAttribute("com.doublechaintech.repairchain.onjobstatus.OnJobStatus", "INACTIVE")
+          .chineseName("离职");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {PASS, PENDING, REJECT};
+    return new EnumAttribute[] {ACTIVE, INACTIVE};
   }
 
   // 引用的对象
@@ -38,12 +35,12 @@ public class AuditResult extends BaseModelBean {
 
   // 被引用的对象
 
-  public MaintenanceTaskAuditRecord maintenanceTaskAuditRecordList() {
-    MaintenanceTaskAuditRecord member = new MaintenanceTaskAuditRecord();
-    member.setModelTypeName("maintenance_task_audit_record");
-    member.setName("result");
-    member.setMemberName("maintenanceTaskAuditRecordList");
-    member.setRelationName("result");
+  public Employee employeeList() {
+    Employee member = new Employee();
+    member.setModelTypeName("employee");
+    member.setName("status");
+    member.setMemberName("employeeList");
+    member.setRelationName("status");
     member.setReferDirection(false);
     append(member);
     return member;
