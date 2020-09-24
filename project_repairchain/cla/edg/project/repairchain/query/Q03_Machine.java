@@ -30,6 +30,7 @@ public class Q03_Machine extends PieceOfScript {
                         )
                         .order_by(MODEL.machine().id()).desc()
 
+
                 ;
     }
 

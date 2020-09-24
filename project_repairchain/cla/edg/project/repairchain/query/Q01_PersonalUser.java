@@ -56,6 +56,14 @@ public class Q01_PersonalUser extends PieceOfScript {
                                 MODEL.employee().mobile().eq("${mobile}"),
                                 MODEL.employee().status().code().eq(OnJobStatus.ACTIVE))
 
+                    .query(MODEL.employee()).list_of("user acting").with_string("user id")
+                        .comments("找到当前用户担任的职位")
+                        .do_it_as()
+                        .where(MODEL.employee().personalUser().eq("${user id}"),
+                                MODEL.employee().status().code().eq(OnJobStatus.ACTIVE))
+
+
+
                 ;
     }
 }

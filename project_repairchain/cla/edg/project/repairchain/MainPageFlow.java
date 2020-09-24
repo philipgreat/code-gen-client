@@ -25,10 +25,13 @@ public class MainPageFlow extends PageFlowBuilder {
                 .import_from(new P02_CrRequestFixing())
                 .import_from(new P03_PersonalUser())
                 .import_from(new P04_Machine())
+                .import_from(new P05_WorkJobs())
 
                 .import_from(new Q01_PersonalUser())
                 .import_from(new Q02_Factory())
                 .import_from(new Q03_Machine())
+                .import_from(new Q04_Task())
+                .import_from(new Q05_QrCode())
             ;
     }
 }

@@ -3,10 +3,10 @@ package cla.edg.project.repairchain.workprocessor;
 import cla.poc.workflow.WorkProcessorBuilder;
 import cla.poc.workflow.WorkProcessorScript;
 
-public class WP01_RepairApplication implements WorkProcessorScript {
+public class WP01_MaintainenceWork implements WorkProcessorScript {
     @Override
     public WorkProcessorBuilder makeSequel(WorkProcessorBuilder builder) {
-        return builder.processing("repair application").zh_CN("报修单处理流程")
+        return builder.processing("maintenance work").zh_CN("工单处理流程")
                 .once_started().go_to("need process")
 
             .in_status("need process").zh_CN("待处理")
@@ -15,6 +15,8 @@ public class WP01_RepairApplication implements WorkProcessorScript {
                 .comments("这些人都会收到一个 TODO_TASK. TODO_TASK 要求自动发送通知, 所以这些人都会收到通知")
                 .comments("同时计算一个超时+提醒时间, 如果时间到了, 还需要处理条件 escalation 的对应事件:")
                 .comments("escalation: 之前的TODO_TASK都撤销, 标记升级")
+                .on_event("transfer").zh_CN("转单")
+                    .when_success().reach_condition("transferred")
                 .on_event("timeout").zh_CN("超时")
                     .when("has higher employee").zh_CN("有上级").reach_condition("escalation")
                     .when("no higher employee").zh_CN("没有上级").go_to("intervention manually")
@@ -23,6 +25,7 @@ public class WP01_RepairApplication implements WorkProcessorScript {
                     .when_success().go_to("submitted")
 
                 .when_condition("escalation").zh_CN("紧急程度提升").go_to("need process")
+                .when_condition("transferred").zh_CN("工单转移了").stay_here()
 
                 .as_role("line worker").zh_CN("操作工").can_do_nothing()
                 .as_role("line leader").zh_CN("生产经理").can_do("review application")

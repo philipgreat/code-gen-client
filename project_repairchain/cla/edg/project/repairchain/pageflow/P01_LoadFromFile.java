@@ -17,6 +17,9 @@ public class P01_LoadFromFile extends PieceOfScript {
                     .for_request("view agency machine")
                         .reset_params().with_string("machine id")
 
+                    .for_request("view work factory detail")
+                        .reset_params().with_string("factory id")
+
 
                 ;
     }

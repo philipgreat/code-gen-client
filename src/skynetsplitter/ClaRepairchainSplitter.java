@@ -41,6 +41,7 @@ public class ClaRepairchainSplitter {
         }
         if (mode.equals("java")) {
             run(new JavaTask());
+            run(new PrepareDBQueryScriptTask());
         }
         if (mode.equals("form")) {
             run(new UiFormTask());

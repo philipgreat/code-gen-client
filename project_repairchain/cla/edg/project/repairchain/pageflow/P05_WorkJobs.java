@@ -3,7 +3,7 @@ package cla.edg.project.repairchain.pageflow;
 import cla.edg.pageflow.PageFlowScript;
 import cla.edg.pageflow.PieceOfScript;
 
-public class P04_Machine extends PieceOfScript {
+public class P05_WorkJobs extends PieceOfScript {
     public PageFlowScript makeSequel(PageFlowScript script) {
             return script
                 .for_request("view worker machine detail")
@@ -19,22 +19,20 @@ public class P04_Machine extends PieceOfScript {
                     .with_string("tab name")
                     .with_last_record_id()
 
-                .for_request("view machine task list")
-                    .reset_params().with_string("machine id")
-                    .with_string("tab name")
-                    .with_last_record_id()
-
-                .for_request("view machine list")
-                    .reset_params()
-                    .with_string("agent id")
-                    .with_string("factory id")
-                    .with_string("tab name")
-                    .with_last_record_id()
-
                 .for_request("report machine on")
                     .with_string("machine id")
                 .for_request("report machine off")
                     .with_string("machine id")
+
+                .for_request("submit cr repairing audit")
+                    .reset_params()
+                    .with_string("work job id")
+                    .with_string("scene code")
+
+                .for_request("submit cr update repair application")
+                    .reset_params()
+                    .with_string("work job id")
+                    .with_string("application id")
                     ;
     }
 }

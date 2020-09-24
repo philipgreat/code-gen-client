@@ -25,22 +25,18 @@ public class P03_PersonalUser extends PieceOfScript {
                         .with_string("tab name")
                         .with_last_record_id()
 
-                    .for_request("view agency employee list")
+                    .for_request("view employee list")
                         .reset_params()
                         .with_string("agent id")
                         .with_string("factory id")
                         .with_string("tab name")
                         .with_last_record_id()
 
-                    .for_request("view agency machine list")
+                    .for_request("view user task list")
                         .reset_params()
-                        .with_string("agent id")
                         .with_string("factory id")
                         .with_string("tab name")
                         .with_last_record_id()
-
-
-
 
                     ;
     }
