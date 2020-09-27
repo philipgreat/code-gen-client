@@ -102,6 +102,17 @@ public class Machine extends BaseModelBean {
     return member;
   }
 
+  public MaintenanceTask maintenanceTaskList() {
+    MaintenanceTask member = new MaintenanceTask();
+    member.setModelTypeName("maintenance_task");
+    member.setName("machine");
+    member.setMemberName("maintenanceTaskList");
+    member.setRelationName("machine");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

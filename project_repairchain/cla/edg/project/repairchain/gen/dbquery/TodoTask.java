@@ -45,6 +45,24 @@ public class TodoTask extends BaseModelBean {
     return member;
   }
 
+  public StringAttribute type() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("type");
+    member.setName("type");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute image() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string_image");
+    // member.setName("image");
+    member.setName("image");
+    useMember(member);
+    return member;
+  }
+
   public BooleanAttribute finished() {
     BooleanAttribute member = new BooleanAttribute();
     member.setModelTypeName("bool");

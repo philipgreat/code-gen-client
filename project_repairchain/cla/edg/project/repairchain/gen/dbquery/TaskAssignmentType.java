@@ -34,9 +34,15 @@ public class TaskAssignmentType extends BaseModelBean {
               "com.doublechaintech.repairchain.taskassignmenttype.TaskAssignmentType",
               "NEED_UPDATE")
           .chineseName("待修改");
+  public static EnumAttribute CANCELLED =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.taskassignmenttype.TaskAssignmentType", "CANCELLED")
+          .chineseName("取消");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {NEED_REVIEW, NEED_ACCEPT, NEED_PROCESS, NEED_CONFIRM, NEED_UPDATE};
+    return new EnumAttribute[] {
+      NEED_REVIEW, NEED_ACCEPT, NEED_PROCESS, NEED_CONFIRM, NEED_UPDATE, CANCELLED
+    };
   }
 
   // 引用的对象

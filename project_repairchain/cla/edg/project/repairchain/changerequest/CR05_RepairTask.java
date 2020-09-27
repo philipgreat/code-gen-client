@@ -38,7 +38,7 @@ public class CR05_RepairTask implements ChangeRequestSpecFactory {
                         .has_field("fault type").zh_CN("故障类别")
                             .which_model_of(MODEL.failureType())
                             .values_can_select_from_query_by(null)
-                        .has_field("fault tags").zh_CN("故障现象")
+                        .has_field("fault tags").zh_CN("故障特征")
                             .which_model_of(MODEL.failureBehave())
                             .values_can_check_from_query_by(null)
                             .range(0,1000)
@@ -69,8 +69,8 @@ public class CR05_RepairTask implements ChangeRequestSpecFactory {
                     .contains_event("machine info")
                     .contains_event("fault info").zh_CN("故障信息")
 
-                .change_request("repairing audit").zh_CN("任务审核")
-                    .step("step 1").zh_CN("审核意见")
+                .change_request("application audit").zh_CN("任务审核")
+                    .step("A").zh_CN("审核意见")
                     .contains_event("review result")
                         .has_field("review type")
                             .fill_by_request("scene code")
@@ -82,13 +82,46 @@ public class CR05_RepairTask implements ChangeRequestSpecFactory {
                             .fill_by_request("work job id")
                             .disabled()
                         .has_field("review result").zh_CN("审核意见")
-                            .values_canbe("pass", "同意").or("fail", "待完善").or("cannot_repair", "无法维修")
+                            .values_canbe("pass", "同意").or("fail", "待完善")
                             .defaule_value("pass")
                         .has_field("comments").zh_CN("批注")
                             .which_type_of(FieldType.MULTI_TEXT).optional()
                             .place_holder("请填写批注")
                             .tips_title("?")
                             .tips_content("如果审核不通过,请注明原因")
+                        .has_field("send to").zh_CN("维修主管")
+                            .which_model_of(MODEL.employee()).optional()
+                            .values_can_select_from_query_by("${task id}")
+                            .tips_title("通过时需要")
+                            .tips_content("如果审核不通过,系统会自动选择责任人; 如果通过,请选择维修负责人")
+
+                .change_request("assign worker").zh_CN("分派维修工")
+                    .step("A").zh_CN("审核意见")
+                    .contains_event("assign worker")
+                        .has_field("task id").zh_CN("工单")
+                            .fill_by_request("work job id")
+                            .disabled()
+                        .has_field("task title").zh_CN("工单")
+                            .fill_by_request("work job id", MODEL.maintenanceTask().title())
+                            .display()
+                        .has_field("review result").zh_CN("审核意见")
+                            .values_canbe("pass", "同意派单").or("fail", "待完善").or("cannot_repair", "无法维修")
+                            .defaule_value("pass")
+                        .has_field("assign to").zh_CN("维修人员")
+                            .which_model_of(MODEL.employee()).optional()
+                            .values_can_check_from_query_by("${task id}")
+                        .has_field("comments").zh_CN("批注")
+                            .which_type_of(FieldType.MULTI_TEXT).optional()
+                            .place_holder("请填写批注")
+
+
+                .change_request("confirm work").zh_CN("接单")
+                    .step("A").zh_CN("接单")
+                    .contains_event("work job confirmation")
+                        .has_field("task id").zh_CN("工单").range(1, 48)
+                        .has_field("confirm type").zh_CN("确认类型")
+                            .values_canbe("accept","接单").or("start","开始维修").or("finish", "修理完成")
+
 
 
 
@@ -113,6 +146,20 @@ public class CR05_RepairTask implements ChangeRequestSpecFactory {
 
                 .change_request("update plan job").zh_CN("更新任务")
                     .contains_event("bind info")
+
+
+
+                .change_request("work record").zh_CN("更新任务")
+                    .contains_event("bind info")
+
+                .change_request("audit repair").zh_CN("更新任务")
+                    .contains_event("bind info")
+
+                .change_request("report damage").zh_CN("报告损毁")
+                    .contains_event("bind info")
+
+
+
                 ;
     }
 

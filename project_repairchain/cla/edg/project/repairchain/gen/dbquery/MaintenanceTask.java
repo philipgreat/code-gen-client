@@ -56,6 +56,39 @@ public class MaintenanceTask extends BaseModelBean {
     return member;
   }
 
+  public Machine machine() {
+    Machine member = new Machine();
+    member.setModelTypeName("machine");
+    member.setName("machine");
+    member.setMemberName("machine");
+    member.setReferDirection(true);
+    member.setRelationName("machine");
+    append(member);
+    return member;
+  }
+
+  public Factory factory() {
+    Factory member = new Factory();
+    member.setModelTypeName("factory");
+    member.setName("factory");
+    member.setMemberName("factory");
+    member.setReferDirection(true);
+    member.setRelationName("factory");
+    append(member);
+    return member;
+  }
+
+  public ChangeRequest changeRequest() {
+    ChangeRequest member = new ChangeRequest();
+    member.setModelTypeName("change_request");
+    member.setName("change_request");
+    member.setMemberName("changeRequest");
+    member.setReferDirection(true);
+    member.setRelationName("changeRequest");
+    append(member);
+    return member;
+  }
+
   // 被引用的对象
 
   public MaintenanceTaskReview maintenanceTaskReviewList() {
@@ -102,11 +135,11 @@ public class MaintenanceTask extends BaseModelBean {
     return member;
   }
 
-  public MaintenanceTaskRecord maintenanceTaskRecordList() {
-    MaintenanceTaskRecord member = new MaintenanceTaskRecord();
-    member.setModelTypeName("maintenance_task_record");
+  public MaintenanceTaskTreatment maintenanceTaskTreatmentList() {
+    MaintenanceTaskTreatment member = new MaintenanceTaskTreatment();
+    member.setModelTypeName("maintenance_task_treatment");
     member.setName("task");
-    member.setMemberName("maintenanceTaskRecordList");
+    member.setMemberName("maintenanceTaskTreatmentList");
     member.setRelationName("task");
     member.setReferDirection(false);
     append(member);

@@ -12,7 +12,7 @@ public class P03_PersonalUser extends PieceOfScript {
                     .for_request("view agent dashboard")
                         .with_string("agent id")
 
-                    .for_request("view worker dashboard")
+                    .for_request("view factory dashboard")
                         .with_string("factory id")
 
                     .for_request("view agency factory list")

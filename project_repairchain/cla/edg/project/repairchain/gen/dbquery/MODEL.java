@@ -280,6 +280,13 @@ public class MODEL {
     return rst;
   }
 
+  public static ClassicFailureBehaveTreatment classicFailureBehaveTreatment() {
+    ClassicFailureBehaveTreatment rst = new ClassicFailureBehaveTreatment();
+    rst.setModelTypeName("classic_failure_behave_treatment");
+    rst.setBeanPath(new BeanPath().name("classic_failure_behave_treatment"));
+    return rst;
+  }
+
   public static RepairApplication repairApplication() {
     RepairApplication rst = new RepairApplication();
     rst.setModelTypeName("repair_application");
@@ -291,13 +298,6 @@ public class MODEL {
     MaintenanceTask rst = new MaintenanceTask();
     rst.setModelTypeName("maintenance_task");
     rst.setBeanPath(new BeanPath().name("maintenance_task"));
-    return rst;
-  }
-
-  public static TaskAssignmentType taskAssignmentType() {
-    TaskAssignmentType rst = new TaskAssignmentType();
-    rst.setModelTypeName("task_assignment_type");
-    rst.setBeanPath(new BeanPath().name("task_assignment_type"));
     return rst;
   }
 
@@ -315,10 +315,10 @@ public class MODEL {
     return rst;
   }
 
-  public static MaintenanceTaskRecord maintenanceTaskRecord() {
-    MaintenanceTaskRecord rst = new MaintenanceTaskRecord();
-    rst.setModelTypeName("maintenance_task_record");
-    rst.setBeanPath(new BeanPath().name("maintenance_task_record"));
+  public static MaintenanceTaskTreatment maintenanceTaskTreatment() {
+    MaintenanceTaskTreatment rst = new MaintenanceTaskTreatment();
+    rst.setModelTypeName("maintenance_task_treatment");
+    rst.setBeanPath(new BeanPath().name("maintenance_task_treatment"));
     return rst;
   }
 
@@ -382,6 +382,41 @@ public class MODEL {
     EventBindInfo rst = new EventBindInfo();
     rst.setModelTypeName("event_bind_info");
     rst.setBeanPath(new BeanPath().name("event_bind_info"));
+    return rst;
+  }
+
+  public static EventMachineInfo eventMachineInfo() {
+    EventMachineInfo rst = new EventMachineInfo();
+    rst.setModelTypeName("event_machine_info");
+    rst.setBeanPath(new BeanPath().name("event_machine_info"));
+    return rst;
+  }
+
+  public static EventFaultInfo eventFaultInfo() {
+    EventFaultInfo rst = new EventFaultInfo();
+    rst.setModelTypeName("event_fault_info");
+    rst.setBeanPath(new BeanPath().name("event_fault_info"));
+    return rst;
+  }
+
+  public static EventReviewResult eventReviewResult() {
+    EventReviewResult rst = new EventReviewResult();
+    rst.setModelTypeName("event_review_result");
+    rst.setBeanPath(new BeanPath().name("event_review_result"));
+    return rst;
+  }
+
+  public static EventAssignWorker eventAssignWorker() {
+    EventAssignWorker rst = new EventAssignWorker();
+    rst.setModelTypeName("event_assign_worker");
+    rst.setBeanPath(new BeanPath().name("event_assign_worker"));
+    return rst;
+  }
+
+  public static EventWorkJobConfirmation eventWorkJobConfirmation() {
+    EventWorkJobConfirmation rst = new EventWorkJobConfirmation();
+    rst.setModelTypeName("event_work_job_confirmation");
+    rst.setBeanPath(new BeanPath().name("event_work_job_confirmation"));
     return rst;
   }
 

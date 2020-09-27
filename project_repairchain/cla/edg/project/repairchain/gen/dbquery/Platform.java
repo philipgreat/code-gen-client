@@ -333,28 +333,6 @@ public class Platform extends BaseModelBean {
     return member;
   }
 
-  public RepairApplication repairApplicationList() {
-    RepairApplication member = new RepairApplication();
-    member.setModelTypeName("repair_application");
-    member.setName("platform");
-    member.setMemberName("repairApplicationList");
-    member.setRelationName("platform");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public TaskAssignmentType taskAssignmentTypeList() {
-    TaskAssignmentType member = new TaskAssignmentType();
-    member.setModelTypeName("task_assignment_type");
-    member.setName("platform");
-    member.setMemberName("taskAssignmentTypeList");
-    member.setRelationName("platform");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
   public ChangeRequestType changeRequestTypeList() {
     ChangeRequestType member = new ChangeRequestType();
     member.setModelTypeName("change_request_type");

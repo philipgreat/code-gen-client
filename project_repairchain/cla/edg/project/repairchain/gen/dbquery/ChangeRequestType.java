@@ -9,6 +9,10 @@ public class ChangeRequestType extends BaseModelBean {
     return "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType";
   }
   // 枚举对象
+  public static EnumAttribute AUDIT_REPAIR =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType", "AUDIT_REPAIR")
+          .chineseName("更新任务");
   public static EnumAttribute START_PLAN_JOB =
       new EnumAttribute(
               "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
@@ -39,15 +43,24 @@ public class ChangeRequestType extends BaseModelBean {
               "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
               "UPDATE_FACTORY")
           .chineseName("更新工厂信息");
-  public static EnumAttribute REPAIRING_AUDIT =
-      new EnumAttribute(
-              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
-              "REPAIRING_AUDIT")
-          .chineseName("任务审核");
   public static EnumAttribute ADD_PLAN_JOB =
       new EnumAttribute(
               "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType", "ADD_PLAN_JOB")
           .chineseName("新建计划任务");
+  public static EnumAttribute APPLICATION_AUDIT =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
+              "APPLICATION_AUDIT")
+          .chineseName("任务审核");
+  public static EnumAttribute WORK_RECORD =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType", "WORK_RECORD")
+          .chineseName("更新任务");
+  public static EnumAttribute ASSIGN_WORKER =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
+              "ASSIGN_WORKER")
+          .chineseName("分派维修工");
   public static EnumAttribute ADD_FACTORY =
       new EnumAttribute(
               "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType", "ADD_FACTORY")
@@ -72,6 +85,11 @@ public class ChangeRequestType extends BaseModelBean {
               "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
               "QRCODE_BIND_MACHINE")
           .chineseName("绑定设备");
+  public static EnumAttribute REPORT_DAMAGE =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
+              "REPORT_DAMAGE")
+          .chineseName("报告损毁");
   public static EnumAttribute MACHINE_BIND_QRCODE =
       new EnumAttribute(
               "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
@@ -97,6 +115,10 @@ public class ChangeRequestType extends BaseModelBean {
               "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
               "CANCEL_PLAN_JOB")
           .chineseName("取消任务");
+  public static EnumAttribute CONFIRM_WORK =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType", "CONFIRM_WORK")
+          .chineseName("接单");
   public static EnumAttribute UNBOUND =
       new EnumAttribute(
               "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType", "UNBOUND")
@@ -104,24 +126,29 @@ public class ChangeRequestType extends BaseModelBean {
 
   public EnumAttribute[] getEnumNameList() {
     return new EnumAttribute[] {
+      AUDIT_REPAIR,
       START_PLAN_JOB,
       REPAIRING_FEEDBACK,
       UPDATE_PLAN_JOB,
       REPAIRING_REPORT,
       REPAIR_APPLICATION,
       UPDATE_FACTORY,
-      REPAIRING_AUDIT,
       ADD_PLAN_JOB,
+      APPLICATION_AUDIT,
+      WORK_RECORD,
+      ASSIGN_WORKER,
       ADD_FACTORY,
       UPDATE_REPAIR_APPLICATION,
       APPOINTMENT_APPLICATION,
       ADD_MACHINE_BY_AGENT,
       QRCODE_BIND_MACHINE,
+      REPORT_DAMAGE,
       MACHINE_BIND_QRCODE,
       ADD_EMPLOYEE_BY_AGENT,
       DEMO_ALL_FIELD,
       BIND_WITH_MOBILE,
       CANCEL_PLAN_JOB,
+      CONFIRM_WORK,
       UNBOUND
     };
   }

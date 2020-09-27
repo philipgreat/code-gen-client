@@ -72,6 +72,17 @@ public class MachineStatus extends BaseModelBean {
     return member;
   }
 
+  public EventFaultInfo eventFaultInfoList() {
+    EventFaultInfo member = new EventFaultInfo();
+    member.setModelTypeName("event_fault_info");
+    member.setName("machine_state");
+    member.setMemberName("eventFaultInfoList");
+    member.setRelationName("machineState");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

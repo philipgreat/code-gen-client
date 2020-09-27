@@ -12,9 +12,14 @@ public class WorkPosition extends BaseModelBean {
   public static EnumAttribute ADMIN =
       new EnumAttribute("com.doublechaintech.repairchain.workposition.WorkPosition", "ADMIN")
           .chineseName("管理员");
-  public static EnumAttribute MANAGER =
-      new EnumAttribute("com.doublechaintech.repairchain.workposition.WorkPosition", "MANAGER")
-          .chineseName("主管");
+  public static EnumAttribute OPERATION_MANAGER =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.workposition.WorkPosition", "OPERATION_MANAGER")
+          .chineseName("生产主管");
+  public static EnumAttribute MAINTENANCE_MANAGER =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.workposition.WorkPosition", "MAINTENANCE_MANAGER")
+          .chineseName("维修主管");
   public static EnumAttribute MAINTENANCE_WORKER =
       new EnumAttribute(
               "com.doublechaintech.repairchain.workposition.WorkPosition", "MAINTENANCE_WORKER")
@@ -25,7 +30,9 @@ public class WorkPosition extends BaseModelBean {
           .chineseName("操作工");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {ADMIN, MANAGER, MAINTENANCE_WORKER, OPERATION_WORKER};
+    return new EnumAttribute[] {
+      ADMIN, OPERATION_MANAGER, MAINTENANCE_MANAGER, MAINTENANCE_WORKER, OPERATION_WORKER
+    };
   }
 
   // 引用的对象

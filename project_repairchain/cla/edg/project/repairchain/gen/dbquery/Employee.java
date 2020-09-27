@@ -179,12 +179,34 @@ public class Employee extends BaseModelBean {
     return member;
   }
 
-  public MaintenanceTaskRecord maintenanceTaskRecordList() {
-    MaintenanceTaskRecord member = new MaintenanceTaskRecord();
-    member.setModelTypeName("maintenance_task_record");
+  public MaintenanceTaskTreatment maintenanceTaskTreatmentList() {
+    MaintenanceTaskTreatment member = new MaintenanceTaskTreatment();
+    member.setModelTypeName("maintenance_task_treatment");
     member.setName("executor");
-    member.setMemberName("maintenanceTaskRecordList");
+    member.setMemberName("maintenanceTaskTreatmentList");
     member.setRelationName("executor");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventFaultInfo eventFaultInfoList() {
+    EventFaultInfo member = new EventFaultInfo();
+    member.setModelTypeName("event_fault_info");
+    member.setName("send_to");
+    member.setMemberName("eventFaultInfoList");
+    member.setRelationName("sendTo");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventReviewResult eventReviewResultList() {
+    EventReviewResult member = new EventReviewResult();
+    member.setModelTypeName("event_review_result");
+    member.setName("send_to");
+    member.setMemberName("eventReviewResultList");
+    member.setRelationName("sendTo");
     member.setReferDirection(false);
     append(member);
     return member;

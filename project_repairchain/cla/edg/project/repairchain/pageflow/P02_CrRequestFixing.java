@@ -23,8 +23,29 @@ public class P02_CrRequestFixing extends PieceOfScript {
                 .for_change_request("unbound")
                     .with_string("machine id")
 
-                .for_request("submit cr add factory")
+                .for_change_request("add factory")
                     .with_string("agent id")
+
+                .for_change_request("assign worker")
+                    .reset_params()
+                    .with_string("work job id")
+
+                .for_change_request("application audit")
+                    .reset_params()
+                    .with_string("work job id")
+                    .with_string("scene code")
+
+                .for_change_request("update repair application")
+                    .reset_params()
+                    .with_string("work job id")
+                    .with_string("application id")
+
+                .for_change_request("work record")
+                    .reset_params()
+                    .with_string("work job id")
+
+                .for_change_request("report damage")
+                    .reset_params().with_string("work job id")
                     ;
     }
 }

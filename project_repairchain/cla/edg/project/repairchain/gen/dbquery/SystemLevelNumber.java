@@ -9,14 +9,36 @@ public class SystemLevelNumber extends BaseModelBean {
     return "com.doublechaintech.repairchain.systemlevelnumber.SystemLevelNumber";
   }
   // 枚举对象
-  public static EnumAttribute UPPER_REWARD_RATE =
+  public static EnumAttribute REVIEW_TIMEOUT =
       new EnumAttribute(
               "com.doublechaintech.repairchain.systemlevelnumber.SystemLevelNumber",
-              "UPPER_REWARD_RATE")
-          .chineseName("上级分成");
+              "REVIEW_TIMEOUT")
+          .chineseName("审核超时(小时)");
+  public static EnumAttribute UPDATE_TIMEOUT =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.systemlevelnumber.SystemLevelNumber",
+              "UPDATE_TIMEOUT")
+          .chineseName("更新超时(小时)");
+  public static EnumAttribute REPAIR_TIMEOUT =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.systemlevelnumber.SystemLevelNumber",
+              "REPAIR_TIMEOUT")
+          .chineseName("维修超时(小时)");
+  public static EnumAttribute CONFIRM_TIMEOUT =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.systemlevelnumber.SystemLevelNumber",
+              "CONFIRM_TIMEOUT")
+          .chineseName("确认超时(小时)");
+  public static EnumAttribute TIME_TO_REMIND =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.systemlevelnumber.SystemLevelNumber",
+              "TIME_TO_REMIND")
+          .chineseName("提前提醒(小时)");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {UPPER_REWARD_RATE};
+    return new EnumAttribute[] {
+      REVIEW_TIMEOUT, UPDATE_TIMEOUT, REPAIR_TIMEOUT, CONFIRM_TIMEOUT, TIME_TO_REMIND
+    };
   }
 
   // 引用的对象

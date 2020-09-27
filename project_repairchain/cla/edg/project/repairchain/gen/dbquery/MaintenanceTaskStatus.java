@@ -101,6 +101,17 @@ public class MaintenanceTaskStatus extends BaseModelBean {
     return member;
   }
 
+  public MaintenanceTaskAssignment maintenanceTaskAssignmentList() {
+    MaintenanceTaskAssignment member = new MaintenanceTaskAssignment();
+    member.setModelTypeName("maintenance_task_assignment");
+    member.setName("create_on_status");
+    member.setMemberName("maintenanceTaskAssignmentList");
+    member.setRelationName("createOnStatus");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

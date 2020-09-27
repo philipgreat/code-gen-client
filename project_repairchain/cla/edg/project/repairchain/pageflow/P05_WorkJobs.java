@@ -24,15 +24,15 @@ public class P05_WorkJobs extends PieceOfScript {
                 .for_request("report machine off")
                     .with_string("machine id")
 
-                .for_request("submit cr repairing audit")
-                    .reset_params()
-                    .with_string("work job id")
-                    .with_string("scene code")
+                .request("accept work job").with_string("work job id")
+                    .comments("维修工人确认接单").need_login().no_footprint()
+                    .got_page("work job")
 
-                .for_request("submit cr update repair application")
-                    .reset_params()
-                    .with_string("work job id")
-                    .with_string("application id")
+                .for_request("start work job")
+                    .reset_params().with_string("work job id")
+                    .got_page("work job")
+
+
                     ;
     }
 }

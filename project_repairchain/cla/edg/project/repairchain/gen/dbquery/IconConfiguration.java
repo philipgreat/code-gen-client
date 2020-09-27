@@ -9,25 +9,67 @@ public class IconConfiguration extends BaseModelBean {
     return "com.doublechaintech.repairchain.iconconfiguration.IconConfiguration";
   }
   // 枚举对象
-  public static EnumAttribute CHECK_IN =
+  public static EnumAttribute HISTORY_TASK =
       new EnumAttribute(
-              "com.doublechaintech.repairchain.iconconfiguration.IconConfiguration", "CHECK_IN")
-          .chineseName("签到打卡");
-  public static EnumAttribute INVITE =
+              "com.doublechaintech.repairchain.iconconfiguration.IconConfiguration", "HISTORY_TASK")
+          .chineseName("历史记录");
+  public static EnumAttribute PLANNED_TASK =
       new EnumAttribute(
-              "com.doublechaintech.repairchain.iconconfiguration.IconConfiguration", "INVITE")
-          .chineseName("邀请好友");
-  public static EnumAttribute ACCOUNT_BOOK =
+              "com.doublechaintech.repairchain.iconconfiguration.IconConfiguration", "PLANNED_TASK")
+          .chineseName("计划任务");
+  public static EnumAttribute RUNNING_TASK =
       new EnumAttribute(
-              "com.doublechaintech.repairchain.iconconfiguration.IconConfiguration", "ACCOUNT_BOOK")
-          .chineseName("账户管理");
-  public static EnumAttribute MESSAGE =
+              "com.doublechaintech.repairchain.iconconfiguration.IconConfiguration", "RUNNING_TASK")
+          .chineseName("当前任务");
+  public static EnumAttribute BIND_QRCODE =
       new EnumAttribute(
-              "com.doublechaintech.repairchain.iconconfiguration.IconConfiguration", "MESSAGE")
-          .chineseName("消息通知");
+              "com.doublechaintech.repairchain.iconconfiguration.IconConfiguration", "BIND_QRCODE")
+          .chineseName("绑定二维码");
+  public static EnumAttribute UNBIND_QRCODE =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.iconconfiguration.IconConfiguration",
+              "UNBIND_QRCODE")
+          .chineseName("解绑二维码");
+  public static EnumAttribute REPORT_RUN =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.iconconfiguration.IconConfiguration", "REPORT_RUN")
+          .chineseName("设备开机");
+  public static EnumAttribute REPORT_STOP =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.iconconfiguration.IconConfiguration", "REPORT_STOP")
+          .chineseName("设备关机");
+  public static EnumAttribute REPAIR_NOW =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.iconconfiguration.IconConfiguration", "REPAIR_NOW")
+          .chineseName("立即维修");
+  public static EnumAttribute REPAIR_APPOINTMENT =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.iconconfiguration.IconConfiguration",
+              "REPAIR_APPOINTMENT")
+          .chineseName("预约维修");
+  public static EnumAttribute EMPLOYEE_ADM =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.iconconfiguration.IconConfiguration", "EMPLOYEE_ADM")
+          .chineseName("人员管理");
+  public static EnumAttribute MACHINE_ADM =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.iconconfiguration.IconConfiguration", "MACHINE_ADM")
+          .chineseName("设备管理");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {CHECK_IN, INVITE, ACCOUNT_BOOK, MESSAGE};
+    return new EnumAttribute[] {
+      HISTORY_TASK,
+      PLANNED_TASK,
+      RUNNING_TASK,
+      BIND_QRCODE,
+      UNBIND_QRCODE,
+      REPORT_RUN,
+      REPORT_STOP,
+      REPAIR_NOW,
+      REPAIR_APPOINTMENT,
+      EMPLOYEE_ADM,
+      MACHINE_ADM
+    };
   }
 
   // 引用的对象

@@ -12,13 +12,13 @@ public class MaintenanceTaskAssignment extends BaseModelBean {
 
   // 引用的对象
 
-  public TaskAssignmentType taskAssignmentType() {
-    TaskAssignmentType member = new TaskAssignmentType();
-    member.setModelTypeName("task_assignment_type");
-    member.setName("task_assignment_type");
-    member.setMemberName("taskAssignmentType");
+  public MaintenanceTaskStatus createOnStatus() {
+    MaintenanceTaskStatus member = new MaintenanceTaskStatus();
+    member.setModelTypeName("maintenance_task_status");
+    member.setName("create_on_status");
+    member.setMemberName("createOnStatus");
     member.setReferDirection(true);
-    member.setRelationName("taskAssignmentType");
+    member.setRelationName("createOnStatus");
     append(member);
     return member;
   }
@@ -76,11 +76,29 @@ public class MaintenanceTaskAssignment extends BaseModelBean {
     return member;
   }
 
+  public BooleanAttribute valid() {
+    BooleanAttribute member = new BooleanAttribute();
+    member.setModelTypeName("bool");
+    // member.setName("valid");
+    member.setName("valid");
+    useMember(member);
+    return member;
+  }
+
   public StringAttribute displayStatus() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
     // member.setName("displayStatus");
     member.setName("display_status");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute resultDetail() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string_longtext");
+    // member.setName("resultDetail");
+    member.setName("result_detail");
     useMember(member);
     return member;
   }

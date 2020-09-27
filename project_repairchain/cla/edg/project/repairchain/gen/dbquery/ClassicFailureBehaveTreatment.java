@@ -4,48 +4,26 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class FailureType extends BaseModelBean {
+public class ClassicFailureBehaveTreatment extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.repairchain.failuretype.FailureType";
+    return "com.doublechaintech.repairchain.classicfailurebehavetreatment.ClassicFailureBehaveTreatment";
   }
   // 枚举对象
 
   // 引用的对象
 
-  public Platform platform() {
-    Platform member = new Platform();
-    member.setModelTypeName("platform");
-    member.setName("platform");
-    member.setMemberName("platform");
+  public FailureBehave failureBehave() {
+    FailureBehave member = new FailureBehave();
+    member.setModelTypeName("failure_behave");
+    member.setName("failure_behave");
+    member.setMemberName("failureBehave");
     member.setReferDirection(true);
-    member.setRelationName("platform");
+    member.setRelationName("failureBehave");
     append(member);
     return member;
   }
 
   // 被引用的对象
-
-  public RepairApplication repairApplicationList() {
-    RepairApplication member = new RepairApplication();
-    member.setModelTypeName("repair_application");
-    member.setName("failure_type");
-    member.setMemberName("repairApplicationList");
-    member.setRelationName("failureType");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public EventFaultInfo eventFaultInfoList() {
-    EventFaultInfo member = new EventFaultInfo();
-    member.setModelTypeName("event_fault_info");
-    member.setName("fault_type");
-    member.setMemberName("eventFaultInfoList");
-    member.setRelationName("faultType");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
 
   // 普通属性
 
@@ -63,6 +41,24 @@ public class FailureType extends BaseModelBean {
     member.setModelTypeName("string");
     // member.setName("title");
     member.setName("title");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute author() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("author");
+    member.setName("author");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute content() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string_longtext");
+    // member.setName("content");
+    member.setName("content");
     useMember(member);
     return member;
   }

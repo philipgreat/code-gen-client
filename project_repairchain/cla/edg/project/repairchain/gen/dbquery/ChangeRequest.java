@@ -36,6 +36,28 @@ public class ChangeRequest extends BaseModelBean {
 
   // 被引用的对象
 
+  public RepairApplication repairApplicationList() {
+    RepairApplication member = new RepairApplication();
+    member.setModelTypeName("repair_application");
+    member.setName("change_request");
+    member.setMemberName("repairApplicationList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public MaintenanceTask maintenanceTaskList() {
+    MaintenanceTask member = new MaintenanceTask();
+    member.setModelTypeName("maintenance_task");
+    member.setName("change_request");
+    member.setMemberName("maintenanceTaskList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventSimpleType eventSimpleTypeList() {
     EventSimpleType member = new EventSimpleType();
     member.setModelTypeName("event_simple_type");
@@ -107,6 +129,61 @@ public class ChangeRequest extends BaseModelBean {
     member.setModelTypeName("event_bind_info");
     member.setName("change_request");
     member.setMemberName("eventBindInfoList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventMachineInfo eventMachineInfoList() {
+    EventMachineInfo member = new EventMachineInfo();
+    member.setModelTypeName("event_machine_info");
+    member.setName("change_request");
+    member.setMemberName("eventMachineInfoList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventFaultInfo eventFaultInfoList() {
+    EventFaultInfo member = new EventFaultInfo();
+    member.setModelTypeName("event_fault_info");
+    member.setName("change_request");
+    member.setMemberName("eventFaultInfoList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventReviewResult eventReviewResultList() {
+    EventReviewResult member = new EventReviewResult();
+    member.setModelTypeName("event_review_result");
+    member.setName("change_request");
+    member.setMemberName("eventReviewResultList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventAssignWorker eventAssignWorkerList() {
+    EventAssignWorker member = new EventAssignWorker();
+    member.setModelTypeName("event_assign_worker");
+    member.setName("change_request");
+    member.setMemberName("eventAssignWorkerList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventWorkJobConfirmation eventWorkJobConfirmationList() {
+    EventWorkJobConfirmation member = new EventWorkJobConfirmation();
+    member.setModelTypeName("event_work_job_confirmation");
+    member.setName("change_request");
+    member.setMemberName("eventWorkJobConfirmationList");
     member.setRelationName("changeRequest");
     member.setReferDirection(false);
     append(member);

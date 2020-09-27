@@ -67,13 +67,13 @@ public class RepairApplication extends BaseModelBean {
     return member;
   }
 
-  public Platform platform() {
-    Platform member = new Platform();
-    member.setModelTypeName("platform");
-    member.setName("platform");
-    member.setMemberName("platform");
+  public ChangeRequest changeRequest() {
+    ChangeRequest member = new ChangeRequest();
+    member.setModelTypeName("change_request");
+    member.setName("change_request");
+    member.setMemberName("changeRequest");
     member.setReferDirection(true);
-    member.setRelationName("platform");
+    member.setRelationName("changeRequest");
     append(member);
     return member;
   }

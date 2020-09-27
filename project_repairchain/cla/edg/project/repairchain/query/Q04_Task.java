@@ -21,6 +21,23 @@ public class Q04_Task extends PieceOfScript {
                             MODEL.todoTask().taskObjectId().eq("${task id}"),
                             MODEL.todoTask().finished().eq(false))
 
+                .query(MODEL.todoTask()).list_of("opening in task for employee").with_string("task id").with_string("employee").with_string("type")
+                    .comments("查询对应维护任务的,指定Employee的 TODO")
+                    .do_it_as()
+                    .where(MODEL.todoTask().taskObjectType().eq(MODEL.maintenanceTask().getInternalType()),
+                            MODEL.todoTask().taskObjectId().eq("${task id}"),
+                            MODEL.todoTask().finished().eq(false),
+                            MODEL.todoTask().responsibleEmployee().eq("${employee}"),
+                            MODEL.todoTask().type().eq("${type}").optional())
+
+                .query(MODEL.todoTask()).list_of("opening in maintenance task with type").with_string("task id").with_string("type")
+                    .comments("查询维护任务的所有 TODO")
+                    .do_it_as()
+                    .where(MODEL.todoTask().taskObjectType().eq(MODEL.maintenanceTask().getInternalType()),
+                            MODEL.todoTask().taskObjectId().eq("${task id}"),
+                            MODEL.todoTask().type().eq("${type}"),
+                            MODEL.todoTask().finished().eq(false))
+
                 .query(MODEL.maintenanceTaskAssignment()).list_of("opening in task").with_string("task id")
                     .comments("找出指定任务中, 未结束的 任务分配")
                     .do_it_as()
@@ -126,10 +143,10 @@ public class Q04_Task extends PieceOfScript {
 
 
                 .find(MODEL.maintenanceTaskAssignment()).which("opening in task").with_string("task id").with_string("type").with_string("user id")
-                    .comments("找到某个 工单 的, 类型和用户 匹配的 assignment")
+                    .comments("找到一个 工单 的, 类型和用户 匹配的 assignment")
                     .do_it_as()
                     .where(MODEL.maintenanceTaskAssignment().maintenanceTask().eq("${task id}"),
-                            MODEL.maintenanceTaskAssignment().createOnStatus().eq("${type}"),
+                            MODEL.maintenanceTaskAssignment().createOnStatus().eq("${type}").optional(),
                             MODEL.maintenanceTaskAssignment().finished().eq(false),
                             MODEL.maintenanceTaskAssignment().employee().personalUser().eq("${user id}"))
 
@@ -138,7 +155,21 @@ public class Q04_Task extends PieceOfScript {
                     .do_it_as()
                     .where(MODEL.maintenanceTaskAssignment().maintenanceTask().eq("${task id}"),
                             MODEL.maintenanceTaskAssignment().finished().eq(false),
-                            MODEL.maintenanceTaskAssignment().createOnStatus().eq("${type}"))
+                            MODEL.maintenanceTaskAssignment().createOnStatus().eq("${type}").optional())
+
+                .query(MODEL.maintenanceTaskAssignment()).which("opening in task by employee").with_string("task id").with_string("employee").with_string("type")
+                    .comments("找到某个 工单 的, 类型和用户 匹配的 assignment")
+                    .do_it_as()
+                    .where(MODEL.maintenanceTaskAssignment().maintenanceTask().eq("${task id}"),
+                            MODEL.maintenanceTaskAssignment().finished().eq(false),
+                            MODEL.maintenanceTaskAssignment().employee().eq("${employee}"),
+                            MODEL.maintenanceTaskAssignment().createOnStatus().eq("${type}").optional())
+
+                .query(MODEL.workPosition()).list_of("user have on machine").with_string("user id").with_string("machine id")
+                    .comments("查询用户对于指定设备, 有哪些work position")
+                    .do_it_as()
+                    .where(MODEL.workPosition().employeeList().personalUser().eq("${user id}"),
+                            MODEL.workPosition().employeeList().maintenanceTaskAssignmentList().maintenanceTask().machine().eq("machine id"))
                 ;
     }
 

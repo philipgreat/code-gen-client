@@ -32,8 +32,10 @@ public class P04_Machine extends PieceOfScript {
                     .with_last_record_id()
 
                 .for_request("report machine on")
+                    .reset_params()
                     .with_string("machine id")
                 .for_request("report machine off")
+                    .reset_params()
                     .with_string("machine id")
                     ;
     }
