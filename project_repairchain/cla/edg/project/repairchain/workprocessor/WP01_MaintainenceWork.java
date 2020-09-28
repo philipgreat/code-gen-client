@@ -69,7 +69,7 @@ public class WP01_MaintainenceWork implements WorkProcessorScript {
             .in_status("checking").zh_CN("故障检查")
                 .comments("维修前对具体故障进行检查,定位原因, 确定维修方案")
                 .on_event("start repairing").zh_CN("开始维修").go_to("in repairing")
-                .on_event("cannot repair").zh_CN("无法修理").go_to("need review")
+                .on_event("cannot repair").zh_CN("无法修理").go_to("work delivered")
                 .on_event("need reassign").zh_CN("需要重新派单").go_to("submitted")
                 .on_event("repairing report").zh_CN("维修记录").stay_here()
 
@@ -88,11 +88,15 @@ public class WP01_MaintainenceWork implements WorkProcessorScript {
 
 
                 .when_condition("timeout").zh_CN("处理超时").go_to("in repairing")
-                .when_condition("report done").go_to("need review")
+                .when_condition("report done").go_to("work delivered")
 
                 .as_role("repair worker")
                     .can_do("report result")
                     .can_do("repairing report")
+
+            .in_status("work delivered").zh_CN("已交单")
+                .comments("维修工已经完成指派给自己的工单任务, 提交完成, 等待主管审批")
+                .once_enter().go_to("need review")
 
 
             .in_status("need review").zh_CN("待主管核验")
@@ -100,6 +104,7 @@ public class WP01_MaintainenceWork implements WorkProcessorScript {
                 .can_enter_when()
                     .if_have("checking").all_success()
                     .if_have("in repairing").all_success()
+                    .must_have("work delivered").all_success()
 
                 .on_event("timeout").zh_CN("超时")
                     .when("has higher employee").zh_CN("有上级").reach_condition("escalation")

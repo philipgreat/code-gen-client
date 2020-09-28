@@ -420,6 +420,13 @@ public class MODEL {
     return rst;
   }
 
+  public static EventTaskWorkRecord eventTaskWorkRecord() {
+    EventTaskWorkRecord rst = new EventTaskWorkRecord();
+    rst.setModelTypeName("event_task_work_record");
+    rst.setBeanPath(new BeanPath().name("event_task_work_record"));
+    return rst;
+  }
+
   public static EventInfoInCr eventInfoInCr() {
     EventInfoInCr rst = new EventInfoInCr();
     rst.setModelTypeName("event_info_in_cr");

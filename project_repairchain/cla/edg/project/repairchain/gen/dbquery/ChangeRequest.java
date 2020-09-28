@@ -190,6 +190,17 @@ public class ChangeRequest extends BaseModelBean {
     return member;
   }
 
+  public EventTaskWorkRecord eventTaskWorkRecordList() {
+    EventTaskWorkRecord member = new EventTaskWorkRecord();
+    member.setModelTypeName("event_task_work_record");
+    member.setName("change_request");
+    member.setMemberName("eventTaskWorkRecordList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventInfoInCr eventInfoInCrList() {
     EventInfoInCr member = new EventInfoInCr();
     member.setModelTypeName("event_info_in_cr");

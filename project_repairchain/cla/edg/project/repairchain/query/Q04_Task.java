@@ -110,6 +110,7 @@ public class Q04_Task extends PieceOfScript {
                     .comments("查询用户参与的,但是不需要立即处理的工单, 以工厂或者机器设备为过滤条件")
                     .do_it_as()
                     .where(MODEL.maintenanceTask().maintenanceTaskAssignmentList().employee().personalUser().eq("${user id}"),
+                            MODEL.maintenanceTask().status().not_in(MaintenanceTaskStatus.FINISHED_AS_REPAIRED, MaintenanceTaskStatus.FINISHED_AS_DAMAGED, MaintenanceTaskStatus.PROCESS_MANUALLY),
                             NOT_EXISTS(MODEL.maintenanceTask().maintenanceTaskAssignmentList().finished().eq(false)
                                     .and(MODEL.maintenanceTask().maintenanceTaskAssignmentList().valid().eq(true))
                             ),

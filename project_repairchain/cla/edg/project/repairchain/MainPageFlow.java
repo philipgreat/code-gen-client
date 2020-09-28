@@ -32,6 +32,7 @@ public class MainPageFlow extends PageFlowBuilder {
                 .import_from(new Q03_Machine())
                 .import_from(new Q04_Task())
                 .import_from(new Q05_QrCode())
+                .import_from(new Q06_Employee())
             ;
     }
 }

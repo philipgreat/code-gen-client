@@ -32,6 +32,9 @@ public class P05_WorkJobs extends PieceOfScript {
                     .reset_params().with_string("work job id")
                     .got_page("work job")
 
+                .for_request("finish work job")
+                    .reset_params().with_string("work job id")
+                    .got_page("work job")
 
                     ;
     }
