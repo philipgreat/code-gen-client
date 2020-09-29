@@ -102,8 +102,8 @@ public class WP01_MaintainenceWork implements WorkProcessorScript {
             .in_status("need review").zh_CN("待主管核验")
                 .comments("待审核. 等待维修侧主管审核维修记录, 如果超时要升级. 如果确实不能维修, 要标明")
                 .can_enter_when()
-                    .if_have("checking").all_success()
-                    .if_have("in repairing").all_success()
+                    .has_no_any("checking")
+                    .has_no_any("in repairing")
                     .must_have("work delivered").all_success()
 
                 .on_event("timeout").zh_CN("超时")
@@ -124,13 +124,11 @@ public class WP01_MaintainenceWork implements WorkProcessorScript {
 
 
             .in_status("need confirm").zh_CN("待确认")
-                .on_event("confirmed").zh_CN("确认修复").go_to("fixed")
-                .on_event("not fix").zh_CN("未修复").go_to("need process")
+                .on_event("confirmed").zh_CN("确认修复")
+                    .when_success().go_to("fixed")
+                    .when("not fix").zh_CN("未修复").go_to("need process")
 
-                .as_role("line worker").can_do("confirm fixed", "disagree fixed")
-                .as_role("line leader").can_do_nothing()
-                .as_role("repair leader").can_do_nothing()
-                .as_role("repair worker").can_do_nothing()
+                .as_role("line worker").can_do("confirm fixed")
 
             .in_status("fixed").zh_CN("已修复")
                 .comments("已修复. 结单,写日志等.")

@@ -143,19 +143,35 @@ public class CR05_RepairTask implements ChangeRequestSpecFactory {
                         .has_field("review result").zh_CN("审核意见")
                             .values_canbe("pass", "修理完成").or("fail", "待完善").or("cannot_repair", "无法维修")
 
+                .change_request("repairing feedback").zh_CN("维修反馈")
+                    .step("A").zh_CN("修理结果反馈")
+                    .contains_event("repair feedback").as("A")
+                        .has_field("task title").zh_CN("工单")
+                            .fill_by_request("work job id", MODEL.maintenanceTask().title())
+                            .display()
+                        .has_field("task id").zh_CN("工单")
+                            .fill_by_request("work job id")
+                            .disabled()
+                        .has_field("repair result").zh_CN("修理结果")
+                            .values_canbe("pass", "已修好").or("fail", "未修好")
+                            .defaule_value("pass")
+                        .has_field("assign to").zh_CN("负责人")
+                            .which_model_of(MODEL.employee()).optional()
+                            .values_can_select_from_query_by("${task id}")
+                        .has_field("comments").zh_CN("备注")
+                            .which_type_of(FieldType.MULTI_TEXT).optional()
+                            .place_holder("请填写备注")
+
+
+
+
+
+
+
+
                 .change_request("add plan job").zh_CN("新建计划任务")
                     .step("A").zh_CN("接单")
                     .contains_event("bind info")
-
-
-                .change_request("repairing report").zh_CN("维修报告")
-                    .contains_event("bind info")
-
-
-                .change_request("repairing feedback").zh_CN("维修反馈")
-                    .contains_event("bind info")
-
-
 
                 .change_request("start plan job").zh_CN("执行任务")
                     .contains_event("bind info")
@@ -163,14 +179,8 @@ public class CR05_RepairTask implements ChangeRequestSpecFactory {
                 .change_request("cancel plan job").zh_CN("取消任务")
                     .contains_event("bind info")
 
-
                 .change_request("update plan job").zh_CN("更新任务")
                 .contains_event("bind info")
-
-
-
-
-
 
                 .change_request("report damage").zh_CN("报告损毁")
                     .contains_event("bind info")

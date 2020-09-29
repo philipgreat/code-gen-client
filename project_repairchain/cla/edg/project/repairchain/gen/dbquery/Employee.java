@@ -212,6 +212,17 @@ public class Employee extends BaseModelBean {
     return member;
   }
 
+  public EventRepairFeedback eventRepairFeedbackList() {
+    EventRepairFeedback member = new EventRepairFeedback();
+    member.setModelTypeName("event_repair_feedback");
+    member.setName("assign_to");
+    member.setMemberName("eventRepairFeedbackList");
+    member.setRelationName("assignTo");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

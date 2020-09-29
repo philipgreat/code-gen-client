@@ -28,11 +28,6 @@ public class ChangeRequestType extends BaseModelBean {
               "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
               "UPDATE_PLAN_JOB")
           .chineseName("更新任务");
-  public static EnumAttribute REPAIRING_REPORT =
-      new EnumAttribute(
-              "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
-              "REPAIRING_REPORT")
-          .chineseName("维修报告");
   public static EnumAttribute REPAIR_APPLICATION =
       new EnumAttribute(
               "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
@@ -130,7 +125,6 @@ public class ChangeRequestType extends BaseModelBean {
       START_PLAN_JOB,
       REPAIRING_FEEDBACK,
       UPDATE_PLAN_JOB,
-      REPAIRING_REPORT,
       REPAIR_APPLICATION,
       UPDATE_FACTORY,
       ADD_PLAN_JOB,

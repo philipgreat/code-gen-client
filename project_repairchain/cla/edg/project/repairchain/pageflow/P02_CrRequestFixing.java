@@ -50,6 +50,9 @@ public class P02_CrRequestFixing extends PieceOfScript {
                 .for_change_request("audit repair")
                     .reset_params()
                     .with_string("work job id")
+                    .for_change_request("repairing feedback")
+                    .reset_params()
+                    .with_string("work job id")
                     ;
     }
 }

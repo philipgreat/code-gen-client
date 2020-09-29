@@ -427,6 +427,13 @@ public class MODEL {
     return rst;
   }
 
+  public static EventRepairFeedback eventRepairFeedback() {
+    EventRepairFeedback rst = new EventRepairFeedback();
+    rst.setModelTypeName("event_repair_feedback");
+    rst.setBeanPath(new BeanPath().name("event_repair_feedback"));
+    return rst;
+  }
+
   public static EventInfoInCr eventInfoInCr() {
     EventInfoInCr rst = new EventInfoInCr();
     rst.setModelTypeName("event_info_in_cr");

@@ -201,6 +201,17 @@ public class ChangeRequest extends BaseModelBean {
     return member;
   }
 
+  public EventRepairFeedback eventRepairFeedbackList() {
+    EventRepairFeedback member = new EventRepairFeedback();
+    member.setModelTypeName("event_repair_feedback");
+    member.setName("change_request");
+    member.setMemberName("eventRepairFeedbackList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventInfoInCr eventInfoInCrList() {
     EventInfoInCr member = new EventInfoInCr();
     member.setModelTypeName("event_info_in_cr");
