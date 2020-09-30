@@ -137,6 +137,13 @@ public class CR05_RepairTask implements ChangeRequestSpecFactory {
                             .range(1,500)
                             .place_holder("请填写故障处理方法")
 
+                .change_request("report damage").zh_CN("报告损毁")
+                    .step("A").zh_CN("报告损毁")
+                    .contains_event("task work record").zh_CN("损毁记录")
+                        .has_field("treatment")
+                        .value("无法修理")
+                        .disabled()
+
                 .change_request("audit repair").zh_CN("审核修理结果")
                     .step("A").zh_CN("审核修理结果")
                     .contains_event("assign worker").as("A")
@@ -182,8 +189,6 @@ public class CR05_RepairTask implements ChangeRequestSpecFactory {
                 .change_request("update plan job").zh_CN("更新任务")
                 .contains_event("bind info")
 
-                .change_request("report damage").zh_CN("报告损毁")
-                    .contains_event("bind info")
 
 
 

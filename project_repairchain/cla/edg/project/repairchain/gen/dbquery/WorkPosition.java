@@ -61,6 +61,17 @@ public class WorkPosition extends BaseModelBean {
     return member;
   }
 
+  public EventEmployeeBasicInfo eventEmployeeBasicInfoList() {
+    EventEmployeeBasicInfo member = new EventEmployeeBasicInfo();
+    member.setModelTypeName("event_employee_basic_info");
+    member.setName("work_position");
+    member.setMemberName("eventEmployeeBasicInfoList");
+    member.setRelationName("workPosition");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

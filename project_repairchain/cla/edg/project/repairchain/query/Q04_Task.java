@@ -119,6 +119,18 @@ public class Q04_Task extends PieceOfScript {
                             MODEL.maintenanceTask().factory().eq("${factory id}").optional())
                     .run_by(this::wantedForMaintenanceTaskList)
 
+                .query(MODEL.maintenanceTask()).list_of("in process for machine").pagination().with_string("user id").with_string("machine id")
+                    .comments("查询用户参与的,但是不需要立即处理的工单, 以工厂或者机器设备为过滤条件")
+                    .do_it_as()
+                    .where(
+                            MODEL.maintenanceTask().status().not_in(MaintenanceTaskStatus.FINISHED_AS_REPAIRED, MaintenanceTaskStatus.FINISHED_AS_DAMAGED, MaintenanceTaskStatus.PROCESS_MANUALLY),
+                            NOT_EXISTS(MODEL.maintenanceTask().maintenanceTaskAssignmentList().finished().eq(false)
+                                    .and(MODEL.maintenanceTask().maintenanceTaskAssignmentList().valid().eq(true),
+                                        MODEL.maintenanceTask().maintenanceTaskAssignmentList().employee().personalUser().eq("${user id}"))
+                            ),
+                            MODEL.maintenanceTask().machine().eq("${machine id}").optional())
+                    .run_by(this::wantedForMaintenanceTaskList)
+
                 .query(MODEL.maintenanceTask()).list_of("user which closed").pagination().with_string("user id").with_string("factory id").with_string("machine id")
                     .comments("查询用户参与的,正常关闭的工单, 以工厂或者机器设备为过滤条件")
                     .do_it_as()
@@ -173,7 +185,7 @@ public class Q04_Task extends PieceOfScript {
                     .comments("查询用户对于指定设备, 有哪些work position")
                     .do_it_as()
                     .where(MODEL.workPosition().employeeList().personalUser().eq("${user id}"),
-                            MODEL.workPosition().employeeList().maintenanceTaskAssignmentList().maintenanceTask().machine().eq("machine id"))
+                            MODEL.workPosition().employeeList().maintenanceTaskAssignmentList().maintenanceTask().machine().eq("${machine id}"))
                 ;
     }
 

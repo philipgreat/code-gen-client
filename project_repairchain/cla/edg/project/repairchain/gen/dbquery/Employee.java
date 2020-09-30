@@ -190,6 +190,17 @@ public class Employee extends BaseModelBean {
     return member;
   }
 
+  public EventEmployeeBasicInfo eventEmployeeBasicInfoList() {
+    EventEmployeeBasicInfo member = new EventEmployeeBasicInfo();
+    member.setModelTypeName("event_employee_basic_info");
+    member.setName("leader");
+    member.setMemberName("eventEmployeeBasicInfoList");
+    member.setRelationName("leader");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventFaultInfo eventFaultInfoList() {
     EventFaultInfo member = new EventFaultInfo();
     member.setModelTypeName("event_fault_info");

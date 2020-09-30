@@ -53,6 +53,11 @@ public class P02_CrRequestFixing extends PieceOfScript {
                     .for_change_request("repairing feedback")
                     .reset_params()
                     .with_string("work job id")
+
+                .for_change_request("add employee by agent")
+                    .reset_params()
+                    .with_string("factory id")
+                    .with_string("agent id")
                     ;
     }
 }

@@ -26,6 +26,14 @@ public class Q02_Factory extends PieceOfScript {
                                 MODEL.factory().city(),
                                 MODEL.factory().district())
 
+                    .find(MODEL.factory()).which("user is working in").with_string("user id")
+                        .comments("统计当前用户工作的工厂数量")
+                        .do_it_as().count()
+                        .where(MODEL.factory().employeeList().personalUser().eq("${user id}"),
+                                MODEL.factory().employeeList().status().eq(OnJobStatus.ACTIVE))
+
+
+
                 ;
     }
 }

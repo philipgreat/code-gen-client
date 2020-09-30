@@ -25,11 +25,6 @@ public class Q01_PersonalUser extends PieceOfScript {
                         .do_it_as()
                         .where(MODEL.agent().personalUser().eq("${user id}"))
 
-                    .find(MODEL.employee()).which("by personal user").with_string("user id")
-                        .comments("统计用户有几个在职的职务")
-                        .do_it_as().count()
-                        .where(MODEL.employee().personalUser().eq("${user id}"),
-                                MODEL.employee().status().code().eq(OnJobStatus.ACTIVE))
 
                     .find(MODEL.employee()).which("by personal user").with_string("user id")
                         .comments("找到用户关联的1个在职的职务")
@@ -56,11 +51,12 @@ public class Q01_PersonalUser extends PieceOfScript {
                                 MODEL.employee().mobile().eq("${mobile}"),
                                 MODEL.employee().status().code().eq(OnJobStatus.ACTIVE))
 
-                    .query(MODEL.employee()).list_of("user acting").with_string("user id")
+                    .query(MODEL.employee()).list_of("user acting").with_string("user id").with_string("factory")
                         .comments("找到当前用户担任的职位")
                         .do_it_as()
                         .where(MODEL.employee().personalUser().eq("${user id}"),
-                                MODEL.employee().status().code().eq(OnJobStatus.ACTIVE))
+                                MODEL.employee().status().code().eq(OnJobStatus.ACTIVE),
+                                MODEL.employee().factory().eq("${factory}"))
 
 
 

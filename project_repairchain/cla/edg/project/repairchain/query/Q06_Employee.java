@@ -38,6 +38,32 @@ public class Q06_Employee extends PieceOfScript {
                                 MODEL.employee().maintenanceTaskAssignmentList().createOnStatus().eq(MaintenanceTaskStatus.SUBMITTED),
                                 MODEL.employee().status().eq(OnJobStatus.ACTIVE))
 
+                    .query(MODEL.employee()).list_of("factory").pagination().with_string("factory id")
+                        .comments("查找指定工厂的所有员工, 一次一页")
+                        .do_it_as()
+                        .where(MODEL.employee().factory().eq("${factory id}"),
+                                MODEL.employee().status().eq(OnJobStatus.ACTIVE))
+                        .wants(MODEL.employee().personalUser(),
+                                MODEL.employee().workPosition())
+
+                    .query(MODEL.employee()).list_of("factory of all").with_string("factory id")
+                        .comments("查找指定工厂的所有员工, 不分页")
+                        .do_it_as()
+                        .where(MODEL.employee().factory().eq("${factory id}"),
+                                MODEL.employee().status().eq(OnJobStatus.ACTIVE))
+                        .wants(MODEL.employee().personalUser(),
+                                MODEL.employee().workPosition())
+
+                    .query(MODEL.employee()).list_of("factory by mobile and work position").with_string("factory").with_string("mobile").with_string("work position")
+                        .comments("根据手机号和工作岗位,查找一个工厂内的 职务")
+                        .do_it_as()
+                        .where(MODEL.employee().factory().eq("${factory}"),
+                                MODEL.employee().status().eq(OnJobStatus.ACTIVE),
+                                MODEL.employee().mobile().eq("${mobile}"),
+                                MODEL.employee().workPosition().eq("${work position}"))
+                        .wants(MODEL.employee().personalUser(),
+                                MODEL.employee().workPosition())
+
                 ;
     }
 }
