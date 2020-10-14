@@ -31,6 +31,20 @@ public class Q03_Machine extends PieceOfScript {
                         .order_by(MODEL.machine().id()).desc()
 
 
+                    .query(MODEL.machine()).which("has start stop record for user").pagination().with_string("user id").with_string("factory id")
+                        .comments("查询用户可查看的启停记录对应的机器")
+                        .do_it_as()
+                        .where(MODEL.machine().factory().employeeList().personalUser().eq("${user id}"),
+                                MODEL.machine().factory().eq("${factory id}").optional(),
+                                MODEL.machine().machineStartStopRecordList().id().not_null())
+
+                    .find(MODEL.machine()).which("bind with qrcode").with_string("qrcode id")
+                        .comments("根据qrcode ID查找绑定的设备")
+                        .do_it_as()
+                        .where(MODEL.machine().qrCodeList().eq("${qrcode id}"))
+
+
+
                 ;
     }
 

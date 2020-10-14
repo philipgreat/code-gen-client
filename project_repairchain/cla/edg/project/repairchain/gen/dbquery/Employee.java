@@ -146,6 +146,17 @@ public class Employee extends BaseModelBean {
     return member;
   }
 
+  public MachineStartStopRecord machineStartStopRecordList() {
+    MachineStartStopRecord member = new MachineStartStopRecord();
+    member.setModelTypeName("machine_start_stop_record");
+    member.setName("reporter");
+    member.setMemberName("machineStartStopRecordList");
+    member.setRelationName("reporter");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public RepairApplication repairApplicationList() {
     RepairApplication member = new RepairApplication();
     member.setModelTypeName("repair_application");

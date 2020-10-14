@@ -147,6 +147,13 @@ public class MODEL {
     return rst;
   }
 
+  public static SystemAnnouncement systemAnnouncement() {
+    SystemAnnouncement rst = new SystemAnnouncement();
+    rst.setModelTypeName("system_announcement");
+    rst.setBeanPath(new BeanPath().name("system_announcement"));
+    return rst;
+  }
+
   public static QrCodeStatus qrCodeStatus() {
     QrCodeStatus rst = new QrCodeStatus();
     rst.setModelTypeName("qr_code_status");
@@ -263,6 +270,13 @@ public class MODEL {
     MaintenanceRecord rst = new MaintenanceRecord();
     rst.setModelTypeName("maintenance_record");
     rst.setBeanPath(new BeanPath().name("maintenance_record"));
+    return rst;
+  }
+
+  public static MachineStartStopRecord machineStartStopRecord() {
+    MachineStartStopRecord rst = new MachineStartStopRecord();
+    rst.setModelTypeName("machine_start_stop_record");
+    rst.setBeanPath(new BeanPath().name("machine_start_stop_record"));
     return rst;
   }
 

@@ -14,6 +14,17 @@ public class MobileApp extends BaseModelBean {
 
   // 被引用的对象
 
+  public SystemAnnouncement systemAnnouncementList() {
+    SystemAnnouncement member = new SystemAnnouncement();
+    member.setModelTypeName("system_announcement");
+    member.setName("mobile_app");
+    member.setMemberName("systemAnnouncementList");
+    member.setRelationName("mobileApp");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public Page pageList() {
     Page member = new Page();
     member.setModelTypeName("page");

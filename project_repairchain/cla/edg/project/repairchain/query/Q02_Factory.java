@@ -32,6 +32,11 @@ public class Q02_Factory extends PieceOfScript {
                         .where(MODEL.factory().employeeList().personalUser().eq("${user id}"),
                                 MODEL.factory().employeeList().status().eq(OnJobStatus.ACTIVE))
 
+                    .query(MODEL.factory()).which("has start stop record for user").pagination().with_string("user id")
+                        .comments("查询用户可查看的启停记录对应的工厂")
+                        .do_it_as()
+                        .where(MODEL.factory().employeeList().personalUser().eq("${user id}"),
+                            MODEL.factory().machineList().machineStartStopRecordList().id().not_null())
 
 
                 ;

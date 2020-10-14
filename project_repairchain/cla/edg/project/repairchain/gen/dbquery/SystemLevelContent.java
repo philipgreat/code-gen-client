@@ -13,9 +13,18 @@ public class SystemLevelContent extends BaseModelBean {
       new EnumAttribute(
               "com.doublechaintech.repairchain.systemlevelcontent.SystemLevelContent", "CONTACT_US")
           .chineseName("联系我们");
+  public static EnumAttribute AD_4_SCAN =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.systemlevelcontent.SystemLevelContent", "AD_4_SCAN")
+          .chineseName("非用户扫码");
+  public static EnumAttribute NO_WORK_MESSAGE =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.systemlevelcontent.SystemLevelContent",
+              "NO_WORK_MESSAGE")
+          .chineseName("待定岗用户提示");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {CONTACT_US};
+    return new EnumAttribute[] {CONTACT_US, AD_4_SCAN, NO_WORK_MESSAGE};
   }
 
   // 引用的对象

@@ -82,7 +82,7 @@ public class QrCode extends BaseModelBean {
 
   public StringAttribute value() {
     StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string_url");
+    member.setModelTypeName("string");
     // member.setName("value");
     member.setName("value");
     useMember(member);

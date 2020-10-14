@@ -80,6 +80,13 @@ public class Q04_Task extends PieceOfScript {
                     .where(MODEL.maintenanceTask().machine().eq("${machine id}"))
                     .run_by(this::wantedForMaintenanceTaskList)
 
+                .query(MODEL.maintenanceTask()).list_of("show to anonymous")
+                    .comments("查询机器设备相关的所有工单")
+                    .do_it_as()
+                    .where(MODEL.maintenanceTask().status().not(MaintenanceTaskStatus.PROCESS_MANUALLY))
+                    .top_5()
+                    .run_by(this::wantedForMaintenanceTaskList)
+
                 .find(MODEL.maintenanceTask()).which("opening for machine").with_string("user id").with_string("machine id")
                     .comments("统计当前设备相关的未关闭任务")
                     .do_it_as().count()
