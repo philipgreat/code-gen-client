@@ -57,6 +57,7 @@ public class Q01_PersonalUser extends PieceOfScript {
                         .where(MODEL.employee().personalUser().eq("${user id}"),
                                 MODEL.employee().status().code().eq(OnJobStatus.ACTIVE),
                                 MODEL.employee().factory().eq("${factory}"))
+                        .wants(MODEL.employee().workPosition())
 
 
 

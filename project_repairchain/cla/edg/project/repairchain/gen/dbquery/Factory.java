@@ -67,6 +67,17 @@ public class Factory extends BaseModelBean {
     return member;
   }
 
+  public ChangeRequest createFrom() {
+    ChangeRequest member = new ChangeRequest();
+    member.setModelTypeName("change_request");
+    member.setName("create_from");
+    member.setMemberName("createFrom");
+    member.setReferDirection(true);
+    member.setRelationName("createFrom");
+    append(member);
+    return member;
+  }
+
   // 被引用的对象
 
   public Employee employeeList() {

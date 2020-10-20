@@ -38,6 +38,11 @@ public class IconConfiguration extends BaseModelBean {
       new EnumAttribute(
               "com.doublechaintech.repairchain.iconconfiguration.IconConfiguration", "REPORT_STOP")
           .chineseName("设备关机");
+  public static EnumAttribute REPORT_RUN_FAULT =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.iconconfiguration.IconConfiguration",
+              "REPORT_RUN_FAULT")
+          .chineseName("带病运行");
   public static EnumAttribute REPAIR_NOW =
       new EnumAttribute(
               "com.doublechaintech.repairchain.iconconfiguration.IconConfiguration", "REPAIR_NOW")
@@ -65,6 +70,7 @@ public class IconConfiguration extends BaseModelBean {
       UNBIND_QRCODE,
       REPORT_RUN,
       REPORT_STOP,
+      REPORT_RUN_FAULT,
       REPAIR_NOW,
       REPAIR_APPOINTMENT,
       EMPLOYEE_ADM,

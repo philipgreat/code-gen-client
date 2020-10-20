@@ -9,21 +9,21 @@ public class QrCodeStatus extends BaseModelBean {
     return "com.doublechaintech.repairchain.qrcodestatus.QrCodeStatus";
   }
   // 枚举对象
-  public static EnumAttribute ACTIVE =
-      new EnumAttribute("com.doublechaintech.repairchain.qrcodestatus.QrCodeStatus", "ACTIVE")
-          .chineseName("已注册");
-  public static EnumAttribute GRANTED =
-      new EnumAttribute("com.doublechaintech.repairchain.qrcodestatus.QrCodeStatus", "GRANTED")
-          .chineseName("已授权");
   public static EnumAttribute BOUND =
       new EnumAttribute("com.doublechaintech.repairchain.qrcodestatus.QrCodeStatus", "BOUND")
           .chineseName("已绑定");
+  public static EnumAttribute FRESH =
+      new EnumAttribute("com.doublechaintech.repairchain.qrcodestatus.QrCodeStatus", "FRESH")
+          .chineseName("新发行");
+  public static EnumAttribute GRANTED =
+      new EnumAttribute("com.doublechaintech.repairchain.qrcodestatus.QrCodeStatus", "GRANTED")
+          .chineseName("已授权");
   public static EnumAttribute RELEASED =
       new EnumAttribute("com.doublechaintech.repairchain.qrcodestatus.QrCodeStatus", "RELEASED")
           .chineseName("已解绑");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {ACTIVE, GRANTED, BOUND, RELEASED};
+    return new EnumAttribute[] {BOUND, FRESH, GRANTED, RELEASED};
   }
 
   // 引用的对象

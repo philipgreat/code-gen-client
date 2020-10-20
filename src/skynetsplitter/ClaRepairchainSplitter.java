@@ -1,5 +1,6 @@
 package skynetsplitter;
 
+import clariones.tool.builder.utils.DBUtil;
 import skynet.*;
 
 public class ClaRepairchainSplitter {
@@ -15,6 +16,10 @@ public class ClaRepairchainSplitter {
         // 生成项目相关脚本, 例如 page-flow, event-ripple, graph-query 的脚本
         System.setProperty("skynet.output.basefolder.scripts", getProjectScriptOutputFolder(projectFolder, modelName));
 
+//        DBUtil.main(null);
+//        if (true){
+//            return ;
+//        }
         CodeGenContext.start()
                 // .skipMysqlImport()
                 .withModel(modelName)

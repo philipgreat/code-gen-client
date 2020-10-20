@@ -36,6 +36,17 @@ public class ChangeRequest extends BaseModelBean {
 
   // 被引用的对象
 
+  public Factory factoryList() {
+    Factory member = new Factory();
+    member.setModelTypeName("factory");
+    member.setName("create_from");
+    member.setMemberName("factoryList");
+    member.setRelationName("createFrom");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public RepairApplication repairApplicationList() {
     RepairApplication member = new RepairApplication();
     member.setModelTypeName("repair_application");
@@ -91,11 +102,11 @@ public class ChangeRequest extends BaseModelBean {
     return member;
   }
 
-  public EventMachineBasicInfo eventMachineBasicInfoList() {
-    EventMachineBasicInfo member = new EventMachineBasicInfo();
-    member.setModelTypeName("event_machine_basic_info");
+  public EventFactoryAdminInfo eventFactoryAdminInfoList() {
+    EventFactoryAdminInfo member = new EventFactoryAdminInfo();
+    member.setModelTypeName("event_factory_admin_info");
     member.setName("change_request");
-    member.setMemberName("eventMachineBasicInfoList");
+    member.setMemberName("eventFactoryAdminInfoList");
     member.setRelationName("changeRequest");
     member.setReferDirection(false);
     append(member);
@@ -107,6 +118,28 @@ public class ChangeRequest extends BaseModelBean {
     member.setModelTypeName("event_employee_basic_info");
     member.setName("change_request");
     member.setMemberName("eventEmployeeBasicInfoList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventChangeEmployeeMobile eventChangeEmployeeMobileList() {
+    EventChangeEmployeeMobile member = new EventChangeEmployeeMobile();
+    member.setModelTypeName("event_change_employee_mobile");
+    member.setName("change_request");
+    member.setMemberName("eventChangeEmployeeMobileList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventEmployeeTransfer eventEmployeeTransferList() {
+    EventEmployeeTransfer member = new EventEmployeeTransfer();
+    member.setModelTypeName("event_employee_transfer");
+    member.setName("change_request");
+    member.setMemberName("eventEmployeeTransferList");
     member.setRelationName("changeRequest");
     member.setReferDirection(false);
     append(member);
@@ -206,6 +239,17 @@ public class ChangeRequest extends BaseModelBean {
     member.setModelTypeName("event_repair_feedback");
     member.setName("change_request");
     member.setMemberName("eventRepairFeedbackList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventMachineBasicInfo eventMachineBasicInfoList() {
+    EventMachineBasicInfo member = new EventMachineBasicInfo();
+    member.setModelTypeName("event_machine_basic_info");
+    member.setName("change_request");
+    member.setMemberName("eventMachineBasicInfoList");
     member.setRelationName("changeRequest");
     member.setReferDirection(false);
     append(member);

@@ -98,6 +98,15 @@ public class Agent extends BaseModelBean {
     return member;
   }
 
+  public StringAttribute bannerImage() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string_image");
+    // member.setName("bannerImage");
+    member.setName("banner_image");
+    useMember(member);
+    return member;
+  }
+
   public StringAttribute mobile() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string_china_mobile_phone");

@@ -153,6 +153,15 @@ public class Machine extends BaseModelBean {
     return member;
   }
 
+  public StringAttribute boundQrcode() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("boundQrcode");
+    member.setName("bound_qrcode");
+    useMember(member);
+    return member;
+  }
+
   public StringAttribute operationSystem() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");

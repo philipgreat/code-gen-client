@@ -371,10 +371,10 @@ public class MODEL {
     return rst;
   }
 
-  public static EventMachineBasicInfo eventMachineBasicInfo() {
-    EventMachineBasicInfo rst = new EventMachineBasicInfo();
-    rst.setModelTypeName("event_machine_basic_info");
-    rst.setBeanPath(new BeanPath().name("event_machine_basic_info"));
+  public static EventFactoryAdminInfo eventFactoryAdminInfo() {
+    EventFactoryAdminInfo rst = new EventFactoryAdminInfo();
+    rst.setModelTypeName("event_factory_admin_info");
+    rst.setBeanPath(new BeanPath().name("event_factory_admin_info"));
     return rst;
   }
 
@@ -382,6 +382,20 @@ public class MODEL {
     EventEmployeeBasicInfo rst = new EventEmployeeBasicInfo();
     rst.setModelTypeName("event_employee_basic_info");
     rst.setBeanPath(new BeanPath().name("event_employee_basic_info"));
+    return rst;
+  }
+
+  public static EventChangeEmployeeMobile eventChangeEmployeeMobile() {
+    EventChangeEmployeeMobile rst = new EventChangeEmployeeMobile();
+    rst.setModelTypeName("event_change_employee_mobile");
+    rst.setBeanPath(new BeanPath().name("event_change_employee_mobile"));
+    return rst;
+  }
+
+  public static EventEmployeeTransfer eventEmployeeTransfer() {
+    EventEmployeeTransfer rst = new EventEmployeeTransfer();
+    rst.setModelTypeName("event_employee_transfer");
+    rst.setBeanPath(new BeanPath().name("event_employee_transfer"));
     return rst;
   }
 
@@ -445,6 +459,13 @@ public class MODEL {
     EventRepairFeedback rst = new EventRepairFeedback();
     rst.setModelTypeName("event_repair_feedback");
     rst.setBeanPath(new BeanPath().name("event_repair_feedback"));
+    return rst;
+  }
+
+  public static EventMachineBasicInfo eventMachineBasicInfo() {
+    EventMachineBasicInfo rst = new EventMachineBasicInfo();
+    rst.setModelTypeName("event_machine_basic_info");
+    rst.setBeanPath(new BeanPath().name("event_machine_basic_info"));
     return rst;
   }
 

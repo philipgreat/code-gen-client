@@ -29,6 +29,11 @@ public class Q07_Misc extends PieceOfScript {
                                 MODEL.workPosition().employeeList().factory().eq("${factory id}"),
                                 MODEL.workPosition().employeeList().status().eq(OnJobStatus.ACTIVE))
 
+                    .find(MODEL.agent()).which("by machine").with_string("machine id")
+                        .comments("查找机器的代理商")
+                        .do_it_as()
+                        .where(MODEL.agent().factoryAgencyList().factory().machineList().id().eq("${machine id}"))
+
                 ;
     }
 }

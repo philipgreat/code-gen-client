@@ -203,7 +203,13 @@ public class Q04_Task extends PieceOfScript {
                 MODEL.maintenanceTask().regularMaintainPlan(),
                 MODEL.maintenanceTask().repairApplication().submitter().personalUser(),
                 MODEL.maintenanceTask().machine().factory(),
-                MODEL.maintenanceTask().type()
+                MODEL.maintenanceTask().type(),
+                MODEL.maintenanceTask().machine().factory().province(),
+                MODEL.maintenanceTask().machine().factory().city(),
+                MODEL.maintenanceTask().machine().factory().district(),
+                MODEL.maintenanceTask().factory().province(),
+                MODEL.maintenanceTask().factory().city(),
+                MODEL.maintenanceTask().factory().district()
                 );
     }
 

@@ -12,7 +12,27 @@ public class Q05_QrCode extends PieceOfScript {
                     .comments("查找设备当前绑定的二维码")
                     .do_it_as()
                     .where(MODEL.qrCode().machine().eq("${machine id}"),
-                            MODEL.qrCode().status().code().eq(QrCodeStatus.ACTIVE))
+                            MODEL.qrCode().status().code().eq(QrCodeStatus.BOUND))
+
+
+                .find(MODEL.qrCode()).which("belong to agent").with_string("agent id")
+                    .comments("统计代理商手中的二维码")
+                    .do_it_as().count_by(MODEL.qrCode().status())
+                    .where(MODEL.qrCode().agent().eq("${agent id}"))
+
+
+                .query(MODEL.qrCode()).which("belong to agent").pagination().with_string("agent id").with_string("search key")
+                    .comments("查询代理商手中的二维码")
+                    .do_it_as()
+                    .where(MODEL.qrCode().agent().eq("${agent id}"),
+                            MODEL.qrCode().value().like("${search key}")
+                            .or(MODEL.qrCode().machine().name().like("${search key}"),
+                                    MODEL.qrCode().machine().modelName().like("${search key}"),
+                                    MODEL.qrCode().machine().factory().name().like("${search key}")
+                            )
+                    )
+                    .wants(MODEL.qrCode().agent(), MODEL.qrCode().machine().factory(), MODEL.qrCode().status())
+
 
                 ;
     }

@@ -47,6 +47,17 @@ public class District extends BaseModelBean {
     return member;
   }
 
+  public EventFactoryBasicInfo eventFactoryBasicInfoList() {
+    EventFactoryBasicInfo member = new EventFactoryBasicInfo();
+    member.setModelTypeName("event_factory_basic_info");
+    member.setName("district");
+    member.setMemberName("eventFactoryBasicInfoList");
+    member.setRelationName("district");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

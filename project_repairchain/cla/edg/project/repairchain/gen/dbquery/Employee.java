@@ -212,6 +212,17 @@ public class Employee extends BaseModelBean {
     return member;
   }
 
+  public EventEmployeeTransfer eventEmployeeTransferList() {
+    EventEmployeeTransfer member = new EventEmployeeTransfer();
+    member.setModelTypeName("event_employee_transfer");
+    member.setName("to_employee");
+    member.setMemberName("eventEmployeeTransferList");
+    member.setRelationName("toEmployee");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventFaultInfo eventFaultInfoList() {
     EventFaultInfo member = new EventFaultInfo();
     member.setModelTypeName("event_fault_info");

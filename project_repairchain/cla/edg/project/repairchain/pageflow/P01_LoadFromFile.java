@@ -16,6 +16,14 @@ public class P01_LoadFromFile extends PieceOfScript {
 
                     .request("logout").comments("退出当前账号").no_login().no_footprint()
                         .got_home_page()
+
+                    .request("coming soon").with_string("message")
+                        .comments("提示功能即将上线").no_login()
+                        .got_toast_page()
+
+                    .request("select repair type").with_string("machine id")
+                        .comments("选择是立即维修还是预约")
+                        .got_popup_page()
 //                    .for_request("view agency factory detail")
 //                        .reset_params().with_string("agent id")
 //                        .with_string("factory id")
