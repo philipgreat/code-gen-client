@@ -6,7 +6,7 @@ import com.terapico.changerequest.builder.ChangeRequestSpecFactory;
 import com.terapico.changerequest.builder.FieldType;
 import com.terapico.changerequest.builder.UIStyle;
 
-public class CR03_Employee implements ChangeRequestSpecFactory {
+public class CR04_Employee implements ChangeRequestSpecFactory {
     public ChangeRequestSpecBuilder makeSequel(ChangeRequestSpecBuilder builder) {
         return builder.change_request("add employee by agent").zh_CN("添加人员")
                 .step("A").zh_CN("添加员工")
@@ -27,7 +27,9 @@ public class CR03_Employee implements ChangeRequestSpecFactory {
                             .which_model_of(MODEL.workPosition()).values_can_select_from_query_by(null)
                         .has_field("leader").zh_CN("直接上级")
                             .which_model_of(MODEL.employee())
-                            .values_can_select_from_query_by("${factory id}")
+                            //.values_can_select_from_query_by("${factory id}")
+                            .values_can_select_from_query_by("wxappService/queryLeader/${factory id}/:keyword/+/")
+//                            .values_can_check_from_query_by("wxappService/queryLeader/${factory id}/:keyword/+/")
                             .optional()
                             .tips_title("?")
                             .tips_content("如果没有上级,可以不选")

@@ -19,10 +19,11 @@ public class MainChangeRequest implements ChangeRequestSpecFactory {
 
                 .import_from(new CR01_Example())
                 .import_from(new CR02_Factory())
-                .import_from(new CR03_Employee())
-                .import_from(new CR04_QrCode())
-                .import_from(new CR05_RepairTask())
-                .import_from(new CR06_Machine())
+                .import_from(new CR03_Machine())
+                .import_from(new CR04_Employee())
+                .import_from(new CR05_QrCode())
+                .import_from(new CR06_RepairTask())
+
 
                 .getChangeRequestSpec();
     }

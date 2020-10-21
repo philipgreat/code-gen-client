@@ -54,6 +54,15 @@ public class EventMachineBasicInfo extends BaseModelBean {
     return member;
   }
 
+  public StringAttribute machineId() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("machineId");
+    member.setName("machine_id");
+    useMember(member);
+    return member;
+  }
+
   public StringAttribute machineName() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");

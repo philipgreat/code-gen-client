@@ -7,7 +7,7 @@ import com.terapico.changerequest.builder.FieldType;
 
 import java.lang.reflect.Field;
 
-public class CR05_RepairTask implements ChangeRequestSpecFactory {
+public class CR06_RepairTask implements ChangeRequestSpecFactory {
     public ChangeRequestSpecBuilder makeSequel(ChangeRequestSpecBuilder builder) {
         return builder.change_request("repair application").zh_CN("报修单")
                 .step("step 1").zh_CN("第一步")
@@ -26,7 +26,7 @@ public class CR05_RepairTask implements ChangeRequestSpecFactory {
                             .fill_by_request("machine id", MODEL.machine().machineLocation())
                     .contains_event("fault info").zh_CN("故障信息")
                         .has_field("repair now")
-                            .value(true)
+                            .value(true).which_type_of(FieldType.BOOLEAN)
                             .hidden()
                         .has_field("work job id").zh_CN("工单")
                             .optional()

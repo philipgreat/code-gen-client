@@ -50,11 +50,22 @@ public class MachineStatus extends BaseModelBean {
     return member;
   }
 
-  public MachineRunningRecord machineRunningRecordList() {
+  public MachineRunningRecord machineRunningRecordListAsMachineStatus() {
     MachineRunningRecord member = new MachineRunningRecord();
     member.setModelTypeName("machine_running_record");
     member.setName("machine_status");
-    member.setMemberName("machineRunningRecordList");
+    member.setMemberName("machineRunningRecordListAsMachineStatus");
+    member.setRelationName("machineStatus");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public MachineRunningRecord machineRunningRecordListAsLastReportStatus() {
+    MachineRunningRecord member = new MachineRunningRecord();
+    member.setModelTypeName("machine_running_record");
+    member.setName("last_report_status");
+    member.setMemberName("machineRunningRecordListAsLastReportStatus");
     member.setRelationName("machineStatus");
     member.setReferDirection(false);
     append(member);

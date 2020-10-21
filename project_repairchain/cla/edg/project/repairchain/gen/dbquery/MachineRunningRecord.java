@@ -45,6 +45,17 @@ public class MachineRunningRecord extends BaseModelBean {
     return member;
   }
 
+  public MachineStatus lastReportStatus() {
+    MachineStatus member = new MachineStatus();
+    member.setModelTypeName("machine_status");
+    member.setName("last_report_status");
+    member.setMemberName("lastReportStatus");
+    member.setReferDirection(true);
+    member.setRelationName("lastReportStatus");
+    append(member);
+    return member;
+  }
+
   // 被引用的对象
 
   // 普通属性
@@ -54,6 +65,24 @@ public class MachineRunningRecord extends BaseModelBean {
     member.setModelTypeName("string");
     // member.setName("id");
     member.setName("id");
+    useMember(member);
+    return member;
+  }
+
+  public DateTimeAttribute lastReportTime() {
+    DateTimeAttribute member = new DateTimeAttribute();
+    member.setModelTypeName("date_time");
+    // member.setName("lastReportTime");
+    member.setName("last_report_time");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute lastReportId() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("lastReportId");
+    member.setName("last_report_id");
     useMember(member);
     return member;
   }

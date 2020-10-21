@@ -113,6 +113,17 @@ public class ChangeRequest extends BaseModelBean {
     return member;
   }
 
+  public EventMachineBasicInfo eventMachineBasicInfoList() {
+    EventMachineBasicInfo member = new EventMachineBasicInfo();
+    member.setModelTypeName("event_machine_basic_info");
+    member.setName("change_request");
+    member.setMemberName("eventMachineBasicInfoList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventEmployeeBasicInfo eventEmployeeBasicInfoList() {
     EventEmployeeBasicInfo member = new EventEmployeeBasicInfo();
     member.setModelTypeName("event_employee_basic_info");
@@ -239,17 +250,6 @@ public class ChangeRequest extends BaseModelBean {
     member.setModelTypeName("event_repair_feedback");
     member.setName("change_request");
     member.setMemberName("eventRepairFeedbackList");
-    member.setRelationName("changeRequest");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public EventMachineBasicInfo eventMachineBasicInfoList() {
-    EventMachineBasicInfo member = new EventMachineBasicInfo();
-    member.setModelTypeName("event_machine_basic_info");
-    member.setName("change_request");
-    member.setMemberName("eventMachineBasicInfoList");
     member.setRelationName("changeRequest");
     member.setReferDirection(false);
     append(member);

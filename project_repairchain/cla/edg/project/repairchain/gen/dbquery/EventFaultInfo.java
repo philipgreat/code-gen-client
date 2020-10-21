@@ -69,9 +69,9 @@ public class EventFaultInfo extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute repairNow() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
+  public BooleanAttribute repairNow() {
+    BooleanAttribute member = new BooleanAttribute();
+    member.setModelTypeName("bool");
     // member.setName("repairNow");
     member.setName("repair_now");
     useMember(member);
