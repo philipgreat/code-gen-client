@@ -16,11 +16,11 @@ public class Q07_Misc extends PieceOfScript {
                         .where(MODEL.systemAnnouncement().startTime().before("${now}"), MODEL.systemAnnouncement().endTime().after("${now}"))
 
 
-                    .query(MODEL.machineStartStopRecord()).list_of("machine").pagination().with_string("machine id")
+                    .query(MODEL.machineRunningRecord()).list_of("machine").pagination().with_string("machine id")
                         .comments("查找机器的启停记录")
                         .do_it_as()
-                        .where(MODEL.machineStartStopRecord().machine().eq("${machine id}"))
-                        .wants(MODEL.machineStartStopRecord().reporter().personalUser())
+                        .where(MODEL.machineRunningRecord().machine().eq("${machine id}"))
+                        .wants(MODEL.machineRunningRecord().submitter().personalUser())
 
                     .query(MODEL.workPosition()).list_of("user in factory").with_string("user id").with_string("factory id")
                         .comments("查找用户在某个工厂中的所有角色")

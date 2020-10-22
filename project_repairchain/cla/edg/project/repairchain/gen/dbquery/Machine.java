@@ -91,17 +91,6 @@ public class Machine extends BaseModelBean {
     return member;
   }
 
-  public MachineStartStopRecord machineStartStopRecordList() {
-    MachineStartStopRecord member = new MachineStartStopRecord();
-    member.setModelTypeName("machine_start_stop_record");
-    member.setName("machine");
-    member.setMemberName("machineStartStopRecordList");
-    member.setRelationName("machine");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
   public RepairApplication repairApplicationList() {
     RepairApplication member = new RepairApplication();
     member.setModelTypeName("repair_application");

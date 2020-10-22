@@ -273,13 +273,6 @@ public class MODEL {
     return rst;
   }
 
-  public static MachineStartStopRecord machineStartStopRecord() {
-    MachineStartStopRecord rst = new MachineStartStopRecord();
-    rst.setModelTypeName("machine_start_stop_record");
-    rst.setBeanPath(new BeanPath().name("machine_start_stop_record"));
-    return rst;
-  }
-
   public static FailureType failureType() {
     FailureType rst = new FailureType();
     rst.setModelTypeName("failure_type");

@@ -36,7 +36,7 @@ public class Q02_Factory extends PieceOfScript {
                         .comments("查询用户可查看的启停记录对应的工厂")
                         .do_it_as()
                         .where(MODEL.factory().employeeList().personalUser().eq("${user id}"),
-                            MODEL.factory().machineList().machineStartStopRecordList().id().not_null())
+                            MODEL.factory().machineList().machineRunningRecordList().id().not_null())
 
 
                 ;

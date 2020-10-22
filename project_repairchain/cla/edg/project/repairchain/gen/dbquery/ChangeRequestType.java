@@ -60,7 +60,7 @@ public class ChangeRequestType extends BaseModelBean {
       new EnumAttribute(
               "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
               "QRCODE_BIND_MACHINE")
-          .chineseName("绑定设备");
+          .chineseName("绑定二维码");
   public static EnumAttribute REPORT_DAMAGE =
       new EnumAttribute(
               "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
@@ -118,7 +118,7 @@ public class ChangeRequestType extends BaseModelBean {
       new EnumAttribute(
               "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",
               "MACHINE_BIND_QRCODE")
-          .chineseName("绑定二维码");
+          .chineseName("绑定设备");
   public static EnumAttribute ADD_EMPLOYEE_BY_AGENT =
       new EnumAttribute(
               "com.doublechaintech.repairchain.changerequesttype.ChangeRequestType",

@@ -39,7 +39,7 @@ public class Q03_Machine extends PieceOfScript {
                         .do_it_as()
                         .where(MODEL.machine().factory().employeeList().personalUser().eq("${user id}"),
                                 MODEL.machine().factory().eq("${factory id}").optional(),
-                                MODEL.machine().machineStartStopRecordList().id().not_null())
+                                MODEL.machine().machineRunningRecordList().id().not_null())
                         .run_by(this::wantsForMachineList)
 
                     .find(MODEL.machine()).which("bind with qrcode").with_string("qrcode id")
