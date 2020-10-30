@@ -14,9 +14,40 @@ public class SystemLevelImages extends BaseModelBean {
               "com.doublechaintech.saleschain.systemlevelimages.SystemLevelImages",
               "INVITE_BG_IMAGE")
           .chineseName("背景图-邀请");
+  public static EnumAttribute DEFAULT_FUNCTIONALITY =
+      new EnumAttribute(
+              "com.doublechaintech.saleschain.systemlevelimages.SystemLevelImages",
+              "DEFAULT_FUNCTIONALITY")
+          .chineseName("默认功能图片");
+  public static EnumAttribute DEFAULT_CATEGORY =
+      new EnumAttribute(
+              "com.doublechaintech.saleschain.systemlevelimages.SystemLevelImages",
+              "DEFAULT_CATEGORY")
+          .chineseName("默认分类图片");
+  public static EnumAttribute DEFAULT_PRODUCT =
+      new EnumAttribute(
+              "com.doublechaintech.saleschain.systemlevelimages.SystemLevelImages",
+              "DEFAULT_PRODUCT")
+          .chineseName("默认产品图片");
+  public static EnumAttribute DEFAULT_SUPPLIER =
+      new EnumAttribute(
+              "com.doublechaintech.saleschain.systemlevelimages.SystemLevelImages",
+              "DEFAULT_SUPPLIER")
+          .chineseName("默认供应商图片");
+  public static EnumAttribute DEFAULT_BRAND =
+      new EnumAttribute(
+              "com.doublechaintech.saleschain.systemlevelimages.SystemLevelImages", "DEFAULT_BRAND")
+          .chineseName("默认品牌图片");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {INVITE_BG_IMAGE};
+    return new EnumAttribute[] {
+      INVITE_BG_IMAGE,
+      DEFAULT_FUNCTIONALITY,
+      DEFAULT_CATEGORY,
+      DEFAULT_PRODUCT,
+      DEFAULT_SUPPLIER,
+      DEFAULT_BRAND
+    };
   }
 
   // 引用的对象

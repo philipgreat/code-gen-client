@@ -38,7 +38,7 @@ public class UserAllowList extends BaseModelBean {
 
   public StringAttribute userIdentity() {
     StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
+    member.setModelTypeName("string_china_mobile_phone");
     // member.setName("userIdentity");
     member.setName("user_identity");
     useMember(member);

@@ -35,7 +35,11 @@ public class Q4_Supplier extends PieceOfScript {
                                 MODEL.supplier().merchant().not_null())
 
 
-
+                .find(MODEL.supplier()).which("by name").with_string("name")
+                    .comments("根据名称查找供应商")
+                    .do_it_as()
+                        .where(MODEL.supplier().name().eq("${name}"),
+                            MODEL.supplier().platform().not_null())
                 ;
     }
 }

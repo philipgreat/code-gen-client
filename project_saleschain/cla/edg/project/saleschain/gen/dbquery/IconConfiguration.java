@@ -25,9 +25,32 @@ public class IconConfiguration extends BaseModelBean {
       new EnumAttribute(
               "com.doublechaintech.saleschain.iconconfiguration.IconConfiguration", "MESSAGE")
           .chineseName("消息通知");
+  public static EnumAttribute DEFAULT_FUNCTIONALITY =
+      new EnumAttribute(
+              "com.doublechaintech.saleschain.iconconfiguration.IconConfiguration",
+              "DEFAULT_FUNCTIONALITY")
+          .chineseName("默认功能图标");
+  public static EnumAttribute DEFAULT_CATEGORY =
+      new EnumAttribute(
+              "com.doublechaintech.saleschain.iconconfiguration.IconConfiguration",
+              "DEFAULT_CATEGORY")
+          .chineseName("默认分类图标");
+  public static EnumAttribute DEFAULT_PRODUCT =
+      new EnumAttribute(
+              "com.doublechaintech.saleschain.iconconfiguration.IconConfiguration",
+              "DEFAULT_PRODUCT")
+          .chineseName("默认产品图标");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {CHECK_IN, INVITE, ACCOUNT_BOOK, MESSAGE};
+    return new EnumAttribute[] {
+      CHECK_IN,
+      INVITE,
+      ACCOUNT_BOOK,
+      MESSAGE,
+      DEFAULT_FUNCTIONALITY,
+      DEFAULT_CATEGORY,
+      DEFAULT_PRODUCT
+    };
   }
 
   // 引用的对象

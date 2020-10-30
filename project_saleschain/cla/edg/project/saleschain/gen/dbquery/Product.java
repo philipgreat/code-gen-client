@@ -102,6 +102,15 @@ public class Product extends BaseModelBean {
     return member;
   }
 
+  public StringAttribute productCode() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("productCode");
+    member.setName("product_code");
+    useMember(member);
+    return member;
+  }
+
   public StringAttribute name() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
@@ -111,20 +120,47 @@ public class Product extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute description() {
+  public StringAttribute spec() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
-    // member.setName("description");
-    member.setName("description");
+    // member.setName("spec");
+    member.setName("spec");
     useMember(member);
     return member;
   }
 
-  public StringAttribute detail() {
+  public StringAttribute listPrice() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("listPrice");
+    member.setName("list_price");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute deliveryTime() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("deliveryTime");
+    member.setName("delivery_time");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute brief() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("brief");
+    member.setName("brief");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute description() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string_longtext");
-    // member.setName("detail");
-    member.setName("detail");
+    // member.setName("description");
+    member.setName("description");
     useMember(member);
     return member;
   }
@@ -147,38 +183,11 @@ public class Product extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute productCode() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("productCode");
-    member.setName("product_code");
-    useMember(member);
-    return member;
-  }
-
-  public NumberAttribute deliveryTime() {
-    NumberAttribute member = new NumberAttribute();
-    member.setModelTypeName("int");
-    // member.setName("deliveryTime");
-    member.setName("delivery_time");
-    useMember(member);
-    return member;
-  }
-
   public StringAttribute quality() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string_longtext");
     // member.setName("quality");
     member.setName("quality");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute spec() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("spec");
-    member.setName("spec");
     useMember(member);
     return member;
   }

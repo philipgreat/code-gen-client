@@ -26,6 +26,12 @@ public class Q3_Brand extends PieceOfScript {
                         .order_by(MODEL.brand().displayOrder()).asc()
                         .order_by(MODEL.brand().name()).asc_by_pinyin()
                         .order_by(MODEL.brand().id()).desc()
+
+                .find(MODEL.brand()).which("by name").with_string("name")
+                    .comments("根据名称查找品牌")
+                    .do_it_as()
+                        .where(MODEL.brand().name().eq("${name}"),
+                                MODEL.brand().platform().not_null())
                 ;
     }
 }

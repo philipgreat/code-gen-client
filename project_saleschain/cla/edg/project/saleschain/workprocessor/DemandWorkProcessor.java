@@ -23,10 +23,10 @@ public class DemandWorkProcessor implements WorkProcessorScript {
 
             .in_status("wait supplier connect").zh_CN("等待供应商对接")
                 .on_event("confirm").zh_CN("供应商确认").by_role("supplier")
-                    .when_success().go_to("supplier connected").zh_CN("已对接")
+                    .go_to("supplier connected").zh_CN("已对接")
 
                 .on_event("reject").zh_CN("供应商拒绝").by_role("supplier")
-                    .when_success().go_to("cancelled").zh_CN("已取消")
+                    .go_to("cancelled").zh_CN("已取消")
 
                 .as_role("supplier")
                     .can_do("supplier confirm connect", "supplier reject connect")

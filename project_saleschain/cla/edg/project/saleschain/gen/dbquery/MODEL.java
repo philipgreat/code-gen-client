@@ -315,13 +315,6 @@ public class MODEL {
     return rst;
   }
 
-  public static Roo roo() {
-    Roo rst = new Roo();
-    rst.setModelTypeName("roo");
-    rst.setBeanPath(new BeanPath().name("roo"));
-    return rst;
-  }
-
   public static IconConfiguration iconConfiguration() {
     IconConfiguration rst = new IconConfiguration();
     rst.setModelTypeName("icon_configuration");

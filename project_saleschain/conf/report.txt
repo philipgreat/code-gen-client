@@ -4,7 +4,7 @@
 
 
 
-=================1.0 Execute Report (Model Time 200907T1046) @Mon Sep 07 10:47:03 CST 2020, 83 objects and 636 fields===========================
+=================1.0 Execute Report (Model Time 201030T1116) @Fri Oct 30 11:16:43 CST 2020, 82 objects and 635 fields===========================
 from file "/works/jobs/saleschain_v1/workspace/web-code-generator/sky/modeling/microservice/saleschain.xml"
 
 
@@ -708,9 +708,6 @@ Info: Add virtual field [demand_proposal_trade_statuss(es)] to <platform>
 
 Info: Add virtual field [demand_proposal_logs(es)] to <demand_proposal>
 	demand_proposal_log.demand_proposal
-
-
- processing: roo
 
 
  processing: icon_configuration
@@ -1557,9 +1554,9 @@ brand{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id;
 		string	name('品牌方名称'), verb: false, required: true,type:string;
-		string_longtext	brand_introduce('richText()'), verb: false, required: true,type:richText;
-		string_image	logo('logo.png'), verb: false, required: true,type:string_image;
-		string_longtext	quality_show('richText()'), verb: false, required: true,type:richText;
+		string_longtext	brand_introduce('richText()'), verb: false, required: false,type:richText;
+		string_image	logo('logo.png'), verb: false, required: false,type:string_image;
+		string_longtext	quality_show('richText()'), verb: false, required: false,type:richText;
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: brandList,type:platform;
 		int	display_order('100000000|9000|80|1'), verb: false, required: true,type:display_order;
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update;
@@ -1633,9 +1630,9 @@ functionality{
 	fields(10){
 		string	id('AB'), verb: false, required: true,type:id;
 		string	name('试剂|耗材'), verb: false, required: true,type:category_name;
-		string	description('95%浓度的酒精,是科研领域的大用量耗材'), verb: false, required: true,type:category_description;
+		string	description('95%浓度的酒精,是科研领域的大用量耗材'), verb: false, required: false,type:category_description;
 		string_image	cover_image('reagents.jpg'), verb: false, required: false,type:string_image;
-		string	icon('bank'), verb: false, required: true,type:string;
+		string	icon('bank|[0,40]'), verb: false, required: false,type:string;
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: functionalityList,type:platform;
 		int	display_order('100000000|9000|80|1'), verb: false, required: true,type:display_order;
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create;
@@ -1652,9 +1649,9 @@ category{
 	fields(10){
 		string	id('AB'), verb: false, required: true,type:id;
 		string	name('试剂|耗材'), verb: false, required: true,type:category_name;
-		string	description('95%浓度的酒精,是科研领域的大用量耗材'), verb: false, required: true,type:category_description;
+		string	description('95%浓度的酒精,是科研领域的大用量耗材'), verb: false, required: false,type:category_description;
 		string_image	cover_image('reagents.jpg'), verb: false, required: false,type:string_image;
-		string	icon('bank'), verb: false, required: true,type:string;
+		string	icon('bank|[0,40]'), verb: false, required: false,type:string;
 		functionality	functionality('$(object)'), verb: false, required: true, referenceBy: categoryList,type:functionality;
 		int	display_order('100000000|9000|80|1'), verb: false, required: true,type:display_order;
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create;
@@ -1668,20 +1665,21 @@ category{
 
 meta{name=product, features=root}
 product{
-	fields(18){
+	fields(19){
 		string	id('AB'), verb: false, required: true,type:id;
+		string	product_code('I12648010'), verb: false, required: true,type:string;
 		string	name('总胆红素试剂盒|甘油三酯试剂盒|α-淀粉酶'), verb: false, required: true,type:string;
-		string	description('系统名称为1,4-α-D-葡聚糖葡聚糖水解酶，别名为液化型淀粉酶、液化酶、α-1，4-糊精酶。黄褐色固体粉末或黄褐色至深褐色液体，含水量5%~8%。溶于水，不溶于乙醇或乙醚。FAO/WHO规定，ADI无特殊限制|总胆红素测定试剂盒（2,4-二氯苯胺重氮法）是2009年德国生产的药物。\n产品名称（中文）总胆红素测定试剂盒(2,4-二氯苯胺重氮法) [1] \n产品名称（英文）Bilirubin Auto Total FS\n注册号国食药监械(进)字2009第2402169号(变更批件)'), verb: false, required: true,type:string;
-		string_longtext	detail('richText()'), verb: false, required: true,type:richText;
+		string	spec('200 rxns|100ml|可处理50 ml血液'), verb: false, required: true,type:string;
+		string	list_price('面谈|RMB12000.00'), verb: false, required: true,type:string;
+		string	delivery_time('3天|现货3天,德国6天'), verb: false, required: true,type:string;
+		string	brief('系统名称为1,4-α-D-葡聚糖葡聚糖水解酶，别名为液化型淀粉酶、液化酶、α-1，4-糊精酶。黄褐色固体粉末或黄褐色至深褐色液体，含水量5%~8%。溶于水，不溶于乙醇或乙醚。FAO/WHO规定，ADI无特殊限制|总胆红素测定试剂盒（2,4-二氯苯胺重氮法）是2009年德国生产的药物。\n产品名称（中文）总胆红素测定试剂盒(2,4-二氯苯胺重氮法) [1] \n产品名称（英文）Bilirubin Auto Total FS\n注册号国食药监械(进)字2009第2402169号(变更批件)'), verb: false, required: false,type:string;
+		string_longtext	description('richText()'), verb: false, required: false,type:richText;
 		string_image	cover_image('reagents.jpg'), verb: false, required: false,type:string_image;
-		string	icon('bank'), verb: false, required: true,type:string;
+		string	icon('bank|[0,40]'), verb: false, required: false,type:string;
 		category	category('$(object)'), verb: false, required: true, referenceBy: productList,type:category;
 		brand	brand('$(object)'), verb: false, required: true, referenceBy: productList,type:brand;
-		string	product_code('I12648010'), verb: false, required: true,type:string;
-		int	delivery_time('3|5|10'), verb: false, required: true,type:int;
 		supplier	supplier('$(object)'), verb: false, required: true, referenceBy: productList,type:supplier;
-		string_longtext	quality('richText()'), verb: false, required: true,type:richText;
-		string	spec('500ml|100ml'), verb: false, required: true,type:string;
+		string_longtext	quality('richText()'), verb: false, required: false,type:richText;
 		double	bonus_point('0.05'), verb: false, required: true,type:double;
 		int	display_order('100000000|9000|80|1'), verb: false, required: true,type:display_order;
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create;
@@ -1852,23 +1850,13 @@ demand_proposal_log{
 	}
 } depth=5; isRoot = false
 
-meta{name=roo, features=root}
-roo{
-	fields(2){
-		string	id('AB'), verb: false, required: true,type:id;
-		int	version('2147483647'), verb: false, required: true,type:version;
-	}
-	references field(0){
-	}
-} depth=0; isRoot = true
-
 meta{name=icon_configuration, features=status}
 icon_configuration{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id;
-		string	name('签到打卡|邀请好友|账户管理|消息通知'), verb: false, required: true,type:string;
-		string	code('CHECK_IN|INVITE|ACCOUNT_BOOK|MESSAGE'), verb: false, required: true,type:string;
-		string	description('我的 页面中 签到打卡 的图标|我的 页面中 邀请好友 的图标|我的 页面中 账户管理 的图标|我的 页面中 消息通知 的图标'), verb: false, required: true,type:string;
+		string	name('签到打卡|邀请好友|账户管理|消息通知|默认功能图标|默认分类图标|默认产品图标'), verb: false, required: true,type:string;
+		string	code('CHECK_IN|INVITE|ACCOUNT_BOOK|MESSAGE|DEFAULT_FUNCTIONALITY|DEFAULT_CATEGORY|DEFAULT_PRODUCT'), verb: false, required: true,type:string;
+		string	description('我的 页面中 签到打卡 的图标|我的 页面中 邀请好友 的图标|我的 页面中 账户管理 的图标|我的 页面中 消息通知 的图标|如果'功能'未配置图标,将会采用此图|如果'分类'未配置图标,将会采用此图|如果'产品'未配置图标,将会采用此图'), verb: false, required: true,type:string;
 		string_image	icon('icon.jpg'), verb: false, required: true,type:string_image;
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: iconConfigurationList,type:platform;
 		int	version('2147483647'), verb: false, required: true,type:version;
@@ -1896,10 +1884,10 @@ meta{name=system_level_images, features=status}
 system_level_images{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id;
-		string	name('背景图-邀请'), verb: false, required: true,type:string;
-		string	code('INVITE_BG_IMAGE'), verb: false, required: true,type:string;
+		string	name('背景图-邀请|默认功能图片|默认分类图片|默认产品图片|默认供应商图片|默认品牌图片'), verb: false, required: true,type:string;
+		string	code('INVITE_BG_IMAGE|DEFAULT_FUNCTIONALITY|DEFAULT_CATEGORY|DEFAULT_PRODUCT|DEFAULT_SUPPLIER|DEFAULT_BRAND'), verb: false, required: true,type:string;
 		string_image	value('example.jpg'), verb: false, required: true,type:string_image;
-		string	description('邀请页面的背景图'), verb: false, required: true,type:string;
+		string	description('邀请页面的背景图|如果'功能'未配置图片,将会采用此图|如果'分类'未配置图片,将会采用此图|如果'产品'未配置图片,将会采用此图|如果'供应商'未配置图片,将会采用此图|如果'品牌'未配置图片,将会采用此图'), verb: false, required: true,type:string;
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: systemLevelImagesList,type:platform;
 		int	version('2147483647'), verb: false, required: true,type:version;
 	}
@@ -1926,12 +1914,12 @@ meta{name=system_level_number, immutable_fields=code,min_value,max_value, featur
 system_level_number{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id;
-		string	name('上级分成'), verb: false, required: true,type:string;
-		string	code('UPPER_REWARD_RATE'), verb: false, required: true,type:string;
-		double	value('0000000000.0300000'), verb: false, required: true,type:double;
-		double	min_value('0.00'), verb: false, required: true,type:double;
-		double	max_value('0.10'), verb: false, required: true,type:double;
-		string	description('上级推荐人的分成比例,0.01表示%1'), verb: false, required: true,type:string;
+		string	name('上级分成|默认分成'), verb: false, required: true,type:string;
+		string	code('UPPER_REWARD_RATE|DEFAULT_REWARD_RATE'), verb: false, required: true,type:string;
+		double	value('0000000000.0300000|0000000000.0500000'), verb: false, required: true,type:double;
+		double	min_value('0.00|0.00'), verb: false, required: true,type:double;
+		double	max_value('0.10|0.10'), verb: false, required: true,type:double;
+		string	description('上级推荐人的分成比例,0.01表示%1|默认的推荐人分成比例,0.01表示%1'), verb: false, required: true,type:string;
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: systemLevelNumberList,type:platform;
 		int	version('2147483647'), verb: false, required: true,type:version;
 	}
@@ -2289,8 +2277,8 @@ meta{name=user_allow_list, features=syssetting}
 user_allow_list{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id;
-		string	user_identity('clariones|13808188512'), verb: false, required: true,type:string;
-		string	user_special_functions('tester;ios-spokesperson'), verb: false, required: true,type:string;
+		string_china_mobile_phone	user_identity('13308188512|13808188512'), verb: false, required: true,type:string_china_mobile_phone;
+		string	user_special_functions(';supervisor;|;tester;ios-spokesperson;'), verb: false, required: true,type:string;
 		user_domain	domain('$(object)'), verb: false, required: true, referenceBy: userAllowListList,type:user_domain;
 		int	version('2147483647'), verb: false, required: true,type:version;
 	}
@@ -2990,9 +2978,9 @@ brand{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id;
 		string	name('品牌方名称'), verb: false, required: true,type:string;
-		string_longtext	brand_introduce('richText()'), verb: false, required: true,type:richText;
-		string_image	logo('logo.png'), verb: false, required: true,type:string_image;
-		string_longtext	quality_show('richText()'), verb: false, required: true,type:richText;
+		string_longtext	brand_introduce('richText()'), verb: false, required: false,type:richText;
+		string_image	logo('logo.png'), verb: false, required: false,type:string_image;
+		string_longtext	quality_show('richText()'), verb: false, required: false,type:richText;
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: brandList,type:platform;
 		int	display_order('100000000|9000|80|1'), verb: false, required: true,type:display_order;
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update;
@@ -3066,9 +3054,9 @@ functionality{
 	fields(10){
 		string	id('AB'), verb: false, required: true,type:id;
 		string	name('试剂|耗材'), verb: false, required: true,type:category_name;
-		string	description('95%浓度的酒精,是科研领域的大用量耗材'), verb: false, required: true,type:category_description;
+		string	description('95%浓度的酒精,是科研领域的大用量耗材'), verb: false, required: false,type:category_description;
 		string_image	cover_image('reagents.jpg'), verb: false, required: false,type:string_image;
-		string	icon('bank'), verb: false, required: true,type:string;
+		string	icon('bank|[0,40]'), verb: false, required: false,type:string;
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: functionalityList,type:platform;
 		int	display_order('100000000|9000|80|1'), verb: false, required: true,type:display_order;
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create;
@@ -3085,9 +3073,9 @@ category{
 	fields(10){
 		string	id('AB'), verb: false, required: true,type:id;
 		string	name('试剂|耗材'), verb: false, required: true,type:category_name;
-		string	description('95%浓度的酒精,是科研领域的大用量耗材'), verb: false, required: true,type:category_description;
+		string	description('95%浓度的酒精,是科研领域的大用量耗材'), verb: false, required: false,type:category_description;
 		string_image	cover_image('reagents.jpg'), verb: false, required: false,type:string_image;
-		string	icon('bank'), verb: false, required: true,type:string;
+		string	icon('bank|[0,40]'), verb: false, required: false,type:string;
 		functionality	functionality('$(object)'), verb: false, required: true, referenceBy: categoryList,type:functionality;
 		int	display_order('100000000|9000|80|1'), verb: false, required: true,type:display_order;
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create;
@@ -3101,20 +3089,21 @@ category{
 
 meta{name=product, features=root}
 product{
-	fields(18){
+	fields(19){
 		string	id('AB'), verb: false, required: true,type:id;
+		string	product_code('I12648010'), verb: false, required: true,type:string;
 		string	name('总胆红素试剂盒|甘油三酯试剂盒|α-淀粉酶'), verb: false, required: true,type:string;
-		string	description('系统名称为1,4-α-D-葡聚糖葡聚糖水解酶，别名为液化型淀粉酶、液化酶、α-1，4-糊精酶。黄褐色固体粉末或黄褐色至深褐色液体，含水量5%~8%。溶于水，不溶于乙醇或乙醚。FAO/WHO规定，ADI无特殊限制|总胆红素测定试剂盒（2,4-二氯苯胺重氮法）是2009年德国生产的药物。\n产品名称（中文）总胆红素测定试剂盒(2,4-二氯苯胺重氮法) [1] \n产品名称（英文）Bilirubin Auto Total FS\n注册号国食药监械(进)字2009第2402169号(变更批件)'), verb: false, required: true,type:string;
-		string_longtext	detail('richText()'), verb: false, required: true,type:richText;
+		string	spec('200 rxns|100ml|可处理50 ml血液'), verb: false, required: true,type:string;
+		string	list_price('面谈|RMB12000.00'), verb: false, required: true,type:string;
+		string	delivery_time('3天|现货3天,德国6天'), verb: false, required: true,type:string;
+		string	brief('系统名称为1,4-α-D-葡聚糖葡聚糖水解酶，别名为液化型淀粉酶、液化酶、α-1，4-糊精酶。黄褐色固体粉末或黄褐色至深褐色液体，含水量5%~8%。溶于水，不溶于乙醇或乙醚。FAO/WHO规定，ADI无特殊限制|总胆红素测定试剂盒（2,4-二氯苯胺重氮法）是2009年德国生产的药物。\n产品名称（中文）总胆红素测定试剂盒(2,4-二氯苯胺重氮法) [1] \n产品名称（英文）Bilirubin Auto Total FS\n注册号国食药监械(进)字2009第2402169号(变更批件)'), verb: false, required: false,type:string;
+		string_longtext	description('richText()'), verb: false, required: false,type:richText;
 		string_image	cover_image('reagents.jpg'), verb: false, required: false,type:string_image;
-		string	icon('bank'), verb: false, required: true,type:string;
+		string	icon('bank|[0,40]'), verb: false, required: false,type:string;
 		category	category('$(object)'), verb: false, required: true, referenceBy: productList,type:category;
 		brand	brand('$(object)'), verb: false, required: true, referenceBy: productList,type:brand;
-		string	product_code('I12648010'), verb: false, required: true,type:string;
-		int	delivery_time('3|5|10'), verb: false, required: true,type:int;
 		supplier	supplier('$(object)'), verb: false, required: true, referenceBy: productList,type:supplier;
-		string_longtext	quality('richText()'), verb: false, required: true,type:richText;
-		string	spec('500ml|100ml'), verb: false, required: true,type:string;
+		string_longtext	quality('richText()'), verb: false, required: false,type:richText;
 		double	bonus_point('0.05'), verb: false, required: true,type:double;
 		int	display_order('100000000|9000|80|1'), verb: false, required: true,type:display_order;
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create;
@@ -3285,23 +3274,13 @@ demand_proposal_log{
 	}
 } depth=5; isRoot = false
 
-meta{name=roo, features=root}
-roo{
-	fields(2){
-		string	id('AB'), verb: false, required: true,type:id;
-		int	version('2147483647'), verb: false, required: true,type:version;
-	}
-	references field(0){
-	}
-} depth=0; isRoot = true
-
 meta{name=icon_configuration, features=status}
 icon_configuration{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id;
-		string	name('签到打卡|邀请好友|账户管理|消息通知'), verb: false, required: true,type:string;
-		string	code('CHECK_IN|INVITE|ACCOUNT_BOOK|MESSAGE'), verb: false, required: true,type:string;
-		string	description('我的 页面中 签到打卡 的图标|我的 页面中 邀请好友 的图标|我的 页面中 账户管理 的图标|我的 页面中 消息通知 的图标'), verb: false, required: true,type:string;
+		string	name('签到打卡|邀请好友|账户管理|消息通知|默认功能图标|默认分类图标|默认产品图标'), verb: false, required: true,type:string;
+		string	code('CHECK_IN|INVITE|ACCOUNT_BOOK|MESSAGE|DEFAULT_FUNCTIONALITY|DEFAULT_CATEGORY|DEFAULT_PRODUCT'), verb: false, required: true,type:string;
+		string	description('我的 页面中 签到打卡 的图标|我的 页面中 邀请好友 的图标|我的 页面中 账户管理 的图标|我的 页面中 消息通知 的图标|如果'功能'未配置图标,将会采用此图|如果'分类'未配置图标,将会采用此图|如果'产品'未配置图标,将会采用此图'), verb: false, required: true,type:string;
 		string_image	icon('icon.jpg'), verb: false, required: true,type:string_image;
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: iconConfigurationList,type:platform;
 		int	version('2147483647'), verb: false, required: true,type:version;
@@ -3329,10 +3308,10 @@ meta{name=system_level_images, features=status}
 system_level_images{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id;
-		string	name('背景图-邀请'), verb: false, required: true,type:string;
-		string	code('INVITE_BG_IMAGE'), verb: false, required: true,type:string;
+		string	name('背景图-邀请|默认功能图片|默认分类图片|默认产品图片|默认供应商图片|默认品牌图片'), verb: false, required: true,type:string;
+		string	code('INVITE_BG_IMAGE|DEFAULT_FUNCTIONALITY|DEFAULT_CATEGORY|DEFAULT_PRODUCT|DEFAULT_SUPPLIER|DEFAULT_BRAND'), verb: false, required: true,type:string;
 		string_image	value('example.jpg'), verb: false, required: true,type:string_image;
-		string	description('邀请页面的背景图'), verb: false, required: true,type:string;
+		string	description('邀请页面的背景图|如果'功能'未配置图片,将会采用此图|如果'分类'未配置图片,将会采用此图|如果'产品'未配置图片,将会采用此图|如果'供应商'未配置图片,将会采用此图|如果'品牌'未配置图片,将会采用此图'), verb: false, required: true,type:string;
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: systemLevelImagesList,type:platform;
 		int	version('2147483647'), verb: false, required: true,type:version;
 	}
@@ -3359,12 +3338,12 @@ meta{name=system_level_number, immutable_fields=code,min_value,max_value, featur
 system_level_number{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id;
-		string	name('上级分成'), verb: false, required: true,type:string;
-		string	code('UPPER_REWARD_RATE'), verb: false, required: true,type:string;
-		double	value('0000000000.0300000'), verb: false, required: true,type:double;
-		double	min_value('0.00'), verb: false, required: true,type:double;
-		double	max_value('0.10'), verb: false, required: true,type:double;
-		string	description('上级推荐人的分成比例,0.01表示%1'), verb: false, required: true,type:string;
+		string	name('上级分成|默认分成'), verb: false, required: true,type:string;
+		string	code('UPPER_REWARD_RATE|DEFAULT_REWARD_RATE'), verb: false, required: true,type:string;
+		double	value('0000000000.0300000|0000000000.0500000'), verb: false, required: true,type:double;
+		double	min_value('0.00|0.00'), verb: false, required: true,type:double;
+		double	max_value('0.10|0.10'), verb: false, required: true,type:double;
+		string	description('上级推荐人的分成比例,0.01表示%1|默认的推荐人分成比例,0.01表示%1'), verb: false, required: true,type:string;
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: systemLevelNumberList,type:platform;
 		int	version('2147483647'), verb: false, required: true,type:version;
 	}
@@ -3722,8 +3701,8 @@ meta{name=user_allow_list, features=syssetting}
 user_allow_list{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id;
-		string	user_identity('clariones|13808188512'), verb: false, required: true,type:string;
-		string	user_special_functions('tester;ios-spokesperson'), verb: false, required: true,type:string;
+		string_china_mobile_phone	user_identity('13308188512|13808188512'), verb: false, required: true,type:string_china_mobile_phone;
+		string	user_special_functions(';supervisor;|;tester;ios-spokesperson;'), verb: false, required: true,type:string;
 		user_domain	domain('$(object)'), verb: false, required: true, referenceBy: userAllowListList,type:user_domain;
 		int	version('2147483647'), verb: false, required: true,type:version;
 	}

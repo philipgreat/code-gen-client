@@ -14,9 +14,14 @@ public class SystemLevelNumber extends BaseModelBean {
               "com.doublechaintech.saleschain.systemlevelnumber.SystemLevelNumber",
               "UPPER_REWARD_RATE")
           .chineseName("上级分成");
+  public static EnumAttribute DEFAULT_REWARD_RATE =
+      new EnumAttribute(
+              "com.doublechaintech.saleschain.systemlevelnumber.SystemLevelNumber",
+              "DEFAULT_REWARD_RATE")
+          .chineseName("默认分成");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {UPPER_REWARD_RATE};
+    return new EnumAttribute[] {UPPER_REWARD_RATE, DEFAULT_REWARD_RATE};
   }
 
   // 引用的对象

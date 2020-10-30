@@ -73,6 +73,7 @@ public class Main {
 		ProcessorGenerator generator = new ProcessorGenerator();
 		generator.setFolderName(OUTPUT_PAGEFLOW_FOLDER_NAME);
 		generator.setBasePackageName(builder.getBasePackage());
+		generator.setProjectName(TARGET_PROJECT_NAME);
 
 		generator.setAllSpec(builder.build());
 		List<GenrationResult> resultList = generator.runJob();

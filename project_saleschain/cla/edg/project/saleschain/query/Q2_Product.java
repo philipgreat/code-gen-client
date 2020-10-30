@@ -39,6 +39,12 @@ public class Q2_Product extends PieceOfScript {
                         .order_by(MODEL.functionality().displayOrder()).asc()
                         .order_by(MODEL.functionality().id()).desc()
 
+                .find(MODEL.functionality()).which("by name").with_string("name")
+                    .comments("根据名称查找功能")
+                    .do_it_as()
+                        .where(MODEL.functionality().name().eq("${name}"),
+                                MODEL.functionality().platform().not_null())
+
                 .query(MODEL.category()).list_of("searched").pagination().with_string("searching")
                     .comments("从首页的搜索框进入搜索页面时,搜索二级类目")
                     .do_it_as()
@@ -57,6 +63,12 @@ public class Q2_Product extends PieceOfScript {
                     .do_it_as()
                         .where(MODEL.category().functionality().eq("${function}"))
                         .run_by(this::orderByCategory)
+                .find(MODEL.category()).which("has name").with_string("name")
+                    .comments("根据名字查找 category")
+                    .do_it_as()
+                        .where(MODEL.category().name().eq("${name}"),
+                                MODEL.category().functionality().platform().not_null())
+                        .wants(MODEL.category().functionality())
 
                 .query(MODEL.product()).list_of("in category").pagination().with_string("category id")
                     .comments("查询一个二级类目下的所有产品")
@@ -82,6 +94,13 @@ public class Q2_Product extends PieceOfScript {
                                 MODEL.product().category().eq("${category id}").optional())
                         .run_by(this::orderByForProduct)
 
+                .find(MODEL.product()).which("by PN and supplier").with_string("supplier name").with_string("p no")
+                    .comments("根据 供应商名称 和 货号 查询产品")
+                    .do_it_as()
+                        .where(MODEL.product().productCode().eq("${p no}"),
+                                MODEL.product().supplier().name().eq("${supplier name}"),
+                                MODEL.product().supplier().platform().not_null()
+                        )
 
                 // 查询最后一个 function
                 .find(MODEL.functionality()).which("latest")
