@@ -45,6 +45,12 @@ public class CR03_Machine implements ChangeRequestSpecFactory {
                             .display()
                         .has_field("qr code").zh_CN("二维码")
                             .range(1,48)
+
+
+
+
+
+
                             .optional().with_style(UIStyle.INPUT_CODE_SCAN)
                             .place_holder("请扫描或输入二维码")
 
@@ -70,7 +76,7 @@ public class CR03_Machine implements ChangeRequestSpecFactory {
                             .value("").display()
                         .has_field("qr code").zh_CN("二维码")
                             .fill_by_request("machine id", MODEL.machine().boundQrcode())
-                            .disabled()
+                            .hidden()
 
                 ;
     }

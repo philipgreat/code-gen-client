@@ -27,9 +27,16 @@ public class SystemLevelImages extends BaseModelBean {
               "com.doublechaintech.repairchain.systemlevelimages.SystemLevelImages",
               "PLATFORM_BANNER")
           .chineseName("平台推广图片");
+  public static EnumAttribute PLATFORM_QR_CODE =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.systemlevelimages.SystemLevelImages",
+              "PLATFORM_QR_CODE")
+          .chineseName("平台二维码图片");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {PERSONAL_AVATAR, AGENT_LOGO, FACTORY_LOGO, PLATFORM_BANNER};
+    return new EnumAttribute[] {
+      PERSONAL_AVATAR, AGENT_LOGO, FACTORY_LOGO, PLATFORM_BANNER, PLATFORM_QR_CODE
+    };
   }
 
   // 引用的对象

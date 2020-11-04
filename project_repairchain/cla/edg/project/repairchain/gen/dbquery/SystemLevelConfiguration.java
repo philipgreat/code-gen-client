@@ -19,9 +19,14 @@ public class SystemLevelConfiguration extends BaseModelBean {
               "com.doublechaintech.repairchain.systemlevelconfiguration.SystemLevelConfiguration",
               "INVITE_TEXT")
           .chineseName("邀请标题");
+  public static EnumAttribute SERVICE_MOBILE =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.systemlevelconfiguration.SystemLevelConfiguration",
+              "SERVICE_MOBILE")
+          .chineseName("联系电话");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {FEEDBACK_EMAIL, INVITE_TEXT};
+    return new EnumAttribute[] {FEEDBACK_EMAIL, INVITE_TEXT, SERVICE_MOBILE};
   }
 
   // 引用的对象

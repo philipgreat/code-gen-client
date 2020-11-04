@@ -24,6 +24,9 @@ public class P01_LoadFromFile extends PieceOfScript {
                     .request("select repair type").with_string("machine id")
                         .comments("选择是立即维修还是预约")
                         .got_popup_page()
+
+                    .for_request("start work job")
+                        .got_page("work job")   // 因为现在工具不好画自己到自己, 所以图上画了一个到其他页面的链接, 然后这里重载结果页面
 //                    .for_request("view agency factory detail")
 //                        .reset_params().with_string("agent id")
 //                        .with_string("factory id")

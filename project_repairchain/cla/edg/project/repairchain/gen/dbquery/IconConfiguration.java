@@ -60,6 +60,10 @@ public class IconConfiguration extends BaseModelBean {
       new EnumAttribute(
               "com.doublechaintech.repairchain.iconconfiguration.IconConfiguration", "MACHINE_ADM")
           .chineseName("设备管理");
+  public static EnumAttribute DO_JOB =
+      new EnumAttribute(
+              "com.doublechaintech.repairchain.iconconfiguration.IconConfiguration", "DO_JOB")
+          .chineseName("执行任务");
 
   public EnumAttribute[] getEnumNameList() {
     return new EnumAttribute[] {
@@ -74,7 +78,8 @@ public class IconConfiguration extends BaseModelBean {
       REPAIR_NOW,
       REPAIR_APPOINTMENT,
       EMPLOYEE_ADM,
-      MACHINE_ADM
+      MACHINE_ADM,
+      DO_JOB
     };
   }
 
