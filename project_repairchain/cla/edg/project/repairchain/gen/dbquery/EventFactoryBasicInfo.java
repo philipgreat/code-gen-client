@@ -12,28 +12,6 @@ public class EventFactoryBasicInfo extends BaseModelBean {
 
   // 引用的对象
 
-  public Province province() {
-    Province member = new Province();
-    member.setModelTypeName("province");
-    member.setName("province");
-    member.setMemberName("province");
-    member.setReferDirection(true);
-    member.setRelationName("province");
-    append(member);
-    return member;
-  }
-
-  public City city() {
-    City member = new City();
-    member.setModelTypeName("city");
-    member.setName("city");
-    member.setMemberName("city");
-    member.setReferDirection(true);
-    member.setRelationName("city");
-    append(member);
-    return member;
-  }
-
   public District district() {
     District member = new District();
     member.setModelTypeName("district");

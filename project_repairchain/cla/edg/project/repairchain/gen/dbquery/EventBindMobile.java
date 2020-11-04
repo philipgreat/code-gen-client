@@ -36,6 +36,15 @@ public class EventBindMobile extends BaseModelBean {
     return member;
   }
 
+  public StringAttribute name() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("name");
+    member.setName("name");
+    useMember(member);
+    return member;
+  }
+
   public StringAttribute mobile() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");

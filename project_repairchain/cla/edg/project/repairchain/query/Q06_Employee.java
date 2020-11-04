@@ -43,6 +43,8 @@ public class Q06_Employee extends PieceOfScript {
                         .do_it_as()
                         .where(MODEL.employee().factory().eq("${factory id}"),
                                 MODEL.employee().status().eq(OnJobStatus.ACTIVE))
+                        .order_by(MODEL.employee().personalUser().name()).asc_by_pinyin()
+                        .order_by(MODEL.employee().id()).desc()
                         .wants(MODEL.employee().personalUser(),
                                 MODEL.employee().workPosition())
 
