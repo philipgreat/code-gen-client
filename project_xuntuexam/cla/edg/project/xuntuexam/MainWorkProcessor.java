@@ -1,0 +1,12 @@
+package cla.edg.project.xuntuexam;
+
+import cla.edg.project.xuntuexam.workprocessor.*;
+import cla.poc.workflow.WorkProcessorBuilder;
+
+public class MainWorkProcessor {
+    public WorkProcessorBuilder getBuilder() {
+        return WorkProcessorBuilder.start()
+            .basePackage(Main.TARGET_BASE_PACKAGE_NAME)
+            .import_from(new WP01_Example());
+    }
+}
