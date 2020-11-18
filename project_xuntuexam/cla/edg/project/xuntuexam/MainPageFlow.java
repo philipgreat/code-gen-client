@@ -22,6 +22,10 @@ public class MainPageFlow extends BasePageFlowDescriptionScript {
         return SCRIPT.request("heart beat").comments("服务器心跳检查")
                 .got_toast_page()
                 .import_from(new P01_Example())
+
+                .import_from(new Q01_Competition())
+                .import_from(new Q02_ExamResult())
+                .import_from(new Q03_ExamPaper())
             ;
     }
 }

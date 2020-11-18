@@ -23,6 +23,17 @@ public class Competition extends BaseModelBean {
     return member;
   }
 
+  public CompetitionStatus competitionStatus() {
+    CompetitionStatus member = new CompetitionStatus();
+    member.setModelTypeName("competition_status");
+    member.setName("competition_status");
+    member.setMemberName("competitionStatus");
+    member.setReferDirection(true);
+    member.setRelationName("competitionStatus");
+    append(member);
+    return member;
+  }
+
   public Platform platform() {
     Platform member = new Platform();
     member.setModelTypeName("platform");
@@ -85,6 +96,15 @@ public class Competition extends BaseModelBean {
     member.setModelTypeName("string");
     // member.setName("name");
     member.setName("name");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute accessCode() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("accessCode");
+    member.setName("access_code");
     useMember(member);
     return member;
   }

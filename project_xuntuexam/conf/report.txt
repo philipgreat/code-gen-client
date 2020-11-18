@@ -1,10 +1,11 @@
 
 
+@warning personal_user.compitition_creator: word 'compitition' seems not found in library
 @warning object definition: keypair_identity: word 'keypair' seems not found in library
 
 
 
-=================1.0 Execute Report (Model Time 201116T1759) @Mon Nov 16 17:59:35 CST 2020, 43 objects and 310 fields===========================
+=================1.0 Execute Report (Model Time 201118T1730) @Wed Nov 18 17:31:16 CST 2020, 44 objects and 322 fields===========================
 from file "/works/jobs/xuntuexam_v1/workspace/web-code-generator/sky/modeling/microservice/xuntuexam.xml"
 
 
@@ -104,6 +105,12 @@ Info: Add virtual field [examination_questions(es)] to <platform>
 	examination_question.platform
 
 
+ processing: examination_question.question_category.question_category
+
+Info: Add virtual field [examination_questions(es)] to <question_category>
+	examination_question.question_category
+
+
  processing: examination_paper
 
 
@@ -149,6 +156,15 @@ Info: Add virtual field [exam_paper_statuss(es)] to <platform>
 	exam_paper_status.platform
 
 
+ processing: competition_status
+
+
+ processing: competition_status.platform.platform
+
+Info: Add virtual field [competition_statuss(es)] to <platform>
+	competition_status.platform
+
+
  processing: valid_exam_record
 
 
@@ -192,6 +208,12 @@ Info: Add virtual field [question_categorys(es)] to <platform>
 
 Info: Add virtual field [competitions(es)] to <merchant>
 	competition.creator
+
+
+ processing: competition.competition_status.competition_status
+
+Info: Add virtual field [competitions(es)] to <competition_status>
+	competition.competition_status
 
 
  processing: competition.platform.platform
@@ -460,11 +482,12 @@ platform{
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(15){
+	references field(16){
 		merchantList	platform(__no_group)--platform;
 		personalUserList	platform(__no_group)--platform;
 		examinationQuestionList	platform(__no_group)--platform;
 		examPaperStatusList	platform(__no_group)--platform;
+		competitionStatusList	platform(__no_group)--platform;
 		validExamRecordList	platform(__no_group)--platform;
 		questionCategoryList	platform(__no_group)--platform;
 		competitionList	platform(__no_group)--platform;
@@ -500,12 +523,14 @@ merchant{
 
 meta{name=personal_user, features=merchant}
 personal_user{
-	fields(7){
+	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('张喜来|黄波|王煜东|袁明星|周廷志|刘洋'), verb: false, required: true,type:string,relationMeta={};
 		string	company('双链科技|新途流体|新双软件'), verb: false, required: true,type:string,relationMeta={};
 		string_china_mobile_phone	mobile('13308188512'), verb: false, required: false,type:string_china_mobile_phone,relationMeta={};
-		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: personalUserList,type:merchant,relationMeta={};
+		string_image	avatar('avatar.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		bool	compitition_creator('true|false'), verb: false, required: true,type:bool,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: false, referenceBy: personalUserList,type:merchant,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: personalUserList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
@@ -515,7 +540,7 @@ personal_user{
 
 meta{name=examination_question, features=root}
 examination_question{
-	fields(11){
+	fields(12){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	topic('区块链是什么技术，下面最接近的回答是什么'), verb: false, required: true,type:string,relationMeta={};
 		string	level('低|中|高'), verb: false, required: true,type:string,relationMeta={};
@@ -526,12 +551,13 @@ examination_question{
 		string	option_e('建筑技术'), verb: false, required: true,type:string,relationMeta={};
 		string	right_answer('A|B|C|D|E'), verb: false, required: true,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: examinationQuestionList,type:platform,relationMeta={};
+		question_category	question_category('$(object)'), verb: false, required: true, referenceBy: examinationQuestionList,type:question_category,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(1){
 		examinationAnswerList	question(__no_group)--question;
 	}
-} depth=1; isRoot = false
+} depth=2; isRoot = false
 
 meta{name=examination_paper, features=root}
 examination_paper{
@@ -581,15 +607,30 @@ exam_paper_status{
 	}
 } depth=1; isRoot = false
 
+meta{name=competition_status, features=status}
+competition_status{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('自动|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	code('AUTO|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: competitionStatusList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		competitionList	competition_status(__no_group)--competition_status;
+	}
+} depth=1; isRoot = false
+
 meta{name=valid_exam_record, features=root}
 valid_exam_record{
-	fields(9){
+	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		examination_paper	examination_paper('$(object)'), verb: false, required: true, referenceBy: validExamRecordList,type:examination_paper,relationMeta={};
 		int	score('100000'), verb: false, required: true,type:int,relationMeta={};
 		merchant	examinee('$(object)'), verb: false, required: true, referenceBy: validExamRecordList,type:merchant,relationMeta={};
 		competition	competition('$(object)'), verb: false, required: true, referenceBy: validExamRecordList,type:competition,relationMeta={};
-		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date_time	start_time('2199-12-31T23:59:59'), verb: false, required: true,type:date_time,relationMeta={};
+		date_time	end_time('2199-12-31T23:59:59'), verb: false, required: true,type:date_time,relationMeta={};
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: validExamRecordList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
@@ -607,7 +648,8 @@ question_category{
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: questionCategoryList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(2){
+	references field(3){
+		examinationQuestionList	question_category(__no_group)--question_category;
 		examScopeList	question_category(__no_group)--question_category;
 		eventExamScopeList	scope(__no_group)--scope;
 	}
@@ -615,10 +657,12 @@ question_category{
 
 meta{name=competition, features=root}
 competition{
-	fields(8){
+	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('新途杯|高新区2020新世纪人才竞赛'), verb: false, required: true,type:string,relationMeta={};
 		merchant	creator('$(object)'), verb: false, required: true, referenceBy: competitionList,type:merchant,relationMeta={};
+		string	access_code('ABCD|ZZAA'), verb: false, required: true,type:string,relationMeta={};
+		competition_status	competition_status('$(object)'), verb: false, required: true, referenceBy: competitionList,type:competition_status,relationMeta={};
 		date_time	start_time('2199-12-31T23:59:59'), verb: false, required: true,type:date_time,relationMeta={};
 		date_time	end_time('2199-12-31T23:59:59'), verb: false, required: true,type:date_time,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
@@ -779,9 +823,10 @@ change_request{
 
 meta{bind_with_cr_type=CREATE_COMPETITION, name=event_competition_info, features=event}
 event_competition_info{
-	fields(6){
+	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	title('title|标题'), verb: false, required: true,type:string,relationMeta={};
+		int	code('12345678'), verb: false, required: true,type:int,relationMeta={};
 		date_time	start_time('2099-12-31T23:59:59'), verb: false, required: true,type:date_time,relationMeta={};
 		date_time	end_time('2099-12-31T23:59:59'), verb: false, required: true,type:date_time,relationMeta={};
 		change_request	change_request('$(object)'), verb: false, required: true, referenceBy: eventCompetitionInfoList,type:change_request,relationMeta={};
@@ -796,7 +841,7 @@ event_exam_scope{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		question_category	scope('$(object)'), verb: false, required: true, referenceBy: eventExamScopeList,type:question_category,relationMeta={};
-		string	number('number|题目数量'), verb: false, required: true,type:string,relationMeta={};
+		int	number('12345678'), verb: false, required: true,type:int,relationMeta={};
 		change_request	change_request('$(object)'), verb: false, required: true, referenceBy: eventExamScopeList,type:change_request,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
@@ -1166,11 +1211,12 @@ platform{
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(15){
+	references field(16){
 		merchantList	platform(__no_group)--platform;
 		personalUserList	platform(__no_group)--platform;
 		examinationQuestionList	platform(__no_group)--platform;
 		examPaperStatusList	platform(__no_group)--platform;
+		competitionStatusList	platform(__no_group)--platform;
 		validExamRecordList	platform(__no_group)--platform;
 		questionCategoryList	platform(__no_group)--platform;
 		competitionList	platform(__no_group)--platform;
@@ -1206,12 +1252,14 @@ merchant{
 
 meta{name=personal_user, features=merchant}
 personal_user{
-	fields(7){
+	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('张喜来|黄波|王煜东|袁明星|周廷志|刘洋'), verb: false, required: true,type:string,relationMeta={};
 		string	company('双链科技|新途流体|新双软件'), verb: false, required: true,type:string,relationMeta={};
 		string_china_mobile_phone	mobile('13308188512'), verb: false, required: false,type:string_china_mobile_phone,relationMeta={};
-		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: personalUserList,type:merchant,relationMeta={};
+		string_image	avatar('avatar.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		bool	compitition_creator('true|false'), verb: false, required: true,type:bool,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: false, referenceBy: personalUserList,type:merchant,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: personalUserList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
@@ -1221,7 +1269,7 @@ personal_user{
 
 meta{name=examination_question, features=root}
 examination_question{
-	fields(11){
+	fields(12){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	topic('区块链是什么技术，下面最接近的回答是什么'), verb: false, required: true,type:string,relationMeta={};
 		string	level('低|中|高'), verb: false, required: true,type:string,relationMeta={};
@@ -1232,12 +1280,13 @@ examination_question{
 		string	option_e('建筑技术'), verb: false, required: true,type:string,relationMeta={};
 		string	right_answer('A|B|C|D|E'), verb: false, required: true,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: examinationQuestionList,type:platform,relationMeta={};
+		question_category	question_category('$(object)'), verb: false, required: true, referenceBy: examinationQuestionList,type:question_category,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(1){
 		examinationAnswerList	question(__no_group)--question;
 	}
-} depth=1; isRoot = false
+} depth=2; isRoot = false
 
 meta{name=examination_paper, features=root}
 examination_paper{
@@ -1287,15 +1336,30 @@ exam_paper_status{
 	}
 } depth=1; isRoot = false
 
+meta{name=competition_status, features=status}
+competition_status{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('自动|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	code('AUTO|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: competitionStatusList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		competitionList	competition_status(__no_group)--competition_status;
+	}
+} depth=1; isRoot = false
+
 meta{name=valid_exam_record, features=root}
 valid_exam_record{
-	fields(9){
+	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		examination_paper	examination_paper('$(object)'), verb: false, required: true, referenceBy: validExamRecordList,type:examination_paper,relationMeta={};
 		int	score('100000'), verb: false, required: true,type:int,relationMeta={};
 		merchant	examinee('$(object)'), verb: false, required: true, referenceBy: validExamRecordList,type:merchant,relationMeta={};
 		competition	competition('$(object)'), verb: false, required: true, referenceBy: validExamRecordList,type:competition,relationMeta={};
-		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date_time	start_time('2199-12-31T23:59:59'), verb: false, required: true,type:date_time,relationMeta={};
+		date_time	end_time('2199-12-31T23:59:59'), verb: false, required: true,type:date_time,relationMeta={};
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: validExamRecordList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
@@ -1313,7 +1377,8 @@ question_category{
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: questionCategoryList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(2){
+	references field(3){
+		examinationQuestionList	question_category(__no_group)--question_category;
 		examScopeList	question_category(__no_group)--question_category;
 		eventExamScopeList	scope(__no_group)--scope;
 	}
@@ -1321,10 +1386,12 @@ question_category{
 
 meta{name=competition, features=root}
 competition{
-	fields(8){
+	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('新途杯|高新区2020新世纪人才竞赛'), verb: false, required: true,type:string,relationMeta={};
 		merchant	creator('$(object)'), verb: false, required: true, referenceBy: competitionList,type:merchant,relationMeta={};
+		string	access_code('ABCD|ZZAA'), verb: false, required: true,type:string,relationMeta={};
+		competition_status	competition_status('$(object)'), verb: false, required: true, referenceBy: competitionList,type:competition_status,relationMeta={};
 		date_time	start_time('2199-12-31T23:59:59'), verb: false, required: true,type:date_time,relationMeta={};
 		date_time	end_time('2199-12-31T23:59:59'), verb: false, required: true,type:date_time,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
@@ -1485,9 +1552,10 @@ change_request{
 
 meta{bind_with_cr_type=CREATE_COMPETITION, name=event_competition_info, features=event}
 event_competition_info{
-	fields(6){
+	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	title('title|标题'), verb: false, required: true,type:string,relationMeta={};
+		int	code('12345678'), verb: false, required: true,type:int,relationMeta={};
 		date_time	start_time('2099-12-31T23:59:59'), verb: false, required: true,type:date_time,relationMeta={};
 		date_time	end_time('2099-12-31T23:59:59'), verb: false, required: true,type:date_time,relationMeta={};
 		change_request	change_request('$(object)'), verb: false, required: true, referenceBy: eventCompetitionInfoList,type:change_request,relationMeta={};
@@ -1502,7 +1570,7 @@ event_exam_scope{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		question_category	scope('$(object)'), verb: false, required: true, referenceBy: eventExamScopeList,type:question_category,relationMeta={};
-		string	number('number|题目数量'), verb: false, required: true,type:string,relationMeta={};
+		int	number('12345678'), verb: false, required: true,type:int,relationMeta={};
 		change_request	change_request('$(object)'), verb: false, required: true, referenceBy: eventExamScopeList,type:change_request,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}

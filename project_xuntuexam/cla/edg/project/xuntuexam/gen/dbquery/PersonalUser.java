@@ -74,6 +74,24 @@ public class PersonalUser extends BaseModelBean {
     return member;
   }
 
+  public StringAttribute avatar() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string_image");
+    // member.setName("avatar");
+    member.setName("avatar");
+    useMember(member);
+    return member;
+  }
+
+  public BooleanAttribute compititionCreator() {
+    BooleanAttribute member = new BooleanAttribute();
+    member.setModelTypeName("bool");
+    // member.setName("compititionCreator");
+    member.setName("compitition_creator");
+    useMember(member);
+    return member;
+  }
+
   public NumberAttribute version() {
     NumberAttribute member = new NumberAttribute();
     member.setModelTypeName("int");

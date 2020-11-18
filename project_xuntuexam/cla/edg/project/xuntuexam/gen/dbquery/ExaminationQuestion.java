@@ -23,6 +23,17 @@ public class ExaminationQuestion extends BaseModelBean {
     return member;
   }
 
+  public QuestionCategory questionCategory() {
+    QuestionCategory member = new QuestionCategory();
+    member.setModelTypeName("question_category");
+    member.setName("question_category");
+    member.setMemberName("questionCategory");
+    member.setReferDirection(true);
+    member.setRelationName("questionCategory");
+    append(member);
+    return member;
+  }
+
   // 被引用的对象
 
   public ExaminationAnswer examinationAnswerList() {

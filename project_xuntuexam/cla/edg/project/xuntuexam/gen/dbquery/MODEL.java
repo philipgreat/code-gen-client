@@ -56,6 +56,13 @@ public class MODEL {
     return rst;
   }
 
+  public static CompetitionStatus competitionStatus() {
+    CompetitionStatus rst = new CompetitionStatus();
+    rst.setModelTypeName("competition_status");
+    rst.setBeanPath(new BeanPath().name("competition_status"));
+    return rst;
+  }
+
   public static ValidExamRecord validExamRecord() {
     ValidExamRecord rst = new ValidExamRecord();
     rst.setModelTypeName("valid_exam_record");

@@ -58,6 +58,17 @@ public class Platform extends BaseModelBean {
     return member;
   }
 
+  public CompetitionStatus competitionStatusList() {
+    CompetitionStatus member = new CompetitionStatus();
+    member.setModelTypeName("competition_status");
+    member.setName("platform");
+    member.setMemberName("competitionStatusList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public ValidExamRecord validExamRecordList() {
     ValidExamRecord member = new ValidExamRecord();
     member.setModelTypeName("valid_exam_record");

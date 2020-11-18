@@ -4,11 +4,22 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class QuestionCategory extends BaseModelBean {
+public class CompetitionStatus extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.xuntuexam.questioncategory.QuestionCategory";
+    return "com.doublechaintech.xuntuexam.competitionstatus.CompetitionStatus";
   }
   // 枚举对象
+  public static EnumAttribute AUTO =
+      new EnumAttribute("com.doublechaintech.xuntuexam.competitionstatus.CompetitionStatus", "AUTO")
+          .chineseName("自动");
+  public static EnumAttribute CANCELLED =
+      new EnumAttribute(
+              "com.doublechaintech.xuntuexam.competitionstatus.CompetitionStatus", "CANCELLED")
+          .chineseName("已取消");
+
+  public EnumAttribute[] getEnumNameList() {
+    return new EnumAttribute[] {AUTO, CANCELLED};
+  }
 
   // 引用的对象
 
@@ -25,34 +36,12 @@ public class QuestionCategory extends BaseModelBean {
 
   // 被引用的对象
 
-  public ExaminationQuestion examinationQuestionList() {
-    ExaminationQuestion member = new ExaminationQuestion();
-    member.setModelTypeName("examination_question");
-    member.setName("question_category");
-    member.setMemberName("examinationQuestionList");
-    member.setRelationName("questionCategory");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public ExamScope examScopeList() {
-    ExamScope member = new ExamScope();
-    member.setModelTypeName("exam_scope");
-    member.setName("question_category");
-    member.setMemberName("examScopeList");
-    member.setRelationName("questionCategory");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public EventExamScope eventExamScopeList() {
-    EventExamScope member = new EventExamScope();
-    member.setModelTypeName("event_exam_scope");
-    member.setName("scope");
-    member.setMemberName("eventExamScopeList");
-    member.setRelationName("scope");
+  public Competition competitionList() {
+    Competition member = new Competition();
+    member.setModelTypeName("competition");
+    member.setName("competition_status");
+    member.setMemberName("competitionList");
+    member.setRelationName("competitionStatus");
     member.setReferDirection(false);
     append(member);
     return member;
@@ -78,11 +67,11 @@ public class QuestionCategory extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute description() {
+  public StringAttribute code() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
-    // member.setName("description");
-    member.setName("description");
+    // member.setName("code");
+    member.setName("code");
     useMember(member);
     return member;
   }

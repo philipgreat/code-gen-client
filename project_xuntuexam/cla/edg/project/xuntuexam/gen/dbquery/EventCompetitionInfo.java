@@ -45,6 +45,15 @@ public class EventCompetitionInfo extends BaseModelBean {
     return member;
   }
 
+  public NumberAttribute code() {
+    NumberAttribute member = new NumberAttribute();
+    member.setModelTypeName("int");
+    // member.setName("code");
+    member.setName("code");
+    useMember(member);
+    return member;
+  }
+
   public DateTimeAttribute startTime() {
     DateTimeAttribute member = new DateTimeAttribute();
     member.setModelTypeName("date_time");

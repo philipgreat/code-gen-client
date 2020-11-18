@@ -78,11 +78,20 @@ public class ValidExamRecord extends BaseModelBean {
     return member;
   }
 
-  public DateTimeAttribute createTime() {
+  public DateTimeAttribute startTime() {
     DateTimeAttribute member = new DateTimeAttribute();
-    member.setModelTypeName("date_time_create");
-    // member.setName("createTime");
-    member.setName("create_time");
+    member.setModelTypeName("date_time");
+    // member.setName("startTime");
+    member.setName("start_time");
+    useMember(member);
+    return member;
+  }
+
+  public DateTimeAttribute endTime() {
+    DateTimeAttribute member = new DateTimeAttribute();
+    member.setModelTypeName("date_time");
+    // member.setName("endTime");
+    member.setName("end_time");
     useMember(member);
     return member;
   }

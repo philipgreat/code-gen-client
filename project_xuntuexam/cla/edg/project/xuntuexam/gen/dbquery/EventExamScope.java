@@ -47,9 +47,9 @@ public class EventExamScope extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute number() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
+  public NumberAttribute number() {
+    NumberAttribute member = new NumberAttribute();
+    member.setModelTypeName("int");
     // member.setName("number");
     member.setName("number");
     useMember(member);
