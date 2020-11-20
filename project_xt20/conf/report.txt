@@ -1,0 +1,1462 @@
+
+
+@warning object definition: yyy_status: word 'yyy' seems not found in library
+@warning object definition: keypair_identity: word 'keypair' seems not found in library
+
+
+
+=================1.0 Execute Report (Model Time 201120T1531) @Fri Nov 20 15:32:54 CST 2020, 35 objects and 250 fields===========================
+from file "/works/jobs/xt20_v1/workspace/web-code-generator/sky/modeling/microservice/xt20.xml"
+
+
+ processing: mobile_app
+
+
+ processing: page
+
+
+ processing: page_type
+
+
+ processing: slide
+
+
+ processing: ui_action
+
+
+ processing: section
+
+
+ processing: user_domain
+
+
+ processing: user_allow_list
+
+
+ processing: sec_user
+
+
+ processing: user_app
+
+
+ processing: quick_link
+
+
+ processing: list_access
+
+
+ processing: login_history
+
+
+ processing: candidate_container
+
+
+ processing: candidate_element
+
+
+ processing: wechat_workapp_identity
+
+
+ processing: wechat_miniapp_identity
+
+
+ processing: keypair_identity
+
+
+ processing: public_key_type
+
+
+ processing: tree_node
+
+
+ processing: platform
+
+
+ processing: xxx_status
+
+
+ processing: xxx_status.platform.platform
+
+Info: Add virtual field [xxx_statuss(es)] to <platform>
+	xxx_status.platform
+
+
+ processing: merchant
+
+
+ processing: merchant.platform.platform
+
+Info: Add virtual field [merchants(es)] to <platform>
+	merchant.platform
+
+
+ processing: personal_user
+
+
+ processing: personal_user.merchant.merchant
+
+Info: Add virtual field [personal_users(es)] to <merchant>
+	personal_user.merchant
+
+
+ processing: personal_user.platform.platform
+
+Info: Add virtual field [personal_users(es)] to <platform>
+	personal_user.platform
+
+
+ processing: yyy_status
+
+
+ processing: yyy_status.platform.platform
+
+Info: Add virtual field [yyy_statuss(es)] to <platform>
+	yyy_status.platform
+
+
+ processing: icon_configuration
+
+
+ processing: icon_configuration.platform.platform
+
+Info: Add virtual field [icon_configurations(es)] to <platform>
+	icon_configuration.platform
+
+
+ processing: system_level_configuration
+
+
+ processing: system_level_configuration.platform.platform
+
+Info: Add virtual field [system_level_configurations(es)] to <platform>
+	system_level_configuration.platform
+
+
+ processing: system_level_images
+
+
+ processing: system_level_images.platform.platform
+
+Info: Add virtual field [system_level_imagess(es)] to <platform>
+	system_level_images.platform
+
+
+ processing: system_level_content
+
+
+ processing: system_level_content.platform.platform
+
+Info: Add virtual field [system_level_contents(es)] to <platform>
+	system_level_content.platform
+
+
+ processing: system_level_number
+
+
+ processing: system_level_number.platform.platform
+
+Info: Add virtual field [system_level_numbers(es)] to <platform>
+	system_level_number.platform
+
+
+ processing: system_announcement
+
+
+ processing: system_announcement.mobile_app.mobile_app
+
+Info: Add virtual field [system_announcements(es)] to <mobile_app>
+	system_announcement.mobile_app
+
+
+ processing: change_request_type
+
+
+ processing: change_request_type.platform.platform
+
+Info: Add virtual field [change_request_types(es)] to <platform>
+	change_request_type.platform
+
+
+ processing: change_request
+
+
+ processing: change_request.change_request_type.request_type
+
+Info: Add virtual field [change_requests(es)] to <change_request_type>
+	change_request.request_type
+
+
+ processing: change_request.platform.platform
+
+Info: Add virtual field [change_requests(es)] to <platform>
+	change_request.platform
+
+
+ processing: event_info_in_cr
+
+
+ processing: event_info_in_cr.change_request.change_request
+
+Info: Add virtual field [event_info_in_crs(es)] to <change_request>
+	event_info_in_cr.change_request
+
+
+ processing: event_info_in_cr.change_request_type.change_request_type
+
+Info: Add virtual field [event_info_in_crs(es)] to <change_request_type>
+	event_info_in_cr.change_request_type
+
+
+ processing: system_processing_instance
+
+
+ processing: system_processing_instance.platform.platform
+
+Info: Add virtual field [system_processing_instances(es)] to <platform>
+	system_processing_instance.platform
+
+
+ processing: page.page_type.page_type
+
+Info: Add virtual field [pages(es)] to <page_type>
+	page.page_type
+
+
+ processing: page.mobile_app.mobile_app
+
+Info: Add virtual field [pages(es)] to <mobile_app>
+	page.mobile_app
+
+
+ processing: page_type.mobile_app.mobile_app
+
+Info: Add virtual field [page_types(es)] to <mobile_app>
+	page_type.mobile_app
+
+
+ processing: slide.page.page
+
+Info: Add virtual field [slides(es)] to <page>
+	slide.page
+
+
+ processing: ui_action.page.page
+
+Info: Add virtual field [ui_actions(es)] to <page>
+	ui_action.page
+
+
+ processing: section.page.page
+
+Info: Add virtual field [sections(es)] to <page>
+	section.page
+
+
+ processing: user_allow_list.user_domain.domain
+
+Info: Add virtual field [user_allow_lists(es)] to <user_domain>
+	user_allow_list.domain
+
+
+ processing: sec_user.user_domain.domain
+
+Info: Add virtual field [sec_users(es)] to <user_domain>
+	sec_user.domain
+
+
+ processing: user_app.sec_user.sec_user
+
+Info: Add virtual field [user_apps(es)] to <sec_user>
+	user_app.sec_user
+
+
+ processing: quick_link.user_app.app
+
+Info: Add virtual field [quick_links(es)] to <user_app>
+	quick_link.app
+
+
+ processing: list_access.user_app.app
+
+Info: Add virtual field [list_accesss(es)] to <user_app>
+	list_access.app
+
+
+ processing: login_history.sec_user.sec_user
+
+Info: Add virtual field [login_historys(es)] to <sec_user>
+	login_history.sec_user
+
+
+ processing: candidate_element.candidate_container.container
+
+Info: Add virtual field [candidate_elements(es)] to <candidate_container>
+	candidate_element.container
+
+
+ processing: wechat_workapp_identity.sec_user.sec_user
+
+Info: Add virtual field [wechat_workapp_identitys(es)] to <sec_user>
+	wechat_workapp_identity.sec_user
+
+
+ processing: wechat_miniapp_identity.sec_user.sec_user
+
+Info: Add virtual field [wechat_miniapp_identitys(es)] to <sec_user>
+	wechat_miniapp_identity.sec_user
+
+
+ processing: keypair_identity.public_key_type.key_type
+
+Info: Add virtual field [keypair_identitys(es)] to <public_key_type>
+	keypair_identity.key_type
+
+
+ processing: keypair_identity.sec_user.sec_user
+
+Info: Add virtual field [keypair_identitys(es)] to <sec_user>
+	keypair_identity.sec_user
+
+
+ processing: public_key_type.user_domain.domain
+
+Info: Add virtual field [public_key_types(es)] to <user_domain>
+	public_key_type.domain
+
+
+**************************************************
+
+meta{name=platform, features=laboratory_function,root}
+platform{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('新途气体交易平台'), verb: false, required: true,type:string,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(12){
+		xxxStatusList	platform(__no_group)--platform;
+		merchantList	platform(__no_group)--platform;
+		personalUserList	platform(__no_group)--platform;
+		yyyStatusList	platform(__no_group)--platform;
+		iconConfigurationList	platform(__no_group)--platform;
+		systemLevelConfigurationList	platform(__no_group)--platform;
+		systemLevelImagesList	platform(__no_group)--platform;
+		systemLevelContentList	platform(__no_group)--platform;
+		systemLevelNumberList	platform(__no_group)--platform;
+		changeRequestTypeList	platform(__no_group)--platform;
+		changeRequestList	platform(__no_group)--platform;
+		systemProcessingInstanceList	platform(__no_group)--platform;
+	}
+} depth=0; isRoot = true
+
+meta{name=xxx_status, features=status}
+xxx_status{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('考试中|已考完|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	code('ANSWERING|FINISHED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: xxxStatusList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=merchant, features=log}
+merchant{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('肯德基成都采购中心|张晓丹|妃妤婔婒'), verb: false, required: true,type:string,relationMeta={};
+		string	entity_type('个人|工厂|代理商'), verb: false, required: true,type:string,relationMeta={};
+		string	entity_identity('MobileUser_MU000001|Supplier_S00003'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: merchantList,type:platform,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		personalUserList	merchant(__no_group)--merchant;
+	}
+} depth=1; isRoot = false
+
+meta{name=personal_user, features=merchant}
+personal_user{
+	fields(8){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('张喜来|黄波|王煜东|袁明星|周廷志|刘洋'), verb: false, required: true,type:string,relationMeta={};
+		string	company('双链科技|新途流体|新双软件'), verb: false, required: true,type:string,relationMeta={};
+		string_china_mobile_phone	mobile('13308188512'), verb: false, required: false,type:string_china_mobile_phone,relationMeta={};
+		string_image	avatar('avatar.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: false, referenceBy: personalUserList,type:merchant,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: personalUserList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
+
+meta{name=yyy_status, features=status}
+yyy_status{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('考试中|已考完|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	code('ANSWERING|FINISHED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: yyyStatusList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=icon_configuration, features=status}
+icon_configuration{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('历史记录'), verb: false, required: true,type:string,relationMeta={};
+		string	code('HISTORY_TASK'), verb: false, required: true,type:string,relationMeta={};
+		string	description('设备详情页的 历史记录 的图标'), verb: false, required: true,type:string,relationMeta={};
+		string_image	icon('icon.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: iconConfigurationList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=system_level_configuration, features=status}
+system_level_configuration{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('反馈邮箱|联系电话'), verb: false, required: true,type:string,relationMeta={};
+		string	code('FEEDBACK_EMAIL|SERVICE_MOBILE'), verb: false, required: true,type:string,relationMeta={};
+		string	value('opensw001@gmail.com|800-12345678'), verb: false, required: true,type:string,relationMeta={};
+		string	description('反馈意见的联系邮箱|客服电话'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: systemLevelConfigurationList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=system_level_images, features=status}
+system_level_images{
+	fields(8){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('默认用户头像|默认工厂图片|平台推广图片'), verb: false, required: true,type:string,relationMeta={};
+		string	code('PERSONAL_AVATAR|FACTORY_LOGO|PLATFORM_BANNER'), verb: false, required: true,type:string,relationMeta={};
+		string_image	value('example.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		string_url	link_to_url('https://www.baidu.com/some.mp4'), verb: false, required: false,type:string_url,relationMeta={};
+		string	description('个人用户的默认头像|工厂的默认图像|平台推广图片'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: systemLevelImagesList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=system_level_content, features=status}
+system_level_content{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('联系我们'), verb: false, required: true,type:string,relationMeta={};
+		string	code('CONTACT_US'), verb: false, required: true,type:string,relationMeta={};
+		string_longtext	value('richText()'), verb: false, required: true,type:richText,relationMeta={};
+		string	description(''联系我们' 的页面内容'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: systemLevelContentList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=system_level_number, immutable_fields=code,min_value,max_value, features=status}
+system_level_number{
+	fields(9){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('例:审核超时(小时)'), verb: false, required: true,type:string,relationMeta={};
+		string	code('REVIEW_TIMEOUT'), verb: false, required: true,type:string,relationMeta={};
+		double	value('0000000008.0000000'), verb: false, required: true,type:double,relationMeta={};
+		double	min_value('0000000000.0000000'), verb: false, required: true,type:double,relationMeta={};
+		double	max_value('0000000168.0000000'), verb: false, required: true,type:double,relationMeta={};
+		string	description('审核任务的超时时间. 单位是小时. 默认8小时. 0表示不会超时'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: systemLevelNumberList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=system_announcement, features=root}
+system_announcement{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	content('2020年9月30日系统维护|二维码铭牌免费升级活动'), verb: false, required: true,type:string,relationMeta={};
+		string_url	link_to_url('https://www.jiezhichuangxiu/ad/12343545'), verb: false, required: false,type:string_url,relationMeta={};
+		date_time	start_time('2199-12-31T23:59:59'), verb: false, required: true,type:date_time,relationMeta={};
+		date_time	end_time('2199-12-31T23:59:59'), verb: false, required: true,type:date_time,relationMeta={};
+		mobile_app	mobile_app('$(object)'), verb: false, required: true, referenceBy: systemAnnouncementList,type:mobile_app,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=change_request_type, identified_by=code, features=cr_type}
+change_request_type{
+	fields(9){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('创建竞赛'), verb: false, required: true,type:string,relationMeta={};
+		string	code('CREATE_COMPETITION'), verb: false, required: true,type:string,relationMeta={};
+		string	icon('bars'), verb: false, required: true,type:string,relationMeta={};
+		int	display_order('1|2|3|4|5|6'), verb: false, required: true,type:int,relationMeta={};
+		string_longtext	bind_types('text()'), verb: false, required: true,type:text,relationMeta={};
+		string_longtext	step_configuration('text()'), verb: false, required: true,type:text,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: changeRequestTypeList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(2){
+		changeRequestList	request_type(__no_group)--request_type;
+		eventInfoInCrList	change_request_type(__no_group)--change_request_type;
+	}
+} depth=1; isRoot = false
+
+meta{name=change_request, features=change_request}
+change_request{
+	fields(8){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('注册|开始考试|答题'), verb: false, required: true,type:string,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		string_client_ip	remote_ip('remoteIp()'), verb: false, required: true,type:string_client_ip,relationMeta={};
+		change_request_type	request_type('$(object)'), verb: false, required: true, referenceBy: changeRequestList,type:change_request_type,relationMeta={};
+		bool	commited('false'), verb: false, required: true,type:bool,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: changeRequestList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		eventInfoInCrList	change_request(__no_group)--change_request;
+	}
+} depth=2; isRoot = false
+
+meta{name=event_info_in_cr, features=root, max_count=1000000000}
+event_info_in_cr{
+	fields(9){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		change_request	change_request('$(object)'), verb: false, required: true, referenceBy: eventInfoInCrList,type:change_request,relationMeta={};
+		change_request_type	change_request_type('$(object)'), verb: false, required: true, referenceBy: eventInfoInCrList,type:change_request_type,relationMeta={};
+		string	status('OPENING|COMMITTED|PRESET'), verb: false, required: true,type:string,relationMeta={};
+		string	initiator_type('SecUser|Merchant'), verb: false, required: true,type:string,relationMeta={};
+		string	initiator_id('SU000001|M0000001'), verb: false, required: true,type:string,relationMeta={};
+		string_longtext	events_info('text()'), verb: false, required: true,type:text,relationMeta={};
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=system_processing_instance, features=log,settings,no_sample_data, identified_by=target_identity}
+system_processing_instance{
+	fields(10){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	title('提现流程|拍卖流程'), verb: false, required: true,type:string,relationMeta={};
+		string	type('WITHDRAW|BIDDING'), verb: false, required: true,type:string,relationMeta={};
+		string	target_identity('DemandProposal_DP000001|ArtworkAuction_AA000001'), verb: false, required: true,type:string,relationMeta={};
+		string	brief('红星造纸厂提现|《远秋近春》拍卖'), verb: false, required: true,type:string,relationMeta={};
+		string_longtext	detail('text()'), verb: false, required: true,type:text,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: systemProcessingInstanceList,type:platform,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=mobile_app, features=root}
+mobile_app{
+	fields(3){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('移动端配置'), verb: false, required: true,type:string,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(3){
+		systemAnnouncementList	mobile_app(__no_group)--mobile_app;
+		pageList	mobile_app(页面管理)--mobile_app;
+		pageTypeList	mobile_app(__no_group)--mobile_app;
+	}
+} depth=0; isRoot = true
+
+meta{name=page, features=root, vg4mobile_app=页面管理}
+page{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	page_title('首页'), verb: false, required: true,type:string,relationMeta={};
+		string	link_to_url('首页'), verb: false, required: true,type:string,relationMeta={};
+		page_type	page_type('$(object)'), verb: false, required: true, referenceBy: pageList,type:page_type,relationMeta={};
+		int	display_order('1|2|3'), verb: false, required: true,type:int,relationMeta={};
+		mobile_app	mobile_app('$(object)'), verb: false, required: true, referenceBy: pageList,type:mobile_app,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(3){
+		slideList	page(__no_group)--page;
+		uiActionList	page(__no_group)--page;
+		sectionList	page(__no_group)--page;
+	}
+} depth=2; isRoot = false
+
+meta{name=page_type, features=status, identified_by=code}
+page_type{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('首页|我的|Generic Page|Listof Page|功能大厅|普通'), verb: false, required: true,type:string,relationMeta={};
+		string	code('home|me|generic-page|listof-page|service-center|simple'), verb: false, required: true,type:string,relationMeta={};
+		mobile_app	mobile_app('$(object)'), verb: false, required: true, referenceBy: pageTypeList,type:mobile_app,relationMeta={};
+		bool	footer_tab('true|false'), verb: false, required: true,type:bool,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		pageList	page_type(__no_group)--page_type;
+	}
+} depth=1; isRoot = false
+
+meta{name=slide, features=root}
+slide{
+	fields(8){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('首页Focus的内容'), verb: false, required: true,type:string,relationMeta={};
+		int	display_order('1|2|3'), verb: false, required: true,type:int,relationMeta={};
+		string_image	image_url('https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_1.jpg|https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_2.jpg|https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_3.jpg|https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_4.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		string_image	video_url('https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_1.jpg|https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_2.jpg|https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_3.jpg|https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_4.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		string	link_to_url('|/section/article/'), verb: false, required: false,type:string,relationMeta={};
+		page	page('$(object)'), verb: false, required: true, referenceBy: slideList,type:page,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=ui_action, features=root}
+ui_action{
+	fields(11){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	code('submit|share|view|more'), verb: false, required: true,type:string,relationMeta={};
+		string	icon('icon_edit|icon_share|icon_eye|icon_more'), verb: false, required: true,type:string,relationMeta={};
+		string	title('提交|分享|查看|更多'), verb: false, required: true,type:string,relationMeta={};
+		int	display_order('1|2|3'), verb: false, required: true,type:int,relationMeta={};
+		string	brief('Submit|Share|View|View More'), verb: false, required: true,type:string,relationMeta={};
+		string_image	image_url('https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_1.jpg|https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_2.jpg|https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_3.jpg|https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_4.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		string	link_to_url('wxappService/section/article/'), verb: false, required: true,type:string,relationMeta={};
+		string_longtext	extra_data('text()'), verb: false, required: true,type:text,relationMeta={};
+		page	page('$(object)'), verb: false, required: true, referenceBy: uiActionList,type:page,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=section, features=root}
+section{
+	fields(9){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	title('文章|作品'), verb: false, required: true,type:string,relationMeta={};
+		string	brief('Article|Artwork'), verb: false, required: true,type:string,relationMeta={};
+		string_image	icon('icon.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		int	display_order('1|2|3'), verb: false, required: true,type:int,relationMeta={};
+		string	view_group('icon_edit|icon_share|icon_eye|icon_more'), verb: false, required: true,type:string,relationMeta={};
+		string	link_to_url('wxappService/section/article/'), verb: false, required: true,type:string,relationMeta={};
+		page	page('$(object)'), verb: false, required: true, referenceBy: sectionList,type:page,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=user_domain, features=ootb}
+user_domain{
+	fields(3){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('用户区域'), verb: false, required: true,type:string,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(3){
+		userAllowListList	domain(__no_group)--domain;
+		secUserList	domain(__no_group)--domain;
+		publicKeyTypeList	domain(__no_group)--domain;
+	}
+} depth=0; isRoot = true
+
+meta{name=user_allow_list, features=syssetting}
+user_allow_list{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string_china_mobile_phone	user_identity('13308188512|13808188512'), verb: false, required: true,type:string_china_mobile_phone,relationMeta={};
+		string	user_special_functions(';supervisor;|;tester;ios-spokesperson;'), verb: false, required: true,type:string,relationMeta={};
+		user_domain	domain('$(object)'), verb: false, required: true, referenceBy: userAllowListList,type:user_domain,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=sec_user, features=ootb, identified_by=login,email,mobile}
+sec_user{
+	fields(13){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	login('login'), verb: false, required: true,type:string,relationMeta={};
+		string_china_mobile_phone	mobile('13900000001'), verb: false, required: true,type:string_china_mobile_phone,relationMeta={};
+		string_email	email('suddy_chang@163.com'), verb: false, required: true,type:string_email,relationMeta={};
+		string_password	pwd('*******'), verb: false, required: true,type:string_password,relationMeta={};
+		string	weixin_openid('wx123456789abcdefghijklmn'), verb: false, required: true,type:string,relationMeta={};
+		string	weixin_appid('wxapp12098410239840'), verb: false, required: true,type:string,relationMeta={};
+		string	access_token('jwt_token_12345678'), verb: false, required: true,type:string,relationMeta={};
+		int	verification_code('0|9999999'), verb: false, required: true,type:int,relationMeta={};
+		date_time	verification_code_expire('2099-12-31T09:09:09'), verb: false, required: true,type:date_time,relationMeta={};
+		date_time	last_login_time('2099-12-31T09:09:09'), verb: false, required: false,type:date_time,relationMeta={};
+		user_domain	domain('$(object)'), verb: false, required: true, referenceBy: secUserList,type:user_domain,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(5){
+		userAppList	sec_user(__no_group)--sec_user;
+		loginHistoryList	sec_user(__no_group)--sec_user;
+		wechatWorkappIdentityList	sec_user(__no_group)--sec_user;
+		wechatMiniappIdentityList	sec_user(__no_group)--sec_user;
+		keypairIdentityList	sec_user(__no_group)--sec_user;
+	}
+} depth=1; isRoot = false
+
+meta{name=user_app, features=ootb}
+user_app{
+	fields(10){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	title('审车平台|账户管理|接车公司|审车公司|维修公司|顾客'), verb: false, required: true,type:string,relationMeta={};
+		sec_user	sec_user('$(object)'), verb: false, required: true, referenceBy: userAppList,type:sec_user,relationMeta={};
+		string	app_icon('users|bank|wechat|bar-chart|user|users'), verb: false, required: true,type:string,relationMeta={};
+		bool	full_access('true'), verb: false, required: true,type:bool,relationMeta={};
+		string	permission('MXWR|MXWR'), verb: false, required: true,type:string,relationMeta={};
+		string	object_type('CarInspectionPlatform|UserDomain|CarReceivingServiceCompany|CarInspectionServiceCompany|CarRepairingServiceCompany|CustomerInfo'), verb: false, required: true,type:string,relationMeta={};
+		string	object_id('CIP000001|UD000001|CRSC000001|CISC000001|CRSC000001|CI000001'), verb: false, required: true,type:string,relationMeta={};
+		string	location('/link/to/app'), verb: false, required: true,type:string,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(2){
+		quickLinkList	app(__no_group)--app;
+		listAccessList	app(__no_group)--app;
+	}
+} depth=2; isRoot = false
+
+meta{name=quick_link, features=ootb}
+quick_link{
+	fields(8){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('列表'), verb: false, required: true,type:string,relationMeta={};
+		string	icon('facebook|google'), verb: false, required: true,type:string,relationMeta={};
+		string_image	image_path('y-200-200-red.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		string	link_target('列表'), verb: false, required: true,type:string,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		user_app	app('$(object)'), verb: false, required: true, referenceBy: quickLinkList,type:user_app,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=list_access, features=ootb}
+list_access{
+	fields(10){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('列表'), verb: false, required: true,type:string,relationMeta={};
+		string	internal_name('levelOneCategoryList'), verb: false, required: true,type:string,relationMeta={};
+		bool	read_permission('true'), verb: false, required: true,type:bool,relationMeta={};
+		bool	create_permission('true'), verb: false, required: true,type:bool,relationMeta={};
+		bool	delete_permission('true'), verb: false, required: true,type:bool,relationMeta={};
+		bool	update_permission('true'), verb: false, required: true,type:bool,relationMeta={};
+		bool	execution_permission('true'), verb: false, required: true,type:bool,relationMeta={};
+		user_app	app('$(object)'), verb: false, required: true, referenceBy: listAccessList,type:user_app,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=login_history, features=syslog}
+login_history{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		date_time_create	login_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		string	from_ip('192.168.1.1|192.168.1.2'), verb: false, required: true,type:string,relationMeta={};
+		string	description('登陆成功'), verb: false, required: true,type:string,relationMeta={};
+		sec_user	sec_user('$(object)'), verb: false, required: true, referenceBy: loginHistoryList,type:sec_user,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
+
+meta{name=candidate_container, features=internal,ootb}
+candidate_container{
+	fields(3){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('我只是一个容器'), verb: false, required: true,type:string,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		candidateElementList	container(__no_group)--container;
+	}
+} depth=0; isRoot = true
+
+meta{name=candidate_element, features=internal,ootb}
+candidate_element{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('搜索到的匹配字段'), verb: false, required: true,type:string,relationMeta={};
+		string	type('类型描述'), verb: false, required: true,type:string,relationMeta={};
+		string_image	image('1.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		candidate_container	container('$(object)'), verb: false, required: true, referenceBy: candidateElementList,type:candidate_container,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=wechat_workapp_identity, features=root}
+wechat_workapp_identity{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	corp_id('corporation123'), verb: false, required: true,type:string,relationMeta={};
+		string	user_id('user123'), verb: false, required: true,type:string,relationMeta={};
+		sec_user	sec_user('$(object)'), verb: false, required: true, referenceBy: wechatWorkappIdentityList,type:sec_user,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date_time	last_login_time('2100-01-01T00:00:00'), verb: false, required: false,type:date_time,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
+
+meta{name=wechat_miniapp_identity, features=root}
+wechat_miniapp_identity{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	open_id('wechat_open_id_1234567890'), verb: false, required: true,type:string,relationMeta={};
+		string	app_id('wechat_miniapp_id_1234567890'), verb: false, required: true,type:string,relationMeta={};
+		sec_user	sec_user('$(object)'), verb: false, required: true, referenceBy: wechatMiniappIdentityList,type:sec_user,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date_time	last_login_time('2100-01-01T00:00:00'), verb: false, required: false,type:date_time,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
+
+meta{name=keypair_identity, features=root}
+keypair_identity{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string_longtext	public_key('text()'), verb: false, required: true,type:text,relationMeta={};
+		public_key_type	key_type('$(object)'), verb: false, required: true, referenceBy: keypairIdentityList,type:public_key_type,relationMeta={};
+		sec_user	sec_user('$(object)'), verb: false, required: true, referenceBy: keypairIdentityList,type:sec_user,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
+
+meta{name=public_key_type, features=root}
+public_key_type{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	key_alg('RSA|EC'), verb: false, required: true,type:string,relationMeta={};
+		string	sign_alg('SHA256withRSA|SHA256withECDSA'), verb: false, required: true,type:string,relationMeta={};
+		user_domain	domain('$(object)'), verb: false, required: true, referenceBy: publicKeyTypeList,type:user_domain,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		keypairIdentityList	key_type(__no_group)--key_type;
+	}
+} depth=1; isRoot = false
+
+meta{name=tree_node, features=root}
+tree_node{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	node_id('node000001'), verb: false, required: true,type:string,relationMeta={};
+		string	node_type('nodetype'), verb: false, required: true,type:string,relationMeta={};
+		int	left_value('1'), verb: false, required: true,type:int,relationMeta={};
+		int	right_value('10'), verb: false, required: true,type:int,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=0; isRoot = true
+
+meta{name=platform, features=laboratory_function,root}
+platform{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('新途气体交易平台'), verb: false, required: true,type:string,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(12){
+		xxxStatusList	platform(__no_group)--platform;
+		merchantList	platform(__no_group)--platform;
+		personalUserList	platform(__no_group)--platform;
+		yyyStatusList	platform(__no_group)--platform;
+		iconConfigurationList	platform(__no_group)--platform;
+		systemLevelConfigurationList	platform(__no_group)--platform;
+		systemLevelImagesList	platform(__no_group)--platform;
+		systemLevelContentList	platform(__no_group)--platform;
+		systemLevelNumberList	platform(__no_group)--platform;
+		changeRequestTypeList	platform(__no_group)--platform;
+		changeRequestList	platform(__no_group)--platform;
+		systemProcessingInstanceList	platform(__no_group)--platform;
+	}
+} depth=0; isRoot = true
+
+meta{name=xxx_status, features=status}
+xxx_status{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('考试中|已考完|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	code('ANSWERING|FINISHED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: xxxStatusList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=merchant, features=log}
+merchant{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('肯德基成都采购中心|张晓丹|妃妤婔婒'), verb: false, required: true,type:string,relationMeta={};
+		string	entity_type('个人|工厂|代理商'), verb: false, required: true,type:string,relationMeta={};
+		string	entity_identity('MobileUser_MU000001|Supplier_S00003'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: merchantList,type:platform,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		personalUserList	merchant(__no_group)--merchant;
+	}
+} depth=1; isRoot = false
+
+meta{name=personal_user, features=merchant}
+personal_user{
+	fields(8){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('张喜来|黄波|王煜东|袁明星|周廷志|刘洋'), verb: false, required: true,type:string,relationMeta={};
+		string	company('双链科技|新途流体|新双软件'), verb: false, required: true,type:string,relationMeta={};
+		string_china_mobile_phone	mobile('13308188512'), verb: false, required: false,type:string_china_mobile_phone,relationMeta={};
+		string_image	avatar('avatar.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: false, referenceBy: personalUserList,type:merchant,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: personalUserList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
+
+meta{name=yyy_status, features=status}
+yyy_status{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('考试中|已考完|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	code('ANSWERING|FINISHED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: yyyStatusList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=icon_configuration, features=status}
+icon_configuration{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('历史记录'), verb: false, required: true,type:string,relationMeta={};
+		string	code('HISTORY_TASK'), verb: false, required: true,type:string,relationMeta={};
+		string	description('设备详情页的 历史记录 的图标'), verb: false, required: true,type:string,relationMeta={};
+		string_image	icon('icon.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: iconConfigurationList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=system_level_configuration, features=status}
+system_level_configuration{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('反馈邮箱|联系电话'), verb: false, required: true,type:string,relationMeta={};
+		string	code('FEEDBACK_EMAIL|SERVICE_MOBILE'), verb: false, required: true,type:string,relationMeta={};
+		string	value('opensw001@gmail.com|800-12345678'), verb: false, required: true,type:string,relationMeta={};
+		string	description('反馈意见的联系邮箱|客服电话'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: systemLevelConfigurationList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=system_level_images, features=status}
+system_level_images{
+	fields(8){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('默认用户头像|默认工厂图片|平台推广图片'), verb: false, required: true,type:string,relationMeta={};
+		string	code('PERSONAL_AVATAR|FACTORY_LOGO|PLATFORM_BANNER'), verb: false, required: true,type:string,relationMeta={};
+		string_image	value('example.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		string_url	link_to_url('https://www.baidu.com/some.mp4'), verb: false, required: false,type:string_url,relationMeta={};
+		string	description('个人用户的默认头像|工厂的默认图像|平台推广图片'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: systemLevelImagesList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=system_level_content, features=status}
+system_level_content{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('联系我们'), verb: false, required: true,type:string,relationMeta={};
+		string	code('CONTACT_US'), verb: false, required: true,type:string,relationMeta={};
+		string_longtext	value('richText()'), verb: false, required: true,type:richText,relationMeta={};
+		string	description(''联系我们' 的页面内容'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: systemLevelContentList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=system_level_number, immutable_fields=code,min_value,max_value, features=status}
+system_level_number{
+	fields(9){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('例:审核超时(小时)'), verb: false, required: true,type:string,relationMeta={};
+		string	code('REVIEW_TIMEOUT'), verb: false, required: true,type:string,relationMeta={};
+		double	value('0000000008.0000000'), verb: false, required: true,type:double,relationMeta={};
+		double	min_value('0000000000.0000000'), verb: false, required: true,type:double,relationMeta={};
+		double	max_value('0000000168.0000000'), verb: false, required: true,type:double,relationMeta={};
+		string	description('审核任务的超时时间. 单位是小时. 默认8小时. 0表示不会超时'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: systemLevelNumberList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=system_announcement, features=root}
+system_announcement{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	content('2020年9月30日系统维护|二维码铭牌免费升级活动'), verb: false, required: true,type:string,relationMeta={};
+		string_url	link_to_url('https://www.jiezhichuangxiu/ad/12343545'), verb: false, required: false,type:string_url,relationMeta={};
+		date_time	start_time('2199-12-31T23:59:59'), verb: false, required: true,type:date_time,relationMeta={};
+		date_time	end_time('2199-12-31T23:59:59'), verb: false, required: true,type:date_time,relationMeta={};
+		mobile_app	mobile_app('$(object)'), verb: false, required: true, referenceBy: systemAnnouncementList,type:mobile_app,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=change_request_type, identified_by=code, features=cr_type}
+change_request_type{
+	fields(9){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('创建竞赛'), verb: false, required: true,type:string,relationMeta={};
+		string	code('CREATE_COMPETITION'), verb: false, required: true,type:string,relationMeta={};
+		string	icon('bars'), verb: false, required: true,type:string,relationMeta={};
+		int	display_order('1|2|3|4|5|6'), verb: false, required: true,type:int,relationMeta={};
+		string_longtext	bind_types('text()'), verb: false, required: true,type:text,relationMeta={};
+		string_longtext	step_configuration('text()'), verb: false, required: true,type:text,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: changeRequestTypeList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(2){
+		changeRequestList	request_type(__no_group)--request_type;
+		eventInfoInCrList	change_request_type(__no_group)--change_request_type;
+	}
+} depth=1; isRoot = false
+
+meta{name=change_request, features=change_request}
+change_request{
+	fields(8){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('注册|开始考试|答题'), verb: false, required: true,type:string,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		string_client_ip	remote_ip('remoteIp()'), verb: false, required: true,type:string_client_ip,relationMeta={};
+		change_request_type	request_type('$(object)'), verb: false, required: true, referenceBy: changeRequestList,type:change_request_type,relationMeta={};
+		bool	commited('false'), verb: false, required: true,type:bool,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: changeRequestList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		eventInfoInCrList	change_request(__no_group)--change_request;
+	}
+} depth=2; isRoot = false
+
+meta{name=event_info_in_cr, features=root, max_count=1000000000}
+event_info_in_cr{
+	fields(9){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		change_request	change_request('$(object)'), verb: false, required: true, referenceBy: eventInfoInCrList,type:change_request,relationMeta={};
+		change_request_type	change_request_type('$(object)'), verb: false, required: true, referenceBy: eventInfoInCrList,type:change_request_type,relationMeta={};
+		string	status('OPENING|COMMITTED|PRESET'), verb: false, required: true,type:string,relationMeta={};
+		string	initiator_type('SecUser|Merchant'), verb: false, required: true,type:string,relationMeta={};
+		string	initiator_id('SU000001|M0000001'), verb: false, required: true,type:string,relationMeta={};
+		string_longtext	events_info('text()'), verb: false, required: true,type:text,relationMeta={};
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=system_processing_instance, features=log,settings,no_sample_data, identified_by=target_identity}
+system_processing_instance{
+	fields(10){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	title('提现流程|拍卖流程'), verb: false, required: true,type:string,relationMeta={};
+		string	type('WITHDRAW|BIDDING'), verb: false, required: true,type:string,relationMeta={};
+		string	target_identity('DemandProposal_DP000001|ArtworkAuction_AA000001'), verb: false, required: true,type:string,relationMeta={};
+		string	brief('红星造纸厂提现|《远秋近春》拍卖'), verb: false, required: true,type:string,relationMeta={};
+		string_longtext	detail('text()'), verb: false, required: true,type:text,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: systemProcessingInstanceList,type:platform,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=mobile_app, features=root}
+mobile_app{
+	fields(3){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('移动端配置'), verb: false, required: true,type:string,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(3){
+		systemAnnouncementList	mobile_app(__no_group)--mobile_app;
+		pageList	mobile_app(页面管理)--mobile_app;
+		pageTypeList	mobile_app(__no_group)--mobile_app;
+	}
+} depth=0; isRoot = true
+
+meta{name=page, features=root, vg4mobile_app=页面管理}
+page{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	page_title('首页'), verb: false, required: true,type:string,relationMeta={};
+		string	link_to_url('首页'), verb: false, required: true,type:string,relationMeta={};
+		page_type	page_type('$(object)'), verb: false, required: true, referenceBy: pageList,type:page_type,relationMeta={};
+		int	display_order('1|2|3'), verb: false, required: true,type:int,relationMeta={};
+		mobile_app	mobile_app('$(object)'), verb: false, required: true, referenceBy: pageList,type:mobile_app,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(3){
+		slideList	page(__no_group)--page;
+		uiActionList	page(__no_group)--page;
+		sectionList	page(__no_group)--page;
+	}
+} depth=2; isRoot = false
+
+meta{name=page_type, features=status, identified_by=code}
+page_type{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('首页|我的|Generic Page|Listof Page|功能大厅|普通'), verb: false, required: true,type:string,relationMeta={};
+		string	code('home|me|generic-page|listof-page|service-center|simple'), verb: false, required: true,type:string,relationMeta={};
+		mobile_app	mobile_app('$(object)'), verb: false, required: true, referenceBy: pageTypeList,type:mobile_app,relationMeta={};
+		bool	footer_tab('true|false'), verb: false, required: true,type:bool,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		pageList	page_type(__no_group)--page_type;
+	}
+} depth=1; isRoot = false
+
+meta{name=slide, features=root}
+slide{
+	fields(8){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('首页Focus的内容'), verb: false, required: true,type:string,relationMeta={};
+		int	display_order('1|2|3'), verb: false, required: true,type:int,relationMeta={};
+		string_image	image_url('https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_1.jpg|https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_2.jpg|https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_3.jpg|https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_4.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		string_image	video_url('https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_1.jpg|https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_2.jpg|https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_3.jpg|https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_4.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		string	link_to_url('|/section/article/'), verb: false, required: false,type:string,relationMeta={};
+		page	page('$(object)'), verb: false, required: true, referenceBy: slideList,type:page,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=ui_action, features=root}
+ui_action{
+	fields(11){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	code('submit|share|view|more'), verb: false, required: true,type:string,relationMeta={};
+		string	icon('icon_edit|icon_share|icon_eye|icon_more'), verb: false, required: true,type:string,relationMeta={};
+		string	title('提交|分享|查看|更多'), verb: false, required: true,type:string,relationMeta={};
+		int	display_order('1|2|3'), verb: false, required: true,type:int,relationMeta={};
+		string	brief('Submit|Share|View|View More'), verb: false, required: true,type:string,relationMeta={};
+		string_image	image_url('https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_1.jpg|https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_2.jpg|https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_3.jpg|https://xubai-test.oss-cn-beijing.aliyuncs.com/app/test/slide_4.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		string	link_to_url('wxappService/section/article/'), verb: false, required: true,type:string,relationMeta={};
+		string_longtext	extra_data('text()'), verb: false, required: true,type:text,relationMeta={};
+		page	page('$(object)'), verb: false, required: true, referenceBy: uiActionList,type:page,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=section, features=root}
+section{
+	fields(9){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	title('文章|作品'), verb: false, required: true,type:string,relationMeta={};
+		string	brief('Article|Artwork'), verb: false, required: true,type:string,relationMeta={};
+		string_image	icon('icon.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		int	display_order('1|2|3'), verb: false, required: true,type:int,relationMeta={};
+		string	view_group('icon_edit|icon_share|icon_eye|icon_more'), verb: false, required: true,type:string,relationMeta={};
+		string	link_to_url('wxappService/section/article/'), verb: false, required: true,type:string,relationMeta={};
+		page	page('$(object)'), verb: false, required: true, referenceBy: sectionList,type:page,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=user_domain, features=ootb}
+user_domain{
+	fields(3){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('用户区域'), verb: false, required: true,type:string,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(3){
+		userAllowListList	domain(__no_group)--domain;
+		secUserList	domain(__no_group)--domain;
+		publicKeyTypeList	domain(__no_group)--domain;
+	}
+} depth=0; isRoot = true
+
+meta{name=user_allow_list, features=syssetting}
+user_allow_list{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string_china_mobile_phone	user_identity('13308188512|13808188512'), verb: false, required: true,type:string_china_mobile_phone,relationMeta={};
+		string	user_special_functions(';supervisor;|;tester;ios-spokesperson;'), verb: false, required: true,type:string,relationMeta={};
+		user_domain	domain('$(object)'), verb: false, required: true, referenceBy: userAllowListList,type:user_domain,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=sec_user, features=ootb, identified_by=login,email,mobile}
+sec_user{
+	fields(13){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	login('login'), verb: false, required: true,type:string,relationMeta={};
+		string_china_mobile_phone	mobile('13900000001'), verb: false, required: true,type:string_china_mobile_phone,relationMeta={};
+		string_email	email('suddy_chang@163.com'), verb: false, required: true,type:string_email,relationMeta={};
+		string_password	pwd('*******'), verb: false, required: true,type:string_password,relationMeta={};
+		string	weixin_openid('wx123456789abcdefghijklmn'), verb: false, required: true,type:string,relationMeta={};
+		string	weixin_appid('wxapp12098410239840'), verb: false, required: true,type:string,relationMeta={};
+		string	access_token('jwt_token_12345678'), verb: false, required: true,type:string,relationMeta={};
+		int	verification_code('0|9999999'), verb: false, required: true,type:int,relationMeta={};
+		date_time	verification_code_expire('2099-12-31T09:09:09'), verb: false, required: true,type:date_time,relationMeta={};
+		date_time	last_login_time('2099-12-31T09:09:09'), verb: false, required: false,type:date_time,relationMeta={};
+		user_domain	domain('$(object)'), verb: false, required: true, referenceBy: secUserList,type:user_domain,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(5){
+		userAppList	sec_user(__no_group)--sec_user;
+		loginHistoryList	sec_user(__no_group)--sec_user;
+		wechatWorkappIdentityList	sec_user(__no_group)--sec_user;
+		wechatMiniappIdentityList	sec_user(__no_group)--sec_user;
+		keypairIdentityList	sec_user(__no_group)--sec_user;
+	}
+} depth=1; isRoot = false
+
+meta{name=user_app, features=ootb}
+user_app{
+	fields(10){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	title('审车平台|账户管理|接车公司|审车公司|维修公司|顾客'), verb: false, required: true,type:string,relationMeta={};
+		sec_user	sec_user('$(object)'), verb: false, required: true, referenceBy: userAppList,type:sec_user,relationMeta={};
+		string	app_icon('users|bank|wechat|bar-chart|user|users'), verb: false, required: true,type:string,relationMeta={};
+		bool	full_access('true'), verb: false, required: true,type:bool,relationMeta={};
+		string	permission('MXWR|MXWR'), verb: false, required: true,type:string,relationMeta={};
+		string	object_type('CarInspectionPlatform|UserDomain|CarReceivingServiceCompany|CarInspectionServiceCompany|CarRepairingServiceCompany|CustomerInfo'), verb: false, required: true,type:string,relationMeta={};
+		string	object_id('CIP000001|UD000001|CRSC000001|CISC000001|CRSC000001|CI000001'), verb: false, required: true,type:string,relationMeta={};
+		string	location('/link/to/app'), verb: false, required: true,type:string,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(2){
+		quickLinkList	app(__no_group)--app;
+		listAccessList	app(__no_group)--app;
+	}
+} depth=2; isRoot = false
+
+meta{name=quick_link, features=ootb}
+quick_link{
+	fields(8){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('列表'), verb: false, required: true,type:string,relationMeta={};
+		string	icon('facebook|google'), verb: false, required: true,type:string,relationMeta={};
+		string_image	image_path('y-200-200-red.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		string	link_target('列表'), verb: false, required: true,type:string,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		user_app	app('$(object)'), verb: false, required: true, referenceBy: quickLinkList,type:user_app,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=list_access, features=ootb}
+list_access{
+	fields(10){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('列表'), verb: false, required: true,type:string,relationMeta={};
+		string	internal_name('levelOneCategoryList'), verb: false, required: true,type:string,relationMeta={};
+		bool	read_permission('true'), verb: false, required: true,type:bool,relationMeta={};
+		bool	create_permission('true'), verb: false, required: true,type:bool,relationMeta={};
+		bool	delete_permission('true'), verb: false, required: true,type:bool,relationMeta={};
+		bool	update_permission('true'), verb: false, required: true,type:bool,relationMeta={};
+		bool	execution_permission('true'), verb: false, required: true,type:bool,relationMeta={};
+		user_app	app('$(object)'), verb: false, required: true, referenceBy: listAccessList,type:user_app,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=login_history, features=syslog}
+login_history{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		date_time_create	login_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		string	from_ip('192.168.1.1|192.168.1.2'), verb: false, required: true,type:string,relationMeta={};
+		string	description('登陆成功'), verb: false, required: true,type:string,relationMeta={};
+		sec_user	sec_user('$(object)'), verb: false, required: true, referenceBy: loginHistoryList,type:sec_user,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
+
+meta{name=candidate_container, features=internal,ootb}
+candidate_container{
+	fields(3){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('我只是一个容器'), verb: false, required: true,type:string,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		candidateElementList	container(__no_group)--container;
+	}
+} depth=0; isRoot = true
+
+meta{name=candidate_element, features=internal,ootb}
+candidate_element{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('搜索到的匹配字段'), verb: false, required: true,type:string,relationMeta={};
+		string	type('类型描述'), verb: false, required: true,type:string,relationMeta={};
+		string_image	image('1.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		candidate_container	container('$(object)'), verb: false, required: true, referenceBy: candidateElementList,type:candidate_container,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=1; isRoot = false
+
+meta{name=wechat_workapp_identity, features=root}
+wechat_workapp_identity{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	corp_id('corporation123'), verb: false, required: true,type:string,relationMeta={};
+		string	user_id('user123'), verb: false, required: true,type:string,relationMeta={};
+		sec_user	sec_user('$(object)'), verb: false, required: true, referenceBy: wechatWorkappIdentityList,type:sec_user,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date_time	last_login_time('2100-01-01T00:00:00'), verb: false, required: false,type:date_time,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
+
+meta{name=wechat_miniapp_identity, features=root}
+wechat_miniapp_identity{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	open_id('wechat_open_id_1234567890'), verb: false, required: true,type:string,relationMeta={};
+		string	app_id('wechat_miniapp_id_1234567890'), verb: false, required: true,type:string,relationMeta={};
+		sec_user	sec_user('$(object)'), verb: false, required: true, referenceBy: wechatMiniappIdentityList,type:sec_user,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date_time	last_login_time('2100-01-01T00:00:00'), verb: false, required: false,type:date_time,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
+
+meta{name=keypair_identity, features=root}
+keypair_identity{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string_longtext	public_key('text()'), verb: false, required: true,type:text,relationMeta={};
+		public_key_type	key_type('$(object)'), verb: false, required: true, referenceBy: keypairIdentityList,type:public_key_type,relationMeta={};
+		sec_user	sec_user('$(object)'), verb: false, required: true, referenceBy: keypairIdentityList,type:sec_user,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
+
+meta{name=public_key_type, features=root}
+public_key_type{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	key_alg('RSA|EC'), verb: false, required: true,type:string,relationMeta={};
+		string	sign_alg('SHA256withRSA|SHA256withECDSA'), verb: false, required: true,type:string,relationMeta={};
+		user_domain	domain('$(object)'), verb: false, required: true, referenceBy: publicKeyTypeList,type:user_domain,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		keypairIdentityList	key_type(__no_group)--key_type;
+	}
+} depth=1; isRoot = false
+
+meta{name=tree_node, features=root}
+tree_node{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	node_id('node000001'), verb: false, required: true,type:string,relationMeta={};
+		string	node_type('nodetype'), verb: false, required: true,type:string,relationMeta={};
+		int	left_value('1'), verb: false, required: true,type:int,relationMeta={};
+		int	right_value('10'), verb: false, required: true,type:int,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=0; isRoot = true
+
+
+
+
+=================================End Report=================================
