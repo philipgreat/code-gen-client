@@ -4,13 +4,24 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class Merchant extends BaseModelBean {
+public class GasProductTemplate extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.xt20.merchant.Merchant";
+    return "com.doublechaintech.xt20.gasproducttemplate.GasProductTemplate";
   }
   // 枚举对象
 
   // 引用的对象
+
+  public GasCylinder cylinder() {
+    GasCylinder member = new GasCylinder();
+    member.setModelTypeName("gas_cylinder");
+    member.setName("cylinder");
+    member.setMemberName("cylinder");
+    member.setReferDirection(true);
+    member.setRelationName("cylinder");
+    append(member);
+    return member;
+  }
 
   public Platform platform() {
     Platform member = new Platform();
@@ -25,45 +36,34 @@ public class Merchant extends BaseModelBean {
 
   // 被引用的对象
 
-  public PersonalUser personalUserList() {
-    PersonalUser member = new PersonalUser();
-    member.setModelTypeName("personal_user");
-    member.setName("merchant");
-    member.setMemberName("personalUserList");
-    member.setRelationName("merchant");
+  public GasProductTemplateComponent gasProductTemplateComponentList() {
+    GasProductTemplateComponent member = new GasProductTemplateComponent();
+    member.setModelTypeName("gas_product_template_component");
+    member.setName("product_template");
+    member.setMemberName("gasProductTemplateComponentList");
+    member.setRelationName("productTemplate");
     member.setReferDirection(false);
     append(member);
     return member;
   }
 
-  public Company companyList() {
-    Company member = new Company();
-    member.setModelTypeName("company");
-    member.setName("merchant");
-    member.setMemberName("companyList");
-    member.setRelationName("merchant");
+  public GasProduct gasProductList() {
+    GasProduct member = new GasProduct();
+    member.setModelTypeName("gas_product");
+    member.setName("template");
+    member.setMemberName("gasProductList");
+    member.setRelationName("template");
     member.setReferDirection(false);
     append(member);
     return member;
   }
 
-  public SellOrder sellOrderListAsBuyer() {
-    SellOrder member = new SellOrder();
-    member.setModelTypeName("sell_order");
-    member.setName("buyer");
-    member.setMemberName("sellOrderListAsBuyer");
-    member.setRelationName("buyer");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public SellOrder sellOrderListAsSeller() {
-    SellOrder member = new SellOrder();
-    member.setModelTypeName("sell_order");
-    member.setName("seller");
-    member.setMemberName("sellOrderListAsSeller");
-    member.setRelationName("buyer");
+  public GasLineItem gasLineItemList() {
+    GasLineItem member = new GasLineItem();
+    member.setModelTypeName("gas_line_item");
+    member.setName("template");
+    member.setMemberName("gasLineItemList");
+    member.setRelationName("template");
     member.setReferDirection(false);
     append(member);
     return member;
@@ -94,6 +94,15 @@ public class Merchant extends BaseModelBean {
     member.setModelTypeName("date_time_create");
     // member.setName("createTime");
     member.setName("create_time");
+    useMember(member);
+    return member;
+  }
+
+  public DateTimeAttribute lastUpdateTime() {
+    DateTimeAttribute member = new DateTimeAttribute();
+    member.setModelTypeName("date_time_update");
+    // member.setName("lastUpdateTime");
+    member.setName("last_update_time");
     useMember(member);
     return member;
   }

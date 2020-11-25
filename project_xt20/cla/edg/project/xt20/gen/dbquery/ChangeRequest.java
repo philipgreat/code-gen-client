@@ -36,6 +36,17 @@ public class ChangeRequest extends BaseModelBean {
 
   // 被引用的对象
 
+  public EventTbd eventTbdList() {
+    EventTbd member = new EventTbd();
+    member.setModelTypeName("event_tbd");
+    member.setName("change_request");
+    member.setMemberName("eventTbdList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventInfoInCr eventInfoInCrList() {
     EventInfoInCr member = new EventInfoInCr();
     member.setModelTypeName("event_info_in_cr");
@@ -81,6 +92,15 @@ public class ChangeRequest extends BaseModelBean {
     member.setModelTypeName("string_client_ip");
     // member.setName("remoteIp");
     member.setName("remote_ip");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute cityByIp() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("cityByIp");
+    member.setName("city_by_ip");
     useMember(member);
     return member;
   }

@@ -36,6 +36,50 @@ public class PersonalUser extends BaseModelBean {
 
   // 被引用的对象
 
+  public Employee employeeList() {
+    Employee member = new Employee();
+    member.setModelTypeName("employee");
+    member.setName("person_inforamtion");
+    member.setMemberName("employeeList");
+    member.setRelationName("personInforamtion");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public CommonLog commonLogList() {
+    CommonLog member = new CommonLog();
+    member.setModelTypeName("common_log");
+    member.setName("person");
+    member.setMemberName("commonLogList");
+    member.setRelationName("person");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public DeliverTask deliverTaskList() {
+    DeliverTask member = new DeliverTask();
+    member.setModelTypeName("deliver_task");
+    member.setName("deliver_staff");
+    member.setMemberName("deliverTaskList");
+    member.setRelationName("deliverStaff");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public SellOrder sellOrderList() {
+    SellOrder member = new SellOrder();
+    member.setModelTypeName("sell_order");
+    member.setName("creator");
+    member.setMemberName("sellOrderList");
+    member.setRelationName("creator");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {
@@ -52,15 +96,6 @@ public class PersonalUser extends BaseModelBean {
     member.setModelTypeName("string");
     // member.setName("name");
     member.setName("name");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute company() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("company");
-    member.setName("company");
     useMember(member);
     return member;
   }

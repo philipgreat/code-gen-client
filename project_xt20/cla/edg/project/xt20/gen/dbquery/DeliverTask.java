@@ -4,66 +4,55 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class Merchant extends BaseModelBean {
+public class DeliverTask extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.xt20.merchant.Merchant";
+    return "com.doublechaintech.xt20.delivertask.DeliverTask";
   }
   // 枚举对象
 
   // 引用的对象
 
-  public Platform platform() {
-    Platform member = new Platform();
-    member.setModelTypeName("platform");
-    member.setName("platform");
-    member.setMemberName("platform");
+  public PersonalUser deliverStaff() {
+    PersonalUser member = new PersonalUser();
+    member.setModelTypeName("personal_user");
+    member.setName("deliver_staff");
+    member.setMemberName("deliverStaff");
     member.setReferDirection(true);
-    member.setRelationName("platform");
+    member.setRelationName("deliverStaff");
+    append(member);
+    return member;
+  }
+
+  public Company company() {
+    Company member = new Company();
+    member.setModelTypeName("company");
+    member.setName("company");
+    member.setMemberName("company");
+    member.setReferDirection(true);
+    member.setRelationName("company");
+    append(member);
+    return member;
+  }
+
+  public DeliverTaskStatus status() {
+    DeliverTaskStatus member = new DeliverTaskStatus();
+    member.setModelTypeName("deliver_task_status");
+    member.setName("status");
+    member.setMemberName("status");
+    member.setReferDirection(true);
+    member.setRelationName("status");
     append(member);
     return member;
   }
 
   // 被引用的对象
 
-  public PersonalUser personalUserList() {
-    PersonalUser member = new PersonalUser();
-    member.setModelTypeName("personal_user");
-    member.setName("merchant");
-    member.setMemberName("personalUserList");
-    member.setRelationName("merchant");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public Company companyList() {
-    Company member = new Company();
-    member.setModelTypeName("company");
-    member.setName("merchant");
-    member.setMemberName("companyList");
-    member.setRelationName("merchant");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public SellOrder sellOrderListAsBuyer() {
+  public SellOrder sellOrderList() {
     SellOrder member = new SellOrder();
     member.setModelTypeName("sell_order");
-    member.setName("buyer");
-    member.setMemberName("sellOrderListAsBuyer");
-    member.setRelationName("buyer");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public SellOrder sellOrderListAsSeller() {
-    SellOrder member = new SellOrder();
-    member.setModelTypeName("sell_order");
-    member.setName("seller");
-    member.setMemberName("sellOrderListAsSeller");
-    member.setRelationName("buyer");
+    member.setName("deliver_task");
+    member.setMemberName("sellOrderList");
+    member.setRelationName("deliverTask");
     member.setReferDirection(false);
     append(member);
     return member;
@@ -94,6 +83,15 @@ public class Merchant extends BaseModelBean {
     member.setModelTypeName("date_time_create");
     // member.setName("createTime");
     member.setName("create_time");
+    useMember(member);
+    return member;
+  }
+
+  public DateTimeAttribute lastUpdateTime() {
+    DateTimeAttribute member = new DateTimeAttribute();
+    member.setModelTypeName("date_time_update");
+    // member.setName("lastUpdateTime");
+    member.setName("last_update_time");
     useMember(member);
     return member;
   }
