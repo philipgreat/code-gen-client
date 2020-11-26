@@ -44,6 +44,17 @@ public class WP01_Example implements WorkProcessorScript {
                         .go_to("need process")
 
                     .as_role("line worker").can_do("update application")
+
+                .in_status("submitted").zh_CN("演示实例,就不写了")
+                    .can_do_nothing()
+                .in_status("need process").zh_CN("演示实例,就不写了")
+                    .can_do_nothing()
+                .in_status("in repairing").zh_CN("演示实例,就不写了")
+                    .can_do_nothing()
+                .in_status("checking").zh_CN("演示实例,就不写了")
+                    .can_do_nothing()
+                .in_status("work delivered").zh_CN("演示实例,就不写了")
+                    .can_do_nothing()
             ;
         }
 
