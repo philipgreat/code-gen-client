@@ -45,11 +45,11 @@ public class EventSellerInfo extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute unicode() {
+  public StringAttribute agencySocialCode() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
-    // member.setName("unicode");
-    member.setName("unicode");
+    // member.setName("agencySocialCode");
+    member.setName("agency_social_code");
     useMember(member);
     return member;
   }

@@ -47,6 +47,28 @@ public class ChangeRequest extends BaseModelBean {
     return member;
   }
 
+  public EventSellerInfo eventSellerInfoList() {
+    EventSellerInfo member = new EventSellerInfo();
+    member.setModelTypeName("event_seller_info");
+    member.setName("change_request");
+    member.setMemberName("eventSellerInfoList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventUpdateAdditionalSpec eventUpdateAdditionalSpecList() {
+    EventUpdateAdditionalSpec member = new EventUpdateAdditionalSpec();
+    member.setModelTypeName("event_update_additional_spec");
+    member.setName("change_request");
+    member.setMemberName("eventUpdateAdditionalSpecList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventInfoInCr eventInfoInCrList() {
     EventInfoInCr member = new EventInfoInCr();
     member.setModelTypeName("event_info_in_cr");

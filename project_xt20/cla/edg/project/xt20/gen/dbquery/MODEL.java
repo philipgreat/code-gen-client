@@ -406,6 +406,20 @@ public class MODEL {
     return rst;
   }
 
+  public static GuideType guideType() {
+    GuideType rst = new GuideType();
+    rst.setModelTypeName("guide_type");
+    rst.setBeanPath(new BeanPath().name("guide_type"));
+    return rst;
+  }
+
+  public static GuideSlide guideSlide() {
+    GuideSlide rst = new GuideSlide();
+    rst.setModelTypeName("guide_slide");
+    rst.setBeanPath(new BeanPath().name("guide_slide"));
+    return rst;
+  }
+
   public static ChangeRequestType changeRequestType() {
     ChangeRequestType rst = new ChangeRequestType();
     rst.setModelTypeName("change_request_type");
@@ -424,6 +438,20 @@ public class MODEL {
     EventTbd rst = new EventTbd();
     rst.setModelTypeName("event_tbd");
     rst.setBeanPath(new BeanPath().name("event_tbd"));
+    return rst;
+  }
+
+  public static EventSellerInfo eventSellerInfo() {
+    EventSellerInfo rst = new EventSellerInfo();
+    rst.setModelTypeName("event_seller_info");
+    rst.setBeanPath(new BeanPath().name("event_seller_info"));
+    return rst;
+  }
+
+  public static EventUpdateAdditionalSpec eventUpdateAdditionalSpec() {
+    EventUpdateAdditionalSpec rst = new EventUpdateAdditionalSpec();
+    rst.setModelTypeName("event_update_additional_spec");
+    rst.setBeanPath(new BeanPath().name("event_update_additional_spec"));
     return rst;
   }
 
