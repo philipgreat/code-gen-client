@@ -18,6 +18,9 @@ public class MainChangeRequest implements ChangeRequestSpecFactory {
                 .request_base("you_should_handle_CR_here")
 
                 .import_from(new CR00_AllTBD())
+                .import_from(new CR01_Users())
+                .import_from(new CR02_OrganizationRelated())
+                .import_from(new CR03_CreateProduct())
 
                 .getChangeRequestSpec();
     }

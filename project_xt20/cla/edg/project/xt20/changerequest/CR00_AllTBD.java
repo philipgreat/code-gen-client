@@ -27,8 +27,7 @@ public class CR00_AllTBD implements ChangeRequestSpecFactory {
                 .step("A").zh_CN("复制产品").contains_event("tbd")
             .change_request("update product info").zh_CN("修改产品")
                 .step("A").zh_CN("修改产品").contains_event("tbd")
-            .change_request("edit additional spec when create").zh_CN("修改附加规格")
-                .step("A").zh_CN("修改附加规格").contains_event("tbd")
+
             .change_request("audit order").zh_CN("完成审核")
                 .step("A").zh_CN("完成审核").contains_event("tbd")
             .change_request("create handover task").zh_CN("创建交接单")
@@ -43,8 +42,7 @@ public class CR00_AllTBD implements ChangeRequestSpecFactory {
                 .step("A").zh_CN("备注").contains_event("tbd")
             .change_request("buyer BIC confirm").zh_CN("确认")
                 .step("A").zh_CN("确认").contains_event("tbd")
-            .change_request("edit additional spec when quote").zh_CN("产品附加规格")
-                .step("A").zh_CN("产品附加规格").contains_event("tbd")
+
             .change_request("custom product when quote").zh_CN("自定义")
                 .step("A").zh_CN("自定义").contains_event("tbd")
             .change_request("more supplier product").zh_CN("信息反馈")
@@ -95,14 +93,7 @@ public class CR00_AllTBD implements ChangeRequestSpecFactory {
                 .step("A").zh_CN("转移管理员").contains_event("tbd")
             .change_request("custom product when initial").zh_CN("自定义产品")
                 .step("A").zh_CN("自定义产品").contains_event("tbd")
-            .change_request("seller register").zh_CN("商户注册")
-                .step("A").zh_CN("商户注册").contains_event("tbd")
-            .change_request("edit additional spec when init").zh_CN("产品附加规格")
-                .step("A").zh_CN("产品附加规格").contains_event("tbd")
-            .change_request("edit additional spec when review init").zh_CN("产品附加规格")
-                .step("A").zh_CN("产品附加规格").contains_event("tbd")
-            .change_request("edit additional spec when create in quote").zh_CN("修改附加规格")
-                .step("A").zh_CN("修改附加规格").contains_event("tbd")
+
 
 
 
