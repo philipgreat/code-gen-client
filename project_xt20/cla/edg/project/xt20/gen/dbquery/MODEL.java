@@ -35,34 +35,6 @@ public class MODEL {
     return rst;
   }
 
-  public static Merchant merchant() {
-    Merchant rst = new Merchant();
-    rst.setModelTypeName("merchant");
-    rst.setBeanPath(new BeanPath().name("merchant"));
-    return rst;
-  }
-
-  public static PersonalUser personalUser() {
-    PersonalUser rst = new PersonalUser();
-    rst.setModelTypeName("personal_user");
-    rst.setBeanPath(new BeanPath().name("personal_user"));
-    return rst;
-  }
-
-  public static Company company() {
-    Company rst = new Company();
-    rst.setModelTypeName("company");
-    rst.setBeanPath(new BeanPath().name("company"));
-    return rst;
-  }
-
-  public static Warehouse warehouse() {
-    Warehouse rst = new Warehouse();
-    rst.setModelTypeName("warehouse");
-    rst.setBeanPath(new BeanPath().name("warehouse"));
-    return rst;
-  }
-
   public static Role role() {
     Role rst = new Role();
     rst.setModelTypeName("role");
@@ -77,6 +49,62 @@ public class MODEL {
     return rst;
   }
 
+  public static InvitationType invitationType() {
+    InvitationType rst = new InvitationType();
+    rst.setModelTypeName("invitation_type");
+    rst.setBeanPath(new BeanPath().name("invitation_type"));
+    return rst;
+  }
+
+  public static Merchant merchant() {
+    Merchant rst = new Merchant();
+    rst.setModelTypeName("merchant");
+    rst.setBeanPath(new BeanPath().name("merchant"));
+    return rst;
+  }
+
+  public static PersonalUser personalUser() {
+    PersonalUser rst = new PersonalUser();
+    rst.setModelTypeName("personal_user");
+    rst.setBeanPath(new BeanPath().name("personal_user"));
+    return rst;
+  }
+
+  public static IndividualIdentity individualIdentity() {
+    IndividualIdentity rst = new IndividualIdentity();
+    rst.setModelTypeName("individual_identity");
+    rst.setBeanPath(new BeanPath().name("individual_identity"));
+    return rst;
+  }
+
+  public static UserWorkingInfo userWorkingInfo() {
+    UserWorkingInfo rst = new UserWorkingInfo();
+    rst.setModelTypeName("user_working_info");
+    rst.setBeanPath(new BeanPath().name("user_working_info"));
+    return rst;
+  }
+
+  public static OrganizationIdentity organizationIdentity() {
+    OrganizationIdentity rst = new OrganizationIdentity();
+    rst.setModelTypeName("organization_identity");
+    rst.setBeanPath(new BeanPath().name("organization_identity"));
+    return rst;
+  }
+
+  public static Warehouse warehouse() {
+    Warehouse rst = new Warehouse();
+    rst.setModelTypeName("warehouse");
+    rst.setBeanPath(new BeanPath().name("warehouse"));
+    return rst;
+  }
+
+  public static InvitationRecord invitationRecord() {
+    InvitationRecord rst = new InvitationRecord();
+    rst.setModelTypeName("invitation_record");
+    rst.setBeanPath(new BeanPath().name("invitation_record"));
+    return rst;
+  }
+
   public static Employee employee() {
     Employee rst = new Employee();
     rst.setModelTypeName("employee");
@@ -84,31 +112,10 @@ public class MODEL {
     return rst;
   }
 
-  public static MyCustomer myCustomer() {
-    MyCustomer rst = new MyCustomer();
-    rst.setModelTypeName("my_customer");
-    rst.setBeanPath(new BeanPath().name("my_customer"));
-    return rst;
-  }
-
-  public static CustomerCylinder customerCylinder() {
-    CustomerCylinder rst = new CustomerCylinder();
-    rst.setModelTypeName("customer_cylinder");
-    rst.setBeanPath(new BeanPath().name("customer_cylinder"));
-    return rst;
-  }
-
-  public static MySupplier mySupplier() {
-    MySupplier rst = new MySupplier();
-    rst.setModelTypeName("my_supplier");
-    rst.setBeanPath(new BeanPath().name("my_supplier"));
-    return rst;
-  }
-
-  public static CommonLog commonLog() {
-    CommonLog rst = new CommonLog();
-    rst.setModelTypeName("common_log");
-    rst.setBeanPath(new BeanPath().name("common_log"));
+  public static SupplyRelationship supplyRelationship() {
+    SupplyRelationship rst = new SupplyRelationship();
+    rst.setModelTypeName("supply_relationship");
+    rst.setBeanPath(new BeanPath().name("supply_relationship"));
     return rst;
   }
 
@@ -133,6 +140,13 @@ public class MODEL {
     return rst;
   }
 
+  public static FillVolume fillVolume() {
+    FillVolume rst = new FillVolume();
+    rst.setModelTypeName("fill_volume");
+    rst.setBeanPath(new BeanPath().name("fill_volume"));
+    return rst;
+  }
+
   public static NominalPressure nominalPressure() {
     NominalPressure rst = new NominalPressure();
     rst.setModelTypeName("nominal_pressure");
@@ -154,6 +168,62 @@ public class MODEL {
     return rst;
   }
 
+  public static CheckStatus checkStatus() {
+    CheckStatus rst = new CheckStatus();
+    rst.setModelTypeName("check_status");
+    rst.setBeanPath(new BeanPath().name("check_status"));
+    return rst;
+  }
+
+  public static ActionType actionType() {
+    ActionType rst = new ActionType();
+    rst.setModelTypeName("action_type");
+    rst.setBeanPath(new BeanPath().name("action_type"));
+    return rst;
+  }
+
+  public static ProductStatus productStatus() {
+    ProductStatus rst = new ProductStatus();
+    rst.setModelTypeName("product_status");
+    rst.setBeanPath(new BeanPath().name("product_status"));
+    return rst;
+  }
+
+  public static OrderStatus orderStatus() {
+    OrderStatus rst = new OrderStatus();
+    rst.setModelTypeName("order_status");
+    rst.setBeanPath(new BeanPath().name("order_status"));
+    return rst;
+  }
+
+  public static DeliverType deliverType() {
+    DeliverType rst = new DeliverType();
+    rst.setModelTypeName("deliver_type");
+    rst.setBeanPath(new BeanPath().name("deliver_type"));
+    return rst;
+  }
+
+  public static ShippingStatus shippingStatus() {
+    ShippingStatus rst = new ShippingStatus();
+    rst.setModelTypeName("shipping_status");
+    rst.setBeanPath(new BeanPath().name("shipping_status"));
+    return rst;
+  }
+
+  public static DeliverTaskStatus deliverTaskStatus() {
+    DeliverTaskStatus rst = new DeliverTaskStatus();
+    rst.setModelTypeName("deliver_task_status");
+    rst.setBeanPath(new BeanPath().name("deliver_task_status"));
+    return rst;
+  }
+
+  public static DeliveryReceiptStatus deliveryReceiptStatus() {
+    DeliveryReceiptStatus rst = new DeliveryReceiptStatus();
+    rst.setModelTypeName("delivery_receipt_status");
+    rst.setBeanPath(new BeanPath().name("delivery_receipt_status"));
+    return rst;
+  }
+
   public static GasCylinder gasCylinder() {
     GasCylinder rst = new GasCylinder();
     rst.setModelTypeName("gas_cylinder");
@@ -161,10 +231,38 @@ public class MODEL {
     return rst;
   }
 
-  public static CompanyCylinder companyCylinder() {
-    CompanyCylinder rst = new CompanyCylinder();
-    rst.setModelTypeName("company_cylinder");
-    rst.setBeanPath(new BeanPath().name("company_cylinder"));
+  public static MerchantCylinder merchantCylinder() {
+    MerchantCylinder rst = new MerchantCylinder();
+    rst.setModelTypeName("merchant_cylinder");
+    rst.setBeanPath(new BeanPath().name("merchant_cylinder"));
+    return rst;
+  }
+
+  public static MerchantCylinderRecord merchantCylinderRecord() {
+    MerchantCylinderRecord rst = new MerchantCylinderRecord();
+    rst.setModelTypeName("merchant_cylinder_record");
+    rst.setBeanPath(new BeanPath().name("merchant_cylinder_record"));
+    return rst;
+  }
+
+  public static CustomerCylinder customerCylinder() {
+    CustomerCylinder rst = new CustomerCylinder();
+    rst.setModelTypeName("customer_cylinder");
+    rst.setBeanPath(new BeanPath().name("customer_cylinder"));
+    return rst;
+  }
+
+  public static CustomerCylinderRecord customerCylinderRecord() {
+    CustomerCylinderRecord rst = new CustomerCylinderRecord();
+    rst.setModelTypeName("customer_cylinder_record");
+    rst.setBeanPath(new BeanPath().name("customer_cylinder_record"));
+    return rst;
+  }
+
+  public static CustomerCylinderRecordEvidence customerCylinderRecordEvidence() {
+    CustomerCylinderRecordEvidence rst = new CustomerCylinderRecordEvidence();
+    rst.setModelTypeName("customer_cylinder_record_evidence");
+    rst.setBeanPath(new BeanPath().name("customer_cylinder_record_evidence"));
     return rst;
   }
 
@@ -182,13 +280,6 @@ public class MODEL {
     return rst;
   }
 
-  public static ProductStatus productStatus() {
-    ProductStatus rst = new ProductStatus();
-    rst.setModelTypeName("product_status");
-    rst.setBeanPath(new BeanPath().name("product_status"));
-    return rst;
-  }
-
   public static GasProduct gasProduct() {
     GasProduct rst = new GasProduct();
     rst.setModelTypeName("gas_product");
@@ -203,10 +294,10 @@ public class MODEL {
     return rst;
   }
 
-  public static GasProductInventory gasProductInventory() {
-    GasProductInventory rst = new GasProductInventory();
-    rst.setModelTypeName("gas_product_inventory");
-    rst.setBeanPath(new BeanPath().name("gas_product_inventory"));
+  public static GasProductInventoryRecord gasProductInventoryRecord() {
+    GasProductInventoryRecord rst = new GasProductInventoryRecord();
+    rst.setModelTypeName("gas_product_inventory_record");
+    rst.setBeanPath(new BeanPath().name("gas_product_inventory_record"));
     return rst;
   }
 
@@ -217,24 +308,10 @@ public class MODEL {
     return rst;
   }
 
-  public static OrderStatus orderStatus() {
-    OrderStatus rst = new OrderStatus();
-    rst.setModelTypeName("order_status");
-    rst.setBeanPath(new BeanPath().name("order_status"));
-    return rst;
-  }
-
-  public static OrderShippingType orderShippingType() {
-    OrderShippingType rst = new OrderShippingType();
-    rst.setModelTypeName("order_shipping_type");
-    rst.setBeanPath(new BeanPath().name("order_shipping_type"));
-    return rst;
-  }
-
-  public static DeliverTaskStatus deliverTaskStatus() {
-    DeliverTaskStatus rst = new DeliverTaskStatus();
-    rst.setModelTypeName("deliver_task_status");
-    rst.setBeanPath(new BeanPath().name("deliver_task_status"));
+  public static GasProductTemplateCache gasProductTemplateCache() {
+    GasProductTemplateCache rst = new GasProductTemplateCache();
+    rst.setModelTypeName("gas_product_template_cache");
+    rst.setBeanPath(new BeanPath().name("gas_product_template_cache"));
     return rst;
   }
 
@@ -245,10 +322,10 @@ public class MODEL {
     return rst;
   }
 
-  public static SellOrder sellOrder() {
-    SellOrder rst = new SellOrder();
-    rst.setModelTypeName("sell_order");
-    rst.setBeanPath(new BeanPath().name("sell_order"));
+  public static MainOrder mainOrder() {
+    MainOrder rst = new MainOrder();
+    rst.setModelTypeName("main_order");
+    rst.setBeanPath(new BeanPath().name("main_order"));
     return rst;
   }
 
@@ -256,6 +333,34 @@ public class MODEL {
     GasLineItem rst = new GasLineItem();
     rst.setModelTypeName("gas_line_item");
     rst.setBeanPath(new BeanPath().name("gas_line_item"));
+    return rst;
+  }
+
+  public static GasShippingGroup gasShippingGroup() {
+    GasShippingGroup rst = new GasShippingGroup();
+    rst.setModelTypeName("gas_shipping_group");
+    rst.setBeanPath(new BeanPath().name("gas_shipping_group"));
+    return rst;
+  }
+
+  public static DeliveryReceipt deliveryReceipt() {
+    DeliveryReceipt rst = new DeliveryReceipt();
+    rst.setModelTypeName("delivery_receipt");
+    rst.setBeanPath(new BeanPath().name("delivery_receipt"));
+    return rst;
+  }
+
+  public static OrderActionType orderActionType() {
+    OrderActionType rst = new OrderActionType();
+    rst.setModelTypeName("order_action_type");
+    rst.setBeanPath(new BeanPath().name("order_action_type"));
+    return rst;
+  }
+
+  public static OrderOperationRecord orderOperationRecord() {
+    OrderOperationRecord rst = new OrderOperationRecord();
+    rst.setModelTypeName("order_operation_record");
+    rst.setBeanPath(new BeanPath().name("order_operation_record"));
     return rst;
   }
 

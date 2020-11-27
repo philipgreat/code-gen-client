@@ -4,32 +4,32 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class GasProductTemplateComponent extends BaseModelBean {
+public class MerchantCylinder extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.xt20.gasproducttemplatecomponent.GasProductTemplateComponent";
+    return "com.doublechaintech.xt20.merchantcylinder.MerchantCylinder";
   }
   // 枚举对象
 
   // 引用的对象
 
-  public GasComponent component() {
-    GasComponent member = new GasComponent();
-    member.setModelTypeName("gas_component");
-    member.setName("component");
-    member.setMemberName("component");
+  public GasCylinder cylinder() {
+    GasCylinder member = new GasCylinder();
+    member.setModelTypeName("gas_cylinder");
+    member.setName("cylinder");
+    member.setMemberName("cylinder");
     member.setReferDirection(true);
-    member.setRelationName("component");
+    member.setRelationName("cylinder");
     append(member);
     return member;
   }
 
-  public GasProductTemplate productTemplate() {
-    GasProductTemplate member = new GasProductTemplate();
-    member.setModelTypeName("gas_product_template");
-    member.setName("product_template");
-    member.setMemberName("productTemplate");
+  public Merchant merchant() {
+    Merchant member = new Merchant();
+    member.setModelTypeName("merchant");
+    member.setName("merchant");
+    member.setMemberName("merchant");
     member.setReferDirection(true);
-    member.setRelationName("productTemplate");
+    member.setRelationName("merchant");
     append(member);
     return member;
   }
@@ -47,11 +47,11 @@ public class GasProductTemplateComponent extends BaseModelBean {
     return member;
   }
 
-  public NumberAttribute percentage() {
+  public NumberAttribute quantity() {
     NumberAttribute member = new NumberAttribute();
-    member.setModelTypeName("double");
-    // member.setName("percentage");
-    member.setName("percentage");
+    member.setModelTypeName("int");
+    // member.setName("quantity");
+    member.setName("quantity");
     useMember(member);
     return member;
   }

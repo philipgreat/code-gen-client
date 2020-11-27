@@ -4,23 +4,26 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class DeliverTaskStatus extends BaseModelBean {
+public class InvitationType extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.xt20.delivertaskstatus.DeliverTaskStatus";
+    return "com.doublechaintech.xt20.invitationtype.InvitationType";
   }
   // 枚举对象
-  public static EnumAttribute PENDING =
-      new EnumAttribute("com.doublechaintech.xt20.delivertaskstatus.DeliverTaskStatus", "PENDING")
-          .chineseName("待执行");
-  public static EnumAttribute SHIPPING =
-      new EnumAttribute("com.doublechaintech.xt20.delivertaskstatus.DeliverTaskStatus", "SHIPPING")
-          .chineseName("配送中");
-  public static EnumAttribute COMPLETED =
-      new EnumAttribute("com.doublechaintech.xt20.delivertaskstatus.DeliverTaskStatus", "COMPLETED")
-          .chineseName("已完成");
+  public static EnumAttribute COLLEAGUE =
+      new EnumAttribute("com.doublechaintech.xt20.invitationtype.InvitationType", "COLLEAGUE")
+          .chineseName("邀请同事");
+  public static EnumAttribute SUPPLIER =
+      new EnumAttribute("com.doublechaintech.xt20.invitationtype.InvitationType", "SUPPLIER")
+          .chineseName("邀请商家");
+  public static EnumAttribute CUSTOMER =
+      new EnumAttribute("com.doublechaintech.xt20.invitationtype.InvitationType", "CUSTOMER")
+          .chineseName("邀请用户");
+  public static EnumAttribute COMMON =
+      new EnumAttribute("com.doublechaintech.xt20.invitationtype.InvitationType", "COMMON")
+          .chineseName("分享");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {PENDING, SHIPPING, COMPLETED};
+    return new EnumAttribute[] {COLLEAGUE, SUPPLIER, CUSTOMER, COMMON};
   }
 
   // 引用的对象
@@ -38,12 +41,12 @@ public class DeliverTaskStatus extends BaseModelBean {
 
   // 被引用的对象
 
-  public DeliverTask deliverTaskList() {
-    DeliverTask member = new DeliverTask();
-    member.setModelTypeName("deliver_task");
-    member.setName("status");
-    member.setMemberName("deliverTaskList");
-    member.setRelationName("status");
+  public InvitationRecord invitationRecordList() {
+    InvitationRecord member = new InvitationRecord();
+    member.setModelTypeName("invitation_record");
+    member.setName("type");
+    member.setMemberName("invitationRecordList");
+    member.setRelationName("type");
     member.setReferDirection(false);
     append(member);
     return member;

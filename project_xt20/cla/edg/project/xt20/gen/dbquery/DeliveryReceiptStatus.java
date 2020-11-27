@@ -4,23 +4,36 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class DeliverTaskStatus extends BaseModelBean {
+public class DeliveryReceiptStatus extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.xt20.delivertaskstatus.DeliverTaskStatus";
+    return "com.doublechaintech.xt20.deliveryreceiptstatus.DeliveryReceiptStatus";
   }
   // 枚举对象
-  public static EnumAttribute PENDING =
-      new EnumAttribute("com.doublechaintech.xt20.delivertaskstatus.DeliverTaskStatus", "PENDING")
-          .chineseName("待执行");
-  public static EnumAttribute SHIPPING =
-      new EnumAttribute("com.doublechaintech.xt20.delivertaskstatus.DeliverTaskStatus", "SHIPPING")
-          .chineseName("配送中");
-  public static EnumAttribute COMPLETED =
-      new EnumAttribute("com.doublechaintech.xt20.delivertaskstatus.DeliverTaskStatus", "COMPLETED")
-          .chineseName("已完成");
+  public static EnumAttribute WAITING_BUYER_CONFIRM =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.deliveryreceiptstatus.DeliveryReceiptStatus",
+              "WAITING_BUYER_CONFIRM")
+          .chineseName("待客户确认");
+  public static EnumAttribute BUYER_CONFIRM_TIMEOUT =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.deliveryreceiptstatus.DeliveryReceiptStatus",
+              "BUYER_CONFIRM_TIMEOUT")
+          .chineseName("超时未确认");
+  public static EnumAttribute SELLER_FORCE_CONFIRMED =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.deliveryreceiptstatus.DeliveryReceiptStatus",
+              "SELLER_FORCE_CONFIRMED")
+          .chineseName("代客户确认");
+  public static EnumAttribute BUYER_CONFIRMED =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.deliveryreceiptstatus.DeliveryReceiptStatus",
+              "BUYER_CONFIRMED")
+          .chineseName("客户已确认");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {PENDING, SHIPPING, COMPLETED};
+    return new EnumAttribute[] {
+      WAITING_BUYER_CONFIRM, BUYER_CONFIRM_TIMEOUT, SELLER_FORCE_CONFIRMED, BUYER_CONFIRMED
+    };
   }
 
   // 引用的对象
@@ -38,11 +51,11 @@ public class DeliverTaskStatus extends BaseModelBean {
 
   // 被引用的对象
 
-  public DeliverTask deliverTaskList() {
-    DeliverTask member = new DeliverTask();
-    member.setModelTypeName("deliver_task");
+  public DeliveryReceipt deliveryReceiptList() {
+    DeliveryReceipt member = new DeliveryReceipt();
+    member.setModelTypeName("delivery_receipt");
     member.setName("status");
-    member.setMemberName("deliverTaskList");
+    member.setMemberName("deliveryReceiptList");
     member.setRelationName("status");
     member.setReferDirection(false);
     append(member);

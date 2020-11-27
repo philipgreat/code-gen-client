@@ -4,26 +4,24 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class DeliverTaskStatus extends BaseModelBean {
+public class OrganizationIdentity extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.xt20.delivertaskstatus.DeliverTaskStatus";
+    return "com.doublechaintech.xt20.organizationidentity.OrganizationIdentity";
   }
   // 枚举对象
-  public static EnumAttribute PENDING =
-      new EnumAttribute("com.doublechaintech.xt20.delivertaskstatus.DeliverTaskStatus", "PENDING")
-          .chineseName("待执行");
-  public static EnumAttribute SHIPPING =
-      new EnumAttribute("com.doublechaintech.xt20.delivertaskstatus.DeliverTaskStatus", "SHIPPING")
-          .chineseName("配送中");
-  public static EnumAttribute COMPLETED =
-      new EnumAttribute("com.doublechaintech.xt20.delivertaskstatus.DeliverTaskStatus", "COMPLETED")
-          .chineseName("已完成");
-
-  public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {PENDING, SHIPPING, COMPLETED};
-  }
 
   // 引用的对象
+
+  public Merchant merchant() {
+    Merchant member = new Merchant();
+    member.setModelTypeName("merchant");
+    member.setName("merchant");
+    member.setMemberName("merchant");
+    member.setReferDirection(true);
+    member.setRelationName("merchant");
+    append(member);
+    return member;
+  }
 
   public Platform platform() {
     Platform member = new Platform();
@@ -37,17 +35,6 @@ public class DeliverTaskStatus extends BaseModelBean {
   }
 
   // 被引用的对象
-
-  public DeliverTask deliverTaskList() {
-    DeliverTask member = new DeliverTask();
-    member.setModelTypeName("deliver_task");
-    member.setName("status");
-    member.setMemberName("deliverTaskList");
-    member.setRelationName("status");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
 
   // 普通属性
 
@@ -69,20 +56,47 @@ public class DeliverTaskStatus extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute code() {
+  public StringAttribute agencySocialCode() {
     StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("code");
-    member.setName("code");
+    member.setModelTypeName("string_taxpayerid");
+    // member.setName("agencySocialCode");
+    member.setName("agency_social_code");
     useMember(member);
     return member;
   }
 
-  public StringAttribute description() {
+  public StringAttribute contactName() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
-    // member.setName("description");
-    member.setName("description");
+    // member.setName("contactName");
+    member.setName("contact_name");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute mobile() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string_china_mobile_phone");
+    // member.setName("mobile");
+    member.setName("mobile");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute address() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("address");
+    member.setName("address");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute logo() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string_image");
+    // member.setName("logo");
+    member.setName("logo");
     useMember(member);
     return member;
   }

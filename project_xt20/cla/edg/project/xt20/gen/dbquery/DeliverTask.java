@@ -23,13 +23,13 @@ public class DeliverTask extends BaseModelBean {
     return member;
   }
 
-  public Company company() {
-    Company member = new Company();
-    member.setModelTypeName("company");
-    member.setName("company");
-    member.setMemberName("company");
+  public Merchant merchant() {
+    Merchant member = new Merchant();
+    member.setModelTypeName("merchant");
+    member.setName("merchant");
+    member.setMemberName("merchant");
     member.setReferDirection(true);
-    member.setRelationName("company");
+    member.setRelationName("merchant");
     append(member);
     return member;
   }
@@ -47,11 +47,11 @@ public class DeliverTask extends BaseModelBean {
 
   // 被引用的对象
 
-  public SellOrder sellOrderList() {
-    SellOrder member = new SellOrder();
-    member.setModelTypeName("sell_order");
+  public GasShippingGroup gasShippingGroupList() {
+    GasShippingGroup member = new GasShippingGroup();
+    member.setModelTypeName("gas_shipping_group");
     member.setName("deliver_task");
-    member.setMemberName("sellOrderList");
+    member.setMemberName("gasShippingGroupList");
     member.setRelationName("deliverTask");
     member.setReferDirection(false);
     append(member);

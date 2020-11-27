@@ -23,6 +23,17 @@ public class GasProductTemplate extends BaseModelBean {
     return member;
   }
 
+  public FillVolume fillVolume() {
+    FillVolume member = new FillVolume();
+    member.setModelTypeName("fill_volume");
+    member.setName("fill_volume");
+    member.setMemberName("fillVolume");
+    member.setReferDirection(true);
+    member.setRelationName("fillVolume");
+    append(member);
+    return member;
+  }
+
   public Platform platform() {
     Platform member = new Platform();
     member.setModelTypeName("platform");

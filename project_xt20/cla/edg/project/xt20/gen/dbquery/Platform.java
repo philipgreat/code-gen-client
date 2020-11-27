@@ -47,6 +47,39 @@ public class Platform extends BaseModelBean {
     return member;
   }
 
+  public Role roleList() {
+    Role member = new Role();
+    member.setModelTypeName("role");
+    member.setName("platform");
+    member.setMemberName("roleList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EmployeeStatus employeeStatusList() {
+    EmployeeStatus member = new EmployeeStatus();
+    member.setModelTypeName("employee_status");
+    member.setName("platform");
+    member.setMemberName("employeeStatusList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public InvitationType invitationTypeList() {
+    InvitationType member = new InvitationType();
+    member.setModelTypeName("invitation_type");
+    member.setName("platform");
+    member.setMemberName("invitationTypeList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public Merchant merchantList() {
     Merchant member = new Merchant();
     member.setModelTypeName("merchant");
@@ -69,33 +102,11 @@ public class Platform extends BaseModelBean {
     return member;
   }
 
-  public Company companyList() {
-    Company member = new Company();
-    member.setModelTypeName("company");
+  public OrganizationIdentity organizationIdentityList() {
+    OrganizationIdentity member = new OrganizationIdentity();
+    member.setModelTypeName("organization_identity");
     member.setName("platform");
-    member.setMemberName("companyList");
-    member.setRelationName("platform");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public Role roleList() {
-    Role member = new Role();
-    member.setModelTypeName("role");
-    member.setName("platform");
-    member.setMemberName("roleList");
-    member.setRelationName("platform");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public EmployeeStatus employeeStatusList() {
-    EmployeeStatus member = new EmployeeStatus();
-    member.setModelTypeName("employee_status");
-    member.setName("platform");
-    member.setMemberName("employeeStatusList");
+    member.setMemberName("organizationIdentityList");
     member.setRelationName("platform");
     member.setReferDirection(false);
     append(member);
@@ -146,6 +157,17 @@ public class Platform extends BaseModelBean {
     return member;
   }
 
+  public FillVolume fillVolumeList() {
+    FillVolume member = new FillVolume();
+    member.setModelTypeName("fill_volume");
+    member.setName("platform");
+    member.setMemberName("fillVolumeList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public NominalPressure nominalPressureList() {
     NominalPressure member = new NominalPressure();
     member.setModelTypeName("nominal_pressure");
@@ -179,6 +201,94 @@ public class Platform extends BaseModelBean {
     return member;
   }
 
+  public CheckStatus checkStatusList() {
+    CheckStatus member = new CheckStatus();
+    member.setModelTypeName("check_status");
+    member.setName("platform");
+    member.setMemberName("checkStatusList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public ActionType actionTypeList() {
+    ActionType member = new ActionType();
+    member.setModelTypeName("action_type");
+    member.setName("platform");
+    member.setMemberName("actionTypeList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public ProductStatus productStatusList() {
+    ProductStatus member = new ProductStatus();
+    member.setModelTypeName("product_status");
+    member.setName("platform");
+    member.setMemberName("productStatusList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public OrderStatus orderStatusList() {
+    OrderStatus member = new OrderStatus();
+    member.setModelTypeName("order_status");
+    member.setName("platform");
+    member.setMemberName("orderStatusList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public DeliverType deliverTypeList() {
+    DeliverType member = new DeliverType();
+    member.setModelTypeName("deliver_type");
+    member.setName("platform");
+    member.setMemberName("deliverTypeList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public ShippingStatus shippingStatusList() {
+    ShippingStatus member = new ShippingStatus();
+    member.setModelTypeName("shipping_status");
+    member.setName("platform");
+    member.setMemberName("shippingStatusList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public DeliverTaskStatus deliverTaskStatusList() {
+    DeliverTaskStatus member = new DeliverTaskStatus();
+    member.setModelTypeName("deliver_task_status");
+    member.setName("platform");
+    member.setMemberName("deliverTaskStatusList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public DeliveryReceiptStatus deliveryReceiptStatusList() {
+    DeliveryReceiptStatus member = new DeliveryReceiptStatus();
+    member.setModelTypeName("delivery_receipt_status");
+    member.setName("platform");
+    member.setMemberName("deliveryReceiptStatusList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public GasCylinder gasCylinderList() {
     GasCylinder member = new GasCylinder();
     member.setModelTypeName("gas_cylinder");
@@ -201,17 +311,6 @@ public class Platform extends BaseModelBean {
     return member;
   }
 
-  public ProductStatus productStatusList() {
-    ProductStatus member = new ProductStatus();
-    member.setModelTypeName("product_status");
-    member.setName("platform");
-    member.setMemberName("productStatusList");
-    member.setRelationName("platform");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
   public GasProduct gasProductList() {
     GasProduct member = new GasProduct();
     member.setModelTypeName("gas_product");
@@ -223,33 +322,11 @@ public class Platform extends BaseModelBean {
     return member;
   }
 
-  public OrderStatus orderStatusList() {
-    OrderStatus member = new OrderStatus();
-    member.setModelTypeName("order_status");
+  public OrderActionType orderActionTypeList() {
+    OrderActionType member = new OrderActionType();
+    member.setModelTypeName("order_action_type");
     member.setName("platform");
-    member.setMemberName("orderStatusList");
-    member.setRelationName("platform");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public OrderShippingType orderShippingTypeList() {
-    OrderShippingType member = new OrderShippingType();
-    member.setModelTypeName("order_shipping_type");
-    member.setName("platform");
-    member.setMemberName("orderShippingTypeList");
-    member.setRelationName("platform");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public DeliverTaskStatus deliverTaskStatusList() {
-    DeliverTaskStatus member = new DeliverTaskStatus();
-    member.setModelTypeName("deliver_task_status");
-    member.setName("platform");
-    member.setMemberName("deliverTaskStatusList");
+    member.setMemberName("orderActionTypeList");
     member.setRelationName("platform");
     member.setReferDirection(false);
     append(member);

@@ -34,6 +34,17 @@ public class GasCylinder extends BaseModelBean {
     return member;
   }
 
+  public NominalPressure nominalPressure() {
+    NominalPressure member = new NominalPressure();
+    member.setModelTypeName("nominal_pressure");
+    member.setName("nominal_pressure");
+    member.setMemberName("nominalPressure");
+    member.setReferDirection(true);
+    member.setRelationName("nominalPressure");
+    append(member);
+    return member;
+  }
+
   public NominalVolume nominalVolume() {
     NominalVolume member = new NominalVolume();
     member.setModelTypeName("nominal_volume");
@@ -69,6 +80,28 @@ public class GasCylinder extends BaseModelBean {
 
   // 被引用的对象
 
+  public MerchantCylinder merchantCylinderList() {
+    MerchantCylinder member = new MerchantCylinder();
+    member.setModelTypeName("merchant_cylinder");
+    member.setName("cylinder");
+    member.setMemberName("merchantCylinderList");
+    member.setRelationName("cylinder");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public MerchantCylinderRecord merchantCylinderRecordList() {
+    MerchantCylinderRecord member = new MerchantCylinderRecord();
+    member.setModelTypeName("merchant_cylinder_record");
+    member.setName("cylinder");
+    member.setMemberName("merchantCylinderRecordList");
+    member.setRelationName("cylinder");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public CustomerCylinder customerCylinderList() {
     CustomerCylinder member = new CustomerCylinder();
     member.setModelTypeName("customer_cylinder");
@@ -80,11 +113,11 @@ public class GasCylinder extends BaseModelBean {
     return member;
   }
 
-  public CompanyCylinder companyCylinderList() {
-    CompanyCylinder member = new CompanyCylinder();
-    member.setModelTypeName("company_cylinder");
+  public CustomerCylinderRecord customerCylinderRecordList() {
+    CustomerCylinderRecord member = new CustomerCylinderRecord();
+    member.setModelTypeName("customer_cylinder_record");
     member.setName("cylinder");
-    member.setMemberName("companyCylinderList");
+    member.setMemberName("customerCylinderRecordList");
     member.setRelationName("cylinder");
     member.setReferDirection(false);
     append(member);

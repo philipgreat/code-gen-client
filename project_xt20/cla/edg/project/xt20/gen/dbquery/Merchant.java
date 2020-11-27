@@ -25,45 +25,221 @@ public class Merchant extends BaseModelBean {
 
   // 被引用的对象
 
-  public PersonalUser personalUserList() {
-    PersonalUser member = new PersonalUser();
-    member.setModelTypeName("personal_user");
+  public OrganizationIdentity organizationIdentityList() {
+    OrganizationIdentity member = new OrganizationIdentity();
+    member.setModelTypeName("organization_identity");
     member.setName("merchant");
-    member.setMemberName("personalUserList");
+    member.setMemberName("organizationIdentityList");
     member.setRelationName("merchant");
     member.setReferDirection(false);
     append(member);
     return member;
   }
 
-  public Company companyList() {
-    Company member = new Company();
-    member.setModelTypeName("company");
+  public Warehouse warehouseList() {
+    Warehouse member = new Warehouse();
+    member.setModelTypeName("warehouse");
     member.setName("merchant");
-    member.setMemberName("companyList");
+    member.setMemberName("warehouseList");
     member.setRelationName("merchant");
     member.setReferDirection(false);
     append(member);
     return member;
   }
 
-  public SellOrder sellOrderListAsBuyer() {
-    SellOrder member = new SellOrder();
-    member.setModelTypeName("sell_order");
-    member.setName("buyer");
-    member.setMemberName("sellOrderListAsBuyer");
-    member.setRelationName("buyer");
+  public Employee employeeList() {
+    Employee member = new Employee();
+    member.setModelTypeName("employee");
+    member.setName("merchant");
+    member.setMemberName("employeeList");
+    member.setRelationName("merchant");
     member.setReferDirection(false);
     append(member);
     return member;
   }
 
-  public SellOrder sellOrderListAsSeller() {
-    SellOrder member = new SellOrder();
-    member.setModelTypeName("sell_order");
+  public SupplyRelationship supplyRelationshipListAsSupplier() {
+    SupplyRelationship member = new SupplyRelationship();
+    member.setModelTypeName("supply_relationship");
+    member.setName("supplier");
+    member.setMemberName("supplyRelationshipListAsSupplier");
+    member.setRelationName("supplier");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public SupplyRelationship supplyRelationshipListAsCustomer() {
+    SupplyRelationship member = new SupplyRelationship();
+    member.setModelTypeName("supply_relationship");
+    member.setName("customer");
+    member.setMemberName("supplyRelationshipListAsCustomer");
+    member.setRelationName("supplier");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public MerchantCylinder merchantCylinderList() {
+    MerchantCylinder member = new MerchantCylinder();
+    member.setModelTypeName("merchant_cylinder");
+    member.setName("merchant");
+    member.setMemberName("merchantCylinderList");
+    member.setRelationName("merchant");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public MerchantCylinderRecord merchantCylinderRecordList() {
+    MerchantCylinderRecord member = new MerchantCylinderRecord();
+    member.setModelTypeName("merchant_cylinder_record");
+    member.setName("merchant");
+    member.setMemberName("merchantCylinderRecordList");
+    member.setRelationName("merchant");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public CustomerCylinder customerCylinderListAsSeller() {
+    CustomerCylinder member = new CustomerCylinder();
+    member.setModelTypeName("customer_cylinder");
     member.setName("seller");
-    member.setMemberName("sellOrderListAsSeller");
+    member.setMemberName("customerCylinderListAsSeller");
+    member.setRelationName("seller");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public CustomerCylinder customerCylinderListAsCustomer() {
+    CustomerCylinder member = new CustomerCylinder();
+    member.setModelTypeName("customer_cylinder");
+    member.setName("customer");
+    member.setMemberName("customerCylinderListAsCustomer");
+    member.setRelationName("seller");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public CustomerCylinderRecord customerCylinderRecordListAsSeller() {
+    CustomerCylinderRecord member = new CustomerCylinderRecord();
+    member.setModelTypeName("customer_cylinder_record");
+    member.setName("seller");
+    member.setMemberName("customerCylinderRecordListAsSeller");
+    member.setRelationName("seller");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public CustomerCylinderRecord customerCylinderRecordListAsCustomer() {
+    CustomerCylinderRecord member = new CustomerCylinderRecord();
+    member.setModelTypeName("customer_cylinder_record");
+    member.setName("customer");
+    member.setMemberName("customerCylinderRecordListAsCustomer");
+    member.setRelationName("seller");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public GasProduct gasProductList() {
+    GasProduct member = new GasProduct();
+    member.setModelTypeName("gas_product");
+    member.setName("merchant");
+    member.setMemberName("gasProductList");
+    member.setRelationName("merchant");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public GasProductInventoryRecord gasProductInventoryRecordList() {
+    GasProductInventoryRecord member = new GasProductInventoryRecord();
+    member.setModelTypeName("gas_product_inventory_record");
+    member.setName("merchant");
+    member.setMemberName("gasProductInventoryRecordList");
+    member.setRelationName("merchant");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public DeliverTask deliverTaskList() {
+    DeliverTask member = new DeliverTask();
+    member.setModelTypeName("deliver_task");
+    member.setName("merchant");
+    member.setMemberName("deliverTaskList");
+    member.setRelationName("merchant");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public MainOrder mainOrderListAsBuyer() {
+    MainOrder member = new MainOrder();
+    member.setModelTypeName("main_order");
+    member.setName("buyer");
+    member.setMemberName("mainOrderListAsBuyer");
     member.setRelationName("buyer");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public MainOrder mainOrderListAsSeller() {
+    MainOrder member = new MainOrder();
+    member.setModelTypeName("main_order");
+    member.setName("seller");
+    member.setMemberName("mainOrderListAsSeller");
+    member.setRelationName("buyer");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public GasShippingGroup gasShippingGroupListAsSeller() {
+    GasShippingGroup member = new GasShippingGroup();
+    member.setModelTypeName("gas_shipping_group");
+    member.setName("seller");
+    member.setMemberName("gasShippingGroupListAsSeller");
+    member.setRelationName("seller");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public GasShippingGroup gasShippingGroupListAsBuyer() {
+    GasShippingGroup member = new GasShippingGroup();
+    member.setModelTypeName("gas_shipping_group");
+    member.setName("buyer");
+    member.setMemberName("gasShippingGroupListAsBuyer");
+    member.setRelationName("seller");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public DeliveryReceipt deliveryReceiptListAsSeller() {
+    DeliveryReceipt member = new DeliveryReceipt();
+    member.setModelTypeName("delivery_receipt");
+    member.setName("seller");
+    member.setMemberName("deliveryReceiptListAsSeller");
+    member.setRelationName("seller");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public DeliveryReceipt deliveryReceiptListAsBuyer() {
+    DeliveryReceipt member = new DeliveryReceipt();
+    member.setModelTypeName("delivery_receipt");
+    member.setName("buyer");
+    member.setMemberName("deliveryReceiptListAsBuyer");
+    member.setRelationName("seller");
     member.setReferDirection(false);
     append(member);
     return member;

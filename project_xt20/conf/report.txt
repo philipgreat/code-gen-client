@@ -1,12 +1,13 @@
 
 
-@warning object definition: yyy_status: word 'yyy' seems not found in library
+@warning gas_product.threhold_quantity: word 'threhold' seems not found in library
+@warning object definition: event_tbd: word 'tbd' seems not found in library
 @warning object definition: keypair_identity: word 'keypair' seems not found in library
 
 
 
-=================1.0 Execute Report (Model Time 201120T1531) @Fri Nov 20 15:32:54 CST 2020, 35 objects and 250 fields===========================
-from file "/works/jobs/xt20_v1/workspace/web-code-generator/sky/modeling/microservice/xt20.xml"
+=================1.0 Execute Report (Model Time 201127T1110) @Fri Nov 27 12:11:54 CST 2020, 82 objects and 579 fields===========================
+from file "/Users/jackytian/git/web-code-generator/sky/modeling/microservice/xt20.xml"
 
 
  processing: mobile_app
@@ -72,13 +73,70 @@ from file "/works/jobs/xt20_v1/workspace/web-code-generator/sky/modeling/microse
  processing: platform
 
 
- processing: xxx_status
+ processing: province
 
 
- processing: xxx_status.platform.platform
+ processing: province.platform.platform
 
-Info: Add virtual field [xxx_statuss(es)] to <platform>
-	xxx_status.platform
+Info: Add virtual field [provinces(es)] to <platform>
+	province.platform
+
+
+ processing: city
+
+
+ processing: city.province.province
+
+Info: Add virtual field [citys(es)] to <province>
+	city.province
+
+
+ processing: city.platform.platform
+
+Info: Add virtual field [citys(es)] to <platform>
+	city.platform
+
+
+ processing: district
+
+
+ processing: district.city.city
+
+Info: Add virtual field [districts(es)] to <city>
+	district.city
+
+
+ processing: district.platform.platform
+
+Info: Add virtual field [districts(es)] to <platform>
+	district.platform
+
+
+ processing: role
+
+
+ processing: role.platform.platform
+
+Info: Add virtual field [roles(es)] to <platform>
+	role.platform
+
+
+ processing: employee_status
+
+
+ processing: employee_status.platform.platform
+
+Info: Add virtual field [employee_statuss(es)] to <platform>
+	employee_status.platform
+
+
+ processing: invitation_type
+
+
+ processing: invitation_type.platform.platform
+
+Info: Add virtual field [invitation_types(es)] to <platform>
+	invitation_type.platform
 
 
  processing: merchant
@@ -93,25 +151,748 @@ Info: Add virtual field [merchants(es)] to <platform>
  processing: personal_user
 
 
- processing: personal_user.merchant.merchant
-
-Info: Add virtual field [personal_users(es)] to <merchant>
-	personal_user.merchant
-
-
  processing: personal_user.platform.platform
 
 Info: Add virtual field [personal_users(es)] to <platform>
 	personal_user.platform
 
 
- processing: yyy_status
+ processing: individual_identity
 
 
- processing: yyy_status.platform.platform
+ processing: individual_identity.personal_user.personal_user
 
-Info: Add virtual field [yyy_statuss(es)] to <platform>
-	yyy_status.platform
+Info: Add virtual field [individual_identitys(es)] to <personal_user>
+	individual_identity.personal_user
+
+
+ processing: user_working_info
+
+
+ processing: user_working_info.personal_user.user
+
+Info: Add virtual field [user_working_infos(es)] to <personal_user>
+	user_working_info.user
+
+
+ processing: user_working_info.employee.employee
+
+Info: Add virtual field [user_working_infos(es)] to <employee>
+	user_working_info.employee
+
+
+ processing: organization_identity
+
+
+ processing: organization_identity.merchant.merchant
+
+Info: Add virtual field [organization_identitys(es)] to <merchant>
+	organization_identity.merchant
+
+
+ processing: organization_identity.platform.platform
+
+Info: Add virtual field [organization_identitys(es)] to <platform>
+	organization_identity.platform
+
+
+ processing: warehouse
+
+
+ processing: warehouse.merchant.merchant
+
+Info: Add virtual field [warehouses(es)] to <merchant>
+	warehouse.merchant
+
+
+ processing: invitation_record
+
+
+ processing: invitation_record.employee.inviter
+
+Info: Add virtual field [invitation_records(es)] to <employee>
+	invitation_record.inviter
+
+
+ processing: invitation_record.employee.invitee
+
+Info: Add virtual field [invitation_records(es)] to <employee>
+	invitation_record.invitee
+
+
+ processing: invitation_record.invitation_type.type
+
+Info: Add virtual field [invitation_records(es)] to <invitation_type>
+	invitation_record.type
+
+
+ processing: employee
+
+
+ processing: employee.personal_user.person_information
+
+Info: Add virtual field [employees(es)] to <personal_user>
+	employee.person_information
+
+
+ processing: employee.merchant.merchant
+
+Info: Add virtual field [employees(es)] to <merchant>
+	employee.merchant
+
+
+ processing: employee.role.role
+
+Info: Add virtual field [employees(es)] to <role>
+	employee.role
+
+
+ processing: employee.employee_status.status
+
+Info: Add virtual field [employees(es)] to <employee_status>
+	employee.status
+
+
+ processing: employee.platform.platform
+
+Info: Add virtual field [employees(es)] to <platform>
+	employee.platform
+
+
+ processing: supply_relationship
+
+
+ processing: supply_relationship.merchant.supplier
+
+Info: Add virtual field [supply_relationships(es)] to <merchant>
+	supply_relationship.supplier
+
+
+ processing: supply_relationship.merchant.customer
+
+Info: Add virtual field [supply_relationships(es)] to <merchant>
+	supply_relationship.customer
+
+
+ processing: gas_container
+
+
+ processing: gas_container.platform.platform
+
+Info: Add virtual field [gas_containers(es)] to <platform>
+	gas_container.platform
+
+
+ processing: fill_medium
+
+
+ processing: fill_medium.platform.platform
+
+Info: Add virtual field [fill_mediums(es)] to <platform>
+	fill_medium.platform
+
+
+ processing: nominal_volume
+
+
+ processing: nominal_volume.platform.platform
+
+Info: Add virtual field [nominal_volumes(es)] to <platform>
+	nominal_volume.platform
+
+
+ processing: fill_volume
+
+
+ processing: fill_volume.platform.platform
+
+Info: Add virtual field [fill_volumes(es)] to <platform>
+	fill_volume.platform
+
+
+ processing: nominal_pressure
+
+
+ processing: nominal_pressure.platform.platform
+
+Info: Add virtual field [nominal_pressures(es)] to <platform>
+	nominal_pressure.platform
+
+
+ processing: gas_container_category
+
+
+ processing: gas_container_category.platform.platform
+
+Info: Add virtual field [gas_container_categorys(es)] to <platform>
+	gas_container_category.platform
+
+
+ processing: gas_component
+
+
+ processing: gas_component.platform.platform
+
+Info: Add virtual field [gas_components(es)] to <platform>
+	gas_component.platform
+
+
+ processing: check_status
+
+
+ processing: check_status.platform.platform
+
+Info: Add virtual field [check_statuss(es)] to <platform>
+	check_status.platform
+
+
+ processing: action_type
+
+
+ processing: action_type.platform.platform
+
+Info: Add virtual field [action_types(es)] to <platform>
+	action_type.platform
+
+
+ processing: product_status
+
+
+ processing: product_status.platform.platform
+
+Info: Add virtual field [product_statuss(es)] to <platform>
+	product_status.platform
+
+
+ processing: order_status
+
+
+ processing: order_status.platform.platform
+
+Info: Add virtual field [order_statuss(es)] to <platform>
+	order_status.platform
+
+
+ processing: deliver_type
+
+
+ processing: deliver_type.platform.platform
+
+Info: Add virtual field [deliver_types(es)] to <platform>
+	deliver_type.platform
+
+
+ processing: shipping_status
+
+
+ processing: shipping_status.platform.platform
+
+Info: Add virtual field [shipping_statuss(es)] to <platform>
+	shipping_status.platform
+
+
+ processing: deliver_task_status
+
+
+ processing: deliver_task_status.platform.platform
+
+Info: Add virtual field [deliver_task_statuss(es)] to <platform>
+	deliver_task_status.platform
+
+
+ processing: delivery_receipt_status
+
+
+ processing: delivery_receipt_status.platform.platform
+
+Info: Add virtual field [delivery_receipt_statuss(es)] to <platform>
+	delivery_receipt_status.platform
+
+
+ processing: gas_cylinder
+
+
+ processing: gas_cylinder.gas_container.gas_container
+
+Info: Add virtual field [gas_cylinders(es)] to <gas_container>
+	gas_cylinder.gas_container
+
+
+ processing: gas_cylinder.fill_medium.fill_medium
+
+Info: Add virtual field [gas_cylinders(es)] to <fill_medium>
+	gas_cylinder.fill_medium
+
+
+ processing: gas_cylinder.nominal_pressure.nominal_pressure
+
+Info: Add virtual field [gas_cylinders(es)] to <nominal_pressure>
+	gas_cylinder.nominal_pressure
+
+
+ processing: gas_cylinder.nominal_volume.nominal_volume
+
+Info: Add virtual field [gas_cylinders(es)] to <nominal_volume>
+	gas_cylinder.nominal_volume
+
+
+ processing: gas_cylinder.gas_container_category.gas_container_category
+
+Info: Add virtual field [gas_cylinders(es)] to <gas_container_category>
+	gas_cylinder.gas_container_category
+
+
+ processing: gas_cylinder.platform.platform
+
+Info: Add virtual field [gas_cylinders(es)] to <platform>
+	gas_cylinder.platform
+
+
+ processing: merchant_cylinder
+
+
+ processing: merchant_cylinder.gas_cylinder.cylinder
+
+Info: Add virtual field [merchant_cylinders(es)] to <gas_cylinder>
+	merchant_cylinder.cylinder
+
+
+ processing: merchant_cylinder.merchant.merchant
+
+Info: Add virtual field [merchant_cylinders(es)] to <merchant>
+	merchant_cylinder.merchant
+
+
+ processing: merchant_cylinder_record
+
+
+ processing: merchant_cylinder_record.merchant.merchant
+
+Info: Add virtual field [merchant_cylinder_records(es)] to <merchant>
+	merchant_cylinder_record.merchant
+
+
+ processing: merchant_cylinder_record.gas_cylinder.cylinder
+
+Info: Add virtual field [merchant_cylinder_records(es)] to <gas_cylinder>
+	merchant_cylinder_record.cylinder
+
+
+ processing: merchant_cylinder_record.employee.actor
+
+Info: Add virtual field [merchant_cylinder_records(es)] to <employee>
+	merchant_cylinder_record.actor
+
+
+ processing: merchant_cylinder_record.action_type.action
+
+Info: Add virtual field [merchant_cylinder_records(es)] to <action_type>
+	merchant_cylinder_record.action
+
+
+ processing: customer_cylinder
+
+
+ processing: customer_cylinder.gas_cylinder.cylinder
+
+Info: Add virtual field [customer_cylinders(es)] to <gas_cylinder>
+	customer_cylinder.cylinder
+
+
+ processing: customer_cylinder.merchant.seller
+
+Info: Add virtual field [customer_cylinders(es)] to <merchant>
+	customer_cylinder.seller
+
+
+ processing: customer_cylinder.merchant.customer
+
+Info: Add virtual field [customer_cylinders(es)] to <merchant>
+	customer_cylinder.customer
+
+
+ processing: customer_cylinder.check_status.status
+
+Info: Add virtual field [customer_cylinders(es)] to <check_status>
+	customer_cylinder.status
+
+
+ processing: customer_cylinder_record
+
+
+ processing: customer_cylinder_record.gas_cylinder.cylinder
+
+Info: Add virtual field [customer_cylinder_records(es)] to <gas_cylinder>
+	customer_cylinder_record.cylinder
+
+
+ processing: customer_cylinder_record.merchant.seller
+
+Info: Add virtual field [customer_cylinder_records(es)] to <merchant>
+	customer_cylinder_record.seller
+
+
+ processing: customer_cylinder_record.merchant.customer
+
+Info: Add virtual field [customer_cylinder_records(es)] to <merchant>
+	customer_cylinder_record.customer
+
+
+ processing: customer_cylinder_record.employee.actor
+
+Info: Add virtual field [customer_cylinder_records(es)] to <employee>
+	customer_cylinder_record.actor
+
+
+ processing: customer_cylinder_record.action_type.action
+
+Info: Add virtual field [customer_cylinder_records(es)] to <action_type>
+	customer_cylinder_record.action
+
+
+ processing: customer_cylinder_record_evidence
+
+
+ processing: customer_cylinder_record_evidence.customer_cylinder_record.record
+
+Info: Add virtual field [customer_cylinder_record_evidences(es)] to <customer_cylinder_record>
+	customer_cylinder_record_evidence.record
+
+
+ processing: customer_cylinder_record_evidence.employee.actor
+
+Info: Add virtual field [customer_cylinder_record_evidences(es)] to <employee>
+	customer_cylinder_record_evidence.actor
+
+
+ processing: gas_product_template
+
+
+ processing: gas_product_template.gas_cylinder.cylinder
+
+Info: Add virtual field [gas_product_templates(es)] to <gas_cylinder>
+	gas_product_template.cylinder
+
+
+ processing: gas_product_template.fill_volume.fill_volume
+
+Info: Add virtual field [gas_product_templates(es)] to <fill_volume>
+	gas_product_template.fill_volume
+
+
+ processing: gas_product_template.platform.platform
+
+Info: Add virtual field [gas_product_templates(es)] to <platform>
+	gas_product_template.platform
+
+
+ processing: gas_product_template_component
+
+
+ processing: gas_product_template_component.gas_component.component
+
+Info: Add virtual field [gas_product_template_components(es)] to <gas_component>
+	gas_product_template_component.component
+
+
+ processing: gas_product_template_component.gas_product_template.product_template
+
+Info: Add virtual field [gas_product_template_components(es)] to <gas_product_template>
+	gas_product_template_component.product_template
+
+
+ processing: gas_product
+
+
+ processing: gas_product.gas_cylinder.cylinder
+
+Info: Add virtual field [gas_products(es)] to <gas_cylinder>
+	gas_product.cylinder
+
+
+ processing: gas_product.fill_volume.fill_volume
+
+Info: Add virtual field [gas_products(es)] to <fill_volume>
+	gas_product.fill_volume
+
+
+ processing: gas_product.gas_product_template.template
+
+Info: Add virtual field [gas_products(es)] to <gas_product_template>
+	gas_product.template
+
+
+ processing: gas_product.product_status.status
+
+Info: Add virtual field [gas_products(es)] to <product_status>
+	gas_product.status
+
+
+ processing: gas_product.merchant.merchant
+
+Info: Add virtual field [gas_products(es)] to <merchant>
+	gas_product.merchant
+
+
+ processing: gas_product.platform.platform
+
+Info: Add virtual field [gas_products(es)] to <platform>
+	gas_product.platform
+
+
+ processing: gas_product_component
+
+
+ processing: gas_product_component.gas_component.component
+
+Info: Add virtual field [gas_product_components(es)] to <gas_component>
+	gas_product_component.component
+
+
+ processing: gas_product_component.gas_product.product
+
+Info: Add virtual field [gas_product_components(es)] to <gas_product>
+	gas_product_component.product
+
+
+ processing: gas_product_inventory_record
+
+
+ processing: gas_product_inventory_record.merchant.merchant
+
+Info: Add virtual field [gas_product_inventory_records(es)] to <merchant>
+	gas_product_inventory_record.merchant
+
+
+ processing: gas_product_inventory_record.gas_product.product
+
+Info: Add virtual field [gas_product_inventory_records(es)] to <gas_product>
+	gas_product_inventory_record.product
+
+
+ processing: gas_product_inventory_record.employee.actor
+
+Info: Add virtual field [gas_product_inventory_records(es)] to <employee>
+	gas_product_inventory_record.actor
+
+
+ processing: gas_product_inventory_record.action_type.action
+
+Info: Add virtual field [gas_product_inventory_records(es)] to <action_type>
+	gas_product_inventory_record.action
+
+
+ processing: gas_product_cache
+
+
+ processing: gas_product_template_cache
+
+
+ processing: deliver_task
+
+
+ processing: deliver_task.personal_user.deliver_staff
+
+Info: Add virtual field [deliver_tasks(es)] to <personal_user>
+	deliver_task.deliver_staff
+
+
+ processing: deliver_task.merchant.merchant
+
+Info: Add virtual field [deliver_tasks(es)] to <merchant>
+	deliver_task.merchant
+
+
+ processing: deliver_task.deliver_task_status.status
+
+Info: Add virtual field [deliver_tasks(es)] to <deliver_task_status>
+	deliver_task.status
+
+
+ processing: main_order
+
+
+ processing: main_order.merchant.buyer
+
+Info: Add virtual field [main_orders(es)] to <merchant>
+	main_order.buyer
+
+
+ processing: main_order.merchant.seller
+
+Info: Add virtual field [main_orders(es)] to <merchant>
+	main_order.seller
+
+
+ processing: main_order.order_status.status
+
+Info: Add virtual field [main_orders(es)] to <order_status>
+	main_order.status
+
+
+ processing: main_order.personal_user.creator
+
+Info: Add virtual field [main_orders(es)] to <personal_user>
+	main_order.creator
+
+
+ processing: gas_line_item
+
+
+ processing: gas_line_item.gas_cylinder.cylinder
+
+Info: Add virtual field [gas_line_items(es)] to <gas_cylinder>
+	gas_line_item.cylinder
+
+
+ processing: gas_line_item.gas_product.product
+
+Info: Add virtual field [gas_line_items(es)] to <gas_product>
+	gas_line_item.product
+
+
+ processing: gas_line_item.gas_product_template.template
+
+Info: Add virtual field [gas_line_items(es)] to <gas_product_template>
+	gas_line_item.template
+
+
+ processing: gas_line_item.main_order.main_order
+
+Info: Add virtual field [gas_line_items(es)] to <main_order>
+	gas_line_item.main_order
+
+
+ processing: gas_shipping_group
+
+
+ processing: gas_shipping_group.gas_line_item.gas_line_item
+
+Info: Add virtual field [gas_shipping_groups(es)] to <gas_line_item>
+	gas_shipping_group.gas_line_item
+
+
+ processing: gas_shipping_group.main_order.main_order
+
+Info: Add virtual field [gas_shipping_groups(es)] to <main_order>
+	gas_shipping_group.main_order
+
+
+ processing: gas_shipping_group.deliver_type.shipping_type
+
+Info: Add virtual field [gas_shipping_groups(es)] to <deliver_type>
+	gas_shipping_group.shipping_type
+
+
+ processing: gas_shipping_group.shipping_status.shipping_status
+
+Info: Add virtual field [gas_shipping_groups(es)] to <shipping_status>
+	gas_shipping_group.shipping_status
+
+
+ processing: gas_shipping_group.deliver_task.deliver_task
+
+Info: Add virtual field [gas_shipping_groups(es)] to <deliver_task>
+	gas_shipping_group.deliver_task
+
+
+ processing: gas_shipping_group.merchant.seller
+
+Info: Add virtual field [gas_shipping_groups(es)] to <merchant>
+	gas_shipping_group.seller
+
+
+ processing: gas_shipping_group.merchant.buyer
+
+Info: Add virtual field [gas_shipping_groups(es)] to <merchant>
+	gas_shipping_group.buyer
+
+
+ processing: gas_shipping_group.employee.creator
+
+Info: Add virtual field [gas_shipping_groups(es)] to <employee>
+	gas_shipping_group.creator
+
+
+ processing: delivery_receipt
+
+
+ processing: delivery_receipt.gas_shipping_group.gas_shipping_group
+
+Info: Add virtual field [delivery_receipts(es)] to <gas_shipping_group>
+	delivery_receipt.gas_shipping_group
+
+
+ processing: delivery_receipt.gas_line_item.gas_line_item
+
+Info: Add virtual field [delivery_receipts(es)] to <gas_line_item>
+	delivery_receipt.gas_line_item
+
+
+ processing: delivery_receipt.main_order.main_order
+
+Info: Add virtual field [delivery_receipts(es)] to <main_order>
+	delivery_receipt.main_order
+
+
+ processing: delivery_receipt.merchant.seller
+
+Info: Add virtual field [delivery_receipts(es)] to <merchant>
+	delivery_receipt.seller
+
+
+ processing: delivery_receipt.merchant.buyer
+
+Info: Add virtual field [delivery_receipts(es)] to <merchant>
+	delivery_receipt.buyer
+
+
+ processing: delivery_receipt.employee.creator
+
+Info: Add virtual field [delivery_receipts(es)] to <employee>
+	delivery_receipt.creator
+
+
+ processing: delivery_receipt.employee.confirmer
+
+Info: Add virtual field [delivery_receipts(es)] to <employee>
+	delivery_receipt.confirmer
+
+
+ processing: delivery_receipt.delivery_receipt_status.status
+
+Info: Add virtual field [delivery_receipts(es)] to <delivery_receipt_status>
+	delivery_receipt.status
+
+
+ processing: order_action_type
+
+
+ processing: order_action_type.platform.platform
+
+Info: Add virtual field [order_action_types(es)] to <platform>
+	order_action_type.platform
+
+
+ processing: order_operation_record
+
+
+ processing: order_operation_record.main_order.main_order
+
+Info: Add virtual field [order_operation_records(es)] to <main_order>
+	order_operation_record.main_order
+
+
+ processing: order_operation_record.employee.actor
+
+Info: Add virtual field [order_operation_records(es)] to <employee>
+	order_operation_record.actor
+
+
+ processing: order_operation_record.order_action_type.action
+
+Info: Add virtual field [order_operation_records(es)] to <order_action_type>
+	order_operation_record.action
 
 
  processing: icon_configuration
@@ -190,6 +971,15 @@ Info: Add virtual field [change_requests(es)] to <change_request_type>
 
 Info: Add virtual field [change_requests(es)] to <platform>
 	change_request.platform
+
+
+ processing: event_tbd
+
+
+ processing: event_tbd.change_request.change_request
+
+Info: Add virtual field [event_tbds(es)] to <change_request>
+	event_tbd.change_request
 
 
  processing: event_info_in_cr
@@ -335,11 +1125,36 @@ platform{
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(12){
-		xxxStatusList	platform(__no_group)--platform;
+	references field(37){
+		provinceList	platform(__no_group)--platform;
+		cityList	platform(__no_group)--platform;
+		districtList	platform(__no_group)--platform;
+		roleList	platform(__no_group)--platform;
+		employeeStatusList	platform(__no_group)--platform;
+		invitationTypeList	platform(__no_group)--platform;
 		merchantList	platform(__no_group)--platform;
 		personalUserList	platform(__no_group)--platform;
-		yyyStatusList	platform(__no_group)--platform;
+		organizationIdentityList	platform(__no_group)--platform;
+		employeeList	platform(__no_group)--platform;
+		gasContainerList	platform(__no_group)--platform;
+		fillMediumList	platform(__no_group)--platform;
+		nominalVolumeList	platform(__no_group)--platform;
+		fillVolumeList	platform(__no_group)--platform;
+		nominalPressureList	platform(__no_group)--platform;
+		gasContainerCategoryList	platform(__no_group)--platform;
+		gasComponentList	platform(__no_group)--platform;
+		checkStatusList	platform(__no_group)--platform;
+		actionTypeList	platform(__no_group)--platform;
+		productStatusList	platform(__no_group)--platform;
+		orderStatusList	platform(__no_group)--platform;
+		deliverTypeList	platform(__no_group)--platform;
+		shippingStatusList	platform(__no_group)--platform;
+		deliverTaskStatusList	platform(__no_group)--platform;
+		deliveryReceiptStatusList	platform(__no_group)--platform;
+		gasCylinderList	platform(__no_group)--platform;
+		gasProductTemplateList	platform(__no_group)--platform;
+		gasProductList	platform(__no_group)--platform;
+		orderActionTypeList	platform(__no_group)--platform;
 		iconConfigurationList	platform(__no_group)--platform;
 		systemLevelConfigurationList	platform(__no_group)--platform;
 		systemLevelImagesList	platform(__no_group)--platform;
@@ -351,63 +1166,837 @@ platform{
 	}
 } depth=0; isRoot = true
 
-meta{name=xxx_status, features=status}
-xxx_status{
+meta{name=province, features=setting}
+province{
+	fields(4){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('四川|北京'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: provinceList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		cityList	province(__no_group)--province;
+	}
+} depth=1; isRoot = false
+
+meta{name=city, features=setting}
+city{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('考试中|已考完|已取消'), verb: false, required: true,type:string,relationMeta={};
-		string	code('ANSWERING|FINISHED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
-		platform	platform('$(object)'), verb: false, required: true, referenceBy: xxxStatusList,type:platform,relationMeta={};
+		string	name('成都|北京'), verb: false, required: true,type:string,relationMeta={};
+		province	province('$(object)'), verb: false, required: true, referenceBy: cityList,type:province,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: cityList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		districtList	city(__no_group)--city;
+	}
+} depth=2; isRoot = false
+
+meta{name=district, features=setting}
+district{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('成华区|朝阳区|锦江区|海淀区'), verb: false, required: true,type:string,relationMeta={};
+		city	city('$(object)'), verb: false, required: true, referenceBy: districtList,type:city,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: districtList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=role, features=status}
+role{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('管理员|员工'), verb: false, required: true,type:string,relationMeta={};
+		string	code('ADMIN|EMPLOYEE'), verb: false, required: true,type:string,relationMeta={};
+		string	description('管理人员|员工'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: roleList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		employeeList	role(__no_group)--role;
+	}
+} depth=1; isRoot = false
+
+meta{name=employee_status, features=status}
+employee_status{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('正常|已删除|待审核'), verb: false, required: true,type:string,relationMeta={};
+		string	code('NORMAL|REMOVED|TO_BE_APPROVE'), verb: false, required: true,type:string,relationMeta={};
+		string	description('正常|已删除|待审核'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: employeeStatusList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		employeeList	status(__no_group)--status;
+	}
+} depth=1; isRoot = false
+
+meta{name=invitation_type, features=status}
+invitation_type{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('邀请同事|邀请商家|邀请用户|分享'), verb: false, required: true,type:string,relationMeta={};
+		string	code('COLLEAGUE|SUPPLIER|CUSTOMER|COMMON'), verb: false, required: true,type:string,relationMeta={};
+		string	description('邀请同事|邀请商家|邀请用户|分享'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: invitationTypeList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		invitationRecordList	type(__no_group)--type;
 	}
 } depth=1; isRoot = false
 
 meta{name=merchant, features=log}
 merchant{
-	fields(7){
+	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('肯德基成都采购中心|张晓丹|妃妤婔婒'), verb: false, required: true,type:string,relationMeta={};
-		string	entity_type('个人|工厂|代理商'), verb: false, required: true,type:string,relationMeta={};
-		string	entity_identity('MobileUser_MU000001|Supplier_S00003'), verb: false, required: true,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: merchantList,type:platform,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(1){
-		personalUserList	merchant(__no_group)--merchant;
+	references field(20){
+		organizationIdentityList	merchant(__no_group)--merchant;
+		warehouseList	merchant(__no_group)--merchant;
+		employeeList	merchant(__no_group)--merchant;
+		supplyRelationshipListAsSupplier	supplier(__no_group)--supplier;
+		supplyRelationshipListAsCustomer	customer(__no_group)--supplier;
+		merchantCylinderList	merchant(__no_group)--merchant;
+		merchantCylinderRecordList	merchant(__no_group)--merchant;
+		customerCylinderListAsSeller	seller(__no_group)--seller;
+		customerCylinderListAsCustomer	customer(__no_group)--seller;
+		customerCylinderRecordListAsSeller	seller(__no_group)--seller;
+		customerCylinderRecordListAsCustomer	customer(__no_group)--seller;
+		gasProductList	merchant(__no_group)--merchant;
+		gasProductInventoryRecordList	merchant(__no_group)--merchant;
+		deliverTaskList	merchant(__no_group)--merchant;
+		mainOrderListAsBuyer	buyer(__no_group)--buyer;
+		mainOrderListAsSeller	seller(__no_group)--buyer;
+		gasShippingGroupListAsSeller	seller(__no_group)--seller;
+		gasShippingGroupListAsBuyer	buyer(__no_group)--seller;
+		deliveryReceiptListAsSeller	seller(__no_group)--seller;
+		deliveryReceiptListAsBuyer	buyer(__no_group)--seller;
 	}
 } depth=1; isRoot = false
 
 meta{name=personal_user, features=merchant}
 personal_user{
-	fields(8){
+	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('张喜来|黄波|王煜东|袁明星|周廷志|刘洋'), verb: false, required: true,type:string,relationMeta={};
-		string	company('双链科技|新途流体|新双软件'), verb: false, required: true,type:string,relationMeta={};
+		string	name('张喜来|黄波|王煜东|袁明星|周廷志|刘洋'), verb: false, required: false,type:string,relationMeta={};
+		string	nick_name('张喜来|黄波|王煜东|袁明星|周廷志|刘洋'), verb: false, required: false,type:string,relationMeta={};
 		string_china_mobile_phone	mobile('13308188512'), verb: false, required: false,type:string_china_mobile_phone,relationMeta={};
 		string_image	avatar('avatar.jpg'), verb: false, required: true,type:string_image,relationMeta={};
-		merchant	merchant('$(object)'), verb: false, required: false, referenceBy: personalUserList,type:merchant,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: personalUserList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(5){
+		individualIdentityList	personal_user(__no_group)--personal_user;
+		userWorkingInfoList	user(__no_group)--user;
+		employeeList	person_information(__no_group)--person_information;
+		deliverTaskList	deliver_staff(__no_group)--deliver_staff;
+		mainOrderList	creator(__no_group)--creator;
+	}
+} depth=1; isRoot = false
+
+meta{name=individual_identity, features=log}
+individual_identity{
+	fields(4){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('张喜来|黄波|王煜东|袁明星|周廷志|刘洋'), verb: false, required: false,type:string,relationMeta={};
+		personal_user	personal_user('$(object)'), verb: false, required: true, referenceBy: individualIdentityList,type:personal_user,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(0){
 	}
 } depth=2; isRoot = false
 
-meta{name=yyy_status, features=status}
-yyy_status{
+meta{name=user_working_info, features=root}
+user_working_info{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('考试中|已考完|已取消'), verb: false, required: true,type:string,relationMeta={};
-		string	code('ANSWERING|FINISHED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
-		platform	platform('$(object)'), verb: false, required: true, referenceBy: yyyStatusList,type:platform,relationMeta={};
+		personal_user	user('$(object)'), verb: false, required: true, referenceBy: userWorkingInfoList,type:personal_user,relationMeta={};
+		employee	employee('$(object)'), verb: false, required: true, referenceBy: userWorkingInfoList,type:employee,relationMeta={};
+		string	job_role('买家|卖家'), verb: false, required: true,type:string,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(0){
 	}
+} depth=3; isRoot = false
+
+meta{name=organization_identity, features=root}
+organization_identity{
+	fields(10){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('双链科技'), verb: false, required: true,type:string,relationMeta={};
+		string_taxpayerid	agency_social_code('91510100MA6C66P74M'), verb: false, required: false,type:string_taxpayerid,relationMeta={};
+		string	contact_name('张三'), verb: false, required: true,type:string,relationMeta={};
+		string_china_mobile_phone	mobile('13888888888'), verb: false, required: true,type:string_china_mobile_phone,relationMeta={};
+		string	address('天府三街'), verb: false, required: true,type:string,relationMeta={};
+		string_image	logo('1.jpg'), verb: false, required: false,type:string_image,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: organizationIdentityList,type:merchant,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: organizationIdentityList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
+
+meta{name=warehouse, features=root}
+warehouse{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('天府三街'), verb: false, required: true,type:string,relationMeta={};
+		string	contact_name('张三'), verb: false, required: true,type:string,relationMeta={};
+		string_china_mobile_phone	mobile('13888888888'), verb: false, required: true,type:string_china_mobile_phone,relationMeta={};
+		string	address('天府三街'), verb: false, required: true,type:string,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: warehouseList,type:merchant,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
+
+meta{name=invitation_record, features=log}
+invitation_record{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		employee	inviter('$(object)'), verb: false, required: true, referenceBy: invitationRecordListAsInviter,type:employee,relationMeta={};
+		employee	invitee('$(object)'), verb: false, required: true, referenceBy: invitationRecordListAsInvitee,type:employee,relationMeta={};
+		invitation_type	type('$(object)'), verb: false, required: true, referenceBy: invitationRecordList,type:invitation_type,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=employee, features=root}
+employee{
+	fields(8){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		personal_user	person_information('$(object)'), verb: false, required: true, referenceBy: employeeList,type:personal_user,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: employeeList,type:merchant,relationMeta={};
+		role	role('$(object)'), verb: false, required: true, referenceBy: employeeList,type:role,relationMeta={};
+		employee_status	status('$(object)'), verb: false, required: true, referenceBy: employeeList,type:employee_status,relationMeta={};
+		string	comment('司机'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: employeeList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(11){
+		userWorkingInfoList	employee(__no_group)--employee;
+		invitationRecordListAsInviter	inviter(__no_group)--inviter;
+		invitationRecordListAsInvitee	invitee(__no_group)--inviter;
+		merchantCylinderRecordList	actor(__no_group)--actor;
+		customerCylinderRecordList	actor(__no_group)--actor;
+		customerCylinderRecordEvidenceList	actor(__no_group)--actor;
+		gasProductInventoryRecordList	actor(__no_group)--actor;
+		gasShippingGroupList	creator(__no_group)--creator;
+		deliveryReceiptListAsCreator	creator(__no_group)--creator;
+		deliveryReceiptListAsConfirmer	confirmer(__no_group)--creator;
+		orderOperationRecordList	actor(__no_group)--actor;
+	}
+} depth=2; isRoot = false
+
+meta{name=supply_relationship, features=root}
+supply_relationship{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		merchant	supplier('$(object)'), verb: false, required: true, referenceBy: supplyRelationshipListAsSupplier,type:merchant,relationMeta={};
+		merchant	customer('$(object)'), verb: false, required: true, referenceBy: supplyRelationshipListAsCustomer,type:merchant,relationMeta={};
+		string	supplier_comment('客户1'), verb: false, required: true,type:string,relationMeta={};
+		string	customer_comment('供应商1'), verb: false, required: true,type:string,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
+
+meta{name=gas_container, features=root}
+gas_container{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('3*3散瓶格'), verb: false, required: true,type:string,relationMeta={};
+		string	unit('集格'), verb: false, required: true,type:string,relationMeta={};
+		int	quantity('9'), verb: false, required: true,type:int,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: gasContainerList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		gasCylinderList	gas_container(__no_group)--gas_container;
+	}
 } depth=1; isRoot = false
+
+meta{name=fill_medium, features=root}
+fill_medium{
+	fields(4){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('氧'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: fillMediumList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		gasCylinderList	fill_medium(__no_group)--fill_medium;
+	}
+} depth=1; isRoot = false
+
+meta{name=nominal_volume, features=root}
+nominal_volume{
+	fields(4){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	volume('50升'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: nominalVolumeList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		gasCylinderList	nominal_volume(__no_group)--nominal_volume;
+	}
+} depth=1; isRoot = false
+
+meta{name=fill_volume, features=root}
+fill_volume{
+	fields(4){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	volume('50升'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: fillVolumeList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(2){
+		gasProductTemplateList	fill_volume(__no_group)--fill_volume;
+		gasProductList	fill_volume(__no_group)--fill_volume;
+	}
+} depth=1; isRoot = false
+
+meta{name=nominal_pressure, features=root}
+nominal_pressure{
+	fields(4){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	pressure('20Mpa'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: nominalPressureList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		gasCylinderList	nominal_pressure(__no_group)--nominal_pressure;
+	}
+} depth=1; isRoot = false
+
+meta{name=gas_container_category, features=root}
+gas_container_category{
+	fields(4){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('绝热气瓶'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: gasContainerCategoryList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		gasCylinderList	gas_container_category(__no_group)--gas_container_category;
+	}
+} depth=1; isRoot = false
+
+meta{name=gas_component, features=root}
+gas_component{
+	fields(4){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('氧'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: gasComponentList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(2){
+		gasProductTemplateComponentList	component(__no_group)--component;
+		gasProductComponentList	component(__no_group)--component;
+	}
+} depth=1; isRoot = false
+
+meta{name=check_status, features=status}
+check_status{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('待买家确认|买家已确认'), verb: false, required: true,type:string,relationMeta={};
+		string	code('WAITING_BUYER_CONFIRM|BUYER_CONFIRMED'), verb: false, required: true,type:string,relationMeta={};
+		string	description('待买家确认|买家已确认'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: checkStatusList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		customerCylinderList	status(__no_group)--status;
+	}
+} depth=1; isRoot = false
+
+meta{name=action_type, features=status}
+action_type{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('空瓶盘库|空瓶入库|生产入库|订单返瓶|确认接收单|商家提交气瓶盘库|客户确认气瓶盘库|外采入库|接收单入库'), verb: false, required: true,type:string,relationMeta={};
+		string	code('CYLINDER_SET|CYLINDER_IN|PRODUCE|ORDER_BACK_CYLINDER|BUYER_CONFIRMED|SELLER_SUBMIT_CYLINDER_SET|CUSTOMER_CONFIRM_CYLINDER_SET|PURCHASE_OUT_OF_SYSTEM|PURCHASE_IN_SYSTEM'), verb: false, required: true,type:string,relationMeta={};
+		string	description('空瓶盘库|空瓶入库|生产入库|订单返瓶|确认接收单|商家提交气瓶盘库|客户确认气瓶盘库|外采入库|接收单入库'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: actionTypeList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(3){
+		merchantCylinderRecordList	action(__no_group)--action;
+		customerCylinderRecordList	action(__no_group)--action;
+		gasProductInventoryRecordList	action(__no_group)--action;
+	}
+} depth=1; isRoot = false
+
+meta{name=product_status, features=status}
+product_status{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('正常|已下架'), verb: false, required: true,type:string,relationMeta={};
+		string	code('NORMAL|REMOVED'), verb: false, required: true,type:string,relationMeta={};
+		string	description('正常|已下架'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: productStatusList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		gasProductList	status(__no_group)--status;
+	}
+} depth=1; isRoot = false
+
+meta{name=order_status, features=status}
+order_status{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('处理中|待买家确认|买家确认超时|待审核|已提交|待自提|待配送|正在配送|已交接|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	code('PROCESSING|WAITING_BUYER_CONFIRM|BUYER_CONFIRM_TIMEOUT|WAITING_SELLER_CONFIRM|SUBMITTED|WAITING_BUYER_PICK_UP|WAITING_SELLER_DELIVERY|SELLER_SHIPPING|BUYER_RECEIVED|COMPLETED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
+		string	description('处理中|待买家确认|买家确认超时|待卖家审核|已提交|待自提|待配送|正在配送|已交接|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: orderStatusList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		mainOrderList	status(__no_group)--status;
+	}
+} depth=1; isRoot = false
+
+meta{name=deliver_type, features=status}
+deliver_type{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('配送|自提'), verb: false, required: true,type:string,relationMeta={};
+		string	code('DELIVERY|PICKUP'), verb: false, required: true,type:string,relationMeta={};
+		string	description('送货上门|自提'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: deliverTypeList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		gasShippingGroupList	shipping_type(__no_group)--shipping_type;
+	}
+} depth=1; isRoot = false
+
+meta{name=shipping_status, features=status}
+shipping_status{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('待自提|待发货|正在配送|已签收|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	code('WAITING_BUYER_PICK_UP|WAITING_SELLER_DELIVERY|SELLER_SHIPPING|BUYER_RECEIVED|COMPLETED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
+		string	description('待自提|待发货|正在配送|已签收|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: shippingStatusList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		gasShippingGroupList	shipping_status(__no_group)--shipping_status;
+	}
+} depth=1; isRoot = false
+
+meta{name=deliver_task_status, features=status}
+deliver_task_status{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('待执行|配送中|已完成'), verb: false, required: true,type:string,relationMeta={};
+		string	code('PENDING|SHIPPING|COMPLETED'), verb: false, required: true,type:string,relationMeta={};
+		string	description('待执行|配送中|已完成'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: deliverTaskStatusList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		deliverTaskList	status(__no_group)--status;
+	}
+} depth=1; isRoot = false
+
+meta{name=delivery_receipt_status, features=status}
+delivery_receipt_status{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('待客户确认|超时未确认|代客户确认|客户已确认'), verb: false, required: true,type:string,relationMeta={};
+		string	code('WAITING_BUYER_CONFIRM|BUYER_CONFIRM_TIMEOUT|SELLER_FORCE_CONFIRMED|BUYER_CONFIRMED'), verb: false, required: true,type:string,relationMeta={};
+		string	description('待客户确认|超时未确认|代客户确认|客户已确认'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: deliveryReceiptStatusList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		deliveryReceiptList	status(__no_group)--status;
+	}
+} depth=1; isRoot = false
+
+meta{name=gas_cylinder, features=root}
+gas_cylinder{
+	fields(10){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('氦50L-20Mpa-散瓶G5/8内螺纹左旋'), verb: false, required: true,type:string,relationMeta={};
+		gas_container	gas_container('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:gas_container,relationMeta={};
+		fill_medium	fill_medium('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:fill_medium,relationMeta={};
+		nominal_pressure	nominal_pressure('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:nominal_pressure,relationMeta={};
+		nominal_volume	nominal_volume('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:nominal_volume,relationMeta={};
+		gas_container_category	gas_container_category('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:gas_container_category,relationMeta={};
+		string	additional_information('xxx'), verb: false, required: false,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(7){
+		merchantCylinderList	cylinder(__no_group)--cylinder;
+		merchantCylinderRecordList	cylinder(__no_group)--cylinder;
+		customerCylinderList	cylinder(__no_group)--cylinder;
+		customerCylinderRecordList	cylinder(__no_group)--cylinder;
+		gasProductTemplateList	cylinder(__no_group)--cylinder;
+		gasProductList	cylinder(__no_group)--cylinder;
+		gasLineItemList	cylinder(__no_group)--cylinder;
+	}
+} depth=2; isRoot = false
+
+meta{name=merchant_cylinder, features=root}
+merchant_cylinder{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: merchantCylinderList,type:gas_cylinder,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: merchantCylinderList,type:merchant,relationMeta={};
+		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=merchant_cylinder_record, features=log}
+merchant_cylinder_record{
+	fields(10){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: merchantCylinderRecordList,type:merchant,relationMeta={};
+		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: merchantCylinderRecordList,type:gas_cylinder,relationMeta={};
+		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	update_quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		employee	actor('$(object)'), verb: false, required: true, referenceBy: merchantCylinderRecordList,type:employee,relationMeta={};
+		action_type	action('$(object)'), verb: false, required: true, referenceBy: merchantCylinderRecordList,type:action_type,relationMeta={};
+		string_longtext	comment('text()'), verb: false, required: true,type:text,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=customer_cylinder, features=root}
+customer_cylinder{
+	fields(10){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: customerCylinderList,type:gas_cylinder,relationMeta={};
+		merchant	seller('$(object)'), verb: false, required: true, referenceBy: customerCylinderListAsSeller,type:merchant,relationMeta={};
+		merchant	customer('$(object)'), verb: false, required: true, referenceBy: customerCylinderListAsCustomer,type:merchant,relationMeta={};
+		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		string	delta('-1'), verb: false, required: true,type:string,relationMeta={};
+		check_status	status('$(object)'), verb: false, required: true, referenceBy: customerCylinderList,type:check_status,relationMeta={};
+		date_time	last_check_time('date_time()'), verb: false, required: true,type:date_time,relationMeta={};
+		date_time	last_confirm_time('date_time()'), verb: false, required: true,type:date_time,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=customer_cylinder_record, features=log}
+customer_cylinder_record{
+	fields(11){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: customerCylinderRecordList,type:gas_cylinder,relationMeta={};
+		merchant	seller('$(object)'), verb: false, required: true, referenceBy: customerCylinderRecordListAsSeller,type:merchant,relationMeta={};
+		merchant	customer('$(object)'), verb: false, required: true, referenceBy: customerCylinderRecordListAsCustomer,type:merchant,relationMeta={};
+		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	update_quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		employee	actor('$(object)'), verb: false, required: true, referenceBy: customerCylinderRecordList,type:employee,relationMeta={};
+		action_type	action('$(object)'), verb: false, required: true, referenceBy: customerCylinderRecordList,type:action_type,relationMeta={};
+		string_longtext	comment('text()'), verb: false, required: true,type:text,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		customerCylinderRecordEvidenceList	record(__no_group)--record;
+	}
+} depth=3; isRoot = false
+
+meta{name=customer_cylinder_record_evidence, features=log}
+customer_cylinder_record_evidence{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		images	images('images()'), verb: false, required: true,type:images,relationMeta={};
+		string_longtext	comment('text()'), verb: false, required: true,type:text,relationMeta={};
+		customer_cylinder_record	record('$(object)'), verb: false, required: true, referenceBy: customerCylinderRecordEvidenceList,type:customer_cylinder_record,relationMeta={};
+		employee	actor('$(object)'), verb: false, required: true, referenceBy: customerCylinderRecordEvidenceList,type:employee,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=4; isRoot = false
+
+meta{name=gas_product_template, features=root}
+gas_product_template{
+	fields(8){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('食品添加剂氮气-20Mpa-50L-3*5集装格'), verb: false, required: true,type:string,relationMeta={};
+		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateList,type:gas_cylinder,relationMeta={};
+		fill_volume	fill_volume('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateList,type:fill_volume,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(3){
+		gasProductTemplateComponentList	product_template(__no_group)--product_template;
+		gasProductList	template(__no_group)--template;
+		gasLineItemList	template(__no_group)--template;
+	}
+} depth=3; isRoot = false
+
+meta{name=gas_product_template_component, features=root}
+gas_product_template_component{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		gas_component	component('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateComponentList,type:gas_component,relationMeta={};
+		double	percentage('0.1'), verb: false, required: true,type:double,relationMeta={};
+		gas_product_template	product_template('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateComponentList,type:gas_product_template,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=4; isRoot = false
+
+meta{name=gas_product, features=root}
+gas_product{
+	fields(15){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('食品添加剂氮气-20Mpa-50L-3*5集装格'), verb: false, required: true,type:string,relationMeta={};
+		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:gas_cylinder,relationMeta={};
+		fill_volume	fill_volume('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:fill_volume,relationMeta={};
+		gas_product_template	template('$(object)'), verb: false, required: false, referenceBy: gasProductList,type:gas_product_template,relationMeta={};
+		product_status	status('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:product_status,relationMeta={};
+		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	target_quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	threhold_quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	quantity_per_day('1'), verb: false, required: true,type:int,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:merchant,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(3){
+		gasProductComponentList	product(__no_group)--product;
+		gasProductInventoryRecordList	product(__no_group)--product;
+		gasLineItemList	product(__no_group)--product;
+	}
+} depth=4; isRoot = false
+
+meta{name=gas_product_component, features=root}
+gas_product_component{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		gas_component	component('$(object)'), verb: false, required: true, referenceBy: gasProductComponentList,type:gas_component,relationMeta={};
+		double	percentage('0.1'), verb: false, required: true,type:double,relationMeta={};
+		gas_product	product('$(object)'), verb: false, required: true, referenceBy: gasProductComponentList,type:gas_product,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=5; isRoot = false
+
+meta{name=gas_product_inventory_record, features=log}
+gas_product_inventory_record{
+	fields(10){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: gasProductInventoryRecordList,type:merchant,relationMeta={};
+		gas_product	product('$(object)'), verb: false, required: true, referenceBy: gasProductInventoryRecordList,type:gas_product,relationMeta={};
+		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	update_quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		employee	actor('$(object)'), verb: false, required: true, referenceBy: gasProductInventoryRecordList,type:employee,relationMeta={};
+		action_type	action('$(object)'), verb: false, required: true, referenceBy: gasProductInventoryRecordList,type:action_type,relationMeta={};
+		string_longtext	comment('text()'), verb: false, required: true,type:text,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=5; isRoot = false
+
+meta{name=gas_product_cache, features=root}
+gas_product_cache{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	product_id('GP000001'), verb: false, required: true,type:string,relationMeta={};
+		string	merchant_id('M000001'), verb: false, required: true,type:string,relationMeta={};
+		string_longtext	search_text('text()'), verb: false, required: true,type:text,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=0; isRoot = true
+
+meta{name=gas_product_template_cache, features=root}
+gas_product_template_cache{
+	fields(4){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	template_id('GPT000001'), verb: false, required: true,type:string,relationMeta={};
+		string_longtext	search_text('text()'), verb: false, required: true,type:text,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=0; isRoot = true
+
+meta{name=deliver_task, features=root}
+deliver_task{
+	fields(8){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('2012年12月12日张三任务'), verb: false, required: true,type:string,relationMeta={};
+		personal_user	deliver_staff('$(object)'), verb: false, required: true, referenceBy: deliverTaskList,type:personal_user,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: deliverTaskList,type:merchant,relationMeta={};
+		deliver_task_status	status('$(object)'), verb: false, required: true, referenceBy: deliverTaskList,type:deliver_task_status,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		gasShippingGroupList	deliver_task(__no_group)--deliver_task;
+	}
+} depth=2; isRoot = false
+
+meta{name=main_order, features=root}
+main_order{
+	fields(9){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string_longtext	comment('text()'), verb: false, required: true,type:text,relationMeta={};
+		merchant	buyer('$(object)'), verb: false, required: true, referenceBy: mainOrderListAsBuyer,type:merchant,relationMeta={};
+		merchant	seller('$(object)'), verb: false, required: true, referenceBy: mainOrderListAsSeller,type:merchant,relationMeta={};
+		order_status	status('$(object)'), verb: false, required: true, referenceBy: mainOrderList,type:order_status,relationMeta={};
+		personal_user	creator('$(object)'), verb: false, required: true, referenceBy: mainOrderList,type:personal_user,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(4){
+		gasLineItemList	main_order(__no_group)--main_order;
+		gasShippingGroupList	main_order(__no_group)--main_order;
+		deliveryReceiptList	main_order(__no_group)--main_order;
+		orderOperationRecordList	main_order(__no_group)--main_order;
+	}
+} depth=2; isRoot = false
+
+meta{name=gas_line_item, features=root}
+gas_line_item{
+	fields(10){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('食品添加剂氮气-20Mpa-50L-3*5集装格'), verb: false, required: true,type:string,relationMeta={};
+		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: gasLineItemList,type:gas_cylinder,relationMeta={};
+		gas_product	product('$(object)'), verb: false, required: true, referenceBy: gasLineItemList,type:gas_product,relationMeta={};
+		gas_product_template	template('$(object)'), verb: false, required: false, referenceBy: gasLineItemList,type:gas_product_template,relationMeta={};
+		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	back_quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		string	components('90%氦+7%氩+3%二氧化碳'), verb: false, required: true,type:string,relationMeta={};
+		main_order	main_order('$(object)'), verb: false, required: true, referenceBy: gasLineItemList,type:main_order,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(2){
+		gasShippingGroupList	gas_line_item(__no_group)--gas_line_item;
+		deliveryReceiptList	gas_line_item(__no_group)--gas_line_item;
+	}
+} depth=5; isRoot = false
+
+meta{name=gas_shipping_group, features=log}
+gas_shipping_group{
+	fields(20){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		gas_line_item	gas_line_item('$(object)'), verb: false, required: true, referenceBy: gasShippingGroupList,type:gas_line_item,relationMeta={};
+		main_order	main_order('$(object)'), verb: false, required: true, referenceBy: gasShippingGroupList,type:main_order,relationMeta={};
+		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		string	handover_address('天府三街'), verb: false, required: true,type:string,relationMeta={};
+		string	seller_contact_name('张三'), verb: false, required: false,type:string,relationMeta={};
+		string	seller_contact_phone('1213a'), verb: false, required: false,type:string,relationMeta={};
+		string	buyer_contact_name('张三'), verb: false, required: true,type:string,relationMeta={};
+		string	buyer_contact_phone('1213a'), verb: false, required: true,type:string,relationMeta={};
+		date	handover_date('date_future()'), verb: false, required: true,type:date_future,relationMeta={};
+		string	handover_time('上午|下午|3点-5点[0,20]'), verb: false, required: true,type:string,relationMeta={};
+		deliver_type	shipping_type('$(object)'), verb: false, required: true, referenceBy: gasShippingGroupList,type:deliver_type,relationMeta={};
+		shipping_status	shipping_status('$(object)'), verb: false, required: true, referenceBy: gasShippingGroupList,type:shipping_status,relationMeta={};
+		deliver_task	deliver_task('$(object)'), verb: false, required: true, referenceBy: gasShippingGroupList,type:deliver_task,relationMeta={};
+		merchant	seller('$(object)'), verb: false, required: true, referenceBy: gasShippingGroupListAsSeller,type:merchant,relationMeta={};
+		merchant	buyer('$(object)'), verb: false, required: true, referenceBy: gasShippingGroupListAsBuyer,type:merchant,relationMeta={};
+		employee	creator('$(object)'), verb: false, required: true, referenceBy: gasShippingGroupList,type:employee,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		deliveryReceiptList	gas_shipping_group(__no_group)--gas_shipping_group;
+	}
+} depth=6; isRoot = false
+
+meta{name=delivery_receipt, features=root}
+delivery_receipt{
+	fields(15){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		gas_shipping_group	gas_shipping_group('$(object)'), verb: false, required: true, referenceBy: deliveryReceiptList,type:gas_shipping_group,relationMeta={};
+		gas_line_item	gas_line_item('$(object)'), verb: false, required: true, referenceBy: deliveryReceiptList,type:gas_line_item,relationMeta={};
+		main_order	main_order('$(object)'), verb: false, required: true, referenceBy: deliveryReceiptList,type:main_order,relationMeta={};
+		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	back_quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		string_longtext	comment('text()'), verb: false, required: true,type:text,relationMeta={};
+		merchant	seller('$(object)'), verb: false, required: true, referenceBy: deliveryReceiptListAsSeller,type:merchant,relationMeta={};
+		merchant	buyer('$(object)'), verb: false, required: true, referenceBy: deliveryReceiptListAsBuyer,type:merchant,relationMeta={};
+		employee	creator('$(object)'), verb: false, required: true, referenceBy: deliveryReceiptListAsCreator,type:employee,relationMeta={};
+		employee	confirmer('$(object)'), verb: false, required: true, referenceBy: deliveryReceiptListAsConfirmer,type:employee,relationMeta={};
+		delivery_receipt_status	status('$(object)'), verb: false, required: true, referenceBy: deliveryReceiptList,type:delivery_receipt_status,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date	confirm_time('date()'), verb: false, required: true,type:date,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=7; isRoot = false
+
+meta{name=order_action_type, features=status}
+order_action_type{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('商家代客下单|客户下单|客户确认订单|商家代客户确认订单|商家确认订单|商家订单发货|商家创建交接单|客户确认交接单|商家代客户确认交接单|商家确认完成'), verb: false, required: true,type:string,relationMeta={};
+		string	code('SELLER_CREATE_ORDER|BUYER_CREATE_ORDER|BUYER_CONFIRM|SELLER_FORCE_CONFIRM|SELLER_CONFIRM|SELLER_DELIVERY|SELLER_CREATE_DELIVERY_RECEIPT|BUYER_CONFIRM_DELIVERY_RECEIPT|SELLER_FORCE_CONFIRM_DELIVERY_RECEIPT|SELLER_CONFIRM_DONE'), verb: false, required: true,type:string,relationMeta={};
+		string	description('代客下单|客户下单|客户确认订单|商家代客户确认订单|商家确认订单|商家订单发货|商家创建交接单|客户确认交接单|商家代客户确认交接单|商家确认完成'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: orderActionTypeList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		orderOperationRecordList	action(__no_group)--action;
+	}
+} depth=1; isRoot = false
+
+meta{name=order_operation_record, features=log}
+order_operation_record{
+	fields(8){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		main_order	main_order('$(object)'), verb: false, required: true, referenceBy: orderOperationRecordList,type:main_order,relationMeta={};
+		employee	actor('$(object)'), verb: false, required: true, referenceBy: orderOperationRecordList,type:employee,relationMeta={};
+		order_action_type	action('$(object)'), verb: false, required: true, referenceBy: orderOperationRecordList,type:order_action_type,relationMeta={};
+		string	comment('代张三下单|代双链科技下单'), verb: false, required: false,type:string,relationMeta={};
+		string_longtext	detail('text()'), verb: false, required: true,type:text,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
 
 meta{name=icon_configuration, features=status}
 icon_configuration{
@@ -506,9 +2095,9 @@ meta{name=change_request_type, identified_by=code, features=cr_type}
 change_request_type{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('创建竞赛'), verb: false, required: true,type:string,relationMeta={};
-		string	code('CREATE_COMPETITION'), verb: false, required: true,type:string,relationMeta={};
-		string	icon('bars'), verb: false, required: true,type:string,relationMeta={};
+		string	name('信息反馈|商户注册|完成审核|自定义产品|产品附加规格|确认加入|配送信息|完善信息并入库|修改附加规格|复制产品|修改订单|创建交接单|入库|自定义|编辑备注|更新个人信息|确认|提交新单|审批加入+姓名|完善信息|转移管理员|转移管理员|自定义|完善配送|编辑配送任务|产品附加规格|下架|完善信息|审核加入|修改产品|产品附加规格|备注|完善信息|创建配送任务|备注|商户基础信息|修改配送信息|完善信息|修改附加规格|代客确认|确认交接|上架|提交客户审核|同意代下|完善信息'), verb: false, required: true,type:string,relationMeta={};
+		string	code('MORE_SUPPLIER_PRODUCT|SELLER_REGISTER|AUDIT_ORDER|CUSTOM_PRODUCT_WHEN_INITIAL|EDIT_ADDITIONAL_SPEC_WHEN_INIT|CONFIRM_JOIN|BUYER_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_INBOUND|EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE|COPY_PRODUCT|BUYER_UPDATE_ORDER|CREATE_HANDOVER_TASK|PRODUCT_INBOUND|CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT|EDIT_COMMENT|UPDATE_PERSONAL_INFO|BUYER_BIC_CONFIRM|CREATE_SPLIT_ORDER|AUDIT_JOIN_APPLY|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|COMPANY_ADMIN_TRANSFER|BUYER_ADMIN_TRANSFER|CUSTOM_PRODUCT_WHEN_QUOTE|BUYER_UPDATE_DELIVERY_INFO|UPDATE_DELIVERY_TASK|EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT|PRODUCT_OFF_SHELF|UPDATE_MERCHANT_INFO_WHEN_INVITE|BUYER|UPDATE_PRODUCT_INFO|EDIT_ADDITIONAL_SPEC_WHEN_QUOTE|UPDATE_COLLEAGUE_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|CREATE_DELIVERY_TASK|EDIT_BUYER_COLLEAGUE|UPDATE_COMPANY_INFO|UPDATE_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER|EDIT_ADDITIONAL_SPEC_WHEN_CREATE|CONFIRM_AS_CUSTOMER|CONFIRM_DELIVERY_TASK|PRODUCT_ON_SHELF|SEND_TO_CUSTOMER_AUDIT|CONFIRM_QUOTE|UPDATE_BUYER_INFO_WHEN_ORDER'), verb: false, required: true,type:string,relationMeta={};
+		string	icon('bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars'), verb: false, required: true,type:string,relationMeta={};
 		int	display_order('1|2|3|4|5|6'), verb: false, required: true,type:int,relationMeta={};
 		string_longtext	bind_types('text()'), verb: false, required: true,type:text,relationMeta={};
 		string_longtext	step_configuration('text()'), verb: false, required: true,type:text,relationMeta={};
@@ -523,20 +2112,34 @@ change_request_type{
 
 meta{name=change_request, features=change_request}
 change_request{
-	fields(8){
+	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('注册|开始考试|答题'), verb: false, required: true,type:string,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
 		string_client_ip	remote_ip('remoteIp()'), verb: false, required: true,type:string_client_ip,relationMeta={};
+		string	city_by_ip('四川省成都市|新疆维吾尔自治区阿卡大礼县'), verb: false, required: false,type:string,relationMeta={};
 		change_request_type	request_type('$(object)'), verb: false, required: true, referenceBy: changeRequestList,type:change_request_type,relationMeta={};
 		bool	commited('false'), verb: false, required: true,type:bool,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: changeRequestList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(1){
+	references field(2){
+		eventTbdList	change_request(__no_group)--change_request;
 		eventInfoInCrList	change_request(__no_group)--change_request;
 	}
 } depth=2; isRoot = false
+
+meta{bind_with_cr_type=MORE_SUPPLIER_PRODUCT|SELLER_REGISTER|AUDIT_ORDER|CUSTOM_PRODUCT_WHEN_INITIAL|EDIT_ADDITIONAL_SPEC_WHEN_INIT|CONFIRM_JOIN|BUYER_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_INBOUND|EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE|COPY_PRODUCT|BUYER_UPDATE_ORDER|CREATE_HANDOVER_TASK|PRODUCT_INBOUND|CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT|EDIT_COMMENT|UPDATE_PERSONAL_INFO|BUYER_BIC_CONFIRM|CREATE_SPLIT_ORDER|AUDIT_JOIN_APPLY|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|COMPANY_ADMIN_TRANSFER|BUYER_ADMIN_TRANSFER|CUSTOM_PRODUCT_WHEN_QUOTE|BUYER_UPDATE_DELIVERY_INFO|UPDATE_DELIVERY_TASK|EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT|PRODUCT_OFF_SHELF|UPDATE_MERCHANT_INFO_WHEN_INVITE|BUYER|UPDATE_PRODUCT_INFO|EDIT_ADDITIONAL_SPEC_WHEN_QUOTE|UPDATE_COLLEAGUE_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|CREATE_DELIVERY_TASK|EDIT_BUYER_COLLEAGUE|UPDATE_COMPANY_INFO|UPDATE_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER|EDIT_ADDITIONAL_SPEC_WHEN_CREATE|CONFIRM_AS_CUSTOMER|CONFIRM_DELIVERY_TASK|PRODUCT_ON_SHELF|SEND_TO_CUSTOMER_AUDIT|CONFIRM_QUOTE|UPDATE_BUYER_INFO_WHEN_ORDER, name=event_tbd, features=event}
+event_tbd{
+	fields(4){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	tbd('tbd|字段待定义'), verb: false, required: true,type:string,relationMeta={};
+		change_request	change_request('$(object)'), verb: false, required: true, referenceBy: eventTbdList,type:change_request,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
 
 meta{name=event_info_in_cr, features=root, max_count=1000000000}
 event_info_in_cr{
@@ -900,11 +2503,36 @@ platform{
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(12){
-		xxxStatusList	platform(__no_group)--platform;
+	references field(37){
+		provinceList	platform(__no_group)--platform;
+		cityList	platform(__no_group)--platform;
+		districtList	platform(__no_group)--platform;
+		roleList	platform(__no_group)--platform;
+		employeeStatusList	platform(__no_group)--platform;
+		invitationTypeList	platform(__no_group)--platform;
 		merchantList	platform(__no_group)--platform;
 		personalUserList	platform(__no_group)--platform;
-		yyyStatusList	platform(__no_group)--platform;
+		organizationIdentityList	platform(__no_group)--platform;
+		employeeList	platform(__no_group)--platform;
+		gasContainerList	platform(__no_group)--platform;
+		fillMediumList	platform(__no_group)--platform;
+		nominalVolumeList	platform(__no_group)--platform;
+		fillVolumeList	platform(__no_group)--platform;
+		nominalPressureList	platform(__no_group)--platform;
+		gasContainerCategoryList	platform(__no_group)--platform;
+		gasComponentList	platform(__no_group)--platform;
+		checkStatusList	platform(__no_group)--platform;
+		actionTypeList	platform(__no_group)--platform;
+		productStatusList	platform(__no_group)--platform;
+		orderStatusList	platform(__no_group)--platform;
+		deliverTypeList	platform(__no_group)--platform;
+		shippingStatusList	platform(__no_group)--platform;
+		deliverTaskStatusList	platform(__no_group)--platform;
+		deliveryReceiptStatusList	platform(__no_group)--platform;
+		gasCylinderList	platform(__no_group)--platform;
+		gasProductTemplateList	platform(__no_group)--platform;
+		gasProductList	platform(__no_group)--platform;
+		orderActionTypeList	platform(__no_group)--platform;
 		iconConfigurationList	platform(__no_group)--platform;
 		systemLevelConfigurationList	platform(__no_group)--platform;
 		systemLevelImagesList	platform(__no_group)--platform;
@@ -916,63 +2544,837 @@ platform{
 	}
 } depth=0; isRoot = true
 
-meta{name=xxx_status, features=status}
-xxx_status{
+meta{name=province, features=setting}
+province{
+	fields(4){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('四川|北京'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: provinceList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		cityList	province(__no_group)--province;
+	}
+} depth=1; isRoot = false
+
+meta{name=city, features=setting}
+city{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('考试中|已考完|已取消'), verb: false, required: true,type:string,relationMeta={};
-		string	code('ANSWERING|FINISHED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
-		platform	platform('$(object)'), verb: false, required: true, referenceBy: xxxStatusList,type:platform,relationMeta={};
+		string	name('成都|北京'), verb: false, required: true,type:string,relationMeta={};
+		province	province('$(object)'), verb: false, required: true, referenceBy: cityList,type:province,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: cityList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		districtList	city(__no_group)--city;
+	}
+} depth=2; isRoot = false
+
+meta{name=district, features=setting}
+district{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('成华区|朝阳区|锦江区|海淀区'), verb: false, required: true,type:string,relationMeta={};
+		city	city('$(object)'), verb: false, required: true, referenceBy: districtList,type:city,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: districtList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=role, features=status}
+role{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('管理员|员工'), verb: false, required: true,type:string,relationMeta={};
+		string	code('ADMIN|EMPLOYEE'), verb: false, required: true,type:string,relationMeta={};
+		string	description('管理人员|员工'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: roleList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		employeeList	role(__no_group)--role;
+	}
+} depth=1; isRoot = false
+
+meta{name=employee_status, features=status}
+employee_status{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('正常|已删除|待审核'), verb: false, required: true,type:string,relationMeta={};
+		string	code('NORMAL|REMOVED|TO_BE_APPROVE'), verb: false, required: true,type:string,relationMeta={};
+		string	description('正常|已删除|待审核'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: employeeStatusList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		employeeList	status(__no_group)--status;
+	}
+} depth=1; isRoot = false
+
+meta{name=invitation_type, features=status}
+invitation_type{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('邀请同事|邀请商家|邀请用户|分享'), verb: false, required: true,type:string,relationMeta={};
+		string	code('COLLEAGUE|SUPPLIER|CUSTOMER|COMMON'), verb: false, required: true,type:string,relationMeta={};
+		string	description('邀请同事|邀请商家|邀请用户|分享'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: invitationTypeList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		invitationRecordList	type(__no_group)--type;
 	}
 } depth=1; isRoot = false
 
 meta{name=merchant, features=log}
 merchant{
-	fields(7){
+	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('肯德基成都采购中心|张晓丹|妃妤婔婒'), verb: false, required: true,type:string,relationMeta={};
-		string	entity_type('个人|工厂|代理商'), verb: false, required: true,type:string,relationMeta={};
-		string	entity_identity('MobileUser_MU000001|Supplier_S00003'), verb: false, required: true,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: merchantList,type:platform,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(1){
-		personalUserList	merchant(__no_group)--merchant;
+	references field(20){
+		organizationIdentityList	merchant(__no_group)--merchant;
+		warehouseList	merchant(__no_group)--merchant;
+		employeeList	merchant(__no_group)--merchant;
+		supplyRelationshipListAsSupplier	supplier(__no_group)--supplier;
+		supplyRelationshipListAsCustomer	customer(__no_group)--supplier;
+		merchantCylinderList	merchant(__no_group)--merchant;
+		merchantCylinderRecordList	merchant(__no_group)--merchant;
+		customerCylinderListAsSeller	seller(__no_group)--seller;
+		customerCylinderListAsCustomer	customer(__no_group)--seller;
+		customerCylinderRecordListAsSeller	seller(__no_group)--seller;
+		customerCylinderRecordListAsCustomer	customer(__no_group)--seller;
+		gasProductList	merchant(__no_group)--merchant;
+		gasProductInventoryRecordList	merchant(__no_group)--merchant;
+		deliverTaskList	merchant(__no_group)--merchant;
+		mainOrderListAsBuyer	buyer(__no_group)--buyer;
+		mainOrderListAsSeller	seller(__no_group)--buyer;
+		gasShippingGroupListAsSeller	seller(__no_group)--seller;
+		gasShippingGroupListAsBuyer	buyer(__no_group)--seller;
+		deliveryReceiptListAsSeller	seller(__no_group)--seller;
+		deliveryReceiptListAsBuyer	buyer(__no_group)--seller;
 	}
 } depth=1; isRoot = false
 
 meta{name=personal_user, features=merchant}
 personal_user{
-	fields(8){
+	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('张喜来|黄波|王煜东|袁明星|周廷志|刘洋'), verb: false, required: true,type:string,relationMeta={};
-		string	company('双链科技|新途流体|新双软件'), verb: false, required: true,type:string,relationMeta={};
+		string	name('张喜来|黄波|王煜东|袁明星|周廷志|刘洋'), verb: false, required: false,type:string,relationMeta={};
+		string	nick_name('张喜来|黄波|王煜东|袁明星|周廷志|刘洋'), verb: false, required: false,type:string,relationMeta={};
 		string_china_mobile_phone	mobile('13308188512'), verb: false, required: false,type:string_china_mobile_phone,relationMeta={};
 		string_image	avatar('avatar.jpg'), verb: false, required: true,type:string_image,relationMeta={};
-		merchant	merchant('$(object)'), verb: false, required: false, referenceBy: personalUserList,type:merchant,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: personalUserList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(5){
+		individualIdentityList	personal_user(__no_group)--personal_user;
+		userWorkingInfoList	user(__no_group)--user;
+		employeeList	person_information(__no_group)--person_information;
+		deliverTaskList	deliver_staff(__no_group)--deliver_staff;
+		mainOrderList	creator(__no_group)--creator;
+	}
+} depth=1; isRoot = false
+
+meta{name=individual_identity, features=log}
+individual_identity{
+	fields(4){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('张喜来|黄波|王煜东|袁明星|周廷志|刘洋'), verb: false, required: false,type:string,relationMeta={};
+		personal_user	personal_user('$(object)'), verb: false, required: true, referenceBy: individualIdentityList,type:personal_user,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(0){
 	}
 } depth=2; isRoot = false
 
-meta{name=yyy_status, features=status}
-yyy_status{
+meta{name=user_working_info, features=root}
+user_working_info{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('考试中|已考完|已取消'), verb: false, required: true,type:string,relationMeta={};
-		string	code('ANSWERING|FINISHED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
-		platform	platform('$(object)'), verb: false, required: true, referenceBy: yyyStatusList,type:platform,relationMeta={};
+		personal_user	user('$(object)'), verb: false, required: true, referenceBy: userWorkingInfoList,type:personal_user,relationMeta={};
+		employee	employee('$(object)'), verb: false, required: true, referenceBy: userWorkingInfoList,type:employee,relationMeta={};
+		string	job_role('买家|卖家'), verb: false, required: true,type:string,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(0){
 	}
+} depth=3; isRoot = false
+
+meta{name=organization_identity, features=root}
+organization_identity{
+	fields(10){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('双链科技'), verb: false, required: true,type:string,relationMeta={};
+		string_taxpayerid	agency_social_code('91510100MA6C66P74M'), verb: false, required: false,type:string_taxpayerid,relationMeta={};
+		string	contact_name('张三'), verb: false, required: true,type:string,relationMeta={};
+		string_china_mobile_phone	mobile('13888888888'), verb: false, required: true,type:string_china_mobile_phone,relationMeta={};
+		string	address('天府三街'), verb: false, required: true,type:string,relationMeta={};
+		string_image	logo('1.jpg'), verb: false, required: false,type:string_image,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: organizationIdentityList,type:merchant,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: organizationIdentityList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
+
+meta{name=warehouse, features=root}
+warehouse{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('天府三街'), verb: false, required: true,type:string,relationMeta={};
+		string	contact_name('张三'), verb: false, required: true,type:string,relationMeta={};
+		string_china_mobile_phone	mobile('13888888888'), verb: false, required: true,type:string_china_mobile_phone,relationMeta={};
+		string	address('天府三街'), verb: false, required: true,type:string,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: warehouseList,type:merchant,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
+
+meta{name=invitation_record, features=log}
+invitation_record{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		employee	inviter('$(object)'), verb: false, required: true, referenceBy: invitationRecordListAsInviter,type:employee,relationMeta={};
+		employee	invitee('$(object)'), verb: false, required: true, referenceBy: invitationRecordListAsInvitee,type:employee,relationMeta={};
+		invitation_type	type('$(object)'), verb: false, required: true, referenceBy: invitationRecordList,type:invitation_type,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=employee, features=root}
+employee{
+	fields(8){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		personal_user	person_information('$(object)'), verb: false, required: true, referenceBy: employeeList,type:personal_user,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: employeeList,type:merchant,relationMeta={};
+		role	role('$(object)'), verb: false, required: true, referenceBy: employeeList,type:role,relationMeta={};
+		employee_status	status('$(object)'), verb: false, required: true, referenceBy: employeeList,type:employee_status,relationMeta={};
+		string	comment('司机'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: employeeList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(11){
+		userWorkingInfoList	employee(__no_group)--employee;
+		invitationRecordListAsInviter	inviter(__no_group)--inviter;
+		invitationRecordListAsInvitee	invitee(__no_group)--inviter;
+		merchantCylinderRecordList	actor(__no_group)--actor;
+		customerCylinderRecordList	actor(__no_group)--actor;
+		customerCylinderRecordEvidenceList	actor(__no_group)--actor;
+		gasProductInventoryRecordList	actor(__no_group)--actor;
+		gasShippingGroupList	creator(__no_group)--creator;
+		deliveryReceiptListAsCreator	creator(__no_group)--creator;
+		deliveryReceiptListAsConfirmer	confirmer(__no_group)--creator;
+		orderOperationRecordList	actor(__no_group)--actor;
+	}
+} depth=2; isRoot = false
+
+meta{name=supply_relationship, features=root}
+supply_relationship{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		merchant	supplier('$(object)'), verb: false, required: true, referenceBy: supplyRelationshipListAsSupplier,type:merchant,relationMeta={};
+		merchant	customer('$(object)'), verb: false, required: true, referenceBy: supplyRelationshipListAsCustomer,type:merchant,relationMeta={};
+		string	supplier_comment('客户1'), verb: false, required: true,type:string,relationMeta={};
+		string	customer_comment('供应商1'), verb: false, required: true,type:string,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=2; isRoot = false
+
+meta{name=gas_container, features=root}
+gas_container{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('3*3散瓶格'), verb: false, required: true,type:string,relationMeta={};
+		string	unit('集格'), verb: false, required: true,type:string,relationMeta={};
+		int	quantity('9'), verb: false, required: true,type:int,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: gasContainerList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		gasCylinderList	gas_container(__no_group)--gas_container;
+	}
 } depth=1; isRoot = false
+
+meta{name=fill_medium, features=root}
+fill_medium{
+	fields(4){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('氧'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: fillMediumList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		gasCylinderList	fill_medium(__no_group)--fill_medium;
+	}
+} depth=1; isRoot = false
+
+meta{name=nominal_volume, features=root}
+nominal_volume{
+	fields(4){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	volume('50升'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: nominalVolumeList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		gasCylinderList	nominal_volume(__no_group)--nominal_volume;
+	}
+} depth=1; isRoot = false
+
+meta{name=fill_volume, features=root}
+fill_volume{
+	fields(4){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	volume('50升'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: fillVolumeList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(2){
+		gasProductTemplateList	fill_volume(__no_group)--fill_volume;
+		gasProductList	fill_volume(__no_group)--fill_volume;
+	}
+} depth=1; isRoot = false
+
+meta{name=nominal_pressure, features=root}
+nominal_pressure{
+	fields(4){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	pressure('20Mpa'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: nominalPressureList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		gasCylinderList	nominal_pressure(__no_group)--nominal_pressure;
+	}
+} depth=1; isRoot = false
+
+meta{name=gas_container_category, features=root}
+gas_container_category{
+	fields(4){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('绝热气瓶'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: gasContainerCategoryList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		gasCylinderList	gas_container_category(__no_group)--gas_container_category;
+	}
+} depth=1; isRoot = false
+
+meta{name=gas_component, features=root}
+gas_component{
+	fields(4){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('氧'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: gasComponentList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(2){
+		gasProductTemplateComponentList	component(__no_group)--component;
+		gasProductComponentList	component(__no_group)--component;
+	}
+} depth=1; isRoot = false
+
+meta{name=check_status, features=status}
+check_status{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('待买家确认|买家已确认'), verb: false, required: true,type:string,relationMeta={};
+		string	code('WAITING_BUYER_CONFIRM|BUYER_CONFIRMED'), verb: false, required: true,type:string,relationMeta={};
+		string	description('待买家确认|买家已确认'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: checkStatusList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		customerCylinderList	status(__no_group)--status;
+	}
+} depth=1; isRoot = false
+
+meta{name=action_type, features=status}
+action_type{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('空瓶盘库|空瓶入库|生产入库|订单返瓶|确认接收单|商家提交气瓶盘库|客户确认气瓶盘库|外采入库|接收单入库'), verb: false, required: true,type:string,relationMeta={};
+		string	code('CYLINDER_SET|CYLINDER_IN|PRODUCE|ORDER_BACK_CYLINDER|BUYER_CONFIRMED|SELLER_SUBMIT_CYLINDER_SET|CUSTOMER_CONFIRM_CYLINDER_SET|PURCHASE_OUT_OF_SYSTEM|PURCHASE_IN_SYSTEM'), verb: false, required: true,type:string,relationMeta={};
+		string	description('空瓶盘库|空瓶入库|生产入库|订单返瓶|确认接收单|商家提交气瓶盘库|客户确认气瓶盘库|外采入库|接收单入库'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: actionTypeList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(3){
+		merchantCylinderRecordList	action(__no_group)--action;
+		customerCylinderRecordList	action(__no_group)--action;
+		gasProductInventoryRecordList	action(__no_group)--action;
+	}
+} depth=1; isRoot = false
+
+meta{name=product_status, features=status}
+product_status{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('正常|已下架'), verb: false, required: true,type:string,relationMeta={};
+		string	code('NORMAL|REMOVED'), verb: false, required: true,type:string,relationMeta={};
+		string	description('正常|已下架'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: productStatusList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		gasProductList	status(__no_group)--status;
+	}
+} depth=1; isRoot = false
+
+meta{name=order_status, features=status}
+order_status{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('处理中|待买家确认|买家确认超时|待审核|已提交|待自提|待配送|正在配送|已交接|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	code('PROCESSING|WAITING_BUYER_CONFIRM|BUYER_CONFIRM_TIMEOUT|WAITING_SELLER_CONFIRM|SUBMITTED|WAITING_BUYER_PICK_UP|WAITING_SELLER_DELIVERY|SELLER_SHIPPING|BUYER_RECEIVED|COMPLETED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
+		string	description('处理中|待买家确认|买家确认超时|待卖家审核|已提交|待自提|待配送|正在配送|已交接|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: orderStatusList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		mainOrderList	status(__no_group)--status;
+	}
+} depth=1; isRoot = false
+
+meta{name=deliver_type, features=status}
+deliver_type{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('配送|自提'), verb: false, required: true,type:string,relationMeta={};
+		string	code('DELIVERY|PICKUP'), verb: false, required: true,type:string,relationMeta={};
+		string	description('送货上门|自提'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: deliverTypeList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		gasShippingGroupList	shipping_type(__no_group)--shipping_type;
+	}
+} depth=1; isRoot = false
+
+meta{name=shipping_status, features=status}
+shipping_status{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('待自提|待发货|正在配送|已签收|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	code('WAITING_BUYER_PICK_UP|WAITING_SELLER_DELIVERY|SELLER_SHIPPING|BUYER_RECEIVED|COMPLETED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
+		string	description('待自提|待发货|正在配送|已签收|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: shippingStatusList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		gasShippingGroupList	shipping_status(__no_group)--shipping_status;
+	}
+} depth=1; isRoot = false
+
+meta{name=deliver_task_status, features=status}
+deliver_task_status{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('待执行|配送中|已完成'), verb: false, required: true,type:string,relationMeta={};
+		string	code('PENDING|SHIPPING|COMPLETED'), verb: false, required: true,type:string,relationMeta={};
+		string	description('待执行|配送中|已完成'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: deliverTaskStatusList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		deliverTaskList	status(__no_group)--status;
+	}
+} depth=1; isRoot = false
+
+meta{name=delivery_receipt_status, features=status}
+delivery_receipt_status{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('待客户确认|超时未确认|代客户确认|客户已确认'), verb: false, required: true,type:string,relationMeta={};
+		string	code('WAITING_BUYER_CONFIRM|BUYER_CONFIRM_TIMEOUT|SELLER_FORCE_CONFIRMED|BUYER_CONFIRMED'), verb: false, required: true,type:string,relationMeta={};
+		string	description('待客户确认|超时未确认|代客户确认|客户已确认'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: deliveryReceiptStatusList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		deliveryReceiptList	status(__no_group)--status;
+	}
+} depth=1; isRoot = false
+
+meta{name=gas_cylinder, features=root}
+gas_cylinder{
+	fields(10){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('氦50L-20Mpa-散瓶G5/8内螺纹左旋'), verb: false, required: true,type:string,relationMeta={};
+		gas_container	gas_container('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:gas_container,relationMeta={};
+		fill_medium	fill_medium('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:fill_medium,relationMeta={};
+		nominal_pressure	nominal_pressure('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:nominal_pressure,relationMeta={};
+		nominal_volume	nominal_volume('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:nominal_volume,relationMeta={};
+		gas_container_category	gas_container_category('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:gas_container_category,relationMeta={};
+		string	additional_information('xxx'), verb: false, required: false,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(7){
+		merchantCylinderList	cylinder(__no_group)--cylinder;
+		merchantCylinderRecordList	cylinder(__no_group)--cylinder;
+		customerCylinderList	cylinder(__no_group)--cylinder;
+		customerCylinderRecordList	cylinder(__no_group)--cylinder;
+		gasProductTemplateList	cylinder(__no_group)--cylinder;
+		gasProductList	cylinder(__no_group)--cylinder;
+		gasLineItemList	cylinder(__no_group)--cylinder;
+	}
+} depth=2; isRoot = false
+
+meta{name=merchant_cylinder, features=root}
+merchant_cylinder{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: merchantCylinderList,type:gas_cylinder,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: merchantCylinderList,type:merchant,relationMeta={};
+		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=merchant_cylinder_record, features=log}
+merchant_cylinder_record{
+	fields(10){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: merchantCylinderRecordList,type:merchant,relationMeta={};
+		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: merchantCylinderRecordList,type:gas_cylinder,relationMeta={};
+		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	update_quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		employee	actor('$(object)'), verb: false, required: true, referenceBy: merchantCylinderRecordList,type:employee,relationMeta={};
+		action_type	action('$(object)'), verb: false, required: true, referenceBy: merchantCylinderRecordList,type:action_type,relationMeta={};
+		string_longtext	comment('text()'), verb: false, required: true,type:text,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=customer_cylinder, features=root}
+customer_cylinder{
+	fields(10){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: customerCylinderList,type:gas_cylinder,relationMeta={};
+		merchant	seller('$(object)'), verb: false, required: true, referenceBy: customerCylinderListAsSeller,type:merchant,relationMeta={};
+		merchant	customer('$(object)'), verb: false, required: true, referenceBy: customerCylinderListAsCustomer,type:merchant,relationMeta={};
+		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		string	delta('-1'), verb: false, required: true,type:string,relationMeta={};
+		check_status	status('$(object)'), verb: false, required: true, referenceBy: customerCylinderList,type:check_status,relationMeta={};
+		date_time	last_check_time('date_time()'), verb: false, required: true,type:date_time,relationMeta={};
+		date_time	last_confirm_time('date_time()'), verb: false, required: true,type:date_time,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
+
+meta{name=customer_cylinder_record, features=log}
+customer_cylinder_record{
+	fields(11){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: customerCylinderRecordList,type:gas_cylinder,relationMeta={};
+		merchant	seller('$(object)'), verb: false, required: true, referenceBy: customerCylinderRecordListAsSeller,type:merchant,relationMeta={};
+		merchant	customer('$(object)'), verb: false, required: true, referenceBy: customerCylinderRecordListAsCustomer,type:merchant,relationMeta={};
+		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	update_quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		employee	actor('$(object)'), verb: false, required: true, referenceBy: customerCylinderRecordList,type:employee,relationMeta={};
+		action_type	action('$(object)'), verb: false, required: true, referenceBy: customerCylinderRecordList,type:action_type,relationMeta={};
+		string_longtext	comment('text()'), verb: false, required: true,type:text,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		customerCylinderRecordEvidenceList	record(__no_group)--record;
+	}
+} depth=3; isRoot = false
+
+meta{name=customer_cylinder_record_evidence, features=log}
+customer_cylinder_record_evidence{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		images	images('images()'), verb: false, required: true,type:images,relationMeta={};
+		string_longtext	comment('text()'), verb: false, required: true,type:text,relationMeta={};
+		customer_cylinder_record	record('$(object)'), verb: false, required: true, referenceBy: customerCylinderRecordEvidenceList,type:customer_cylinder_record,relationMeta={};
+		employee	actor('$(object)'), verb: false, required: true, referenceBy: customerCylinderRecordEvidenceList,type:employee,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=4; isRoot = false
+
+meta{name=gas_product_template, features=root}
+gas_product_template{
+	fields(8){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('食品添加剂氮气-20Mpa-50L-3*5集装格'), verb: false, required: true,type:string,relationMeta={};
+		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateList,type:gas_cylinder,relationMeta={};
+		fill_volume	fill_volume('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateList,type:fill_volume,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(3){
+		gasProductTemplateComponentList	product_template(__no_group)--product_template;
+		gasProductList	template(__no_group)--template;
+		gasLineItemList	template(__no_group)--template;
+	}
+} depth=3; isRoot = false
+
+meta{name=gas_product_template_component, features=root}
+gas_product_template_component{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		gas_component	component('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateComponentList,type:gas_component,relationMeta={};
+		double	percentage('0.1'), verb: false, required: true,type:double,relationMeta={};
+		gas_product_template	product_template('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateComponentList,type:gas_product_template,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=4; isRoot = false
+
+meta{name=gas_product, features=root}
+gas_product{
+	fields(15){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('食品添加剂氮气-20Mpa-50L-3*5集装格'), verb: false, required: true,type:string,relationMeta={};
+		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:gas_cylinder,relationMeta={};
+		fill_volume	fill_volume('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:fill_volume,relationMeta={};
+		gas_product_template	template('$(object)'), verb: false, required: false, referenceBy: gasProductList,type:gas_product_template,relationMeta={};
+		product_status	status('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:product_status,relationMeta={};
+		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	target_quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	threhold_quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	quantity_per_day('1'), verb: false, required: true,type:int,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:merchant,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(3){
+		gasProductComponentList	product(__no_group)--product;
+		gasProductInventoryRecordList	product(__no_group)--product;
+		gasLineItemList	product(__no_group)--product;
+	}
+} depth=4; isRoot = false
+
+meta{name=gas_product_component, features=root}
+gas_product_component{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		gas_component	component('$(object)'), verb: false, required: true, referenceBy: gasProductComponentList,type:gas_component,relationMeta={};
+		double	percentage('0.1'), verb: false, required: true,type:double,relationMeta={};
+		gas_product	product('$(object)'), verb: false, required: true, referenceBy: gasProductComponentList,type:gas_product,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=5; isRoot = false
+
+meta{name=gas_product_inventory_record, features=log}
+gas_product_inventory_record{
+	fields(10){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: gasProductInventoryRecordList,type:merchant,relationMeta={};
+		gas_product	product('$(object)'), verb: false, required: true, referenceBy: gasProductInventoryRecordList,type:gas_product,relationMeta={};
+		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	update_quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		employee	actor('$(object)'), verb: false, required: true, referenceBy: gasProductInventoryRecordList,type:employee,relationMeta={};
+		action_type	action('$(object)'), verb: false, required: true, referenceBy: gasProductInventoryRecordList,type:action_type,relationMeta={};
+		string_longtext	comment('text()'), verb: false, required: true,type:text,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=5; isRoot = false
+
+meta{name=gas_product_cache, features=root}
+gas_product_cache{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	product_id('GP000001'), verb: false, required: true,type:string,relationMeta={};
+		string	merchant_id('M000001'), verb: false, required: true,type:string,relationMeta={};
+		string_longtext	search_text('text()'), verb: false, required: true,type:text,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=0; isRoot = true
+
+meta{name=gas_product_template_cache, features=root}
+gas_product_template_cache{
+	fields(4){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	template_id('GPT000001'), verb: false, required: true,type:string,relationMeta={};
+		string_longtext	search_text('text()'), verb: false, required: true,type:text,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=0; isRoot = true
+
+meta{name=deliver_task, features=root}
+deliver_task{
+	fields(8){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('2012年12月12日张三任务'), verb: false, required: true,type:string,relationMeta={};
+		personal_user	deliver_staff('$(object)'), verb: false, required: true, referenceBy: deliverTaskList,type:personal_user,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: deliverTaskList,type:merchant,relationMeta={};
+		deliver_task_status	status('$(object)'), verb: false, required: true, referenceBy: deliverTaskList,type:deliver_task_status,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		gasShippingGroupList	deliver_task(__no_group)--deliver_task;
+	}
+} depth=2; isRoot = false
+
+meta{name=main_order, features=root}
+main_order{
+	fields(9){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string_longtext	comment('text()'), verb: false, required: true,type:text,relationMeta={};
+		merchant	buyer('$(object)'), verb: false, required: true, referenceBy: mainOrderListAsBuyer,type:merchant,relationMeta={};
+		merchant	seller('$(object)'), verb: false, required: true, referenceBy: mainOrderListAsSeller,type:merchant,relationMeta={};
+		order_status	status('$(object)'), verb: false, required: true, referenceBy: mainOrderList,type:order_status,relationMeta={};
+		personal_user	creator('$(object)'), verb: false, required: true, referenceBy: mainOrderList,type:personal_user,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(4){
+		gasLineItemList	main_order(__no_group)--main_order;
+		gasShippingGroupList	main_order(__no_group)--main_order;
+		deliveryReceiptList	main_order(__no_group)--main_order;
+		orderOperationRecordList	main_order(__no_group)--main_order;
+	}
+} depth=2; isRoot = false
+
+meta{name=gas_line_item, features=root}
+gas_line_item{
+	fields(10){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('食品添加剂氮气-20Mpa-50L-3*5集装格'), verb: false, required: true,type:string,relationMeta={};
+		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: gasLineItemList,type:gas_cylinder,relationMeta={};
+		gas_product	product('$(object)'), verb: false, required: true, referenceBy: gasLineItemList,type:gas_product,relationMeta={};
+		gas_product_template	template('$(object)'), verb: false, required: false, referenceBy: gasLineItemList,type:gas_product_template,relationMeta={};
+		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	back_quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		string	components('90%氦+7%氩+3%二氧化碳'), verb: false, required: true,type:string,relationMeta={};
+		main_order	main_order('$(object)'), verb: false, required: true, referenceBy: gasLineItemList,type:main_order,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(2){
+		gasShippingGroupList	gas_line_item(__no_group)--gas_line_item;
+		deliveryReceiptList	gas_line_item(__no_group)--gas_line_item;
+	}
+} depth=5; isRoot = false
+
+meta{name=gas_shipping_group, features=log}
+gas_shipping_group{
+	fields(20){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		gas_line_item	gas_line_item('$(object)'), verb: false, required: true, referenceBy: gasShippingGroupList,type:gas_line_item,relationMeta={};
+		main_order	main_order('$(object)'), verb: false, required: true, referenceBy: gasShippingGroupList,type:main_order,relationMeta={};
+		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		string	handover_address('天府三街'), verb: false, required: true,type:string,relationMeta={};
+		string	seller_contact_name('张三'), verb: false, required: false,type:string,relationMeta={};
+		string	seller_contact_phone('1213a'), verb: false, required: false,type:string,relationMeta={};
+		string	buyer_contact_name('张三'), verb: false, required: true,type:string,relationMeta={};
+		string	buyer_contact_phone('1213a'), verb: false, required: true,type:string,relationMeta={};
+		date	handover_date('date_future()'), verb: false, required: true,type:date_future,relationMeta={};
+		string	handover_time('上午|下午|3点-5点[0,20]'), verb: false, required: true,type:string,relationMeta={};
+		deliver_type	shipping_type('$(object)'), verb: false, required: true, referenceBy: gasShippingGroupList,type:deliver_type,relationMeta={};
+		shipping_status	shipping_status('$(object)'), verb: false, required: true, referenceBy: gasShippingGroupList,type:shipping_status,relationMeta={};
+		deliver_task	deliver_task('$(object)'), verb: false, required: true, referenceBy: gasShippingGroupList,type:deliver_task,relationMeta={};
+		merchant	seller('$(object)'), verb: false, required: true, referenceBy: gasShippingGroupListAsSeller,type:merchant,relationMeta={};
+		merchant	buyer('$(object)'), verb: false, required: true, referenceBy: gasShippingGroupListAsBuyer,type:merchant,relationMeta={};
+		employee	creator('$(object)'), verb: false, required: true, referenceBy: gasShippingGroupList,type:employee,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		deliveryReceiptList	gas_shipping_group(__no_group)--gas_shipping_group;
+	}
+} depth=6; isRoot = false
+
+meta{name=delivery_receipt, features=root}
+delivery_receipt{
+	fields(15){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		gas_shipping_group	gas_shipping_group('$(object)'), verb: false, required: true, referenceBy: deliveryReceiptList,type:gas_shipping_group,relationMeta={};
+		gas_line_item	gas_line_item('$(object)'), verb: false, required: true, referenceBy: deliveryReceiptList,type:gas_line_item,relationMeta={};
+		main_order	main_order('$(object)'), verb: false, required: true, referenceBy: deliveryReceiptList,type:main_order,relationMeta={};
+		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	back_quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		string_longtext	comment('text()'), verb: false, required: true,type:text,relationMeta={};
+		merchant	seller('$(object)'), verb: false, required: true, referenceBy: deliveryReceiptListAsSeller,type:merchant,relationMeta={};
+		merchant	buyer('$(object)'), verb: false, required: true, referenceBy: deliveryReceiptListAsBuyer,type:merchant,relationMeta={};
+		employee	creator('$(object)'), verb: false, required: true, referenceBy: deliveryReceiptListAsCreator,type:employee,relationMeta={};
+		employee	confirmer('$(object)'), verb: false, required: true, referenceBy: deliveryReceiptListAsConfirmer,type:employee,relationMeta={};
+		delivery_receipt_status	status('$(object)'), verb: false, required: true, referenceBy: deliveryReceiptList,type:delivery_receipt_status,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		date	confirm_time('date()'), verb: false, required: true,type:date,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=7; isRoot = false
+
+meta{name=order_action_type, features=status}
+order_action_type{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('商家代客下单|客户下单|客户确认订单|商家代客户确认订单|商家确认订单|商家订单发货|商家创建交接单|客户确认交接单|商家代客户确认交接单|商家确认完成'), verb: false, required: true,type:string,relationMeta={};
+		string	code('SELLER_CREATE_ORDER|BUYER_CREATE_ORDER|BUYER_CONFIRM|SELLER_FORCE_CONFIRM|SELLER_CONFIRM|SELLER_DELIVERY|SELLER_CREATE_DELIVERY_RECEIPT|BUYER_CONFIRM_DELIVERY_RECEIPT|SELLER_FORCE_CONFIRM_DELIVERY_RECEIPT|SELLER_CONFIRM_DONE'), verb: false, required: true,type:string,relationMeta={};
+		string	description('代客下单|客户下单|客户确认订单|商家代客户确认订单|商家确认订单|商家订单发货|商家创建交接单|客户确认交接单|商家代客户确认交接单|商家确认完成'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: orderActionTypeList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		orderOperationRecordList	action(__no_group)--action;
+	}
+} depth=1; isRoot = false
+
+meta{name=order_operation_record, features=log}
+order_operation_record{
+	fields(8){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		main_order	main_order('$(object)'), verb: false, required: true, referenceBy: orderOperationRecordList,type:main_order,relationMeta={};
+		employee	actor('$(object)'), verb: false, required: true, referenceBy: orderOperationRecordList,type:employee,relationMeta={};
+		order_action_type	action('$(object)'), verb: false, required: true, referenceBy: orderOperationRecordList,type:order_action_type,relationMeta={};
+		string	comment('代张三下单|代双链科技下单'), verb: false, required: false,type:string,relationMeta={};
+		string_longtext	detail('text()'), verb: false, required: true,type:text,relationMeta={};
+		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
 
 meta{name=icon_configuration, features=status}
 icon_configuration{
@@ -1071,9 +3473,9 @@ meta{name=change_request_type, identified_by=code, features=cr_type}
 change_request_type{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('创建竞赛'), verb: false, required: true,type:string,relationMeta={};
-		string	code('CREATE_COMPETITION'), verb: false, required: true,type:string,relationMeta={};
-		string	icon('bars'), verb: false, required: true,type:string,relationMeta={};
+		string	name('信息反馈|商户注册|完成审核|自定义产品|产品附加规格|确认加入|配送信息|完善信息并入库|修改附加规格|复制产品|修改订单|创建交接单|入库|自定义|编辑备注|更新个人信息|确认|提交新单|审批加入+姓名|完善信息|转移管理员|转移管理员|自定义|完善配送|编辑配送任务|产品附加规格|下架|完善信息|审核加入|修改产品|产品附加规格|备注|完善信息|创建配送任务|备注|商户基础信息|修改配送信息|完善信息|修改附加规格|代客确认|确认交接|上架|提交客户审核|同意代下|完善信息'), verb: false, required: true,type:string,relationMeta={};
+		string	code('MORE_SUPPLIER_PRODUCT|SELLER_REGISTER|AUDIT_ORDER|CUSTOM_PRODUCT_WHEN_INITIAL|EDIT_ADDITIONAL_SPEC_WHEN_INIT|CONFIRM_JOIN|BUYER_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_INBOUND|EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE|COPY_PRODUCT|BUYER_UPDATE_ORDER|CREATE_HANDOVER_TASK|PRODUCT_INBOUND|CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT|EDIT_COMMENT|UPDATE_PERSONAL_INFO|BUYER_BIC_CONFIRM|CREATE_SPLIT_ORDER|AUDIT_JOIN_APPLY|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|COMPANY_ADMIN_TRANSFER|BUYER_ADMIN_TRANSFER|CUSTOM_PRODUCT_WHEN_QUOTE|BUYER_UPDATE_DELIVERY_INFO|UPDATE_DELIVERY_TASK|EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT|PRODUCT_OFF_SHELF|UPDATE_MERCHANT_INFO_WHEN_INVITE|BUYER|UPDATE_PRODUCT_INFO|EDIT_ADDITIONAL_SPEC_WHEN_QUOTE|UPDATE_COLLEAGUE_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|CREATE_DELIVERY_TASK|EDIT_BUYER_COLLEAGUE|UPDATE_COMPANY_INFO|UPDATE_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER|EDIT_ADDITIONAL_SPEC_WHEN_CREATE|CONFIRM_AS_CUSTOMER|CONFIRM_DELIVERY_TASK|PRODUCT_ON_SHELF|SEND_TO_CUSTOMER_AUDIT|CONFIRM_QUOTE|UPDATE_BUYER_INFO_WHEN_ORDER'), verb: false, required: true,type:string,relationMeta={};
+		string	icon('bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars'), verb: false, required: true,type:string,relationMeta={};
 		int	display_order('1|2|3|4|5|6'), verb: false, required: true,type:int,relationMeta={};
 		string_longtext	bind_types('text()'), verb: false, required: true,type:text,relationMeta={};
 		string_longtext	step_configuration('text()'), verb: false, required: true,type:text,relationMeta={};
@@ -1088,20 +3490,34 @@ change_request_type{
 
 meta{name=change_request, features=change_request}
 change_request{
-	fields(8){
+	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('注册|开始考试|答题'), verb: false, required: true,type:string,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
 		string_client_ip	remote_ip('remoteIp()'), verb: false, required: true,type:string_client_ip,relationMeta={};
+		string	city_by_ip('四川省成都市|新疆维吾尔自治区阿卡大礼县'), verb: false, required: false,type:string,relationMeta={};
 		change_request_type	request_type('$(object)'), verb: false, required: true, referenceBy: changeRequestList,type:change_request_type,relationMeta={};
 		bool	commited('false'), verb: false, required: true,type:bool,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: changeRequestList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(1){
+	references field(2){
+		eventTbdList	change_request(__no_group)--change_request;
 		eventInfoInCrList	change_request(__no_group)--change_request;
 	}
 } depth=2; isRoot = false
+
+meta{bind_with_cr_type=MORE_SUPPLIER_PRODUCT|SELLER_REGISTER|AUDIT_ORDER|CUSTOM_PRODUCT_WHEN_INITIAL|EDIT_ADDITIONAL_SPEC_WHEN_INIT|CONFIRM_JOIN|BUYER_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_INBOUND|EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE|COPY_PRODUCT|BUYER_UPDATE_ORDER|CREATE_HANDOVER_TASK|PRODUCT_INBOUND|CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT|EDIT_COMMENT|UPDATE_PERSONAL_INFO|BUYER_BIC_CONFIRM|CREATE_SPLIT_ORDER|AUDIT_JOIN_APPLY|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|COMPANY_ADMIN_TRANSFER|BUYER_ADMIN_TRANSFER|CUSTOM_PRODUCT_WHEN_QUOTE|BUYER_UPDATE_DELIVERY_INFO|UPDATE_DELIVERY_TASK|EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT|PRODUCT_OFF_SHELF|UPDATE_MERCHANT_INFO_WHEN_INVITE|BUYER|UPDATE_PRODUCT_INFO|EDIT_ADDITIONAL_SPEC_WHEN_QUOTE|UPDATE_COLLEAGUE_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|CREATE_DELIVERY_TASK|EDIT_BUYER_COLLEAGUE|UPDATE_COMPANY_INFO|UPDATE_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER|EDIT_ADDITIONAL_SPEC_WHEN_CREATE|CONFIRM_AS_CUSTOMER|CONFIRM_DELIVERY_TASK|PRODUCT_ON_SHELF|SEND_TO_CUSTOMER_AUDIT|CONFIRM_QUOTE|UPDATE_BUYER_INFO_WHEN_ORDER, name=event_tbd, features=event}
+event_tbd{
+	fields(4){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	tbd('tbd|字段待定义'), verb: false, required: true,type:string,relationMeta={};
+		change_request	change_request('$(object)'), verb: false, required: true, referenceBy: eventTbdList,type:change_request,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+} depth=3; isRoot = false
 
 meta{name=event_info_in_cr, features=root, max_count=1000000000}
 event_info_in_cr{

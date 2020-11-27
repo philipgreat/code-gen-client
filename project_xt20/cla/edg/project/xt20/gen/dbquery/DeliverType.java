@@ -4,11 +4,21 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class GasContainer extends BaseModelBean {
+public class DeliverType extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.xt20.gascontainer.GasContainer";
+    return "com.doublechaintech.xt20.delivertype.DeliverType";
   }
   // 枚举对象
+  public static EnumAttribute DELIVERY =
+      new EnumAttribute("com.doublechaintech.xt20.delivertype.DeliverType", "DELIVERY")
+          .chineseName("配送");
+  public static EnumAttribute PICKUP =
+      new EnumAttribute("com.doublechaintech.xt20.delivertype.DeliverType", "PICKUP")
+          .chineseName("自提");
+
+  public EnumAttribute[] getEnumNameList() {
+    return new EnumAttribute[] {DELIVERY, PICKUP};
+  }
 
   // 引用的对象
 
@@ -25,12 +35,12 @@ public class GasContainer extends BaseModelBean {
 
   // 被引用的对象
 
-  public GasCylinder gasCylinderList() {
-    GasCylinder member = new GasCylinder();
-    member.setModelTypeName("gas_cylinder");
-    member.setName("gas_container");
-    member.setMemberName("gasCylinderList");
-    member.setRelationName("gasContainer");
+  public GasShippingGroup gasShippingGroupList() {
+    GasShippingGroup member = new GasShippingGroup();
+    member.setModelTypeName("gas_shipping_group");
+    member.setName("shipping_type");
+    member.setMemberName("gasShippingGroupList");
+    member.setRelationName("shippingType");
     member.setReferDirection(false);
     append(member);
     return member;
@@ -56,20 +66,20 @@ public class GasContainer extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute unit() {
+  public StringAttribute code() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
-    // member.setName("unit");
-    member.setName("unit");
+    // member.setName("code");
+    member.setName("code");
     useMember(member);
     return member;
   }
 
-  public NumberAttribute quantity() {
-    NumberAttribute member = new NumberAttribute();
-    member.setModelTypeName("int");
-    // member.setName("quantity");
-    member.setName("quantity");
+  public StringAttribute description() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("description");
+    member.setName("description");
     useMember(member);
     return member;
   }

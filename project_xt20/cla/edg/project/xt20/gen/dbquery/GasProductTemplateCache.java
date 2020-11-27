@@ -4,9 +4,9 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class GasProductCache extends BaseModelBean {
+public class GasProductTemplateCache extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.xt20.gasproductcache.GasProductCache";
+    return "com.doublechaintech.xt20.gasproducttemplatecache.GasProductTemplateCache";
   }
   // 枚举对象
 
@@ -25,20 +25,11 @@ public class GasProductCache extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute productId() {
+  public StringAttribute templateId() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
-    // member.setName("productId");
-    member.setName("product_id");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute merchantId() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("merchantId");
-    member.setName("merchant_id");
+    // member.setName("templateId");
+    member.setName("template_id");
     useMember(member);
     return member;
   }

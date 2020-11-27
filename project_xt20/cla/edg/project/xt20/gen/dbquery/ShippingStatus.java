@@ -4,23 +4,41 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class DeliverTaskStatus extends BaseModelBean {
+public class ShippingStatus extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.xt20.delivertaskstatus.DeliverTaskStatus";
+    return "com.doublechaintech.xt20.shippingstatus.ShippingStatus";
   }
   // 枚举对象
-  public static EnumAttribute PENDING =
-      new EnumAttribute("com.doublechaintech.xt20.delivertaskstatus.DeliverTaskStatus", "PENDING")
-          .chineseName("待执行");
-  public static EnumAttribute SHIPPING =
-      new EnumAttribute("com.doublechaintech.xt20.delivertaskstatus.DeliverTaskStatus", "SHIPPING")
-          .chineseName("配送中");
+  public static EnumAttribute WAITING_BUYER_PICK_UP =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.shippingstatus.ShippingStatus", "WAITING_BUYER_PICK_UP")
+          .chineseName("待自提");
+  public static EnumAttribute WAITING_SELLER_DELIVERY =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.shippingstatus.ShippingStatus", "WAITING_SELLER_DELIVERY")
+          .chineseName("待发货");
+  public static EnumAttribute SELLER_SHIPPING =
+      new EnumAttribute("com.doublechaintech.xt20.shippingstatus.ShippingStatus", "SELLER_SHIPPING")
+          .chineseName("正在配送");
+  public static EnumAttribute BUYER_RECEIVED =
+      new EnumAttribute("com.doublechaintech.xt20.shippingstatus.ShippingStatus", "BUYER_RECEIVED")
+          .chineseName("已签收");
   public static EnumAttribute COMPLETED =
-      new EnumAttribute("com.doublechaintech.xt20.delivertaskstatus.DeliverTaskStatus", "COMPLETED")
+      new EnumAttribute("com.doublechaintech.xt20.shippingstatus.ShippingStatus", "COMPLETED")
           .chineseName("已完成");
+  public static EnumAttribute CANCELLED =
+      new EnumAttribute("com.doublechaintech.xt20.shippingstatus.ShippingStatus", "CANCELLED")
+          .chineseName("已取消");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {PENDING, SHIPPING, COMPLETED};
+    return new EnumAttribute[] {
+      WAITING_BUYER_PICK_UP,
+      WAITING_SELLER_DELIVERY,
+      SELLER_SHIPPING,
+      BUYER_RECEIVED,
+      COMPLETED,
+      CANCELLED
+    };
   }
 
   // 引用的对象
@@ -38,12 +56,12 @@ public class DeliverTaskStatus extends BaseModelBean {
 
   // 被引用的对象
 
-  public DeliverTask deliverTaskList() {
-    DeliverTask member = new DeliverTask();
-    member.setModelTypeName("deliver_task");
-    member.setName("status");
-    member.setMemberName("deliverTaskList");
-    member.setRelationName("status");
+  public GasShippingGroup gasShippingGroupList() {
+    GasShippingGroup member = new GasShippingGroup();
+    member.setModelTypeName("gas_shipping_group");
+    member.setName("shipping_status");
+    member.setMemberName("gasShippingGroupList");
+    member.setRelationName("shippingStatus");
     member.setReferDirection(false);
     append(member);
     return member;

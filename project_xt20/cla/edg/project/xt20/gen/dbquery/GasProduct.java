@@ -23,6 +23,17 @@ public class GasProduct extends BaseModelBean {
     return member;
   }
 
+  public FillVolume fillVolume() {
+    FillVolume member = new FillVolume();
+    member.setModelTypeName("fill_volume");
+    member.setName("fill_volume");
+    member.setMemberName("fillVolume");
+    member.setReferDirection(true);
+    member.setRelationName("fillVolume");
+    append(member);
+    return member;
+  }
+
   public GasProductTemplate template() {
     GasProductTemplate member = new GasProductTemplate();
     member.setModelTypeName("gas_product_template");
@@ -34,17 +45,6 @@ public class GasProduct extends BaseModelBean {
     return member;
   }
 
-  public Company company() {
-    Company member = new Company();
-    member.setModelTypeName("company");
-    member.setName("company");
-    member.setMemberName("company");
-    member.setReferDirection(true);
-    member.setRelationName("company");
-    append(member);
-    return member;
-  }
-
   public ProductStatus status() {
     ProductStatus member = new ProductStatus();
     member.setModelTypeName("product_status");
@@ -52,6 +52,17 @@ public class GasProduct extends BaseModelBean {
     member.setMemberName("status");
     member.setReferDirection(true);
     member.setRelationName("status");
+    append(member);
+    return member;
+  }
+
+  public Merchant merchant() {
+    Merchant member = new Merchant();
+    member.setModelTypeName("merchant");
+    member.setName("merchant");
+    member.setMemberName("merchant");
+    member.setReferDirection(true);
+    member.setRelationName("merchant");
     append(member);
     return member;
   }
@@ -80,11 +91,11 @@ public class GasProduct extends BaseModelBean {
     return member;
   }
 
-  public GasProductInventory gasProductInventoryList() {
-    GasProductInventory member = new GasProductInventory();
-    member.setModelTypeName("gas_product_inventory");
+  public GasProductInventoryRecord gasProductInventoryRecordList() {
+    GasProductInventoryRecord member = new GasProductInventoryRecord();
+    member.setModelTypeName("gas_product_inventory_record");
     member.setName("product");
-    member.setMemberName("gasProductInventoryList");
+    member.setMemberName("gasProductInventoryRecordList");
     member.setRelationName("product");
     member.setReferDirection(false);
     append(member);
@@ -118,6 +129,15 @@ public class GasProduct extends BaseModelBean {
     member.setModelTypeName("string");
     // member.setName("name");
     member.setName("name");
+    useMember(member);
+    return member;
+  }
+
+  public NumberAttribute quantity() {
+    NumberAttribute member = new NumberAttribute();
+    member.setModelTypeName("int");
+    // member.setName("quantity");
+    member.setName("quantity");
     useMember(member);
     return member;
   }

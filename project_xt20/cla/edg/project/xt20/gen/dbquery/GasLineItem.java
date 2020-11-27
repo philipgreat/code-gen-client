@@ -45,29 +45,40 @@ public class GasLineItem extends BaseModelBean {
     return member;
   }
 
-  public Company company() {
-    Company member = new Company();
-    member.setModelTypeName("company");
-    member.setName("company");
-    member.setMemberName("company");
+  public MainOrder mainOrder() {
+    MainOrder member = new MainOrder();
+    member.setModelTypeName("main_order");
+    member.setName("main_order");
+    member.setMemberName("mainOrder");
     member.setReferDirection(true);
-    member.setRelationName("company");
-    append(member);
-    return member;
-  }
-
-  public SellOrder sellOrder() {
-    SellOrder member = new SellOrder();
-    member.setModelTypeName("sell_order");
-    member.setName("sell_order");
-    member.setMemberName("sellOrder");
-    member.setReferDirection(true);
-    member.setRelationName("sellOrder");
+    member.setRelationName("mainOrder");
     append(member);
     return member;
   }
 
   // 被引用的对象
+
+  public GasShippingGroup gasShippingGroupList() {
+    GasShippingGroup member = new GasShippingGroup();
+    member.setModelTypeName("gas_shipping_group");
+    member.setName("gas_line_item");
+    member.setMemberName("gasShippingGroupList");
+    member.setRelationName("gasLineItem");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public DeliveryReceipt deliveryReceiptList() {
+    DeliveryReceipt member = new DeliveryReceipt();
+    member.setModelTypeName("delivery_receipt");
+    member.setName("gas_line_item");
+    member.setMemberName("deliveryReceiptList");
+    member.setRelationName("gasLineItem");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
 
   // 普通属性
 
@@ -107,38 +118,11 @@ public class GasLineItem extends BaseModelBean {
     return member;
   }
 
-  public NumberAttribute loadQuantity() {
-    NumberAttribute member = new NumberAttribute();
-    member.setModelTypeName("int");
-    // member.setName("loadQuantity");
-    member.setName("load_quantity");
-    useMember(member);
-    return member;
-  }
-
-  public NumberAttribute receivedQuantity() {
-    NumberAttribute member = new NumberAttribute();
-    member.setModelTypeName("int");
-    // member.setName("receivedQuantity");
-    member.setName("received_quantity");
-    useMember(member);
-    return member;
-  }
-
-  public NumberAttribute receivedBackQuantity() {
-    NumberAttribute member = new NumberAttribute();
-    member.setModelTypeName("int");
-    // member.setName("receivedBackQuantity");
-    member.setName("received_back_quantity");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute component() {
+  public StringAttribute components() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
-    // member.setName("component");
-    member.setName("component");
+    // member.setName("components");
+    member.setName("components");
     useMember(member);
     return member;
   }

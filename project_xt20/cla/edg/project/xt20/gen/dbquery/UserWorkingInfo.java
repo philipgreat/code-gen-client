@@ -4,37 +4,37 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class NominalPressure extends BaseModelBean {
+public class UserWorkingInfo extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.xt20.nominalpressure.NominalPressure";
+    return "com.doublechaintech.xt20.userworkinginfo.UserWorkingInfo";
   }
   // 枚举对象
 
   // 引用的对象
 
-  public Platform platform() {
-    Platform member = new Platform();
-    member.setModelTypeName("platform");
-    member.setName("platform");
-    member.setMemberName("platform");
+  public PersonalUser user() {
+    PersonalUser member = new PersonalUser();
+    member.setModelTypeName("personal_user");
+    member.setName("user");
+    member.setMemberName("user");
     member.setReferDirection(true);
-    member.setRelationName("platform");
+    member.setRelationName("user");
+    append(member);
+    return member;
+  }
+
+  public Employee employee() {
+    Employee member = new Employee();
+    member.setModelTypeName("employee");
+    member.setName("employee");
+    member.setMemberName("employee");
+    member.setReferDirection(true);
+    member.setRelationName("employee");
     append(member);
     return member;
   }
 
   // 被引用的对象
-
-  public GasCylinder gasCylinderList() {
-    GasCylinder member = new GasCylinder();
-    member.setModelTypeName("gas_cylinder");
-    member.setName("nominal_pressure");
-    member.setMemberName("gasCylinderList");
-    member.setRelationName("nominalPressure");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
 
   // 普通属性
 
@@ -47,11 +47,11 @@ public class NominalPressure extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute pressure() {
+  public StringAttribute jobRole() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
-    // member.setName("pressure");
-    member.setName("pressure");
+    // member.setName("jobRole");
+    member.setName("job_role");
     useMember(member);
     return member;
   }

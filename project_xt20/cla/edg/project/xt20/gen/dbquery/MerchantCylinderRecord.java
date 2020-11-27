@@ -4,13 +4,24 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class CustomerCylinder extends BaseModelBean {
+public class MerchantCylinderRecord extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.xt20.customercylinder.CustomerCylinder";
+    return "com.doublechaintech.xt20.merchantcylinderrecord.MerchantCylinderRecord";
   }
   // 枚举对象
 
   // 引用的对象
+
+  public Merchant merchant() {
+    Merchant member = new Merchant();
+    member.setModelTypeName("merchant");
+    member.setName("merchant");
+    member.setMemberName("merchant");
+    member.setReferDirection(true);
+    member.setRelationName("merchant");
+    append(member);
+    return member;
+  }
 
   public GasCylinder cylinder() {
     GasCylinder member = new GasCylinder();
@@ -23,35 +34,24 @@ public class CustomerCylinder extends BaseModelBean {
     return member;
   }
 
-  public Merchant seller() {
-    Merchant member = new Merchant();
-    member.setModelTypeName("merchant");
-    member.setName("seller");
-    member.setMemberName("seller");
+  public Employee actor() {
+    Employee member = new Employee();
+    member.setModelTypeName("employee");
+    member.setName("actor");
+    member.setMemberName("actor");
     member.setReferDirection(true);
-    member.setRelationName("seller");
+    member.setRelationName("actor");
     append(member);
     return member;
   }
 
-  public Merchant customer() {
-    Merchant member = new Merchant();
-    member.setModelTypeName("merchant");
-    member.setName("customer");
-    member.setMemberName("customer");
+  public ActionType action() {
+    ActionType member = new ActionType();
+    member.setModelTypeName("action_type");
+    member.setName("action");
+    member.setMemberName("action");
     member.setReferDirection(true);
-    member.setRelationName("customer");
-    append(member);
-    return member;
-  }
-
-  public CheckStatus status() {
-    CheckStatus member = new CheckStatus();
-    member.setModelTypeName("check_status");
-    member.setName("status");
-    member.setMemberName("status");
-    member.setReferDirection(true);
-    member.setRelationName("status");
+    member.setRelationName("action");
     append(member);
     return member;
   }
@@ -78,29 +78,29 @@ public class CustomerCylinder extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute delta() {
+  public NumberAttribute updateQuantity() {
+    NumberAttribute member = new NumberAttribute();
+    member.setModelTypeName("int");
+    // member.setName("updateQuantity");
+    member.setName("update_quantity");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute comment() {
     StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("delta");
-    member.setName("delta");
+    member.setModelTypeName("string_longtext");
+    // member.setName("comment");
+    member.setName("comment");
     useMember(member);
     return member;
   }
 
-  public DateTimeAttribute lastCheckTime() {
+  public DateTimeAttribute createTime() {
     DateTimeAttribute member = new DateTimeAttribute();
-    member.setModelTypeName("date_time");
-    // member.setName("lastCheckTime");
-    member.setName("last_check_time");
-    useMember(member);
-    return member;
-  }
-
-  public DateTimeAttribute lastConfirmTime() {
-    DateTimeAttribute member = new DateTimeAttribute();
-    member.setModelTypeName("date_time");
-    // member.setName("lastConfirmTime");
-    member.setName("last_confirm_time");
+    member.setModelTypeName("date_time_create");
+    // member.setName("createTime");
+    member.setName("create_time");
     useMember(member);
     return member;
   }

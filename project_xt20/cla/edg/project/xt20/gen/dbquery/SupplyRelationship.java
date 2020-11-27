@@ -4,21 +4,32 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class Warehouse extends BaseModelBean {
+public class SupplyRelationship extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.xt20.warehouse.Warehouse";
+    return "com.doublechaintech.xt20.supplyrelationship.SupplyRelationship";
   }
   // 枚举对象
 
   // 引用的对象
 
-  public Merchant merchant() {
+  public Merchant supplier() {
     Merchant member = new Merchant();
     member.setModelTypeName("merchant");
-    member.setName("merchant");
-    member.setMemberName("merchant");
+    member.setName("supplier");
+    member.setMemberName("supplier");
     member.setReferDirection(true);
-    member.setRelationName("merchant");
+    member.setRelationName("supplier");
+    append(member);
+    return member;
+  }
+
+  public Merchant customer() {
+    Merchant member = new Merchant();
+    member.setModelTypeName("merchant");
+    member.setName("customer");
+    member.setMemberName("customer");
+    member.setReferDirection(true);
+    member.setRelationName("customer");
     append(member);
     return member;
   }
@@ -36,38 +47,20 @@ public class Warehouse extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute name() {
+  public StringAttribute supplierComment() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
-    // member.setName("name");
-    member.setName("name");
+    // member.setName("supplierComment");
+    member.setName("supplier_comment");
     useMember(member);
     return member;
   }
 
-  public StringAttribute contactName() {
+  public StringAttribute customerComment() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
-    // member.setName("contactName");
-    member.setName("contact_name");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute mobile() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string_china_mobile_phone");
-    // member.setName("mobile");
-    member.setName("mobile");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute address() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("address");
-    member.setName("address");
+    // member.setName("customerComment");
+    member.setName("customer_comment");
     useMember(member);
     return member;
   }

@@ -4,9 +4,9 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class CustomerCylinder extends BaseModelBean {
+public class CustomerCylinderRecord extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.xt20.customercylinder.CustomerCylinder";
+    return "com.doublechaintech.xt20.customercylinderrecord.CustomerCylinderRecord";
   }
   // 枚举对象
 
@@ -45,18 +45,40 @@ public class CustomerCylinder extends BaseModelBean {
     return member;
   }
 
-  public CheckStatus status() {
-    CheckStatus member = new CheckStatus();
-    member.setModelTypeName("check_status");
-    member.setName("status");
-    member.setMemberName("status");
+  public Employee actor() {
+    Employee member = new Employee();
+    member.setModelTypeName("employee");
+    member.setName("actor");
+    member.setMemberName("actor");
     member.setReferDirection(true);
-    member.setRelationName("status");
+    member.setRelationName("actor");
+    append(member);
+    return member;
+  }
+
+  public ActionType action() {
+    ActionType member = new ActionType();
+    member.setModelTypeName("action_type");
+    member.setName("action");
+    member.setMemberName("action");
+    member.setReferDirection(true);
+    member.setRelationName("action");
     append(member);
     return member;
   }
 
   // 被引用的对象
+
+  public CustomerCylinderRecordEvidence customerCylinderRecordEvidenceList() {
+    CustomerCylinderRecordEvidence member = new CustomerCylinderRecordEvidence();
+    member.setModelTypeName("customer_cylinder_record_evidence");
+    member.setName("record");
+    member.setMemberName("customerCylinderRecordEvidenceList");
+    member.setRelationName("record");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
 
   // 普通属性
 
@@ -78,29 +100,29 @@ public class CustomerCylinder extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute delta() {
+  public NumberAttribute updateQuantity() {
+    NumberAttribute member = new NumberAttribute();
+    member.setModelTypeName("int");
+    // member.setName("updateQuantity");
+    member.setName("update_quantity");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute comment() {
     StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("delta");
-    member.setName("delta");
+    member.setModelTypeName("string_longtext");
+    // member.setName("comment");
+    member.setName("comment");
     useMember(member);
     return member;
   }
 
-  public DateTimeAttribute lastCheckTime() {
+  public DateTimeAttribute createTime() {
     DateTimeAttribute member = new DateTimeAttribute();
-    member.setModelTypeName("date_time");
-    // member.setName("lastCheckTime");
-    member.setName("last_check_time");
-    useMember(member);
-    return member;
-  }
-
-  public DateTimeAttribute lastConfirmTime() {
-    DateTimeAttribute member = new DateTimeAttribute();
-    member.setModelTypeName("date_time");
-    // member.setName("lastConfirmTime");
-    member.setName("last_confirm_time");
+    member.setModelTypeName("date_time_create");
+    // member.setName("createTime");
+    member.setName("create_time");
     useMember(member);
     return member;
   }

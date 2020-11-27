@@ -12,17 +12,6 @@ public class PersonalUser extends BaseModelBean {
 
   // 引用的对象
 
-  public Merchant merchant() {
-    Merchant member = new Merchant();
-    member.setModelTypeName("merchant");
-    member.setName("merchant");
-    member.setMemberName("merchant");
-    member.setReferDirection(true);
-    member.setRelationName("merchant");
-    append(member);
-    return member;
-  }
-
   public Platform platform() {
     Platform member = new Platform();
     member.setModelTypeName("platform");
@@ -36,23 +25,34 @@ public class PersonalUser extends BaseModelBean {
 
   // 被引用的对象
 
-  public Employee employeeList() {
-    Employee member = new Employee();
-    member.setModelTypeName("employee");
-    member.setName("person_inforamtion");
-    member.setMemberName("employeeList");
-    member.setRelationName("personInforamtion");
+  public IndividualIdentity individualIdentityList() {
+    IndividualIdentity member = new IndividualIdentity();
+    member.setModelTypeName("individual_identity");
+    member.setName("personal_user");
+    member.setMemberName("individualIdentityList");
+    member.setRelationName("personalUser");
     member.setReferDirection(false);
     append(member);
     return member;
   }
 
-  public CommonLog commonLogList() {
-    CommonLog member = new CommonLog();
-    member.setModelTypeName("common_log");
-    member.setName("person");
-    member.setMemberName("commonLogList");
-    member.setRelationName("person");
+  public UserWorkingInfo userWorkingInfoList() {
+    UserWorkingInfo member = new UserWorkingInfo();
+    member.setModelTypeName("user_working_info");
+    member.setName("user");
+    member.setMemberName("userWorkingInfoList");
+    member.setRelationName("user");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public Employee employeeList() {
+    Employee member = new Employee();
+    member.setModelTypeName("employee");
+    member.setName("person_information");
+    member.setMemberName("employeeList");
+    member.setRelationName("personInformation");
     member.setReferDirection(false);
     append(member);
     return member;
@@ -69,11 +69,11 @@ public class PersonalUser extends BaseModelBean {
     return member;
   }
 
-  public SellOrder sellOrderList() {
-    SellOrder member = new SellOrder();
-    member.setModelTypeName("sell_order");
+  public MainOrder mainOrderList() {
+    MainOrder member = new MainOrder();
+    member.setModelTypeName("main_order");
     member.setName("creator");
-    member.setMemberName("sellOrderList");
+    member.setMemberName("mainOrderList");
     member.setRelationName("creator");
     member.setReferDirection(false);
     append(member);
@@ -96,6 +96,15 @@ public class PersonalUser extends BaseModelBean {
     member.setModelTypeName("string");
     // member.setName("name");
     member.setName("name");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute nickName() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("nickName");
+    member.setName("nick_name");
     useMember(member);
     return member;
   }
