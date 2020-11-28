@@ -5,16 +5,11 @@ import cla.edg.pageflow.PageFlowScript;
 import cla.edg.project.xt20.pageflow.*;
 import cla.edg.project.xt20.gen.dbquery.*;
 
+import java.util.Map;
+
 
 public class MainPageFlow extends BasePageFlowDescriptionScript {
-    private static final PageFlowScript SCRIPT = $("wxapp client").need_login()
-            .base_on()
-            .base_package_name(Main.TARGET_BASE_PACKAGE_NAME)
-            .project_name(Main.TARGET_PROJECT_NAME)
-            .parent_class_name(getClassName(Main.TARGET_PAGEFLOW_JAVA_PARENT_CLASS_FULL_NAME))
-            .parent_class_package(getPackageName(Main.TARGET_PAGEFLOW_JAVA_PARENT_CLASS_FULL_NAME))
-            .bean_name(Main.TARGET_PAGEFLOW_JAVA_BEAN_NAME)
-            .addTag("change_request", "true");
+    protected PageFlowScript SCRIPT;
 
 
     @Override
@@ -28,5 +23,19 @@ public class MainPageFlow extends BasePageFlowDescriptionScript {
                 .import_from(new Q03_Users())
                 .import_from(new Q04_Employee())
             ;
+    }
+
+    public MainPageFlow withEnv(Map<String, String> envVars) {
+
+        SCRIPT = $("wxapp client").need_login()
+                .base_on()
+                .base_package_name(envVars.get("base_package_name"))
+                .project_name(envVars.get("project_name"))
+                .parent_class_name(envVars.get("parent_class_name"))
+                .parent_class_package(envVars.get("parent_class_package"))
+                .bean_name(envVars.get("bean_name"))
+                .resource_base_folder(envVars.get("resource_base_folder"))
+                .addTag("change_request", "true");
+        return this;
     }
 }

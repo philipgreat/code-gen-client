@@ -8,7 +8,7 @@ import java.io.File;
 public class P01_Example extends PieceOfScript {
     public PageFlowScript makeSequel(PageFlowScript script) {
         String fileName = "page_[\\d_]+\\.json";
-        File baseFolder = new File("/works/jobs/xt20_v1/workspace/code-gen-client/project_xt20/resource");
+        File baseFolder = new File((String) script.getConfiguration().get("resource_base_folder"));
         return script.load_page_flow_from(baseFolder, fileName)
                 .request("view something").with_string("target id")
                     .comments("使用ID访问某个对象").need_login().no_footprint()

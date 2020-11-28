@@ -42,11 +42,11 @@ import java.util.Map;
 public class Main {
 
 	// 模型文件存放的目录, 指向 modeling 目录所在的文件夹
-	public static String INPUT_MODEL_FOLDER = "/works/jobs/xt20_v1/workspace//web-code-generator/sky";
+	public static String INPUT_MODEL_FOLDER = "/works/jobs/xt20_v1/workspace/web-code-generator/sky";
 	// 生成的模型文件存放的目录, 指向 modeling 目录所在的文件夹. 通常指向和 INPUT_MODEL_FOLDER 相同的位置
 	public static String OUTPUT_MODEL_FOLDER = INPUT_MODEL_FOLDER;
 	// 生成的 java 代码存放的目录, 指向目标工程中的一个 '源代码目录'. 通常指向 bizcore/WEB-INF/ 这样的目录
-	public static String OUTPUT_JAVA_FOLDER = "/works/jobs/xt20_v1/workspace//xt20-biz-suite/bizcore/WEB-INF"; //
+	public static String OUTPUT_JAVA_FOLDER = "/works/jobs/xt20_v1/workspace/xt20-biz-suite/bizcore/WEB-INF"; //
 	// 生成的 page_flow 相关java源代码的(项目中)根目录, 通常指向 OUTPUT_JAVA_FOLDER 下的 xxx_custom_src. 因为项目迭代的关系,也可能需要额外指定目录
 	public static String OUTPUT_PAGEFLOW_FOLDER_NAME = "xt20_client_src";
 	// 生成目标项目的 项目名, 通常与模型文件的项目名一致
@@ -61,7 +61,15 @@ public class Main {
 	public static String TARGET_PAGEFLOW_JAVA_BEAN_NAME = "wxappService";
 
 	public static void main(String[] args) throws Exception {
-		generatePageFlow(new MainPageFlow());
+		Map<String, String> envVars = Utils.put("base_package_name", Main.TARGET_BASE_PACKAGE_NAME)
+				.put("project_name", Main.TARGET_PROJECT_NAME)
+				.put("parent_class_name", getClassName(Main.TARGET_PAGEFLOW_JAVA_PARENT_CLASS_FULL_NAME))
+				.put("parent_class_package", getPackageName(Main.TARGET_PAGEFLOW_JAVA_PARENT_CLASS_FULL_NAME))
+				.put("resource_base_folder", "/works/jobs/xt20_v1/workspace/code-gen-client/project_xt20/resource")
+				.put("bean_name", Main.TARGET_PAGEFLOW_JAVA_BEAN_NAME)
+				.into_map(String.class);
+
+		generatePageFlow(new MainPageFlow().withEnv(envVars));
 
         generateChangeRequestForm(new MainChangeRequest().getSpec());
 
@@ -103,4 +111,14 @@ public class Main {
                 .put("changeRequest.xml", new File(OUTPUT_MODEL_FOLDER)).into_map(File.class), files); // "changeRequest.xml"
     }
 
+
+	protected static String getClassName(String fullClassName) {
+		int pos = fullClassName.lastIndexOf(".");
+		return pos > 0 ? fullClassName.substring(pos + 1) : fullClassName;
+	}
+
+	protected static String getPackageName(String fullClassName) {
+		int pos = fullClassName.lastIndexOf(".");
+		return pos > 0 ? fullClassName.substring(0, pos) : fullClassName;
+	}
 }
