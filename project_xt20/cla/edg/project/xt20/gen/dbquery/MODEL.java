@@ -406,20 +406,6 @@ public class MODEL {
     return rst;
   }
 
-  public static GuideType guideType() {
-    GuideType rst = new GuideType();
-    rst.setModelTypeName("guide_type");
-    rst.setBeanPath(new BeanPath().name("guide_type"));
-    return rst;
-  }
-
-  public static GuideSlide guideSlide() {
-    GuideSlide rst = new GuideSlide();
-    rst.setModelTypeName("guide_slide");
-    rst.setBeanPath(new BeanPath().name("guide_slide"));
-    return rst;
-  }
-
   public static ChangeRequestType changeRequestType() {
     ChangeRequestType rst = new ChangeRequestType();
     rst.setModelTypeName("change_request_type");
