@@ -231,6 +231,13 @@ public class MODEL {
     return rst;
   }
 
+  public static CylinderArea cylinderArea() {
+    CylinderArea rst = new CylinderArea();
+    rst.setModelTypeName("cylinder_area");
+    rst.setBeanPath(new BeanPath().name("cylinder_area"));
+    return rst;
+  }
+
   public static GasCylinder gasCylinder() {
     GasCylinder rst = new GasCylinder();
     rst.setModelTypeName("gas_cylinder");

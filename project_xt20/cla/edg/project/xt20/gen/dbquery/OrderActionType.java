@@ -9,13 +9,13 @@ public class OrderActionType extends BaseModelBean {
     return "com.doublechaintech.xt20.orderactiontype.OrderActionType";
   }
   // 枚举对象
-  public static EnumAttribute SELLER_CREATE_ORDER =
+  public static EnumAttribute SELLER_SUBMIT_ORDER =
       new EnumAttribute(
-              "com.doublechaintech.xt20.orderactiontype.OrderActionType", "SELLER_CREATE_ORDER")
+              "com.doublechaintech.xt20.orderactiontype.OrderActionType", "SELLER_SUBMIT_ORDER")
           .chineseName("商家代客下单");
-  public static EnumAttribute BUYER_CREATE_ORDER =
+  public static EnumAttribute BUYER_SUBMIT_ORDER =
       new EnumAttribute(
-              "com.doublechaintech.xt20.orderactiontype.OrderActionType", "BUYER_CREATE_ORDER")
+              "com.doublechaintech.xt20.orderactiontype.OrderActionType", "BUYER_SUBMIT_ORDER")
           .chineseName("客户下单");
   public static EnumAttribute BUYER_CONFIRM =
       new EnumAttribute("com.doublechaintech.xt20.orderactiontype.OrderActionType", "BUYER_CONFIRM")
@@ -51,11 +51,17 @@ public class OrderActionType extends BaseModelBean {
       new EnumAttribute(
               "com.doublechaintech.xt20.orderactiontype.OrderActionType", "SELLER_CONFIRM_DONE")
           .chineseName("商家确认完成");
+  public static EnumAttribute SELLER_CANCEL =
+      new EnumAttribute("com.doublechaintech.xt20.orderactiontype.OrderActionType", "SELLER_CANCEL")
+          .chineseName("商家取消定单");
+  public static EnumAttribute BUYER_CANCEL =
+      new EnumAttribute("com.doublechaintech.xt20.orderactiontype.OrderActionType", "BUYER_CANCEL")
+          .chineseName("买家取消定单");
 
   public EnumAttribute[] getEnumNameList() {
     return new EnumAttribute[] {
-      SELLER_CREATE_ORDER,
-      BUYER_CREATE_ORDER,
+      SELLER_SUBMIT_ORDER,
+      BUYER_SUBMIT_ORDER,
       BUYER_CONFIRM,
       SELLER_FORCE_CONFIRM,
       SELLER_CONFIRM,
@@ -63,7 +69,9 @@ public class OrderActionType extends BaseModelBean {
       SELLER_CREATE_DELIVERY_RECEIPT,
       BUYER_CONFIRM_DELIVERY_RECEIPT,
       SELLER_FORCE_CONFIRM_DELIVERY_RECEIPT,
-      SELLER_CONFIRM_DONE
+      SELLER_CONFIRM_DONE,
+      SELLER_CANCEL,
+      BUYER_CANCEL
     };
   }
 

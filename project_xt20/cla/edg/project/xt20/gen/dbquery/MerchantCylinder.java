@@ -34,6 +34,17 @@ public class MerchantCylinder extends BaseModelBean {
     return member;
   }
 
+  public CylinderArea cylinderArea() {
+    CylinderArea member = new CylinderArea();
+    member.setModelTypeName("cylinder_area");
+    member.setName("cylinder_area");
+    member.setMemberName("cylinderArea");
+    member.setReferDirection(true);
+    member.setRelationName("cylinderArea");
+    append(member);
+    return member;
+  }
+
   // 被引用的对象
 
   // 普通属性

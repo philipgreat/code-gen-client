@@ -6,8 +6,8 @@
 
 
 
-=================1.0 Execute Report (Model Time 201128T1735) @Sat Nov 28 17:40:49 CST 2020, 91 objects and 640 fields===========================
-from file "/works/jobs/xt20_v1/workspace/web-code-generator/sky/modeling/microservice/xt20.xml"
+=================1.0 Execute Report (Model Time 201128T1843) @Sat Nov 28 18:44:34 CST 2020, 92 objects and 648 fields===========================
+from file "/Users/jackytian/git/web-code-generator/sky/modeling/microservice/xt20.xml"
 
 
  processing: mobile_app
@@ -424,6 +424,15 @@ Info: Add virtual field [delivery_receipt_statuss(es)] to <platform>
 	delivery_receipt_status.platform
 
 
+ processing: cylinder_area
+
+
+ processing: cylinder_area.platform.platform
+
+Info: Add virtual field [cylinder_areas(es)] to <platform>
+	cylinder_area.platform
+
+
  processing: gas_cylinder
 
 
@@ -478,6 +487,12 @@ Info: Add virtual field [merchant_cylinders(es)] to <merchant>
 	merchant_cylinder.merchant
 
 
+ processing: merchant_cylinder.cylinder_area.cylinder_area
+
+Info: Add virtual field [merchant_cylinders(es)] to <cylinder_area>
+	merchant_cylinder.cylinder_area
+
+
  processing: merchant_cylinder_record
 
 
@@ -491,6 +506,12 @@ Info: Add virtual field [merchant_cylinder_records(es)] to <merchant>
 
 Info: Add virtual field [merchant_cylinder_records(es)] to <gas_cylinder>
 	merchant_cylinder_record.cylinder
+
+
+ processing: merchant_cylinder_record.cylinder_area.cylinder_area
+
+Info: Add virtual field [merchant_cylinder_records(es)] to <cylinder_area>
+	merchant_cylinder_record.cylinder_area
 
 
  processing: merchant_cylinder_record.employee.actor
@@ -706,9 +727,9 @@ Info: Add virtual field [gas_product_inventory_records(es)] to <action_type>
  processing: deliver_task
 
 
- processing: deliver_task.personal_user.deliver_staff
+ processing: deliver_task.employee.deliver_staff
 
-Info: Add virtual field [deliver_tasks(es)] to <personal_user>
+Info: Add virtual field [deliver_tasks(es)] to <employee>
 	deliver_task.deliver_staff
 
 
@@ -745,9 +766,9 @@ Info: Add virtual field [main_orders(es)] to <order_status>
 	main_order.status
 
 
- processing: main_order.personal_user.creator
+ processing: main_order.employee.creator
 
-Info: Add virtual field [main_orders(es)] to <personal_user>
+Info: Add virtual field [main_orders(es)] to <employee>
 	main_order.creator
 
 
@@ -1221,6 +1242,7 @@ Info: Add virtual field [public_key_types(es)] to <user_domain>
 
 **************************************************
 
+meta{name=platform, features=laboratory_function,root}
 platform{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1229,7 +1251,7 @@ platform{
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(38){
+	references field(39){
 		provinceList	platform(__no_group)--platform;
 		cityList	platform(__no_group)--platform;
 		districtList	platform(__no_group)--platform;
@@ -1256,6 +1278,7 @@ platform{
 		shippingStatusList	platform(__no_group)--platform;
 		deliverTaskStatusList	platform(__no_group)--platform;
 		deliveryReceiptStatusList	platform(__no_group)--platform;
+		cylinderAreaList	platform(__no_group)--platform;
 		gasCylinderList	platform(__no_group)--platform;
 		gasProductTemplateList	platform(__no_group)--platform;
 		gasProductList	platform(__no_group)--platform;
@@ -1269,10 +1292,9 @@ platform{
 		changeRequestList	platform(__no_group)--platform;
 		systemProcessingInstanceList	platform(__no_group)--platform;
 	}
-	meta {name=platform, features=laboratory_function,root} 
-
 } depth=0; isRoot = true
 
+meta{name=province, features=setting}
 province{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1283,10 +1305,9 @@ province{
 	references field(1){
 		cityList	province(__no_group)--province;
 	}
-	meta {name=province, features=setting} 
-
 } depth=1; isRoot = false
 
+meta{name=city, features=setting}
 city{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1298,10 +1319,9 @@ city{
 	references field(1){
 		districtList	city(__no_group)--city;
 	}
-	meta {name=city, features=setting} 
-
 } depth=2; isRoot = false
 
+meta{name=district, features=setting}
 district{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1312,10 +1332,9 @@ district{
 	}
 	references field(0){
 	}
-	meta {name=district, features=setting} 
-
 } depth=3; isRoot = false
 
+meta{name=role, features=status}
 role{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1328,10 +1347,9 @@ role{
 	references field(1){
 		employeeList	role(__no_group)--role;
 	}
-	meta {name=role, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=employee_status, features=status}
 employee_status{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1344,10 +1362,9 @@ employee_status{
 	references field(1){
 		employeeList	status(__no_group)--status;
 	}
-	meta {name=employee_status, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=invitation_type, features=status}
 invitation_type{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1360,10 +1377,9 @@ invitation_type{
 	references field(1){
 		invitationRecordList	type(__no_group)--type;
 	}
-	meta {name=invitation_type, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=off_time, features=status}
 off_time{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1376,10 +1392,9 @@ off_time{
 		merchantList	off_time(__no_group)--off_time;
 		eventUpdateMerchantOffTimeList	off_time(__no_group)--off_time;
 	}
-	meta {name=off_time, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=merchant, features=log}
 merchant{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1412,10 +1427,9 @@ merchant{
 		deliveryReceiptListAsSeller	seller(__no_group)--seller;
 		deliveryReceiptListAsBuyer	buyer(__no_group)--seller;
 	}
-	meta {name=merchant, features=log} 
-
 } depth=2; isRoot = false
 
+meta{name=personal_user, features=merchant}
 personal_user{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1426,18 +1440,15 @@ personal_user{
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: personalUserList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(6){
+	references field(4){
 		individualIdentityList	personal_user(__no_group)--personal_user;
 		userWorkingInfoList	user(__no_group)--user;
 		employeeList	person_information(__no_group)--person_information;
-		deliverTaskList	deliver_staff(__no_group)--deliver_staff;
-		mainOrderList	creator(__no_group)--creator;
 		eventAdminTransferList	new_admin(__no_group)--new_admin;
 	}
-	meta {name=personal_user, features=merchant} 
-
 } depth=1; isRoot = false
 
+meta{name=individual_identity, features=log}
 individual_identity{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1447,10 +1458,9 @@ individual_identity{
 	}
 	references field(0){
 	}
-	meta {name=individual_identity, features=log} 
-
 } depth=2; isRoot = false
 
+meta{name=user_working_info, features=root}
 user_working_info{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1461,10 +1471,9 @@ user_working_info{
 	}
 	references field(0){
 	}
-	meta {name=user_working_info, features=root} 
-
 } depth=4; isRoot = false
 
+meta{name=organization_identity, features=root}
 organization_identity{
 	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1480,10 +1489,9 @@ organization_identity{
 	}
 	references field(0){
 	}
-	meta {name=organization_identity, features=root} 
-
 } depth=3; isRoot = false
 
+meta{name=warehouse, features=root}
 warehouse{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1496,10 +1504,9 @@ warehouse{
 	}
 	references field(0){
 	}
-	meta {name=warehouse, features=root} 
-
 } depth=3; isRoot = false
 
+meta{name=invitation_record, features=log}
 invitation_record{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1511,10 +1518,9 @@ invitation_record{
 	}
 	references field(0){
 	}
-	meta {name=invitation_record, features=log} 
-
 } depth=4; isRoot = false
 
+meta{name=employee, features=root}
 employee{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1526,7 +1532,7 @@ employee{
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: employeeList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(11){
+	references field(13){
 		userWorkingInfoList	employee(__no_group)--employee;
 		invitationRecordListAsInviter	inviter(__no_group)--inviter;
 		invitationRecordListAsInvitee	invitee(__no_group)--inviter;
@@ -1534,15 +1540,16 @@ employee{
 		customerCylinderRecordList	actor(__no_group)--actor;
 		customerCylinderRecordEvidenceList	actor(__no_group)--actor;
 		gasProductInventoryRecordList	actor(__no_group)--actor;
+		deliverTaskList	deliver_staff(__no_group)--deliver_staff;
+		mainOrderList	creator(__no_group)--creator;
 		gasShippingGroupList	creator(__no_group)--creator;
 		deliveryReceiptListAsCreator	creator(__no_group)--creator;
 		deliveryReceiptListAsConfirmer	confirmer(__no_group)--creator;
 		orderOperationRecordList	actor(__no_group)--actor;
 	}
-	meta {name=employee, features=root} 
-
 } depth=3; isRoot = false
 
+meta{name=supply_relationship, features=root}
 supply_relationship{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1554,10 +1561,9 @@ supply_relationship{
 	}
 	references field(0){
 	}
-	meta {name=supply_relationship, features=root} 
-
 } depth=3; isRoot = false
 
+meta{name=gas_container, features=root}
 gas_container{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1570,10 +1576,9 @@ gas_container{
 	references field(1){
 		gasCylinderList	gas_container(__no_group)--gas_container;
 	}
-	meta {name=gas_container, features=root} 
-
 } depth=1; isRoot = false
 
+meta{name=fill_medium, features=root}
 fill_medium{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1584,10 +1589,9 @@ fill_medium{
 	references field(1){
 		gasCylinderList	fill_medium(__no_group)--fill_medium;
 	}
-	meta {name=fill_medium, features=root} 
-
 } depth=1; isRoot = false
 
+meta{name=nominal_volume, features=root}
 nominal_volume{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1598,10 +1602,9 @@ nominal_volume{
 	references field(1){
 		gasCylinderList	nominal_volume(__no_group)--nominal_volume;
 	}
-	meta {name=nominal_volume, features=root} 
-
 } depth=1; isRoot = false
 
+meta{name=fill_volume, features=root}
 fill_volume{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1613,10 +1616,9 @@ fill_volume{
 		gasProductTemplateList	fill_volume(__no_group)--fill_volume;
 		gasProductList	fill_volume(__no_group)--fill_volume;
 	}
-	meta {name=fill_volume, features=root} 
-
 } depth=1; isRoot = false
 
+meta{name=nominal_pressure, features=root}
 nominal_pressure{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1627,10 +1629,9 @@ nominal_pressure{
 	references field(1){
 		gasCylinderList	nominal_pressure(__no_group)--nominal_pressure;
 	}
-	meta {name=nominal_pressure, features=root} 
-
 } depth=1; isRoot = false
 
+meta{name=gas_container_category, features=root}
 gas_container_category{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1641,10 +1642,9 @@ gas_container_category{
 	references field(1){
 		gasCylinderList	gas_container_category(__no_group)--gas_container_category;
 	}
-	meta {name=gas_container_category, features=root} 
-
 } depth=1; isRoot = false
 
+meta{name=gas_component, features=root}
 gas_component{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1656,10 +1656,9 @@ gas_component{
 		gasProductTemplateComponentList	component(__no_group)--component;
 		gasProductComponentList	component(__no_group)--component;
 	}
-	meta {name=gas_component, features=root} 
-
 } depth=1; isRoot = false
 
+meta{name=check_status, features=status}
 check_status{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1672,10 +1671,9 @@ check_status{
 	references field(1){
 		customerCylinderList	status(__no_group)--status;
 	}
-	meta {name=check_status, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=action_type, features=status}
 action_type{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1690,10 +1688,9 @@ action_type{
 		customerCylinderRecordList	action(__no_group)--action;
 		gasProductInventoryRecordList	action(__no_group)--action;
 	}
-	meta {name=action_type, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=product_status, features=status}
 product_status{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1706,26 +1703,24 @@ product_status{
 	references field(1){
 		gasProductList	status(__no_group)--status;
 	}
-	meta {name=product_status, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=order_status, features=status}
 order_status{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('处理中|待买家确认|买家确认超时|待审核|已提交|待自提|待配送|正在配送|已交接|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
-		string	code('PROCESSING|WAITING_BUYER_CONFIRM|BUYER_CONFIRM_TIMEOUT|WAITING_SELLER_CONFIRM|SUBMITTED|WAITING_BUYER_PICK_UP|WAITING_SELLER_DELIVERY|SELLER_SHIPPING|BUYER_RECEIVED|COMPLETED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
-		string	description('处理中|待买家确认|买家确认超时|待卖家审核|已提交|待自提|待配送|正在配送|已交接|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	name('处理中|待买家确认|买家确认超时|待审核|已提交|待自提|待配送|正在配送|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	code('PROCESSING|WAITING_BUYER_CONFIRM|BUYER_CONFIRM_TIMEOUT|WAITING_SELLER_CONFIRM|SUBMITTED|WAITING_BUYER_PICK_UP|WAITING_SELLER_DELIVERY|SELLER_SHIPPING|COMPLETED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
+		string	description('处理中|待买家确认|买家确认超时|待卖家审核|已提交|待自提|待配送|正在配送|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: orderStatusList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(1){
 		mainOrderList	status(__no_group)--status;
 	}
-	meta {name=order_status, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=deliver_type, features=status}
 deliver_type{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1738,26 +1733,24 @@ deliver_type{
 	references field(1){
 		gasShippingGroupList	shipping_type(__no_group)--shipping_type;
 	}
-	meta {name=deliver_type, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=shipping_status, features=status}
 shipping_status{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('待自提|待发货|正在配送|已签收|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	name('待自提|待配送|正在配送|已签收|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
 		string	code('WAITING_BUYER_PICK_UP|WAITING_SELLER_DELIVERY|SELLER_SHIPPING|BUYER_RECEIVED|COMPLETED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
-		string	description('待自提|待发货|正在配送|已签收|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	description('待自提|待配送|正在配送|已签收|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: shippingStatusList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(1){
 		gasShippingGroupList	shipping_status(__no_group)--shipping_status;
 	}
-	meta {name=shipping_status, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=deliver_task_status, features=status}
 deliver_task_status{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1770,10 +1763,9 @@ deliver_task_status{
 	references field(1){
 		deliverTaskList	status(__no_group)--status;
 	}
-	meta {name=deliver_task_status, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=delivery_receipt_status, features=status}
 delivery_receipt_status{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1786,10 +1778,25 @@ delivery_receipt_status{
 	references field(1){
 		deliveryReceiptList	status(__no_group)--status;
 	}
-	meta {name=delivery_receipt_status, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=cylinder_area, features=status}
+cylinder_area{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('空瓶|实瓶|实瓶在途|回瓶在途|客户持瓶'), verb: false, required: true,type:string,relationMeta={};
+		string	code('EMPTY|PRODUCT|DELIVERY|BACK|BUYER'), verb: false, required: true,type:string,relationMeta={};
+		string	description('空瓶|实瓶|实瓶在途|回瓶在途|客户持瓶'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: cylinderAreaList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(2){
+		merchantCylinderList	cylinder_area(__no_group)--cylinder_area;
+		merchantCylinderRecordList	cylinder_area(__no_group)--cylinder_area;
+	}
+} depth=1; isRoot = false
+
+meta{name=gas_cylinder, features=root}
 gas_cylinder{
 	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1812,29 +1819,29 @@ gas_cylinder{
 		gasProductList	cylinder(__no_group)--cylinder;
 		gasLineItemList	cylinder(__no_group)--cylinder;
 	}
-	meta {name=gas_cylinder, features=root} 
-
 } depth=2; isRoot = false
 
+meta{name=merchant_cylinder, features=root}
 merchant_cylinder{
-	fields(5){
+	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: merchantCylinderList,type:gas_cylinder,relationMeta={};
 		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: merchantCylinderList,type:merchant,relationMeta={};
+		cylinder_area	cylinder_area('$(object)'), verb: false, required: true, referenceBy: merchantCylinderList,type:cylinder_area,relationMeta={};
 		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(0){
 	}
-	meta {name=merchant_cylinder, features=root} 
-
 } depth=3; isRoot = false
 
+meta{name=merchant_cylinder_record, features=log}
 merchant_cylinder_record{
-	fields(10){
+	fields(11){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: merchantCylinderRecordList,type:merchant,relationMeta={};
 		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: merchantCylinderRecordList,type:gas_cylinder,relationMeta={};
+		cylinder_area	cylinder_area('$(object)'), verb: false, required: true, referenceBy: merchantCylinderRecordList,type:cylinder_area,relationMeta={};
 		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
 		int	update_quantity('1'), verb: false, required: true,type:int,relationMeta={};
 		employee	actor('$(object)'), verb: false, required: true, referenceBy: merchantCylinderRecordList,type:employee,relationMeta={};
@@ -1845,10 +1852,9 @@ merchant_cylinder_record{
 	}
 	references field(0){
 	}
-	meta {name=merchant_cylinder_record, features=log} 
-
 } depth=4; isRoot = false
 
+meta{name=customer_cylinder, features=root}
 customer_cylinder{
 	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1864,10 +1870,9 @@ customer_cylinder{
 	}
 	references field(0){
 	}
-	meta {name=customer_cylinder, features=root} 
-
 } depth=3; isRoot = false
 
+meta{name=customer_cylinder_record, features=log}
 customer_cylinder_record{
 	fields(11){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1885,10 +1890,9 @@ customer_cylinder_record{
 	references field(1){
 		customerCylinderRecordEvidenceList	record(__no_group)--record;
 	}
-	meta {name=customer_cylinder_record, features=log} 
-
 } depth=4; isRoot = false
 
+meta{name=customer_cylinder_record_evidence, features=log}
 customer_cylinder_record_evidence{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1901,10 +1905,9 @@ customer_cylinder_record_evidence{
 	}
 	references field(0){
 	}
-	meta {name=customer_cylinder_record_evidence, features=log} 
-
 } depth=5; isRoot = false
 
+meta{name=gas_product_template, features=root}
 gas_product_template{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1921,10 +1924,9 @@ gas_product_template{
 		gasProductList	template(__no_group)--template;
 		gasLineItemList	template(__no_group)--template;
 	}
-	meta {name=gas_product_template, features=root} 
-
 } depth=3; isRoot = false
 
+meta{name=gas_product_template_component, features=root}
 gas_product_template_component{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1935,10 +1937,9 @@ gas_product_template_component{
 	}
 	references field(0){
 	}
-	meta {name=gas_product_template_component, features=root} 
-
 } depth=4; isRoot = false
 
+meta{name=gas_product, features=root}
 gas_product{
 	fields(15){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1962,10 +1963,9 @@ gas_product{
 		gasProductInventoryRecordList	product(__no_group)--product;
 		gasLineItemList	product(__no_group)--product;
 	}
-	meta {name=gas_product, features=root} 
-
 } depth=4; isRoot = false
 
+meta{name=gas_product_component, features=root}
 gas_product_component{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1976,10 +1976,9 @@ gas_product_component{
 	}
 	references field(0){
 	}
-	meta {name=gas_product_component, features=root} 
-
 } depth=5; isRoot = false
 
+meta{name=gas_product_inventory_record, features=log}
 gas_product_inventory_record{
 	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -1995,10 +1994,9 @@ gas_product_inventory_record{
 	}
 	references field(0){
 	}
-	meta {name=gas_product_inventory_record, features=log} 
-
 } depth=5; isRoot = false
 
+meta{name=gas_product_cache, features=root}
 gas_product_cache{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2009,10 +2007,9 @@ gas_product_cache{
 	}
 	references field(0){
 	}
-	meta {name=gas_product_cache, features=root} 
-
 } depth=0; isRoot = true
 
+meta{name=gas_product_template_cache, features=root}
 gas_product_template_cache{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2022,15 +2019,14 @@ gas_product_template_cache{
 	}
 	references field(0){
 	}
-	meta {name=gas_product_template_cache, features=root} 
-
 } depth=0; isRoot = true
 
+meta{name=deliver_task, features=root}
 deliver_task{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('2012年12月12日张三任务'), verb: false, required: true,type:string,relationMeta={};
-		personal_user	deliver_staff('$(object)'), verb: false, required: true, referenceBy: deliverTaskList,type:personal_user,relationMeta={};
+		employee	deliver_staff('$(object)'), verb: false, required: true, referenceBy: deliverTaskList,type:employee,relationMeta={};
 		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: deliverTaskList,type:merchant,relationMeta={};
 		deliver_task_status	status('$(object)'), verb: false, required: true, referenceBy: deliverTaskList,type:deliver_task_status,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
@@ -2040,10 +2036,9 @@ deliver_task{
 	references field(1){
 		gasShippingGroupList	deliver_task(__no_group)--deliver_task;
 	}
-	meta {name=deliver_task, features=root} 
+} depth=4; isRoot = false
 
-} depth=3; isRoot = false
-
+meta{name=main_order, features=root}
 main_order{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2051,7 +2046,7 @@ main_order{
 		merchant	buyer('$(object)'), verb: false, required: true, referenceBy: mainOrderListAsBuyer,type:merchant,relationMeta={};
 		merchant	seller('$(object)'), verb: false, required: true, referenceBy: mainOrderListAsSeller,type:merchant,relationMeta={};
 		order_status	status('$(object)'), verb: false, required: true, referenceBy: mainOrderList,type:order_status,relationMeta={};
-		personal_user	creator('$(object)'), verb: false, required: true, referenceBy: mainOrderList,type:personal_user,relationMeta={};
+		employee	creator('$(object)'), verb: false, required: true, referenceBy: mainOrderList,type:employee,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
@@ -2062,10 +2057,9 @@ main_order{
 		deliveryReceiptList	main_order(__no_group)--main_order;
 		orderOperationRecordList	main_order(__no_group)--main_order;
 	}
-	meta {name=main_order, features=root} 
+} depth=4; isRoot = false
 
-} depth=3; isRoot = false
-
+meta{name=gas_line_item, features=root}
 gas_line_item{
 	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2083,10 +2077,9 @@ gas_line_item{
 		gasShippingGroupList	gas_line_item(__no_group)--gas_line_item;
 		deliveryReceiptList	gas_line_item(__no_group)--gas_line_item;
 	}
-	meta {name=gas_line_item, features=root} 
-
 } depth=5; isRoot = false
 
+meta{name=gas_shipping_group, features=log}
 gas_shipping_group{
 	fields(20){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2113,10 +2106,9 @@ gas_shipping_group{
 	references field(1){
 		deliveryReceiptList	gas_shipping_group(__no_group)--gas_shipping_group;
 	}
-	meta {name=gas_shipping_group, features=log} 
-
 } depth=6; isRoot = false
 
+meta{name=delivery_receipt, features=root}
 delivery_receipt{
 	fields(15){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2137,26 +2129,24 @@ delivery_receipt{
 	}
 	references field(0){
 	}
-	meta {name=delivery_receipt, features=root} 
-
 } depth=7; isRoot = false
 
+meta{name=order_action_type, features=status}
 order_action_type{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('商家代客下单|客户下单|客户确认订单|商家代客户确认订单|商家确认订单|商家订单发货|商家创建交接单|客户确认交接单|商家代客户确认交接单|商家确认完成'), verb: false, required: true,type:string,relationMeta={};
-		string	code('SELLER_CREATE_ORDER|BUYER_CREATE_ORDER|BUYER_CONFIRM|SELLER_FORCE_CONFIRM|SELLER_CONFIRM|SELLER_DELIVERY|SELLER_CREATE_DELIVERY_RECEIPT|BUYER_CONFIRM_DELIVERY_RECEIPT|SELLER_FORCE_CONFIRM_DELIVERY_RECEIPT|SELLER_CONFIRM_DONE'), verb: false, required: true,type:string,relationMeta={};
-		string	description('代客下单|客户下单|客户确认订单|商家代客户确认订单|商家确认订单|商家订单发货|商家创建交接单|客户确认交接单|商家代客户确认交接单|商家确认完成'), verb: false, required: true,type:string,relationMeta={};
+		string	name('商家代客下单|客户下单|客户确认订单|商家代客户确认订单|商家确认订单|商家订单发货|商家创建交接单|客户确认交接单|商家代客户确认交接单|商家确认完成|商家取消定单|买家取消定单'), verb: false, required: true,type:string,relationMeta={};
+		string	code('SELLER_SUBMIT_ORDER|BUYER_SUBMIT_ORDER|BUYER_CONFIRM|SELLER_FORCE_CONFIRM|SELLER_CONFIRM|SELLER_DELIVERY|SELLER_CREATE_DELIVERY_RECEIPT|BUYER_CONFIRM_DELIVERY_RECEIPT|SELLER_FORCE_CONFIRM_DELIVERY_RECEIPT|SELLER_CONFIRM_DONE|SELLER_CANCEL|BUYER_CANCEL'), verb: false, required: true,type:string,relationMeta={};
+		string	description('代客下单|客户下单|客户确认订单|商家代客户确认订单|商家确认订单|商家订单发货|商家创建交接单|客户确认交接单|商家代客户确认交接单|商家确认完成|商家取消定单|买家取消定单'), verb: false, required: true,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: orderActionTypeList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(1){
 		orderOperationRecordList	action(__no_group)--action;
 	}
-	meta {name=order_action_type, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=order_operation_record, features=log}
 order_operation_record{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2170,10 +2160,9 @@ order_operation_record{
 	}
 	references field(0){
 	}
-	meta {name=order_operation_record, features=log} 
+} depth=5; isRoot = false
 
-} depth=4; isRoot = false
-
+meta{name=icon_configuration, features=status}
 icon_configuration{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2186,10 +2175,9 @@ icon_configuration{
 	}
 	references field(0){
 	}
-	meta {name=icon_configuration, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=system_level_configuration, features=status}
 system_level_configuration{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2202,10 +2190,9 @@ system_level_configuration{
 	}
 	references field(0){
 	}
-	meta {name=system_level_configuration, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=system_level_images, features=status}
 system_level_images{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2219,10 +2206,9 @@ system_level_images{
 	}
 	references field(0){
 	}
-	meta {name=system_level_images, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=system_level_content, features=status}
 system_level_content{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2235,10 +2221,9 @@ system_level_content{
 	}
 	references field(0){
 	}
-	meta {name=system_level_content, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=system_level_number, immutable_fields=code,min_value,max_value, features=status}
 system_level_number{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2253,10 +2238,9 @@ system_level_number{
 	}
 	references field(0){
 	}
-	meta {name=system_level_number, immutable_fields=code,min_value,max_value, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=system_announcement, features=root}
 system_announcement{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2269,10 +2253,9 @@ system_announcement{
 	}
 	references field(0){
 	}
-	meta {name=system_announcement, features=root} 
-
 } depth=1; isRoot = false
 
+meta{name=guide_type, features=status}
 guide_type{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2284,10 +2267,9 @@ guide_type{
 	references field(1){
 		guideSlideList	guide_type(__no_group)--guide_type;
 	}
-	meta {name=guide_type, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=guide_slide, features=root}
 guide_slide{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2302,10 +2284,9 @@ guide_slide{
 	}
 	references field(0){
 	}
-	meta {name=guide_slide, features=root} 
-
 } depth=2; isRoot = false
 
+meta{name=change_request_type, identified_by=code, features=cr_type}
 change_request_type{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2322,10 +2303,9 @@ change_request_type{
 		changeRequestList	request_type(__no_group)--request_type;
 		eventInfoInCrList	change_request_type(__no_group)--change_request_type;
 	}
-	meta {name=change_request_type, identified_by=code, features=cr_type} 
-
 } depth=1; isRoot = false
 
+meta{name=change_request, features=change_request}
 change_request{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2348,10 +2328,9 @@ change_request{
 		eventUpdateAdditionalSpecList	change_request(__no_group)--change_request;
 		eventInfoInCrList	change_request(__no_group)--change_request;
 	}
-	meta {name=change_request, features=change_request} 
-
 } depth=2; isRoot = false
 
+meta{bind_with_cr_type=MORE_SUPPLIER_PRODUCT|CONFIRM_JOIN|UPDATE_MERCHANT_INFO_WHEN_INBOUND|CREATE_HANDOVER_TASK|PRODUCT_INBOUND|CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT|EDIT_COMMENT|UPDATE_PERSONAL_INFO|BUYER_BIC_CONFIRM|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|BUYER_UPDATE_DELIVERY_INFO|BUYER|UPDATE_PRODUCT_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|UPDATE_COMPANY_INFO|UPDATE_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER|PRODUCT_ON_SHELF|SEND_TO_CUSTOMER_AUDIT|CONFIRM_QUOTE|AUDIT_ORDER|CUSTOM_PRODUCT_WHEN_INITIAL|BUYER_DELIVERY_INFO|COPY_PRODUCT|BUYER_UPDATE_ORDER|CREATE_SPLIT_ORDER|CUSTOM_PRODUCT_WHEN_QUOTE|UPDATE_DELIVERY_TASK|PRODUCT_OFF_SHELF|CREATE_DELIVERY_TASK|EDIT_BUYER_COLLEAGUE|CONFIRM_AS_CUSTOMER|CONFIRM_DELIVERY_TASK|UPDATE_BUYER_INFO_WHEN_ORDER, name=event_tbd, features=event}
 event_tbd{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2361,10 +2340,9 @@ event_tbd{
 	}
 	references field(0){
 	}
-	meta {bind_with_cr_type=MORE_SUPPLIER_PRODUCT|CONFIRM_JOIN|UPDATE_MERCHANT_INFO_WHEN_INBOUND|CREATE_HANDOVER_TASK|PRODUCT_INBOUND|CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT|EDIT_COMMENT|UPDATE_PERSONAL_INFO|BUYER_BIC_CONFIRM|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|BUYER_UPDATE_DELIVERY_INFO|BUYER|UPDATE_PRODUCT_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|UPDATE_COMPANY_INFO|UPDATE_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER|PRODUCT_ON_SHELF|SEND_TO_CUSTOMER_AUDIT|CONFIRM_QUOTE|AUDIT_ORDER|CUSTOM_PRODUCT_WHEN_INITIAL|BUYER_DELIVERY_INFO|COPY_PRODUCT|BUYER_UPDATE_ORDER|CREATE_SPLIT_ORDER|CUSTOM_PRODUCT_WHEN_QUOTE|UPDATE_DELIVERY_TASK|PRODUCT_OFF_SHELF|CREATE_DELIVERY_TASK|EDIT_BUYER_COLLEAGUE|CONFIRM_AS_CUSTOMER|CONFIRM_DELIVERY_TASK|UPDATE_BUYER_INFO_WHEN_ORDER, name=event_tbd, features=event} 
-
 } depth=3; isRoot = false
 
+meta{bind_with_cr_type=SELLER_REGISTER|UPDATE_MERCHANT_INFO_FROM_SELLER_HOME|SELLER_UPDATE_MERCHANT_INFO|UPDATE_MERCHANT_INFO_WHEN_INVITE, name=event_seller_info, features=event}
 event_seller_info{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2379,10 +2357,9 @@ event_seller_info{
 	}
 	references field(0){
 	}
-	meta {bind_with_cr_type=SELLER_REGISTER|UPDATE_MERCHANT_INFO_FROM_SELLER_HOME|SELLER_UPDATE_MERCHANT_INFO|UPDATE_MERCHANT_INFO_WHEN_INVITE, name=event_seller_info, features=event} 
-
 } depth=3; isRoot = false
 
+meta{bind_with_cr_type=COMPANY_ADMIN_TRANSFER|BUYER_ADMIN_TRANSFER, name=event_admin_transfer, features=event}
 event_admin_transfer{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2393,10 +2370,9 @@ event_admin_transfer{
 	}
 	references field(0){
 	}
-	meta {bind_with_cr_type=COMPANY_ADMIN_TRANSFER|BUYER_ADMIN_TRANSFER, name=event_admin_transfer, features=event} 
-
 } depth=3; isRoot = false
 
+meta{bind_with_cr_type=UPDATE_MERCHANT_OFF_TIME, name=event_update_merchant_off_time, features=event}
 event_update_merchant_off_time{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2407,10 +2383,9 @@ event_update_merchant_off_time{
 	}
 	references field(0){
 	}
-	meta {bind_with_cr_type=UPDATE_MERCHANT_OFF_TIME, name=event_update_merchant_off_time, features=event} 
-
 } depth=3; isRoot = false
 
+meta{bind_with_cr_type=UPDATE_MERCHANT_DELIVERY_LIMIT, name=event_update_merchant_delivery_limit, features=event}
 event_update_merchant_delivery_limit{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2421,10 +2396,9 @@ event_update_merchant_delivery_limit{
 	}
 	references field(0){
 	}
-	meta {bind_with_cr_type=UPDATE_MERCHANT_DELIVERY_LIMIT, name=event_update_merchant_delivery_limit, features=event} 
-
 } depth=3; isRoot = false
 
+meta{bind_with_cr_type=APPROVE_JOIN_BUYER|UPDATE_COLLEAGUE_INFO|AUDIT_JOIN_APPLY, name=event_employee_approve, features=event}
 event_employee_approve{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2438,10 +2412,9 @@ event_employee_approve{
 	}
 	references field(0){
 	}
-	meta {bind_with_cr_type=APPROVE_JOIN_BUYER|UPDATE_COLLEAGUE_INFO|AUDIT_JOIN_APPLY, name=event_employee_approve, features=event} 
-
 } depth=3; isRoot = false
 
+meta{bind_with_cr_type=EDIT_ADDITIONAL_SPEC_WHEN_INIT|EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE|EDIT_ADDITIONAL_SPEC_WHEN_QUOTE|EDIT_ADDITIONAL_SPEC_WHEN_CREATE|EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT, name=event_update_additional_spec, features=event}
 event_update_additional_spec{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2455,10 +2428,9 @@ event_update_additional_spec{
 	}
 	references field(0){
 	}
-	meta {bind_with_cr_type=EDIT_ADDITIONAL_SPEC_WHEN_INIT|EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE|EDIT_ADDITIONAL_SPEC_WHEN_QUOTE|EDIT_ADDITIONAL_SPEC_WHEN_CREATE|EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT, name=event_update_additional_spec, features=event} 
-
 } depth=3; isRoot = false
 
+meta{name=event_info_in_cr, features=root, max_count=1000000000}
 event_info_in_cr{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2473,10 +2445,9 @@ event_info_in_cr{
 	}
 	references field(0){
 	}
-	meta {name=event_info_in_cr, features=root, max_count=1000000000} 
-
 } depth=3; isRoot = false
 
+meta{name=system_processing_instance, features=log,settings,no_sample_data, identified_by=target_identity}
 system_processing_instance{
 	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2492,10 +2463,9 @@ system_processing_instance{
 	}
 	references field(0){
 	}
-	meta {name=system_processing_instance, features=log,settings,no_sample_data, identified_by=target_identity} 
-
 } depth=1; isRoot = false
 
+meta{name=mobile_app, features=root}
 mobile_app{
 	fields(3){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2509,10 +2479,9 @@ mobile_app{
 		pageList	mobile_app(页面管理)--mobile_app;
 		pageTypeList	mobile_app(__no_group)--mobile_app;
 	}
-	meta {name=mobile_app, features=root} 
-
 } depth=0; isRoot = true
 
+meta{name=page, features=root, vg4mobile_app=页面管理}
 page{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2528,10 +2497,9 @@ page{
 		uiActionList	page(__no_group)--page;
 		sectionList	page(__no_group)--page;
 	}
-	meta {name=page, features=root, vg4mobile_app=页面管理} 
-
 } depth=2; isRoot = false
 
+meta{name=page_type, features=status, identified_by=code}
 page_type{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2544,10 +2512,9 @@ page_type{
 	references field(1){
 		pageList	page_type(__no_group)--page_type;
 	}
-	meta {name=page_type, features=status, identified_by=code} 
-
 } depth=1; isRoot = false
 
+meta{name=slide, features=root}
 slide{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2561,10 +2528,9 @@ slide{
 	}
 	references field(0){
 	}
-	meta {name=slide, features=root} 
-
 } depth=3; isRoot = false
 
+meta{name=ui_action, features=root}
 ui_action{
 	fields(11){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2581,10 +2547,9 @@ ui_action{
 	}
 	references field(0){
 	}
-	meta {name=ui_action, features=root} 
-
 } depth=3; isRoot = false
 
+meta{name=section, features=root}
 section{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2599,10 +2564,9 @@ section{
 	}
 	references field(0){
 	}
-	meta {name=section, features=root} 
-
 } depth=3; isRoot = false
 
+meta{name=user_domain, features=ootb}
 user_domain{
 	fields(3){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2614,10 +2578,9 @@ user_domain{
 		secUserList	domain(__no_group)--domain;
 		publicKeyTypeList	domain(__no_group)--domain;
 	}
-	meta {name=user_domain, features=ootb} 
-
 } depth=0; isRoot = true
 
+meta{name=user_allow_list, features=syssetting}
 user_allow_list{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2628,10 +2591,9 @@ user_allow_list{
 	}
 	references field(0){
 	}
-	meta {name=user_allow_list, features=syssetting} 
-
 } depth=1; isRoot = false
 
+meta{name=sec_user, features=ootb, identified_by=login,email,mobile}
 sec_user{
 	fields(13){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2655,10 +2617,9 @@ sec_user{
 		wechatMiniappIdentityList	sec_user(__no_group)--sec_user;
 		keypairIdentityList	sec_user(__no_group)--sec_user;
 	}
-	meta {name=sec_user, features=ootb, identified_by=login,email,mobile} 
-
 } depth=1; isRoot = false
 
+meta{name=user_app, features=ootb}
 user_app{
 	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2676,10 +2637,9 @@ user_app{
 		quickLinkList	app(__no_group)--app;
 		listAccessList	app(__no_group)--app;
 	}
-	meta {name=user_app, features=ootb} 
-
 } depth=2; isRoot = false
 
+meta{name=quick_link, features=ootb}
 quick_link{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2693,10 +2653,9 @@ quick_link{
 	}
 	references field(0){
 	}
-	meta {name=quick_link, features=ootb} 
-
 } depth=3; isRoot = false
 
+meta{name=list_access, features=ootb}
 list_access{
 	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2712,10 +2671,9 @@ list_access{
 	}
 	references field(0){
 	}
-	meta {name=list_access, features=ootb} 
-
 } depth=3; isRoot = false
 
+meta{name=login_history, features=syslog}
 login_history{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2727,10 +2685,9 @@ login_history{
 	}
 	references field(0){
 	}
-	meta {name=login_history, features=syslog} 
-
 } depth=2; isRoot = false
 
+meta{name=candidate_container, features=internal,ootb}
 candidate_container{
 	fields(3){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2740,10 +2697,9 @@ candidate_container{
 	references field(1){
 		candidateElementList	container(__no_group)--container;
 	}
-	meta {name=candidate_container, features=internal,ootb} 
-
 } depth=0; isRoot = true
 
+meta{name=candidate_element, features=internal,ootb}
 candidate_element{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2755,10 +2711,9 @@ candidate_element{
 	}
 	references field(0){
 	}
-	meta {name=candidate_element, features=internal,ootb} 
-
 } depth=1; isRoot = false
 
+meta{name=wechat_workapp_identity, features=root}
 wechat_workapp_identity{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2771,10 +2726,9 @@ wechat_workapp_identity{
 	}
 	references field(0){
 	}
-	meta {name=wechat_workapp_identity, features=root} 
-
 } depth=2; isRoot = false
 
+meta{name=wechat_miniapp_identity, features=root}
 wechat_miniapp_identity{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2787,10 +2741,9 @@ wechat_miniapp_identity{
 	}
 	references field(0){
 	}
-	meta {name=wechat_miniapp_identity, features=root} 
-
 } depth=2; isRoot = false
 
+meta{name=keypair_identity, features=root}
 keypair_identity{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2802,10 +2755,9 @@ keypair_identity{
 	}
 	references field(0){
 	}
-	meta {name=keypair_identity, features=root} 
-
 } depth=2; isRoot = false
 
+meta{name=public_key_type, features=root}
 public_key_type{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2817,10 +2769,9 @@ public_key_type{
 	references field(1){
 		keypairIdentityList	key_type(__no_group)--key_type;
 	}
-	meta {name=public_key_type, features=root} 
-
 } depth=1; isRoot = false
 
+meta{name=tree_node, features=root}
 tree_node{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2832,10 +2783,9 @@ tree_node{
 	}
 	references field(0){
 	}
-	meta {name=tree_node, features=root} 
-
 } depth=0; isRoot = true
 
+meta{name=platform, features=laboratory_function,root}
 platform{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2844,7 +2794,7 @@ platform{
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(38){
+	references field(39){
 		provinceList	platform(__no_group)--platform;
 		cityList	platform(__no_group)--platform;
 		districtList	platform(__no_group)--platform;
@@ -2871,6 +2821,7 @@ platform{
 		shippingStatusList	platform(__no_group)--platform;
 		deliverTaskStatusList	platform(__no_group)--platform;
 		deliveryReceiptStatusList	platform(__no_group)--platform;
+		cylinderAreaList	platform(__no_group)--platform;
 		gasCylinderList	platform(__no_group)--platform;
 		gasProductTemplateList	platform(__no_group)--platform;
 		gasProductList	platform(__no_group)--platform;
@@ -2884,10 +2835,9 @@ platform{
 		changeRequestList	platform(__no_group)--platform;
 		systemProcessingInstanceList	platform(__no_group)--platform;
 	}
-	meta {name=platform, features=laboratory_function,root} 
-
 } depth=0; isRoot = true
 
+meta{name=province, features=setting}
 province{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2898,10 +2848,9 @@ province{
 	references field(1){
 		cityList	province(__no_group)--province;
 	}
-	meta {name=province, features=setting} 
-
 } depth=1; isRoot = false
 
+meta{name=city, features=setting}
 city{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2913,10 +2862,9 @@ city{
 	references field(1){
 		districtList	city(__no_group)--city;
 	}
-	meta {name=city, features=setting} 
-
 } depth=2; isRoot = false
 
+meta{name=district, features=setting}
 district{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2927,10 +2875,9 @@ district{
 	}
 	references field(0){
 	}
-	meta {name=district, features=setting} 
-
 } depth=3; isRoot = false
 
+meta{name=role, features=status}
 role{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2943,10 +2890,9 @@ role{
 	references field(1){
 		employeeList	role(__no_group)--role;
 	}
-	meta {name=role, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=employee_status, features=status}
 employee_status{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2959,10 +2905,9 @@ employee_status{
 	references field(1){
 		employeeList	status(__no_group)--status;
 	}
-	meta {name=employee_status, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=invitation_type, features=status}
 invitation_type{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2975,10 +2920,9 @@ invitation_type{
 	references field(1){
 		invitationRecordList	type(__no_group)--type;
 	}
-	meta {name=invitation_type, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=off_time, features=status}
 off_time{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2991,10 +2935,9 @@ off_time{
 		merchantList	off_time(__no_group)--off_time;
 		eventUpdateMerchantOffTimeList	off_time(__no_group)--off_time;
 	}
-	meta {name=off_time, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=merchant, features=log}
 merchant{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3027,10 +2970,9 @@ merchant{
 		deliveryReceiptListAsSeller	seller(__no_group)--seller;
 		deliveryReceiptListAsBuyer	buyer(__no_group)--seller;
 	}
-	meta {name=merchant, features=log} 
-
 } depth=2; isRoot = false
 
+meta{name=personal_user, features=merchant}
 personal_user{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3041,18 +2983,15 @@ personal_user{
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: personalUserList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(6){
+	references field(4){
 		individualIdentityList	personal_user(__no_group)--personal_user;
 		userWorkingInfoList	user(__no_group)--user;
 		employeeList	person_information(__no_group)--person_information;
-		deliverTaskList	deliver_staff(__no_group)--deliver_staff;
-		mainOrderList	creator(__no_group)--creator;
 		eventAdminTransferList	new_admin(__no_group)--new_admin;
 	}
-	meta {name=personal_user, features=merchant} 
-
 } depth=1; isRoot = false
 
+meta{name=individual_identity, features=log}
 individual_identity{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3062,10 +3001,9 @@ individual_identity{
 	}
 	references field(0){
 	}
-	meta {name=individual_identity, features=log} 
-
 } depth=2; isRoot = false
 
+meta{name=user_working_info, features=root}
 user_working_info{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3076,10 +3014,9 @@ user_working_info{
 	}
 	references field(0){
 	}
-	meta {name=user_working_info, features=root} 
-
 } depth=4; isRoot = false
 
+meta{name=organization_identity, features=root}
 organization_identity{
 	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3095,10 +3032,9 @@ organization_identity{
 	}
 	references field(0){
 	}
-	meta {name=organization_identity, features=root} 
-
 } depth=3; isRoot = false
 
+meta{name=warehouse, features=root}
 warehouse{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3111,10 +3047,9 @@ warehouse{
 	}
 	references field(0){
 	}
-	meta {name=warehouse, features=root} 
-
 } depth=3; isRoot = false
 
+meta{name=invitation_record, features=log}
 invitation_record{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3126,10 +3061,9 @@ invitation_record{
 	}
 	references field(0){
 	}
-	meta {name=invitation_record, features=log} 
-
 } depth=4; isRoot = false
 
+meta{name=employee, features=root}
 employee{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3141,7 +3075,7 @@ employee{
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: employeeList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(11){
+	references field(13){
 		userWorkingInfoList	employee(__no_group)--employee;
 		invitationRecordListAsInviter	inviter(__no_group)--inviter;
 		invitationRecordListAsInvitee	invitee(__no_group)--inviter;
@@ -3149,15 +3083,16 @@ employee{
 		customerCylinderRecordList	actor(__no_group)--actor;
 		customerCylinderRecordEvidenceList	actor(__no_group)--actor;
 		gasProductInventoryRecordList	actor(__no_group)--actor;
+		deliverTaskList	deliver_staff(__no_group)--deliver_staff;
+		mainOrderList	creator(__no_group)--creator;
 		gasShippingGroupList	creator(__no_group)--creator;
 		deliveryReceiptListAsCreator	creator(__no_group)--creator;
 		deliveryReceiptListAsConfirmer	confirmer(__no_group)--creator;
 		orderOperationRecordList	actor(__no_group)--actor;
 	}
-	meta {name=employee, features=root} 
-
 } depth=3; isRoot = false
 
+meta{name=supply_relationship, features=root}
 supply_relationship{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3169,10 +3104,9 @@ supply_relationship{
 	}
 	references field(0){
 	}
-	meta {name=supply_relationship, features=root} 
-
 } depth=3; isRoot = false
 
+meta{name=gas_container, features=root}
 gas_container{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3185,10 +3119,9 @@ gas_container{
 	references field(1){
 		gasCylinderList	gas_container(__no_group)--gas_container;
 	}
-	meta {name=gas_container, features=root} 
-
 } depth=1; isRoot = false
 
+meta{name=fill_medium, features=root}
 fill_medium{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3199,10 +3132,9 @@ fill_medium{
 	references field(1){
 		gasCylinderList	fill_medium(__no_group)--fill_medium;
 	}
-	meta {name=fill_medium, features=root} 
-
 } depth=1; isRoot = false
 
+meta{name=nominal_volume, features=root}
 nominal_volume{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3213,10 +3145,9 @@ nominal_volume{
 	references field(1){
 		gasCylinderList	nominal_volume(__no_group)--nominal_volume;
 	}
-	meta {name=nominal_volume, features=root} 
-
 } depth=1; isRoot = false
 
+meta{name=fill_volume, features=root}
 fill_volume{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3228,10 +3159,9 @@ fill_volume{
 		gasProductTemplateList	fill_volume(__no_group)--fill_volume;
 		gasProductList	fill_volume(__no_group)--fill_volume;
 	}
-	meta {name=fill_volume, features=root} 
-
 } depth=1; isRoot = false
 
+meta{name=nominal_pressure, features=root}
 nominal_pressure{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3242,10 +3172,9 @@ nominal_pressure{
 	references field(1){
 		gasCylinderList	nominal_pressure(__no_group)--nominal_pressure;
 	}
-	meta {name=nominal_pressure, features=root} 
-
 } depth=1; isRoot = false
 
+meta{name=gas_container_category, features=root}
 gas_container_category{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3256,10 +3185,9 @@ gas_container_category{
 	references field(1){
 		gasCylinderList	gas_container_category(__no_group)--gas_container_category;
 	}
-	meta {name=gas_container_category, features=root} 
-
 } depth=1; isRoot = false
 
+meta{name=gas_component, features=root}
 gas_component{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3271,10 +3199,9 @@ gas_component{
 		gasProductTemplateComponentList	component(__no_group)--component;
 		gasProductComponentList	component(__no_group)--component;
 	}
-	meta {name=gas_component, features=root} 
-
 } depth=1; isRoot = false
 
+meta{name=check_status, features=status}
 check_status{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3287,10 +3214,9 @@ check_status{
 	references field(1){
 		customerCylinderList	status(__no_group)--status;
 	}
-	meta {name=check_status, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=action_type, features=status}
 action_type{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3305,10 +3231,9 @@ action_type{
 		customerCylinderRecordList	action(__no_group)--action;
 		gasProductInventoryRecordList	action(__no_group)--action;
 	}
-	meta {name=action_type, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=product_status, features=status}
 product_status{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3321,26 +3246,24 @@ product_status{
 	references field(1){
 		gasProductList	status(__no_group)--status;
 	}
-	meta {name=product_status, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=order_status, features=status}
 order_status{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('处理中|待买家确认|买家确认超时|待审核|已提交|待自提|待配送|正在配送|已交接|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
-		string	code('PROCESSING|WAITING_BUYER_CONFIRM|BUYER_CONFIRM_TIMEOUT|WAITING_SELLER_CONFIRM|SUBMITTED|WAITING_BUYER_PICK_UP|WAITING_SELLER_DELIVERY|SELLER_SHIPPING|BUYER_RECEIVED|COMPLETED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
-		string	description('处理中|待买家确认|买家确认超时|待卖家审核|已提交|待自提|待配送|正在配送|已交接|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	name('处理中|待买家确认|买家确认超时|待审核|已提交|待自提|待配送|正在配送|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	code('PROCESSING|WAITING_BUYER_CONFIRM|BUYER_CONFIRM_TIMEOUT|WAITING_SELLER_CONFIRM|SUBMITTED|WAITING_BUYER_PICK_UP|WAITING_SELLER_DELIVERY|SELLER_SHIPPING|COMPLETED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
+		string	description('处理中|待买家确认|买家确认超时|待卖家审核|已提交|待自提|待配送|正在配送|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: orderStatusList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(1){
 		mainOrderList	status(__no_group)--status;
 	}
-	meta {name=order_status, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=deliver_type, features=status}
 deliver_type{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3353,26 +3276,24 @@ deliver_type{
 	references field(1){
 		gasShippingGroupList	shipping_type(__no_group)--shipping_type;
 	}
-	meta {name=deliver_type, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=shipping_status, features=status}
 shipping_status{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('待自提|待发货|正在配送|已签收|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	name('待自提|待配送|正在配送|已签收|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
 		string	code('WAITING_BUYER_PICK_UP|WAITING_SELLER_DELIVERY|SELLER_SHIPPING|BUYER_RECEIVED|COMPLETED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
-		string	description('待自提|待发货|正在配送|已签收|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	description('待自提|待配送|正在配送|已签收|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: shippingStatusList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(1){
 		gasShippingGroupList	shipping_status(__no_group)--shipping_status;
 	}
-	meta {name=shipping_status, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=deliver_task_status, features=status}
 deliver_task_status{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3385,10 +3306,9 @@ deliver_task_status{
 	references field(1){
 		deliverTaskList	status(__no_group)--status;
 	}
-	meta {name=deliver_task_status, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=delivery_receipt_status, features=status}
 delivery_receipt_status{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3401,10 +3321,25 @@ delivery_receipt_status{
 	references field(1){
 		deliveryReceiptList	status(__no_group)--status;
 	}
-	meta {name=delivery_receipt_status, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=cylinder_area, features=status}
+cylinder_area{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('空瓶|实瓶|实瓶在途|回瓶在途|客户持瓶'), verb: false, required: true,type:string,relationMeta={};
+		string	code('EMPTY|PRODUCT|DELIVERY|BACK|BUYER'), verb: false, required: true,type:string,relationMeta={};
+		string	description('空瓶|实瓶|实瓶在途|回瓶在途|客户持瓶'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: cylinderAreaList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(2){
+		merchantCylinderList	cylinder_area(__no_group)--cylinder_area;
+		merchantCylinderRecordList	cylinder_area(__no_group)--cylinder_area;
+	}
+} depth=1; isRoot = false
+
+meta{name=gas_cylinder, features=root}
 gas_cylinder{
 	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3427,29 +3362,29 @@ gas_cylinder{
 		gasProductList	cylinder(__no_group)--cylinder;
 		gasLineItemList	cylinder(__no_group)--cylinder;
 	}
-	meta {name=gas_cylinder, features=root} 
-
 } depth=2; isRoot = false
 
+meta{name=merchant_cylinder, features=root}
 merchant_cylinder{
-	fields(5){
+	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: merchantCylinderList,type:gas_cylinder,relationMeta={};
 		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: merchantCylinderList,type:merchant,relationMeta={};
+		cylinder_area	cylinder_area('$(object)'), verb: false, required: true, referenceBy: merchantCylinderList,type:cylinder_area,relationMeta={};
 		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(0){
 	}
-	meta {name=merchant_cylinder, features=root} 
-
 } depth=3; isRoot = false
 
+meta{name=merchant_cylinder_record, features=log}
 merchant_cylinder_record{
-	fields(10){
+	fields(11){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: merchantCylinderRecordList,type:merchant,relationMeta={};
 		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: merchantCylinderRecordList,type:gas_cylinder,relationMeta={};
+		cylinder_area	cylinder_area('$(object)'), verb: false, required: true, referenceBy: merchantCylinderRecordList,type:cylinder_area,relationMeta={};
 		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
 		int	update_quantity('1'), verb: false, required: true,type:int,relationMeta={};
 		employee	actor('$(object)'), verb: false, required: true, referenceBy: merchantCylinderRecordList,type:employee,relationMeta={};
@@ -3460,10 +3395,9 @@ merchant_cylinder_record{
 	}
 	references field(0){
 	}
-	meta {name=merchant_cylinder_record, features=log} 
-
 } depth=4; isRoot = false
 
+meta{name=customer_cylinder, features=root}
 customer_cylinder{
 	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3479,10 +3413,9 @@ customer_cylinder{
 	}
 	references field(0){
 	}
-	meta {name=customer_cylinder, features=root} 
-
 } depth=3; isRoot = false
 
+meta{name=customer_cylinder_record, features=log}
 customer_cylinder_record{
 	fields(11){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3500,10 +3433,9 @@ customer_cylinder_record{
 	references field(1){
 		customerCylinderRecordEvidenceList	record(__no_group)--record;
 	}
-	meta {name=customer_cylinder_record, features=log} 
-
 } depth=4; isRoot = false
 
+meta{name=customer_cylinder_record_evidence, features=log}
 customer_cylinder_record_evidence{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3516,10 +3448,9 @@ customer_cylinder_record_evidence{
 	}
 	references field(0){
 	}
-	meta {name=customer_cylinder_record_evidence, features=log} 
-
 } depth=5; isRoot = false
 
+meta{name=gas_product_template, features=root}
 gas_product_template{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3536,10 +3467,9 @@ gas_product_template{
 		gasProductList	template(__no_group)--template;
 		gasLineItemList	template(__no_group)--template;
 	}
-	meta {name=gas_product_template, features=root} 
-
 } depth=3; isRoot = false
 
+meta{name=gas_product_template_component, features=root}
 gas_product_template_component{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3550,10 +3480,9 @@ gas_product_template_component{
 	}
 	references field(0){
 	}
-	meta {name=gas_product_template_component, features=root} 
-
 } depth=4; isRoot = false
 
+meta{name=gas_product, features=root}
 gas_product{
 	fields(15){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3577,10 +3506,9 @@ gas_product{
 		gasProductInventoryRecordList	product(__no_group)--product;
 		gasLineItemList	product(__no_group)--product;
 	}
-	meta {name=gas_product, features=root} 
-
 } depth=4; isRoot = false
 
+meta{name=gas_product_component, features=root}
 gas_product_component{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3591,10 +3519,9 @@ gas_product_component{
 	}
 	references field(0){
 	}
-	meta {name=gas_product_component, features=root} 
-
 } depth=5; isRoot = false
 
+meta{name=gas_product_inventory_record, features=log}
 gas_product_inventory_record{
 	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3610,10 +3537,9 @@ gas_product_inventory_record{
 	}
 	references field(0){
 	}
-	meta {name=gas_product_inventory_record, features=log} 
-
 } depth=5; isRoot = false
 
+meta{name=gas_product_cache, features=root}
 gas_product_cache{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3624,10 +3550,9 @@ gas_product_cache{
 	}
 	references field(0){
 	}
-	meta {name=gas_product_cache, features=root} 
-
 } depth=0; isRoot = true
 
+meta{name=gas_product_template_cache, features=root}
 gas_product_template_cache{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3637,15 +3562,14 @@ gas_product_template_cache{
 	}
 	references field(0){
 	}
-	meta {name=gas_product_template_cache, features=root} 
-
 } depth=0; isRoot = true
 
+meta{name=deliver_task, features=root}
 deliver_task{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('2012年12月12日张三任务'), verb: false, required: true,type:string,relationMeta={};
-		personal_user	deliver_staff('$(object)'), verb: false, required: true, referenceBy: deliverTaskList,type:personal_user,relationMeta={};
+		employee	deliver_staff('$(object)'), verb: false, required: true, referenceBy: deliverTaskList,type:employee,relationMeta={};
 		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: deliverTaskList,type:merchant,relationMeta={};
 		deliver_task_status	status('$(object)'), verb: false, required: true, referenceBy: deliverTaskList,type:deliver_task_status,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
@@ -3655,10 +3579,9 @@ deliver_task{
 	references field(1){
 		gasShippingGroupList	deliver_task(__no_group)--deliver_task;
 	}
-	meta {name=deliver_task, features=root} 
+} depth=4; isRoot = false
 
-} depth=3; isRoot = false
-
+meta{name=main_order, features=root}
 main_order{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3666,7 +3589,7 @@ main_order{
 		merchant	buyer('$(object)'), verb: false, required: true, referenceBy: mainOrderListAsBuyer,type:merchant,relationMeta={};
 		merchant	seller('$(object)'), verb: false, required: true, referenceBy: mainOrderListAsSeller,type:merchant,relationMeta={};
 		order_status	status('$(object)'), verb: false, required: true, referenceBy: mainOrderList,type:order_status,relationMeta={};
-		personal_user	creator('$(object)'), verb: false, required: true, referenceBy: mainOrderList,type:personal_user,relationMeta={};
+		employee	creator('$(object)'), verb: false, required: true, referenceBy: mainOrderList,type:employee,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
@@ -3677,10 +3600,9 @@ main_order{
 		deliveryReceiptList	main_order(__no_group)--main_order;
 		orderOperationRecordList	main_order(__no_group)--main_order;
 	}
-	meta {name=main_order, features=root} 
+} depth=4; isRoot = false
 
-} depth=3; isRoot = false
-
+meta{name=gas_line_item, features=root}
 gas_line_item{
 	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3698,10 +3620,9 @@ gas_line_item{
 		gasShippingGroupList	gas_line_item(__no_group)--gas_line_item;
 		deliveryReceiptList	gas_line_item(__no_group)--gas_line_item;
 	}
-	meta {name=gas_line_item, features=root} 
-
 } depth=5; isRoot = false
 
+meta{name=gas_shipping_group, features=log}
 gas_shipping_group{
 	fields(20){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3728,10 +3649,9 @@ gas_shipping_group{
 	references field(1){
 		deliveryReceiptList	gas_shipping_group(__no_group)--gas_shipping_group;
 	}
-	meta {name=gas_shipping_group, features=log} 
-
 } depth=6; isRoot = false
 
+meta{name=delivery_receipt, features=root}
 delivery_receipt{
 	fields(15){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3752,26 +3672,24 @@ delivery_receipt{
 	}
 	references field(0){
 	}
-	meta {name=delivery_receipt, features=root} 
-
 } depth=7; isRoot = false
 
+meta{name=order_action_type, features=status}
 order_action_type{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('商家代客下单|客户下单|客户确认订单|商家代客户确认订单|商家确认订单|商家订单发货|商家创建交接单|客户确认交接单|商家代客户确认交接单|商家确认完成'), verb: false, required: true,type:string,relationMeta={};
-		string	code('SELLER_CREATE_ORDER|BUYER_CREATE_ORDER|BUYER_CONFIRM|SELLER_FORCE_CONFIRM|SELLER_CONFIRM|SELLER_DELIVERY|SELLER_CREATE_DELIVERY_RECEIPT|BUYER_CONFIRM_DELIVERY_RECEIPT|SELLER_FORCE_CONFIRM_DELIVERY_RECEIPT|SELLER_CONFIRM_DONE'), verb: false, required: true,type:string,relationMeta={};
-		string	description('代客下单|客户下单|客户确认订单|商家代客户确认订单|商家确认订单|商家订单发货|商家创建交接单|客户确认交接单|商家代客户确认交接单|商家确认完成'), verb: false, required: true,type:string,relationMeta={};
+		string	name('商家代客下单|客户下单|客户确认订单|商家代客户确认订单|商家确认订单|商家订单发货|商家创建交接单|客户确认交接单|商家代客户确认交接单|商家确认完成|商家取消定单|买家取消定单'), verb: false, required: true,type:string,relationMeta={};
+		string	code('SELLER_SUBMIT_ORDER|BUYER_SUBMIT_ORDER|BUYER_CONFIRM|SELLER_FORCE_CONFIRM|SELLER_CONFIRM|SELLER_DELIVERY|SELLER_CREATE_DELIVERY_RECEIPT|BUYER_CONFIRM_DELIVERY_RECEIPT|SELLER_FORCE_CONFIRM_DELIVERY_RECEIPT|SELLER_CONFIRM_DONE|SELLER_CANCEL|BUYER_CANCEL'), verb: false, required: true,type:string,relationMeta={};
+		string	description('代客下单|客户下单|客户确认订单|商家代客户确认订单|商家确认订单|商家订单发货|商家创建交接单|客户确认交接单|商家代客户确认交接单|商家确认完成|商家取消定单|买家取消定单'), verb: false, required: true,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: orderActionTypeList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(1){
 		orderOperationRecordList	action(__no_group)--action;
 	}
-	meta {name=order_action_type, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=order_operation_record, features=log}
 order_operation_record{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3785,10 +3703,9 @@ order_operation_record{
 	}
 	references field(0){
 	}
-	meta {name=order_operation_record, features=log} 
+} depth=5; isRoot = false
 
-} depth=4; isRoot = false
-
+meta{name=icon_configuration, features=status}
 icon_configuration{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3801,10 +3718,9 @@ icon_configuration{
 	}
 	references field(0){
 	}
-	meta {name=icon_configuration, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=system_level_configuration, features=status}
 system_level_configuration{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3817,10 +3733,9 @@ system_level_configuration{
 	}
 	references field(0){
 	}
-	meta {name=system_level_configuration, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=system_level_images, features=status}
 system_level_images{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3834,10 +3749,9 @@ system_level_images{
 	}
 	references field(0){
 	}
-	meta {name=system_level_images, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=system_level_content, features=status}
 system_level_content{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3850,10 +3764,9 @@ system_level_content{
 	}
 	references field(0){
 	}
-	meta {name=system_level_content, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=system_level_number, immutable_fields=code,min_value,max_value, features=status}
 system_level_number{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3868,10 +3781,9 @@ system_level_number{
 	}
 	references field(0){
 	}
-	meta {name=system_level_number, immutable_fields=code,min_value,max_value, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=system_announcement, features=root}
 system_announcement{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3884,10 +3796,9 @@ system_announcement{
 	}
 	references field(0){
 	}
-	meta {name=system_announcement, features=root} 
-
 } depth=1; isRoot = false
 
+meta{name=guide_type, features=status}
 guide_type{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3899,10 +3810,9 @@ guide_type{
 	references field(1){
 		guideSlideList	guide_type(__no_group)--guide_type;
 	}
-	meta {name=guide_type, features=status} 
-
 } depth=1; isRoot = false
 
+meta{name=guide_slide, features=root}
 guide_slide{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3917,10 +3827,9 @@ guide_slide{
 	}
 	references field(0){
 	}
-	meta {name=guide_slide, features=root} 
-
 } depth=2; isRoot = false
 
+meta{name=change_request_type, identified_by=code, features=cr_type}
 change_request_type{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3937,10 +3846,9 @@ change_request_type{
 		changeRequestList	request_type(__no_group)--request_type;
 		eventInfoInCrList	change_request_type(__no_group)--change_request_type;
 	}
-	meta {name=change_request_type, identified_by=code, features=cr_type} 
-
 } depth=1; isRoot = false
 
+meta{name=change_request, features=change_request}
 change_request{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3963,10 +3871,9 @@ change_request{
 		eventUpdateAdditionalSpecList	change_request(__no_group)--change_request;
 		eventInfoInCrList	change_request(__no_group)--change_request;
 	}
-	meta {name=change_request, features=change_request} 
-
 } depth=2; isRoot = false
 
+meta{bind_with_cr_type=MORE_SUPPLIER_PRODUCT|CONFIRM_JOIN|UPDATE_MERCHANT_INFO_WHEN_INBOUND|CREATE_HANDOVER_TASK|PRODUCT_INBOUND|CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT|EDIT_COMMENT|UPDATE_PERSONAL_INFO|BUYER_BIC_CONFIRM|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|BUYER_UPDATE_DELIVERY_INFO|BUYER|UPDATE_PRODUCT_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|UPDATE_COMPANY_INFO|UPDATE_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER|PRODUCT_ON_SHELF|SEND_TO_CUSTOMER_AUDIT|CONFIRM_QUOTE|AUDIT_ORDER|CUSTOM_PRODUCT_WHEN_INITIAL|BUYER_DELIVERY_INFO|COPY_PRODUCT|BUYER_UPDATE_ORDER|CREATE_SPLIT_ORDER|CUSTOM_PRODUCT_WHEN_QUOTE|UPDATE_DELIVERY_TASK|PRODUCT_OFF_SHELF|CREATE_DELIVERY_TASK|EDIT_BUYER_COLLEAGUE|CONFIRM_AS_CUSTOMER|CONFIRM_DELIVERY_TASK|UPDATE_BUYER_INFO_WHEN_ORDER, name=event_tbd, features=event}
 event_tbd{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3976,10 +3883,9 @@ event_tbd{
 	}
 	references field(0){
 	}
-	meta {bind_with_cr_type=MORE_SUPPLIER_PRODUCT|CONFIRM_JOIN|UPDATE_MERCHANT_INFO_WHEN_INBOUND|CREATE_HANDOVER_TASK|PRODUCT_INBOUND|CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT|EDIT_COMMENT|UPDATE_PERSONAL_INFO|BUYER_BIC_CONFIRM|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|BUYER_UPDATE_DELIVERY_INFO|BUYER|UPDATE_PRODUCT_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|UPDATE_COMPANY_INFO|UPDATE_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER|PRODUCT_ON_SHELF|SEND_TO_CUSTOMER_AUDIT|CONFIRM_QUOTE|AUDIT_ORDER|CUSTOM_PRODUCT_WHEN_INITIAL|BUYER_DELIVERY_INFO|COPY_PRODUCT|BUYER_UPDATE_ORDER|CREATE_SPLIT_ORDER|CUSTOM_PRODUCT_WHEN_QUOTE|UPDATE_DELIVERY_TASK|PRODUCT_OFF_SHELF|CREATE_DELIVERY_TASK|EDIT_BUYER_COLLEAGUE|CONFIRM_AS_CUSTOMER|CONFIRM_DELIVERY_TASK|UPDATE_BUYER_INFO_WHEN_ORDER, name=event_tbd, features=event} 
-
 } depth=3; isRoot = false
 
+meta{bind_with_cr_type=SELLER_REGISTER|UPDATE_MERCHANT_INFO_FROM_SELLER_HOME|SELLER_UPDATE_MERCHANT_INFO|UPDATE_MERCHANT_INFO_WHEN_INVITE, name=event_seller_info, features=event}
 event_seller_info{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3994,10 +3900,9 @@ event_seller_info{
 	}
 	references field(0){
 	}
-	meta {bind_with_cr_type=SELLER_REGISTER|UPDATE_MERCHANT_INFO_FROM_SELLER_HOME|SELLER_UPDATE_MERCHANT_INFO|UPDATE_MERCHANT_INFO_WHEN_INVITE, name=event_seller_info, features=event} 
-
 } depth=3; isRoot = false
 
+meta{bind_with_cr_type=COMPANY_ADMIN_TRANSFER|BUYER_ADMIN_TRANSFER, name=event_admin_transfer, features=event}
 event_admin_transfer{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4008,10 +3913,9 @@ event_admin_transfer{
 	}
 	references field(0){
 	}
-	meta {bind_with_cr_type=COMPANY_ADMIN_TRANSFER|BUYER_ADMIN_TRANSFER, name=event_admin_transfer, features=event} 
-
 } depth=3; isRoot = false
 
+meta{bind_with_cr_type=UPDATE_MERCHANT_OFF_TIME, name=event_update_merchant_off_time, features=event}
 event_update_merchant_off_time{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4022,10 +3926,9 @@ event_update_merchant_off_time{
 	}
 	references field(0){
 	}
-	meta {bind_with_cr_type=UPDATE_MERCHANT_OFF_TIME, name=event_update_merchant_off_time, features=event} 
-
 } depth=3; isRoot = false
 
+meta{bind_with_cr_type=UPDATE_MERCHANT_DELIVERY_LIMIT, name=event_update_merchant_delivery_limit, features=event}
 event_update_merchant_delivery_limit{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4036,10 +3939,9 @@ event_update_merchant_delivery_limit{
 	}
 	references field(0){
 	}
-	meta {bind_with_cr_type=UPDATE_MERCHANT_DELIVERY_LIMIT, name=event_update_merchant_delivery_limit, features=event} 
-
 } depth=3; isRoot = false
 
+meta{bind_with_cr_type=APPROVE_JOIN_BUYER|UPDATE_COLLEAGUE_INFO|AUDIT_JOIN_APPLY, name=event_employee_approve, features=event}
 event_employee_approve{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4053,10 +3955,9 @@ event_employee_approve{
 	}
 	references field(0){
 	}
-	meta {bind_with_cr_type=APPROVE_JOIN_BUYER|UPDATE_COLLEAGUE_INFO|AUDIT_JOIN_APPLY, name=event_employee_approve, features=event} 
-
 } depth=3; isRoot = false
 
+meta{bind_with_cr_type=EDIT_ADDITIONAL_SPEC_WHEN_INIT|EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE|EDIT_ADDITIONAL_SPEC_WHEN_QUOTE|EDIT_ADDITIONAL_SPEC_WHEN_CREATE|EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT, name=event_update_additional_spec, features=event}
 event_update_additional_spec{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4070,10 +3971,9 @@ event_update_additional_spec{
 	}
 	references field(0){
 	}
-	meta {bind_with_cr_type=EDIT_ADDITIONAL_SPEC_WHEN_INIT|EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE|EDIT_ADDITIONAL_SPEC_WHEN_QUOTE|EDIT_ADDITIONAL_SPEC_WHEN_CREATE|EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT, name=event_update_additional_spec, features=event} 
-
 } depth=3; isRoot = false
 
+meta{name=event_info_in_cr, features=root, max_count=1000000000}
 event_info_in_cr{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4088,10 +3988,9 @@ event_info_in_cr{
 	}
 	references field(0){
 	}
-	meta {name=event_info_in_cr, features=root, max_count=1000000000} 
-
 } depth=3; isRoot = false
 
+meta{name=system_processing_instance, features=log,settings,no_sample_data, identified_by=target_identity}
 system_processing_instance{
 	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4107,10 +4006,9 @@ system_processing_instance{
 	}
 	references field(0){
 	}
-	meta {name=system_processing_instance, features=log,settings,no_sample_data, identified_by=target_identity} 
-
 } depth=1; isRoot = false
 
+meta{name=mobile_app, features=root}
 mobile_app{
 	fields(3){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4124,10 +4022,9 @@ mobile_app{
 		pageList	mobile_app(页面管理)--mobile_app;
 		pageTypeList	mobile_app(__no_group)--mobile_app;
 	}
-	meta {name=mobile_app, features=root} 
-
 } depth=0; isRoot = true
 
+meta{name=page, features=root, vg4mobile_app=页面管理}
 page{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4143,10 +4040,9 @@ page{
 		uiActionList	page(__no_group)--page;
 		sectionList	page(__no_group)--page;
 	}
-	meta {name=page, features=root, vg4mobile_app=页面管理} 
-
 } depth=2; isRoot = false
 
+meta{name=page_type, features=status, identified_by=code}
 page_type{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4159,10 +4055,9 @@ page_type{
 	references field(1){
 		pageList	page_type(__no_group)--page_type;
 	}
-	meta {name=page_type, features=status, identified_by=code} 
-
 } depth=1; isRoot = false
 
+meta{name=slide, features=root}
 slide{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4176,10 +4071,9 @@ slide{
 	}
 	references field(0){
 	}
-	meta {name=slide, features=root} 
-
 } depth=3; isRoot = false
 
+meta{name=ui_action, features=root}
 ui_action{
 	fields(11){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4196,10 +4090,9 @@ ui_action{
 	}
 	references field(0){
 	}
-	meta {name=ui_action, features=root} 
-
 } depth=3; isRoot = false
 
+meta{name=section, features=root}
 section{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4214,10 +4107,9 @@ section{
 	}
 	references field(0){
 	}
-	meta {name=section, features=root} 
-
 } depth=3; isRoot = false
 
+meta{name=user_domain, features=ootb}
 user_domain{
 	fields(3){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4229,10 +4121,9 @@ user_domain{
 		secUserList	domain(__no_group)--domain;
 		publicKeyTypeList	domain(__no_group)--domain;
 	}
-	meta {name=user_domain, features=ootb} 
-
 } depth=0; isRoot = true
 
+meta{name=user_allow_list, features=syssetting}
 user_allow_list{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4243,10 +4134,9 @@ user_allow_list{
 	}
 	references field(0){
 	}
-	meta {name=user_allow_list, features=syssetting} 
-
 } depth=1; isRoot = false
 
+meta{name=sec_user, features=ootb, identified_by=login,email,mobile}
 sec_user{
 	fields(13){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4270,10 +4160,9 @@ sec_user{
 		wechatMiniappIdentityList	sec_user(__no_group)--sec_user;
 		keypairIdentityList	sec_user(__no_group)--sec_user;
 	}
-	meta {name=sec_user, features=ootb, identified_by=login,email,mobile} 
-
 } depth=1; isRoot = false
 
+meta{name=user_app, features=ootb}
 user_app{
 	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4291,10 +4180,9 @@ user_app{
 		quickLinkList	app(__no_group)--app;
 		listAccessList	app(__no_group)--app;
 	}
-	meta {name=user_app, features=ootb} 
-
 } depth=2; isRoot = false
 
+meta{name=quick_link, features=ootb}
 quick_link{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4308,10 +4196,9 @@ quick_link{
 	}
 	references field(0){
 	}
-	meta {name=quick_link, features=ootb} 
-
 } depth=3; isRoot = false
 
+meta{name=list_access, features=ootb}
 list_access{
 	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4327,10 +4214,9 @@ list_access{
 	}
 	references field(0){
 	}
-	meta {name=list_access, features=ootb} 
-
 } depth=3; isRoot = false
 
+meta{name=login_history, features=syslog}
 login_history{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4342,10 +4228,9 @@ login_history{
 	}
 	references field(0){
 	}
-	meta {name=login_history, features=syslog} 
-
 } depth=2; isRoot = false
 
+meta{name=candidate_container, features=internal,ootb}
 candidate_container{
 	fields(3){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4355,10 +4240,9 @@ candidate_container{
 	references field(1){
 		candidateElementList	container(__no_group)--container;
 	}
-	meta {name=candidate_container, features=internal,ootb} 
-
 } depth=0; isRoot = true
 
+meta{name=candidate_element, features=internal,ootb}
 candidate_element{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4370,10 +4254,9 @@ candidate_element{
 	}
 	references field(0){
 	}
-	meta {name=candidate_element, features=internal,ootb} 
-
 } depth=1; isRoot = false
 
+meta{name=wechat_workapp_identity, features=root}
 wechat_workapp_identity{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4386,10 +4269,9 @@ wechat_workapp_identity{
 	}
 	references field(0){
 	}
-	meta {name=wechat_workapp_identity, features=root} 
-
 } depth=2; isRoot = false
 
+meta{name=wechat_miniapp_identity, features=root}
 wechat_miniapp_identity{
 	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4402,10 +4284,9 @@ wechat_miniapp_identity{
 	}
 	references field(0){
 	}
-	meta {name=wechat_miniapp_identity, features=root} 
-
 } depth=2; isRoot = false
 
+meta{name=keypair_identity, features=root}
 keypair_identity{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4417,10 +4298,9 @@ keypair_identity{
 	}
 	references field(0){
 	}
-	meta {name=keypair_identity, features=root} 
-
 } depth=2; isRoot = false
 
+meta{name=public_key_type, features=root}
 public_key_type{
 	fields(5){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4432,10 +4312,9 @@ public_key_type{
 	references field(1){
 		keypairIdentityList	key_type(__no_group)--key_type;
 	}
-	meta {name=public_key_type, features=root} 
-
 } depth=1; isRoot = false
 
+meta{name=tree_node, features=root}
 tree_node{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4447,8 +4326,6 @@ tree_node{
 	}
 	references field(0){
 	}
-	meta {name=tree_node, features=root} 
-
 } depth=0; isRoot = true
 
 

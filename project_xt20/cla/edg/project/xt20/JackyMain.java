@@ -5,9 +5,9 @@ import cla.edg.pageflow.BasePageFlowDescriptionScript;
 import cla.edg.pageflow.BasePageFlowScript;
 import cla.poc.workflow.WorkProcessorBuilder;
 import cla.poc.workflow.generator.ProcessorGenerator;
+import com.terapico.changerequest.generator.ChangeRequestGenerator;
 import clariones.tool.builder.GenrationResult;
 import clariones.tool.builder.Utils;
-import com.terapico.changerequest.generator.ChangeRequestGenerator;
 
 import java.io.File;
 import java.util.List;
@@ -61,11 +61,19 @@ public class JackyMain {
 	public static String TARGET_PAGEFLOW_JAVA_BEAN_NAME = "wxappService";
 
 	public static void main(String[] args) throws Exception {
-		generatePageFlow(new MainPageFlow());
+		Map<String, String> envVars = Utils.put("base_package_name", Main.TARGET_BASE_PACKAGE_NAME)
+				.put("project_name", Main.TARGET_PROJECT_NAME)
+				.put("parent_class_name", getClassName(Main.TARGET_PAGEFLOW_JAVA_PARENT_CLASS_FULL_NAME))
+				.put("parent_class_package", getPackageName(Main.TARGET_PAGEFLOW_JAVA_PARENT_CLASS_FULL_NAME))
+				.put("resource_base_folder", "/Users/jackytian/git/code-gen-client/project_xt20/resource")
+				.put("bean_name", Main.TARGET_PAGEFLOW_JAVA_BEAN_NAME)
+				.into_map(String.class);
 
-        generateChangeRequestForm(new MainChangeRequest().getSpec());
+		generatePageFlow(new MainPageFlow().withEnv(envVars));
 
-        generateWorkProcessor(new MainWorkProcessor().getBuilder());
+		generateChangeRequestForm(new MainChangeRequest().getSpec());
+
+		generateWorkProcessor(new MainWorkProcessor().getBuilder());
 	}
 
 	private static void generateWorkProcessor(WorkProcessorBuilder builder) throws Exception {
@@ -76,7 +84,7 @@ public class JackyMain {
 		generator.setAllSpec(builder.build());
 		List<GenrationResult> resultList = generator.runJob();
 		generator.saveToFiles( Utils.put("ALL", new File(OUTPUT_JAVA_FOLDER))
-		        .put("process.xml", new File(OUTPUT_MODEL_FOLDER))
+				.put("process.xml", new File(OUTPUT_MODEL_FOLDER))
 				.into_map(File.class), resultList);
 	}
 
@@ -86,21 +94,31 @@ public class JackyMain {
 		// System.out.println(jsonStr);
 
 		PageFlowGenerator generator = new PageFlowGenerator();
-        generator.setScript(script);
-        List<GenrationResult> resultList = generator.runJob();
-        generator.saveToFiles( Utils.put("ALL", new File(OUTPUT_JAVA_FOLDER +"/" + OUTPUT_PAGEFLOW_FOLDER_NAME))
-                .into_map(File.class), resultList);
+		generator.setScript(script);
+		List<GenrationResult> resultList = generator.runJob();
+		generator.saveToFiles( Utils.put("ALL", new File(OUTPUT_JAVA_FOLDER +"/" + OUTPUT_PAGEFLOW_FOLDER_NAME))
+				.into_map(File.class), resultList);
 	}
 
-    private static void generateChangeRequestForm(Map<String, Map<String, Object>> script) throws Exception  {
-        ChangeRequestGenerator generator = new ChangeRequestGenerator();
-        generator.setChangeRequestSpec(script);
-        generator.setProjectName(TARGET_PROJECT_NAME);
-        generator.setOrgName(TARGET_ORGANIZATION_NAME);
-        List<GenrationResult> files = generator.runJob();
+	private static void generateChangeRequestForm(Map<String, Map<String, Object>> script) throws Exception  {
+		ChangeRequestGenerator generator = new ChangeRequestGenerator();
+		generator.setChangeRequestSpec(script);
+		generator.setProjectName(TARGET_PROJECT_NAME);
+		generator.setOrgName(TARGET_ORGANIZATION_NAME);
+		List<GenrationResult> files = generator.runJob();
 
-        generator.saveToFiles( Utils.put("ALL", new File(OUTPUT_JAVA_FOLDER))
-                .put("changeRequest.xml", new File(OUTPUT_MODEL_FOLDER)).into_map(File.class), files); // "changeRequest.xml"
-    }
+		generator.saveToFiles( Utils.put("ALL", new File(OUTPUT_JAVA_FOLDER))
+				.put("changeRequest.xml", new File(OUTPUT_MODEL_FOLDER)).into_map(File.class), files); // "changeRequest.xml"
+	}
 
+
+	protected static String getClassName(String fullClassName) {
+		int pos = fullClassName.lastIndexOf(".");
+		return pos > 0 ? fullClassName.substring(pos + 1) : fullClassName;
+	}
+
+	protected static String getPackageName(String fullClassName) {
+		int pos = fullClassName.lastIndexOf(".");
+		return pos > 0 ? fullClassName.substring(0, pos) : fullClassName;
+	}
 }

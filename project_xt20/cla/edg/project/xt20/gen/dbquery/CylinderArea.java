@@ -4,41 +4,29 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class ShippingStatus extends BaseModelBean {
+public class CylinderArea extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.xt20.shippingstatus.ShippingStatus";
+    return "com.doublechaintech.xt20.cylinderarea.CylinderArea";
   }
   // 枚举对象
-  public static EnumAttribute WAITING_BUYER_PICK_UP =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.shippingstatus.ShippingStatus", "WAITING_BUYER_PICK_UP")
-          .chineseName("待自提");
-  public static EnumAttribute WAITING_SELLER_DELIVERY =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.shippingstatus.ShippingStatus", "WAITING_SELLER_DELIVERY")
-          .chineseName("待配送");
-  public static EnumAttribute SELLER_SHIPPING =
-      new EnumAttribute("com.doublechaintech.xt20.shippingstatus.ShippingStatus", "SELLER_SHIPPING")
-          .chineseName("正在配送");
-  public static EnumAttribute BUYER_RECEIVED =
-      new EnumAttribute("com.doublechaintech.xt20.shippingstatus.ShippingStatus", "BUYER_RECEIVED")
-          .chineseName("已签收");
-  public static EnumAttribute COMPLETED =
-      new EnumAttribute("com.doublechaintech.xt20.shippingstatus.ShippingStatus", "COMPLETED")
-          .chineseName("已完成");
-  public static EnumAttribute CANCELLED =
-      new EnumAttribute("com.doublechaintech.xt20.shippingstatus.ShippingStatus", "CANCELLED")
-          .chineseName("已取消");
+  public static EnumAttribute EMPTY =
+      new EnumAttribute("com.doublechaintech.xt20.cylinderarea.CylinderArea", "EMPTY")
+          .chineseName("空瓶");
+  public static EnumAttribute PRODUCT =
+      new EnumAttribute("com.doublechaintech.xt20.cylinderarea.CylinderArea", "PRODUCT")
+          .chineseName("实瓶");
+  public static EnumAttribute DELIVERY =
+      new EnumAttribute("com.doublechaintech.xt20.cylinderarea.CylinderArea", "DELIVERY")
+          .chineseName("实瓶在途");
+  public static EnumAttribute BACK =
+      new EnumAttribute("com.doublechaintech.xt20.cylinderarea.CylinderArea", "BACK")
+          .chineseName("回瓶在途");
+  public static EnumAttribute BUYER =
+      new EnumAttribute("com.doublechaintech.xt20.cylinderarea.CylinderArea", "BUYER")
+          .chineseName("客户持瓶");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {
-      WAITING_BUYER_PICK_UP,
-      WAITING_SELLER_DELIVERY,
-      SELLER_SHIPPING,
-      BUYER_RECEIVED,
-      COMPLETED,
-      CANCELLED
-    };
+    return new EnumAttribute[] {EMPTY, PRODUCT, DELIVERY, BACK, BUYER};
   }
 
   // 引用的对象
@@ -56,12 +44,23 @@ public class ShippingStatus extends BaseModelBean {
 
   // 被引用的对象
 
-  public GasShippingGroup gasShippingGroupList() {
-    GasShippingGroup member = new GasShippingGroup();
-    member.setModelTypeName("gas_shipping_group");
-    member.setName("shipping_status");
-    member.setMemberName("gasShippingGroupList");
-    member.setRelationName("shippingStatus");
+  public MerchantCylinder merchantCylinderList() {
+    MerchantCylinder member = new MerchantCylinder();
+    member.setModelTypeName("merchant_cylinder");
+    member.setName("cylinder_area");
+    member.setMemberName("merchantCylinderList");
+    member.setRelationName("cylinderArea");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public MerchantCylinderRecord merchantCylinderRecordList() {
+    MerchantCylinderRecord member = new MerchantCylinderRecord();
+    member.setModelTypeName("merchant_cylinder_record");
+    member.setName("cylinder_area");
+    member.setMemberName("merchantCylinderRecordList");
+    member.setRelationName("cylinderArea");
     member.setReferDirection(false);
     append(member);
     return member;

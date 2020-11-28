@@ -300,6 +300,17 @@ public class Platform extends BaseModelBean {
     return member;
   }
 
+  public CylinderArea cylinderAreaList() {
+    CylinderArea member = new CylinderArea();
+    member.setModelTypeName("cylinder_area");
+    member.setName("platform");
+    member.setMemberName("cylinderAreaList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public GasCylinder gasCylinderList() {
     GasCylinder member = new GasCylinder();
     member.setModelTypeName("gas_cylinder");
