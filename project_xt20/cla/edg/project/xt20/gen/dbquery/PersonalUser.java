@@ -58,6 +58,39 @@ public class PersonalUser extends BaseModelBean {
     return member;
   }
 
+  public DeliverTask deliverTaskList() {
+    DeliverTask member = new DeliverTask();
+    member.setModelTypeName("deliver_task");
+    member.setName("deliver_staff");
+    member.setMemberName("deliverTaskList");
+    member.setRelationName("deliverStaff");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public MainOrder mainOrderList() {
+    MainOrder member = new MainOrder();
+    member.setModelTypeName("main_order");
+    member.setName("creator");
+    member.setMemberName("mainOrderList");
+    member.setRelationName("creator");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventAdminTransfer eventAdminTransferList() {
+    EventAdminTransfer member = new EventAdminTransfer();
+    member.setModelTypeName("event_admin_transfer");
+    member.setName("new_admin");
+    member.setMemberName("eventAdminTransferList");
+    member.setRelationName("newAdmin");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

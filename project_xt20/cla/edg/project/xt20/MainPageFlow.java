@@ -24,6 +24,9 @@ public class MainPageFlow extends BasePageFlowDescriptionScript {
                 .import_from(new P01_Example())
 
                 .import_from(new Q01_Guide())
+                .import_from(new Q02_GasProduct())
+                .import_from(new Q03_Users())
+                .import_from(new Q04_Employee())
             ;
     }
 }

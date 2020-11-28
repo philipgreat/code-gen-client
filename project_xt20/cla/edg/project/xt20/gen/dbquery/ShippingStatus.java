@@ -16,7 +16,7 @@ public class ShippingStatus extends BaseModelBean {
   public static EnumAttribute WAITING_SELLER_DELIVERY =
       new EnumAttribute(
               "com.doublechaintech.xt20.shippingstatus.ShippingStatus", "WAITING_SELLER_DELIVERY")
-          .chineseName("待配送");
+          .chineseName("待发货");
   public static EnumAttribute SELLER_SHIPPING =
       new EnumAttribute("com.doublechaintech.xt20.shippingstatus.ShippingStatus", "SELLER_SHIPPING")
           .chineseName("正在配送");

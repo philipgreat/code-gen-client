@@ -45,9 +45,9 @@ public class MainOrder extends BaseModelBean {
     return member;
   }
 
-  public Employee creator() {
-    Employee member = new Employee();
-    member.setModelTypeName("employee");
+  public PersonalUser creator() {
+    PersonalUser member = new PersonalUser();
+    member.setModelTypeName("personal_user");
     member.setName("creator");
     member.setMemberName("creator");
     member.setReferDirection(true);

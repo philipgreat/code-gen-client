@@ -17,8 +17,7 @@ public class CR00_AllTBD implements ChangeRequestSpecFactory {
 
             .change_request("update company info").zh_CN("商户基础信息")
                 .step("A").zh_CN("商户基础信息").contains_event("tbd")
-            .change_request("company admin transfer").zh_CN("转移管理员")
-                .step("A").zh_CN("转移管理员").contains_event("tbd")
+
             .change_request("product off shelf").zh_CN("下架")
                 .step("A").zh_CN("下架").contains_event("tbd")
             .change_request("product on shelf").zh_CN("上架")
@@ -63,10 +62,7 @@ public class CR00_AllTBD implements ChangeRequestSpecFactory {
                 .step("A").zh_CN("提交新单").contains_event("tbd")
             .change_request("update buyer info when confirm quote").zh_CN("完善信息")
                 .step("A").zh_CN("完善信息").contains_event("tbd")
-            .change_request("update colleague info").zh_CN("备注")
-                .step("A").zh_CN("备注").contains_event("tbd")
-            .change_request("audit join apply").zh_CN("审批加入+姓名")
-                .step("A").zh_CN("审批加入+姓名").contains_event("tbd")
+
             .change_request("update merchant info when inbound").zh_CN("完善信息并入库")
                 .step("A").zh_CN("完善信息并入库").contains_event("tbd")
             .change_request("product inbound").zh_CN("入库")
@@ -87,8 +83,7 @@ public class CR00_AllTBD implements ChangeRequestSpecFactory {
                 .step("A").zh_CN("更新个人信息").contains_event("tbd")
             .change_request("buyer ").zh_CN("审核加入")
                 .step("A").zh_CN("审核加入").contains_event("tbd")
-            .change_request("buyer admin transfer").zh_CN("转移管理员")
-                .step("A").zh_CN("转移管理员").contains_event("tbd")
+
             .change_request("custom product when initial").zh_CN("自定义产品")
                 .step("A").zh_CN("自定义产品").contains_event("tbd")
 

@@ -80,6 +80,17 @@ public class Platform extends BaseModelBean {
     return member;
   }
 
+  public OffTime offTimeList() {
+    OffTime member = new OffTime();
+    member.setModelTypeName("off_time");
+    member.setName("platform");
+    member.setMemberName("offTimeList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public Merchant merchantList() {
     Merchant member = new Merchant();
     member.setModelTypeName("merchant");

@@ -18,15 +18,6 @@ public class ChangeRequestType extends BaseModelBean {
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "SELLER_REGISTER")
           .chineseName("商户注册");
-  public static EnumAttribute AUDIT_ORDER =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "AUDIT_ORDER")
-          .chineseName("完成审核");
-  public static EnumAttribute CUSTOM_PRODUCT_WHEN_INITIAL =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
-              "CUSTOM_PRODUCT_WHEN_INITIAL")
-          .chineseName("自定义产品");
   public static EnumAttribute EDIT_ADDITIONAL_SPEC_WHEN_INIT =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
@@ -36,10 +27,6 @@ public class ChangeRequestType extends BaseModelBean {
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "CONFIRM_JOIN")
           .chineseName("确认加入");
-  public static EnumAttribute BUYER_DELIVERY_INFO =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "BUYER_DELIVERY_INFO")
-          .chineseName("配送信息");
   public static EnumAttribute UPDATE_MERCHANT_INFO_WHEN_INBOUND =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
@@ -50,19 +37,6 @@ public class ChangeRequestType extends BaseModelBean {
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
               "EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE")
           .chineseName("修改附加规格");
-  public static EnumAttribute COPY_PRODUCT =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "COPY_PRODUCT")
-          .chineseName("复制产品");
-  public static EnumAttribute BUYER_UPDATE_ORDER =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "BUYER_UPDATE_ORDER")
-          .chineseName("修改订单");
-  public static EnumAttribute SELLER_UPDATE_MERCHANT_INFO =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
-              "SELLER_UPDATE_MERCHANT_INFO")
-          .chineseName("完善信息");
   public static EnumAttribute CREATE_HANDOVER_TASK =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
@@ -95,14 +69,10 @@ public class ChangeRequestType extends BaseModelBean {
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "BUYER_BIC_CONFIRM")
           .chineseName("确认");
-  public static EnumAttribute CREATE_SPLIT_ORDER =
+  public static EnumAttribute APPROVE_JOIN_BUYER =
       new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "CREATE_SPLIT_ORDER")
-          .chineseName("提交新单");
-  public static EnumAttribute AUDIT_JOIN_APPLY =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "AUDIT_JOIN_APPLY")
-          .chineseName("审批加入+姓名");
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "APPROVE_JOIN_BUYER")
+          .chineseName("批准加入");
   public static EnumAttribute UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
@@ -113,6 +83,109 @@ public class ChangeRequestType extends BaseModelBean {
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
               "COMPANY_ADMIN_TRANSFER")
           .chineseName("转移管理员");
+  public static EnumAttribute BUYER_UPDATE_DELIVERY_INFO =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
+              "BUYER_UPDATE_DELIVERY_INFO")
+          .chineseName("完善配送");
+  public static EnumAttribute BUYER =
+      new EnumAttribute("com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "BUYER")
+          .chineseName("审核加入");
+  public static EnumAttribute UPDATE_PRODUCT_INFO =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "UPDATE_PRODUCT_INFO")
+          .chineseName("修改产品");
+  public static EnumAttribute UPDATE_MERCHANT_INFO_WHEN_QUOTE =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
+              "UPDATE_MERCHANT_INFO_WHEN_QUOTE")
+          .chineseName("完善信息");
+  public static EnumAttribute UPDATE_COLLEAGUE_INFO =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
+              "UPDATE_COLLEAGUE_INFO")
+          .chineseName("备注");
+  public static EnumAttribute EDIT_ADDITIONAL_SPEC_WHEN_QUOTE =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
+              "EDIT_ADDITIONAL_SPEC_WHEN_QUOTE")
+          .chineseName("产品附加规格");
+  public static EnumAttribute UPDATE_COMPANY_INFO =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "UPDATE_COMPANY_INFO")
+          .chineseName("商户基础信息");
+  public static EnumAttribute UPDATE_DELIVERY_INFO =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
+              "UPDATE_DELIVERY_INFO")
+          .chineseName("修改配送信息");
+  public static EnumAttribute UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
+              "UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER")
+          .chineseName("完善信息");
+  public static EnumAttribute EDIT_ADDITIONAL_SPEC_WHEN_CREATE =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
+              "EDIT_ADDITIONAL_SPEC_WHEN_CREATE")
+          .chineseName("修改附加规格");
+  public static EnumAttribute PRODUCT_ON_SHELF =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "PRODUCT_ON_SHELF")
+          .chineseName("上架");
+  public static EnumAttribute SEND_TO_CUSTOMER_AUDIT =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
+              "SEND_TO_CUSTOMER_AUDIT")
+          .chineseName("提交客户审核");
+  public static EnumAttribute CONFIRM_QUOTE =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "CONFIRM_QUOTE")
+          .chineseName("同意代下");
+  public static EnumAttribute AUDIT_ORDER =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "AUDIT_ORDER")
+          .chineseName("完成审核");
+  public static EnumAttribute CUSTOM_PRODUCT_WHEN_INITIAL =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
+              "CUSTOM_PRODUCT_WHEN_INITIAL")
+          .chineseName("自定义产品");
+  public static EnumAttribute BUYER_DELIVERY_INFO =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "BUYER_DELIVERY_INFO")
+          .chineseName("配送信息");
+  public static EnumAttribute COPY_PRODUCT =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "COPY_PRODUCT")
+          .chineseName("复制产品");
+  public static EnumAttribute BUYER_UPDATE_ORDER =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "BUYER_UPDATE_ORDER")
+          .chineseName("修改订单");
+  public static EnumAttribute SELLER_UPDATE_MERCHANT_INFO =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
+              "SELLER_UPDATE_MERCHANT_INFO")
+          .chineseName("完善信息");
+  public static EnumAttribute UPDATE_MERCHANT_OFF_TIME =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
+              "UPDATE_MERCHANT_OFF_TIME")
+          .chineseName("设置商户下班时间");
+  public static EnumAttribute CREATE_SPLIT_ORDER =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "CREATE_SPLIT_ORDER")
+          .chineseName("提交新单");
+  public static EnumAttribute AUDIT_JOIN_APPLY =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "AUDIT_JOIN_APPLY")
+          .chineseName("审批加入+姓名");
+  public static EnumAttribute UPDATE_MERCHANT_DELIVERY_LIMIT =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
+              "UPDATE_MERCHANT_DELIVERY_LIMIT")
+          .chineseName("设置单次配送最大量");
   public static EnumAttribute BUYER_ADMIN_TRANSFER =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
@@ -123,11 +196,6 @@ public class ChangeRequestType extends BaseModelBean {
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
               "CUSTOM_PRODUCT_WHEN_QUOTE")
           .chineseName("自定义");
-  public static EnumAttribute BUYER_UPDATE_DELIVERY_INFO =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
-              "BUYER_UPDATE_DELIVERY_INFO")
-          .chineseName("完善配送");
   public static EnumAttribute UPDATE_DELIVERY_TASK =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
@@ -147,28 +215,6 @@ public class ChangeRequestType extends BaseModelBean {
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
               "UPDATE_MERCHANT_INFO_WHEN_INVITE")
           .chineseName("完善信息");
-  public static EnumAttribute BUYER =
-      new EnumAttribute("com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "BUYER")
-          .chineseName("审核加入");
-  public static EnumAttribute UPDATE_PRODUCT_INFO =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "UPDATE_PRODUCT_INFO")
-          .chineseName("修改产品");
-  public static EnumAttribute UPDATE_COLLEAGUE_INFO =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
-              "UPDATE_COLLEAGUE_INFO")
-          .chineseName("备注");
-  public static EnumAttribute UPDATE_MERCHANT_INFO_WHEN_QUOTE =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
-              "UPDATE_MERCHANT_INFO_WHEN_QUOTE")
-          .chineseName("完善信息");
-  public static EnumAttribute EDIT_ADDITIONAL_SPEC_WHEN_QUOTE =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
-              "EDIT_ADDITIONAL_SPEC_WHEN_QUOTE")
-          .chineseName("产品附加规格");
   public static EnumAttribute CREATE_DELIVERY_TASK =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
@@ -179,47 +225,15 @@ public class ChangeRequestType extends BaseModelBean {
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
               "EDIT_BUYER_COLLEAGUE")
           .chineseName("备注");
-  public static EnumAttribute UPDATE_COMPANY_INFO =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "UPDATE_COMPANY_INFO")
-          .chineseName("商户基础信息");
-  public static EnumAttribute UPDATE_DELIVERY_INFO =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
-              "UPDATE_DELIVERY_INFO")
-          .chineseName("修改配送信息");
-  public static EnumAttribute UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
-              "UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER")
-          .chineseName("完善信息");
   public static EnumAttribute CONFIRM_AS_CUSTOMER =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "CONFIRM_AS_CUSTOMER")
           .chineseName("代客确认");
-  public static EnumAttribute EDIT_ADDITIONAL_SPEC_WHEN_CREATE =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
-              "EDIT_ADDITIONAL_SPEC_WHEN_CREATE")
-          .chineseName("修改附加规格");
   public static EnumAttribute CONFIRM_DELIVERY_TASK =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
               "CONFIRM_DELIVERY_TASK")
           .chineseName("确认交接");
-  public static EnumAttribute PRODUCT_ON_SHELF =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "PRODUCT_ON_SHELF")
-          .chineseName("上架");
-  public static EnumAttribute SEND_TO_CUSTOMER_AUDIT =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
-              "SEND_TO_CUSTOMER_AUDIT")
-          .chineseName("提交客户审核");
-  public static EnumAttribute CONFIRM_QUOTE =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "CONFIRM_QUOTE")
-          .chineseName("同意代下");
   public static EnumAttribute UPDATE_BUYER_INFO_WHEN_ORDER =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
@@ -230,16 +244,10 @@ public class ChangeRequestType extends BaseModelBean {
     return new EnumAttribute[] {
       MORE_SUPPLIER_PRODUCT,
       SELLER_REGISTER,
-      AUDIT_ORDER,
-      CUSTOM_PRODUCT_WHEN_INITIAL,
       EDIT_ADDITIONAL_SPEC_WHEN_INIT,
       CONFIRM_JOIN,
-      BUYER_DELIVERY_INFO,
       UPDATE_MERCHANT_INFO_WHEN_INBOUND,
       EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE,
-      COPY_PRODUCT,
-      BUYER_UPDATE_ORDER,
-      SELLER_UPDATE_MERCHANT_INFO,
       CREATE_HANDOVER_TASK,
       PRODUCT_INBOUND,
       CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT,
@@ -247,33 +255,42 @@ public class ChangeRequestType extends BaseModelBean {
       UPDATE_PERSONAL_INFO,
       UPDATE_MERCHANT_INFO_FROM_SELLER_HOME,
       BUYER_BIC_CONFIRM,
-      CREATE_SPLIT_ORDER,
-      AUDIT_JOIN_APPLY,
+      APPROVE_JOIN_BUYER,
       UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE,
       COMPANY_ADMIN_TRANSFER,
+      BUYER_UPDATE_DELIVERY_INFO,
+      BUYER,
+      UPDATE_PRODUCT_INFO,
+      UPDATE_MERCHANT_INFO_WHEN_QUOTE,
+      UPDATE_COLLEAGUE_INFO,
+      EDIT_ADDITIONAL_SPEC_WHEN_QUOTE,
+      UPDATE_COMPANY_INFO,
+      UPDATE_DELIVERY_INFO,
+      UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER,
+      EDIT_ADDITIONAL_SPEC_WHEN_CREATE,
+      PRODUCT_ON_SHELF,
+      SEND_TO_CUSTOMER_AUDIT,
+      CONFIRM_QUOTE,
+      AUDIT_ORDER,
+      CUSTOM_PRODUCT_WHEN_INITIAL,
+      BUYER_DELIVERY_INFO,
+      COPY_PRODUCT,
+      BUYER_UPDATE_ORDER,
+      SELLER_UPDATE_MERCHANT_INFO,
+      UPDATE_MERCHANT_OFF_TIME,
+      CREATE_SPLIT_ORDER,
+      AUDIT_JOIN_APPLY,
+      UPDATE_MERCHANT_DELIVERY_LIMIT,
       BUYER_ADMIN_TRANSFER,
       CUSTOM_PRODUCT_WHEN_QUOTE,
-      BUYER_UPDATE_DELIVERY_INFO,
       UPDATE_DELIVERY_TASK,
       EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT,
       PRODUCT_OFF_SHELF,
       UPDATE_MERCHANT_INFO_WHEN_INVITE,
-      BUYER,
-      UPDATE_PRODUCT_INFO,
-      UPDATE_COLLEAGUE_INFO,
-      UPDATE_MERCHANT_INFO_WHEN_QUOTE,
-      EDIT_ADDITIONAL_SPEC_WHEN_QUOTE,
       CREATE_DELIVERY_TASK,
       EDIT_BUYER_COLLEAGUE,
-      UPDATE_COMPANY_INFO,
-      UPDATE_DELIVERY_INFO,
-      UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER,
       CONFIRM_AS_CUSTOMER,
-      EDIT_ADDITIONAL_SPEC_WHEN_CREATE,
       CONFIRM_DELIVERY_TASK,
-      PRODUCT_ON_SHELF,
-      SEND_TO_CUSTOMER_AUDIT,
-      CONFIRM_QUOTE,
       UPDATE_BUYER_INFO_WHEN_ORDER
     };
   }

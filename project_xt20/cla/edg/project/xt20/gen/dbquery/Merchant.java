@@ -12,6 +12,17 @@ public class Merchant extends BaseModelBean {
 
   // 引用的对象
 
+  public OffTime offTime() {
+    OffTime member = new OffTime();
+    member.setModelTypeName("off_time");
+    member.setName("off_time");
+    member.setMemberName("offTime");
+    member.setReferDirection(true);
+    member.setRelationName("offTime");
+    append(member);
+    return member;
+  }
+
   public Platform platform() {
     Platform member = new Platform();
     member.setModelTypeName("platform");
@@ -261,6 +272,15 @@ public class Merchant extends BaseModelBean {
     member.setModelTypeName("string");
     // member.setName("name");
     member.setName("name");
+    useMember(member);
+    return member;
+  }
+
+  public NumberAttribute deliveryLimit() {
+    NumberAttribute member = new NumberAttribute();
+    member.setModelTypeName("int");
+    // member.setName("deliveryLimit");
+    member.setName("delivery_limit");
     useMember(member);
     return member;
   }

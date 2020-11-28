@@ -12,9 +12,9 @@ public class DeliverTask extends BaseModelBean {
 
   // 引用的对象
 
-  public Employee deliverStaff() {
-    Employee member = new Employee();
-    member.setModelTypeName("employee");
+  public PersonalUser deliverStaff() {
+    PersonalUser member = new PersonalUser();
+    member.setModelTypeName("personal_user");
     member.setName("deliver_staff");
     member.setMemberName("deliverStaff");
     member.setReferDirection(true);

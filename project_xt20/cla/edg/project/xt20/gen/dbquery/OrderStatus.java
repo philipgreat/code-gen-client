@@ -35,6 +35,9 @@ public class OrderStatus extends BaseModelBean {
   public static EnumAttribute SELLER_SHIPPING =
       new EnumAttribute("com.doublechaintech.xt20.orderstatus.OrderStatus", "SELLER_SHIPPING")
           .chineseName("正在配送");
+  public static EnumAttribute BUYER_RECEIVED =
+      new EnumAttribute("com.doublechaintech.xt20.orderstatus.OrderStatus", "BUYER_RECEIVED")
+          .chineseName("已交接");
   public static EnumAttribute COMPLETED =
       new EnumAttribute("com.doublechaintech.xt20.orderstatus.OrderStatus", "COMPLETED")
           .chineseName("已完成");
@@ -52,6 +55,7 @@ public class OrderStatus extends BaseModelBean {
       WAITING_BUYER_PICK_UP,
       WAITING_SELLER_DELIVERY,
       SELLER_SHIPPING,
+      BUYER_RECEIVED,
       COMPLETED,
       CANCELLED
     };

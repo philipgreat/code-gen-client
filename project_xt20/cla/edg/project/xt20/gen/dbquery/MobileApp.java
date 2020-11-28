@@ -25,6 +25,28 @@ public class MobileApp extends BaseModelBean {
     return member;
   }
 
+  public GuideType guideTypeList() {
+    GuideType member = new GuideType();
+    member.setModelTypeName("guide_type");
+    member.setName("app");
+    member.setMemberName("guideTypeList");
+    member.setRelationName("app");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public GuideSlide guideSlideList() {
+    GuideSlide member = new GuideSlide();
+    member.setModelTypeName("guide_slide");
+    member.setName("app");
+    member.setMemberName("guideSlideList");
+    member.setRelationName("app");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public Page pageList() {
     Page member = new Page();
     member.setModelTypeName("page");

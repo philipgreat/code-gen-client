@@ -56,6 +56,13 @@ public class MODEL {
     return rst;
   }
 
+  public static OffTime offTime() {
+    OffTime rst = new OffTime();
+    rst.setModelTypeName("off_time");
+    rst.setBeanPath(new BeanPath().name("off_time"));
+    return rst;
+  }
+
   public static Merchant merchant() {
     Merchant rst = new Merchant();
     rst.setModelTypeName("merchant");
@@ -406,6 +413,20 @@ public class MODEL {
     return rst;
   }
 
+  public static GuideType guideType() {
+    GuideType rst = new GuideType();
+    rst.setModelTypeName("guide_type");
+    rst.setBeanPath(new BeanPath().name("guide_type"));
+    return rst;
+  }
+
+  public static GuideSlide guideSlide() {
+    GuideSlide rst = new GuideSlide();
+    rst.setModelTypeName("guide_slide");
+    rst.setBeanPath(new BeanPath().name("guide_slide"));
+    return rst;
+  }
+
   public static ChangeRequestType changeRequestType() {
     ChangeRequestType rst = new ChangeRequestType();
     rst.setModelTypeName("change_request_type");
@@ -431,6 +452,34 @@ public class MODEL {
     EventSellerInfo rst = new EventSellerInfo();
     rst.setModelTypeName("event_seller_info");
     rst.setBeanPath(new BeanPath().name("event_seller_info"));
+    return rst;
+  }
+
+  public static EventAdminTransfer eventAdminTransfer() {
+    EventAdminTransfer rst = new EventAdminTransfer();
+    rst.setModelTypeName("event_admin_transfer");
+    rst.setBeanPath(new BeanPath().name("event_admin_transfer"));
+    return rst;
+  }
+
+  public static EventUpdateMerchantOffTime eventUpdateMerchantOffTime() {
+    EventUpdateMerchantOffTime rst = new EventUpdateMerchantOffTime();
+    rst.setModelTypeName("event_update_merchant_off_time");
+    rst.setBeanPath(new BeanPath().name("event_update_merchant_off_time"));
+    return rst;
+  }
+
+  public static EventUpdateMerchantDeliveryLimit eventUpdateMerchantDeliveryLimit() {
+    EventUpdateMerchantDeliveryLimit rst = new EventUpdateMerchantDeliveryLimit();
+    rst.setModelTypeName("event_update_merchant_delivery_limit");
+    rst.setBeanPath(new BeanPath().name("event_update_merchant_delivery_limit"));
+    return rst;
+  }
+
+  public static EventEmployeeApprove eventEmployeeApprove() {
+    EventEmployeeApprove rst = new EventEmployeeApprove();
+    rst.setModelTypeName("event_employee_approve");
+    rst.setBeanPath(new BeanPath().name("event_employee_approve"));
     return rst;
   }
 

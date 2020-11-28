@@ -58,6 +58,50 @@ public class ChangeRequest extends BaseModelBean {
     return member;
   }
 
+  public EventAdminTransfer eventAdminTransferList() {
+    EventAdminTransfer member = new EventAdminTransfer();
+    member.setModelTypeName("event_admin_transfer");
+    member.setName("change_request");
+    member.setMemberName("eventAdminTransferList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventUpdateMerchantOffTime eventUpdateMerchantOffTimeList() {
+    EventUpdateMerchantOffTime member = new EventUpdateMerchantOffTime();
+    member.setModelTypeName("event_update_merchant_off_time");
+    member.setName("change_request");
+    member.setMemberName("eventUpdateMerchantOffTimeList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventUpdateMerchantDeliveryLimit eventUpdateMerchantDeliveryLimitList() {
+    EventUpdateMerchantDeliveryLimit member = new EventUpdateMerchantDeliveryLimit();
+    member.setModelTypeName("event_update_merchant_delivery_limit");
+    member.setName("change_request");
+    member.setMemberName("eventUpdateMerchantDeliveryLimitList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventEmployeeApprove eventEmployeeApproveList() {
+    EventEmployeeApprove member = new EventEmployeeApprove();
+    member.setModelTypeName("event_employee_approve");
+    member.setName("change_request");
+    member.setMemberName("eventEmployeeApproveList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventUpdateAdditionalSpec eventUpdateAdditionalSpecList() {
     EventUpdateAdditionalSpec member = new EventUpdateAdditionalSpec();
     member.setModelTypeName("event_update_additional_spec");
