@@ -9,6 +9,9 @@ public class ShippingStatus extends BaseModelBean {
     return "com.doublechaintech.xt20.shippingstatus.ShippingStatus";
   }
   // 枚举对象
+  public static EnumAttribute CREATED =
+      new EnumAttribute("com.doublechaintech.xt20.shippingstatus.ShippingStatus", "CREATED")
+          .chineseName("新建");
   public static EnumAttribute WAITING_BUYER_PICK_UP =
       new EnumAttribute(
               "com.doublechaintech.xt20.shippingstatus.ShippingStatus", "WAITING_BUYER_PICK_UP")
@@ -32,6 +35,7 @@ public class ShippingStatus extends BaseModelBean {
 
   public EnumAttribute[] getEnumNameList() {
     return new EnumAttribute[] {
+      CREATED,
       WAITING_BUYER_PICK_UP,
       WAITING_SELLER_DELIVERY,
       SELLER_SHIPPING,

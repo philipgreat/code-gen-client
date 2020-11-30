@@ -6,7 +6,7 @@
 
 
 
-=================1.0 Execute Report (Model Time 201128T1843) @Sat Nov 28 18:44:34 CST 2020, 92 objects and 648 fields===========================
+=================1.0 Execute Report (Model Time 201130T1104) @Mon Nov 30 11:04:56 CST 2020, 92 objects and 648 fields===========================
 from file "/Users/jackytian/git/web-code-generator/sky/modeling/microservice/xt20.xml"
 
 
@@ -1739,9 +1739,9 @@ meta{name=shipping_status, features=status}
 shipping_status{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('待自提|待配送|正在配送|已签收|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
-		string	code('WAITING_BUYER_PICK_UP|WAITING_SELLER_DELIVERY|SELLER_SHIPPING|BUYER_RECEIVED|COMPLETED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
-		string	description('待自提|待配送|正在配送|已签收|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	name('新建|待自提|待配送|正在配送|已签收|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	code('CREATED|WAITING_BUYER_PICK_UP|WAITING_SELLER_DELIVERY|SELLER_SHIPPING|BUYER_RECEIVED|COMPLETED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
+		string	description('新建|待自提|待配送|正在配送|已签收|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: shippingStatusList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
@@ -3282,9 +3282,9 @@ meta{name=shipping_status, features=status}
 shipping_status{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('待自提|待配送|正在配送|已签收|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
-		string	code('WAITING_BUYER_PICK_UP|WAITING_SELLER_DELIVERY|SELLER_SHIPPING|BUYER_RECEIVED|COMPLETED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
-		string	description('待自提|待配送|正在配送|已签收|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	name('新建|待自提|待配送|正在配送|已签收|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
+		string	code('CREATED|WAITING_BUYER_PICK_UP|WAITING_SELLER_DELIVERY|SELLER_SHIPPING|BUYER_RECEIVED|COMPLETED|CANCELLED'), verb: false, required: true,type:string,relationMeta={};
+		string	description('新建|待自提|待配送|正在配送|已签收|已完成|已取消'), verb: false, required: true,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: shippingStatusList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}

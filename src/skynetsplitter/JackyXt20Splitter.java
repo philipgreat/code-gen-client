@@ -1,5 +1,6 @@
 package skynetsplitter;
 
+import cla.edg.project.xt20.JackyMain;
 import skynet.*;
 
 public class JackyXt20Splitter {
@@ -7,7 +8,7 @@ public class JackyXt20Splitter {
     private static final int SECOND_IN_MS = 1000;
 
     public static void main(String[] args) throws Exception {
-
+        JackyMain.main(args);
         String modelName = "xt20";
         String projectFolder = "xt20_v1";
         System.setProperty("skynet.output.basefolder", "/Users/jackytian/git");
