@@ -45,6 +45,17 @@ public class MainOrder extends BaseModelBean {
     return member;
   }
 
+  public DeliverType shippingType() {
+    DeliverType member = new DeliverType();
+    member.setModelTypeName("deliver_type");
+    member.setName("shipping_type");
+    member.setMemberName("shippingType");
+    member.setReferDirection(true);
+    member.setRelationName("shippingType");
+    append(member);
+    return member;
+  }
+
   public Employee creator() {
     Employee member = new Employee();
     member.setModelTypeName("employee");
@@ -118,6 +129,69 @@ public class MainOrder extends BaseModelBean {
     member.setModelTypeName("string_longtext");
     // member.setName("comment");
     member.setName("comment");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute handoverAddress() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("handoverAddress");
+    member.setName("handover_address");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute sellerContactName() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("sellerContactName");
+    member.setName("seller_contact_name");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute sellerContactPhone() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("sellerContactPhone");
+    member.setName("seller_contact_phone");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute buyerContactName() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("buyerContactName");
+    member.setName("buyer_contact_name");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute buyerContactPhone() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("buyerContactPhone");
+    member.setName("buyer_contact_phone");
+    useMember(member);
+    return member;
+  }
+
+  public DateTimeAttribute handoverDate() {
+    DateTimeAttribute member = new DateTimeAttribute();
+    member.setModelTypeName("date");
+    // member.setName("handoverDate");
+    member.setName("handover_date");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute handoverTime() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("handoverTime");
+    member.setName("handover_time");
     useMember(member);
     return member;
   }

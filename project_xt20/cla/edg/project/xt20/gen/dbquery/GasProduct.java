@@ -102,6 +102,17 @@ public class GasProduct extends BaseModelBean {
     return member;
   }
 
+  public GasProductCache gasProductCacheList() {
+    GasProductCache member = new GasProductCache();
+    member.setModelTypeName("gas_product_cache");
+    member.setName("product");
+    member.setMemberName("gasProductCacheList");
+    member.setRelationName("product");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public GasLineItem gasLineItemList() {
     GasLineItem member = new GasLineItem();
     member.setModelTypeName("gas_line_item");

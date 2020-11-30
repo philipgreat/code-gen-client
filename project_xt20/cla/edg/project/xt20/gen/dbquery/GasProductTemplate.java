@@ -69,6 +69,17 @@ public class GasProductTemplate extends BaseModelBean {
     return member;
   }
 
+  public GasProductTemplateCache gasProductTemplateCacheList() {
+    GasProductTemplateCache member = new GasProductTemplateCache();
+    member.setModelTypeName("gas_product_template_cache");
+    member.setName("template_id");
+    member.setMemberName("gasProductTemplateCacheList");
+    member.setRelationName("templateId");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public GasLineItem gasLineItemList() {
     GasLineItem member = new GasLineItem();
     member.setModelTypeName("gas_line_item");

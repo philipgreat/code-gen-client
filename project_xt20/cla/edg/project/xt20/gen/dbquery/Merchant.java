@@ -179,6 +179,17 @@ public class Merchant extends BaseModelBean {
     return member;
   }
 
+  public GasProductCache gasProductCacheList() {
+    GasProductCache member = new GasProductCache();
+    member.setModelTypeName("gas_product_cache");
+    member.setName("merchant");
+    member.setMemberName("gasProductCacheList");
+    member.setRelationName("merchant");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public DeliverTask deliverTaskList() {
     DeliverTask member = new DeliverTask();
     member.setModelTypeName("deliver_task");

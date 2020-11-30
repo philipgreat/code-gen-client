@@ -4,9 +4,16 @@ import cla.edg.project.xt20.changerequest.*;
 import com.terapico.changerequest.builder.ChangeRequestSpecBuilder;
 import com.terapico.changerequest.builder.ChangeRequestSpecFactory;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class MainChangeRequest implements ChangeRequestSpecFactory {
+
+    protected Map<String, String> envVars = new HashMap<>();
+    public MainChangeRequest withEnv(Map<String, String> envVars) {
+        this.envVars.putAll(envVars);
+        return this;
+    }
 
     @Override
     public Map<String, Map<String, Object>> getSpec() {
@@ -14,7 +21,11 @@ public class MainChangeRequest implements ChangeRequestSpecFactory {
     }
 
     private Map<String, Map<String, Object>> getScript() {
-        return ChangeRequestSpecBuilder.for_project(Main.TARGET_PROJECT_NAME)
+        String prjName = envVars.get("project_name");
+        if (prjName == null) {
+            prjName = Main.TARGET_PROJECT_NAME;
+        }
+        return ChangeRequestSpecBuilder.for_project(prjName)
                 .request_base("you_should_handle_CR_here")
 
                 .import_from(new CR00_AllTBD())

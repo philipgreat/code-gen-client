@@ -12,6 +12,28 @@ public class GasProductCache extends BaseModelBean {
 
   // 引用的对象
 
+  public GasProduct product() {
+    GasProduct member = new GasProduct();
+    member.setModelTypeName("gas_product");
+    member.setName("product");
+    member.setMemberName("product");
+    member.setReferDirection(true);
+    member.setRelationName("product");
+    append(member);
+    return member;
+  }
+
+  public Merchant merchant() {
+    Merchant member = new Merchant();
+    member.setModelTypeName("merchant");
+    member.setName("merchant");
+    member.setMemberName("merchant");
+    member.setReferDirection(true);
+    member.setRelationName("merchant");
+    append(member);
+    return member;
+  }
+
   // 被引用的对象
 
   // 普通属性
@@ -21,24 +43,6 @@ public class GasProductCache extends BaseModelBean {
     member.setModelTypeName("string");
     // member.setName("id");
     member.setName("id");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute productId() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("productId");
-    member.setName("product_id");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute merchantId() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("merchantId");
-    member.setName("merchant_id");
     useMember(member);
     return member;
   }

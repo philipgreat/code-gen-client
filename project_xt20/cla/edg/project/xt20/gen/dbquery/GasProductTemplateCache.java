@@ -12,6 +12,17 @@ public class GasProductTemplateCache extends BaseModelBean {
 
   // 引用的对象
 
+  public GasProductTemplate templateId() {
+    GasProductTemplate member = new GasProductTemplate();
+    member.setModelTypeName("gas_product_template");
+    member.setName("template_id");
+    member.setMemberName("templateId");
+    member.setReferDirection(true);
+    member.setRelationName("templateId");
+    append(member);
+    return member;
+  }
+
   // 被引用的对象
 
   // 普通属性
@@ -21,15 +32,6 @@ public class GasProductTemplateCache extends BaseModelBean {
     member.setModelTypeName("string");
     // member.setName("id");
     member.setName("id");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute templateId() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("templateId");
-    member.setName("template_id");
     useMember(member);
     return member;
   }

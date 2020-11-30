@@ -35,6 +35,17 @@ public class DeliverType extends BaseModelBean {
 
   // 被引用的对象
 
+  public MainOrder mainOrderList() {
+    MainOrder member = new MainOrder();
+    member.setModelTypeName("main_order");
+    member.setName("shipping_type");
+    member.setMemberName("mainOrderList");
+    member.setRelationName("shippingType");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public GasShippingGroup gasShippingGroupList() {
     GasShippingGroup member = new GasShippingGroup();
     member.setModelTypeName("gas_shipping_group");

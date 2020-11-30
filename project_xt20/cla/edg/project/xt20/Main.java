@@ -71,9 +71,9 @@ public class Main {
 
 		generatePageFlow(new MainPageFlow().withEnv(envVars));
 
-        generateChangeRequestForm(new MainChangeRequest().getSpec());
+        generateChangeRequestForm(new MainChangeRequest().withEnv(envVars).getSpec());
 
-        generateWorkProcessor(new MainWorkProcessor().getBuilder());
+        generateWorkProcessor(new MainWorkProcessor().withEnv(envVars).getBuilder());
 	}
 
 	private static void generateWorkProcessor(WorkProcessorBuilder builder) throws Exception {
