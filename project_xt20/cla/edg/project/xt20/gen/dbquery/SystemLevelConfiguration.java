@@ -19,9 +19,14 @@ public class SystemLevelConfiguration extends BaseModelBean {
               "com.doublechaintech.xt20.systemlevelconfiguration.SystemLevelConfiguration",
               "SERVICE_MOBILE")
           .chineseName("联系电话");
+  public static EnumAttribute WXAPP_NAME =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.systemlevelconfiguration.SystemLevelConfiguration",
+              "WXAPP_NAME")
+          .chineseName("小程序名称");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {FEEDBACK_EMAIL, SERVICE_MOBILE};
+    return new EnumAttribute[] {FEEDBACK_EMAIL, SERVICE_MOBILE, WXAPP_NAME};
   }
 
   // 引用的对象

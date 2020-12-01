@@ -3,7 +3,6 @@ package cla.edg.project.xt20;
 import cla.edg.pageflow.BasePageFlowDescriptionScript;
 import cla.edg.pageflow.PageFlowScript;
 import cla.edg.project.xt20.pageflow.*;
-import cla.edg.project.xt20.gen.dbquery.*;
 
 import java.util.Map;
 
@@ -24,6 +23,9 @@ public class MainPageFlow extends BasePageFlowDescriptionScript {
                 .import_from(new Q04_Employee())
                 .import_from(new Q05_Cylinder())
                 .import_from(new Q06_Buyer())
+                .import_from(new Q07_Delivery())
+
+                .import_from(new Q99_Misc())
             ;
     }
 

@@ -40,6 +40,17 @@ public class Q05_Cylinder extends PieceOfScript {
                 .wants(MODEL.customerCylinderRecord().action(),
                         MODEL.customerCylinderRecord().actor(),
                         MODEL.customerCylinderRecord().customer().organizationIdentityList())
+
+            .query(MODEL.merchantCylinder()).list_of("empty for merchant").with_string("merchant id")
+                .comments("查询某个商家的所有空瓶记录,(方便开始盘点)")
+                .do_it_as()
+                .where(MODEL.merchantCylinder().merchant().eq("${merchant id}"),
+                        MODEL.merchantCylinder().cylinderArea().eq(CylinderArea.EMPTY))
+            .query(MODEL.merchantCylinder()).list_of("full for merchant").with_string("merchant id")
+                .comments("查询某个商家的所有实瓶记录,(方便开始盘点)")
+                .do_it_as()
+                .where(MODEL.merchantCylinder().merchant().eq("${merchant id}"),
+                        MODEL.merchantCylinder().cylinderArea().eq(CylinderArea.PRODUCT))
        ;
     }
 }

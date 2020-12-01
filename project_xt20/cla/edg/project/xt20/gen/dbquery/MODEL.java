@@ -364,6 +364,13 @@ public class MODEL {
     return rst;
   }
 
+  public static DeliveryReceiptEvidence deliveryReceiptEvidence() {
+    DeliveryReceiptEvidence rst = new DeliveryReceiptEvidence();
+    rst.setModelTypeName("delivery_receipt_evidence");
+    rst.setBeanPath(new BeanPath().name("delivery_receipt_evidence"));
+    return rst;
+  }
+
   public static OrderActionType orderActionType() {
     OrderActionType rst = new OrderActionType();
     rst.setModelTypeName("order_action_type");

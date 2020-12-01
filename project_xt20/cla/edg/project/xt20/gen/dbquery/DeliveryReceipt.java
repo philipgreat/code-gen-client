@@ -102,6 +102,17 @@ public class DeliveryReceipt extends BaseModelBean {
 
   // 被引用的对象
 
+  public DeliveryReceiptEvidence deliveryReceiptEvidenceList() {
+    DeliveryReceiptEvidence member = new DeliveryReceiptEvidence();
+    member.setModelTypeName("delivery_receipt_evidence");
+    member.setName("record");
+    member.setMemberName("deliveryReceiptEvidenceList");
+    member.setRelationName("record");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

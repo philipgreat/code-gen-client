@@ -67,6 +67,15 @@ public class MerchantCylinder extends BaseModelBean {
     return member;
   }
 
+  public DateTimeAttribute lastCheckTime() {
+    DateTimeAttribute member = new DateTimeAttribute();
+    member.setModelTypeName("date_time");
+    // member.setName("lastCheckTime");
+    member.setName("last_check_time");
+    useMember(member);
+    return member;
+  }
+
   public NumberAttribute version() {
     NumberAttribute member = new NumberAttribute();
     member.setModelTypeName("int");

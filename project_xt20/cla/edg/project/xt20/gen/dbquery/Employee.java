@@ -201,6 +201,17 @@ public class Employee extends BaseModelBean {
     return member;
   }
 
+  public DeliveryReceiptEvidence deliveryReceiptEvidenceList() {
+    DeliveryReceiptEvidence member = new DeliveryReceiptEvidence();
+    member.setModelTypeName("delivery_receipt_evidence");
+    member.setName("actor");
+    member.setMemberName("deliveryReceiptEvidenceList");
+    member.setRelationName("actor");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public OrderOperationRecord orderOperationRecordList() {
     OrderOperationRecord member = new OrderOperationRecord();
     member.setModelTypeName("order_operation_record");

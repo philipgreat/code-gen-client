@@ -21,9 +21,19 @@ public class SystemLevelImages extends BaseModelBean {
       new EnumAttribute(
               "com.doublechaintech.xt20.systemlevelimages.SystemLevelImages", "PLATFORM_BANNER")
           .chineseName("平台推广图片");
+  public static EnumAttribute SELLER_BANNER =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.systemlevelimages.SystemLevelImages", "SELLER_BANNER")
+          .chineseName("我要卖气");
+  public static EnumAttribute BUYER_BANNER =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.systemlevelimages.SystemLevelImages", "BUYER_BANNER")
+          .chineseName("我要买气");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {PERSONAL_AVATAR, FACTORY_LOGO, PLATFORM_BANNER};
+    return new EnumAttribute[] {
+      PERSONAL_AVATAR, FACTORY_LOGO, PLATFORM_BANNER, SELLER_BANNER, BUYER_BANNER
+    };
   }
 
   // 引用的对象
