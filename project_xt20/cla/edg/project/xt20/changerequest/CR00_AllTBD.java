@@ -63,16 +63,14 @@ public class CR00_AllTBD implements ChangeRequestSpecFactory {
             .change_request("update buyer info when confirm quote").zh_CN("完善信息")
                 .step("A").zh_CN("完善信息").contains_event("tbd")
 
-            .change_request("update merchant info when inbound").zh_CN("完善信息并入库")
-                .step("A").zh_CN("完善信息并入库").contains_event("tbd")
-            .change_request("product inbound").zh_CN("入库")
-                .step("A").zh_CN("入库").contains_event("tbd")
+
+
             .change_request("update merchant info when view buyer").zh_CN("完善信息")
                 .step("A").zh_CN("完善信息").contains_event("tbd")
-            .change_request("create delivery task").zh_CN("创建配送任务")
-                .step("A").zh_CN("创建配送任务").contains_event("tbd")
-            .change_request("update delivery task").zh_CN("编辑配送任务")
-                .step("A").zh_CN("编辑配送任务").contains_event("tbd")
+//            .change_request("create delivery task").zh_CN("创建配送任务")
+//                .step("A").zh_CN("创建配送任务").contains_event("tbd")
+//            .change_request("update delivery task").zh_CN("编辑配送任务")
+//                .step("A").zh_CN("编辑配送任务").contains_event("tbd")
             .change_request("confirm as customer").zh_CN("代客确认")
                 .step("A").zh_CN("代客确认").contains_event("tbd")
             .change_request("custom product when quote by product").zh_CN("自定义")

@@ -15,12 +15,15 @@ public class DeliverTaskStatus extends BaseModelBean {
   public static EnumAttribute SHIPPING =
       new EnumAttribute("com.doublechaintech.xt20.delivertaskstatus.DeliverTaskStatus", "SHIPPING")
           .chineseName("配送中");
+  public static EnumAttribute RETURNING =
+      new EnumAttribute("com.doublechaintech.xt20.delivertaskstatus.DeliverTaskStatus", "RETURNING")
+          .chineseName("待确认");
   public static EnumAttribute COMPLETED =
       new EnumAttribute("com.doublechaintech.xt20.delivertaskstatus.DeliverTaskStatus", "COMPLETED")
           .chineseName("已完成");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {PENDING, SHIPPING, COMPLETED};
+    return new EnumAttribute[] {PENDING, SHIPPING, RETURNING, COMPLETED};
   }
 
   // 引用的对象

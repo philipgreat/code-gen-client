@@ -60,6 +60,12 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                 .has_field("agency social code")
                     .must_have()
 
+        .change_request("update merchant info when inbound").zh_CN("完善信息并入库")
+            .step("A").zh_CN("完善信息并入库")
+            .contains_event("seller info")
+                .has_field("agency social code")
+                    .must_have()
+
 
 
 

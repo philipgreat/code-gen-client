@@ -124,6 +124,17 @@ public class GasProduct extends BaseModelBean {
     return member;
   }
 
+  public EventProductInbound eventProductInboundList() {
+    EventProductInbound member = new EventProductInbound();
+    member.setModelTypeName("event_product_inbound");
+    member.setName("product");
+    member.setMemberName("eventProductInboundList");
+    member.setRelationName("product");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

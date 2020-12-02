@@ -504,6 +504,13 @@ public class MODEL {
     return rst;
   }
 
+  public static EventProductInbound eventProductInbound() {
+    EventProductInbound rst = new EventProductInbound();
+    rst.setModelTypeName("event_product_inbound");
+    rst.setBeanPath(new BeanPath().name("event_product_inbound"));
+    return rst;
+  }
+
   public static EventInfoInCr eventInfoInCr() {
     EventInfoInCr rst = new EventInfoInCr();
     rst.setModelTypeName("event_info_in_cr");

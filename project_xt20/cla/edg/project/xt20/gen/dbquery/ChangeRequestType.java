@@ -42,15 +42,15 @@ public class ChangeRequestType extends BaseModelBean {
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
               "CREATE_HANDOVER_TASK")
           .chineseName("创建交接单");
-  public static EnumAttribute PRODUCT_INBOUND =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "PRODUCT_INBOUND")
-          .chineseName("入库");
   public static EnumAttribute CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
               "CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT")
           .chineseName("自定义");
+  public static EnumAttribute PRODUCT_INBOUND =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "PRODUCT_INBOUND")
+          .chineseName("入库");
   public static EnumAttribute EDIT_COMMENT =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "EDIT_COMMENT")
@@ -78,6 +78,10 @@ public class ChangeRequestType extends BaseModelBean {
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
               "UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE")
           .chineseName("完善信息");
+  public static EnumAttribute INBOUND_FROM_HOME =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "INBOUND_FROM_HOME")
+          .chineseName("生产入库");
   public static EnumAttribute COMPANY_ADMIN_TRANSFER =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
@@ -155,6 +159,11 @@ public class ChangeRequestType extends BaseModelBean {
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "BUYER_DELIVERY_INFO")
           .chineseName("配送信息");
+  public static EnumAttribute BUY_INBOUND_FROM_HOME =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
+              "BUY_INBOUND_FROM_HOME")
+          .chineseName("外采入库");
   public static EnumAttribute COPY_PRODUCT =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "COPY_PRODUCT")
@@ -196,11 +205,6 @@ public class ChangeRequestType extends BaseModelBean {
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
               "CUSTOM_PRODUCT_WHEN_QUOTE")
           .chineseName("自定义");
-  public static EnumAttribute UPDATE_DELIVERY_TASK =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
-              "UPDATE_DELIVERY_TASK")
-          .chineseName("编辑配送任务");
   public static EnumAttribute EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
@@ -215,11 +219,6 @@ public class ChangeRequestType extends BaseModelBean {
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
               "UPDATE_MERCHANT_INFO_WHEN_INVITE")
           .chineseName("完善信息");
-  public static EnumAttribute CREATE_DELIVERY_TASK =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
-              "CREATE_DELIVERY_TASK")
-          .chineseName("创建配送任务");
   public static EnumAttribute EDIT_BUYER_COLLEAGUE =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
@@ -249,14 +248,15 @@ public class ChangeRequestType extends BaseModelBean {
       UPDATE_MERCHANT_INFO_WHEN_INBOUND,
       EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE,
       CREATE_HANDOVER_TASK,
-      PRODUCT_INBOUND,
       CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT,
+      PRODUCT_INBOUND,
       EDIT_COMMENT,
       UPDATE_PERSONAL_INFO,
       UPDATE_MERCHANT_INFO_FROM_SELLER_HOME,
       BUYER_BIC_CONFIRM,
       APPROVE_JOIN_BUYER,
       UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE,
+      INBOUND_FROM_HOME,
       COMPANY_ADMIN_TRANSFER,
       BUYER_UPDATE_DELIVERY_INFO,
       BUYER,
@@ -274,6 +274,7 @@ public class ChangeRequestType extends BaseModelBean {
       AUDIT_ORDER,
       CUSTOM_PRODUCT_WHEN_INITIAL,
       BUYER_DELIVERY_INFO,
+      BUY_INBOUND_FROM_HOME,
       COPY_PRODUCT,
       BUYER_UPDATE_ORDER,
       SELLER_UPDATE_MERCHANT_INFO,
@@ -283,11 +284,9 @@ public class ChangeRequestType extends BaseModelBean {
       UPDATE_MERCHANT_DELIVERY_LIMIT,
       BUYER_ADMIN_TRANSFER,
       CUSTOM_PRODUCT_WHEN_QUOTE,
-      UPDATE_DELIVERY_TASK,
       EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT,
       PRODUCT_OFF_SHELF,
       UPDATE_MERCHANT_INFO_WHEN_INVITE,
-      CREATE_DELIVERY_TASK,
       EDIT_BUYER_COLLEAGUE,
       CONFIRM_AS_CUSTOMER,
       CONFIRM_DELIVERY_TASK,

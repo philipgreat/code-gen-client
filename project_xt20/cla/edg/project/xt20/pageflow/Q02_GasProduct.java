@@ -12,6 +12,10 @@ public class Q02_GasProduct extends PieceOfScript {
                 .do_it_as()
                 .where(MODEL.gasProduct().merchant().eq("${merchant id}"),
                         MODEL.gasProduct().gasProductCacheList().searchText().like("${search key}").optional())
+                .wants(MODEL.gasProduct().cylinder().gasContainer(),
+                        MODEL.gasProduct().fillVolume(),
+                        MODEL.gasProduct().cylinder().fillMedium(),
+                        MODEL.gasProduct().cylinder().nominalPressure())
 
             .query(MODEL.gasProduct()).list_of("merchant by trade time").with_string("merchant id")
                 .comments("按照交易的时间降序,列出买家的产品列表")

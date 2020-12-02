@@ -2,10 +2,7 @@ package cla.edg.project.xt20.pageflow;
 
 import cla.edg.pageflow.PageFlowScript;
 import cla.edg.pageflow.PieceOfScript;
-import cla.edg.project.xt20.gen.dbquery.DeliveryReceiptStatus;
-import cla.edg.project.xt20.gen.dbquery.MODEL;
-import cla.edg.project.xt20.gen.dbquery.OrderStatus;
-import cla.edg.project.xt20.gen.dbquery.ShippingStatus;
+import cla.edg.project.xt20.gen.dbquery.*;
 
 public class Q07_Delivery extends PieceOfScript {
     public PageFlowScript makeSequel(PageFlowScript script) {
@@ -36,6 +33,21 @@ public class Q07_Delivery extends PieceOfScript {
                 .wants(MODEL.deliverTask().gasShippingGroupList().buyer().organizationIdentityList(),
                         MODEL.deliverTask().gasShippingGroupList().shippingStatus(),
                         MODEL.deliverTask().gasShippingGroupList().gasLineItem().cylinder())
+
+
+            .query(MODEL.deliverTask()).list_of("seller with status").pagination().with_string("merchant id").with_list("status")
+                .comments("查询卖家的待执行运单")
+                .do_it_as()
+                .where(MODEL.deliverTask().merchant().eq("${merchant id}"),MODEL.deliverTask().status().in("${status}"))
+                .wants(MODEL.deliverTask().status(), MODEL.deliverTask().deliverStaff().personInformation())
+
+            .query(MODEL.deliverTask()).list_of("confirm bottle return").pagination().with_string("merchant id")
+                .comments("查询待'回瓶确认'的运单")
+                .do_it_as()
+                .where(MODEL.deliverTask().merchant().eq("${merchant id}"),MODEL.deliverTask().status().in(DeliverTaskStatus.RETURNING))
+                .wants(MODEL.deliverTask().status(), MODEL.deliverTask().deliverStaff().personInformation(),
+                        MODEL.deliverTask().gasShippingGroupList().deliveryReceiptList(),
+                        MODEL.deliverTask().gasShippingGroupList().gasLineItem().cylinder().gasContainer())
         ;
     }
 }
