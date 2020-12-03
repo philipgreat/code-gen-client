@@ -168,6 +168,17 @@ public class Employee extends BaseModelBean {
     return member;
   }
 
+  public UserComments userCommentsList() {
+    UserComments member = new UserComments();
+    member.setModelTypeName("user_comments");
+    member.setName("creator");
+    member.setMemberName("userCommentsList");
+    member.setRelationName("creator");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public GasShippingGroup gasShippingGroupList() {
     GasShippingGroup member = new GasShippingGroup();
     member.setModelTypeName("gas_shipping_group");

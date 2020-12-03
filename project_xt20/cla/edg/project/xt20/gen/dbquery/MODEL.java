@@ -343,6 +343,13 @@ public class MODEL {
     return rst;
   }
 
+  public static UserComments userComments() {
+    UserComments rst = new UserComments();
+    rst.setModelTypeName("user_comments");
+    rst.setBeanPath(new BeanPath().name("user_comments"));
+    return rst;
+  }
+
   public static GasLineItem gasLineItem() {
     GasLineItem rst = new GasLineItem();
     rst.setModelTypeName("gas_line_item");

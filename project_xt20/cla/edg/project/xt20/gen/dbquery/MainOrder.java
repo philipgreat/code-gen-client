@@ -69,6 +69,17 @@ public class MainOrder extends BaseModelBean {
 
   // 被引用的对象
 
+  public UserComments userCommentsList() {
+    UserComments member = new UserComments();
+    member.setModelTypeName("user_comments");
+    member.setName("main_order");
+    member.setMemberName("userCommentsList");
+    member.setRelationName("mainOrder");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public GasLineItem gasLineItemList() {
     GasLineItem member = new GasLineItem();
     member.setModelTypeName("gas_line_item");
@@ -120,15 +131,6 @@ public class MainOrder extends BaseModelBean {
     member.setModelTypeName("string");
     // member.setName("id");
     member.setName("id");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute comment() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string_longtext");
-    // member.setName("comment");
-    member.setName("comment");
     useMember(member);
     return member;
   }
