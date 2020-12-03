@@ -4,7 +4,7 @@ import cla.edg.pageflow.PageFlowScript;
 import cla.edg.pageflow.PieceOfScript;
 import cla.edg.project.xt20.gen.dbquery.MODEL;
 
-public class Q06_Buyer extends PieceOfScript {
+public class Q06_2_Buyer extends PieceOfScript {
     public PageFlowScript makeSequel(PageFlowScript script) {
         return script
 

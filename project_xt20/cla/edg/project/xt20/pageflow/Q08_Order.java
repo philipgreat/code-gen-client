@@ -12,7 +12,16 @@ public class Q08_Order extends PieceOfScript {
             .query(MODEL.mainOrder()).list_of("seller finished").pagination().with_string("merchant id")
                 .comments("查询卖家的已经完成的订单")
                 .do_it_as()
-                .where(MODEL.mainOrder().status().in(OrderStatus.CANCELLED, OrderStatus.COMPLETED))
+                .where(MODEL.mainOrder().status().in(OrderStatus.CANCELLED, OrderStatus.COMPLETED),
+                        MODEL.mainOrder().seller().eq("${merchant id}"))
+                // 默认排序: .order_by....
+                .run_by(this::wantsWhenLoadOrderList)
+
+            .query(MODEL.mainOrder()).list_of("buyer finished").pagination().with_string("merchant id")
+                .comments("查询买家的已经完成的订单")
+                .do_it_as()
+                .where(MODEL.mainOrder().status().in(OrderStatus.CANCELLED, OrderStatus.COMPLETED),
+                        MODEL.mainOrder().buyer().eq("${merchant id}"))
                 // 默认排序: .order_by....
                 .run_by(this::wantsWhenLoadOrderList)
 

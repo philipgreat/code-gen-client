@@ -469,10 +469,10 @@ public class MODEL {
     return rst;
   }
 
-  public static EventSellerInfo eventSellerInfo() {
-    EventSellerInfo rst = new EventSellerInfo();
-    rst.setModelTypeName("event_seller_info");
-    rst.setBeanPath(new BeanPath().name("event_seller_info"));
+  public static EventOrganizationInfo eventOrganizationInfo() {
+    EventOrganizationInfo rst = new EventOrganizationInfo();
+    rst.setModelTypeName("event_organization_info");
+    rst.setBeanPath(new BeanPath().name("event_organization_info"));
     return rst;
   }
 

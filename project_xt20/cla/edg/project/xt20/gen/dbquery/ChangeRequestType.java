@@ -114,6 +114,11 @@ public class ChangeRequestType extends BaseModelBean {
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
               "EDIT_ADDITIONAL_SPEC_WHEN_QUOTE")
           .chineseName("产品附加规格");
+  public static EnumAttribute BUYER_UPDATE_MERCHANT_INFO =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
+              "BUYER_UPDATE_MERCHANT_INFO")
+          .chineseName("更新信息");
   public static EnumAttribute UPDATE_COMPANY_INFO =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "UPDATE_COMPANY_INFO")
@@ -142,6 +147,11 @@ public class ChangeRequestType extends BaseModelBean {
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
               "SEND_TO_CUSTOMER_AUDIT")
           .chineseName("提交客户审核");
+  public static EnumAttribute BUYER_UPDATE_INFO_IN_HOME =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
+              "BUYER_UPDATE_INFO_IN_HOME")
+          .chineseName("完善信息");
   public static EnumAttribute CONFIRM_QUOTE =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "CONFIRM_QUOTE")
@@ -264,12 +274,14 @@ public class ChangeRequestType extends BaseModelBean {
       UPDATE_MERCHANT_INFO_WHEN_QUOTE,
       UPDATE_COLLEAGUE_INFO,
       EDIT_ADDITIONAL_SPEC_WHEN_QUOTE,
+      BUYER_UPDATE_MERCHANT_INFO,
       UPDATE_COMPANY_INFO,
       UPDATE_DELIVERY_INFO,
       UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER,
       EDIT_ADDITIONAL_SPEC_WHEN_CREATE,
       PRODUCT_ON_SHELF,
       SEND_TO_CUSTOMER_AUDIT,
+      BUYER_UPDATE_INFO_IN_HOME,
       CONFIRM_QUOTE,
       AUDIT_ORDER,
       CUSTOM_PRODUCT_WHEN_INITIAL,

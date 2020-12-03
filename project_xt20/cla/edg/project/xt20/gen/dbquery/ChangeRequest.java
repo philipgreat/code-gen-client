@@ -47,11 +47,11 @@ public class ChangeRequest extends BaseModelBean {
     return member;
   }
 
-  public EventSellerInfo eventSellerInfoList() {
-    EventSellerInfo member = new EventSellerInfo();
-    member.setModelTypeName("event_seller_info");
+  public EventOrganizationInfo eventOrganizationInfoList() {
+    EventOrganizationInfo member = new EventOrganizationInfo();
+    member.setModelTypeName("event_organization_info");
     member.setName("change_request");
-    member.setMemberName("eventSellerInfoList");
+    member.setMemberName("eventOrganizationInfoList");
     member.setRelationName("changeRequest");
     member.setReferDirection(false);
     append(member);

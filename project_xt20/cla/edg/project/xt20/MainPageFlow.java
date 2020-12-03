@@ -22,7 +22,8 @@ public class MainPageFlow extends BasePageFlowDescriptionScript {
                 .import_from(new Q03_Users())
                 .import_from(new Q04_Employee())
                 .import_from(new Q05_Cylinder())
-                .import_from(new Q06_Buyer())
+                .import_from(new Q06_1_Seller())
+                .import_from(new Q06_2_Buyer())
                 .import_from(new Q07_Delivery())
                 .import_from(new Q08_Order())
 
