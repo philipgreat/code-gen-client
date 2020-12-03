@@ -20,8 +20,8 @@ public class MainWorkProcessor {
         }
         return WorkProcessorBuilder.start()
             .basePackage(prjName)
-            .import_from(new WP01_Example())
-//            .import_from(new WP02_Order())
+            .import_from(new OrderProcess())
+           .import_from(new ShippingProcess())
                 ;
     }
 }
