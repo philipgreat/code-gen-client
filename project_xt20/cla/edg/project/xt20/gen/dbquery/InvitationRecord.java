@@ -58,6 +58,24 @@ public class InvitationRecord extends BaseModelBean {
     return member;
   }
 
+  public StringAttribute mobile() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string_china_mobile_phone");
+    // member.setName("mobile");
+    member.setName("mobile");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute orderId() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("orderId");
+    member.setName("order_id");
+    useMember(member);
+    return member;
+  }
+
   public DateTimeAttribute createTime() {
     DateTimeAttribute member = new DateTimeAttribute();
     member.setModelTypeName("date_time_create");

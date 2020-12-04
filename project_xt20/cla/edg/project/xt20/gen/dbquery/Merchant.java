@@ -23,6 +23,17 @@ public class Merchant extends BaseModelBean {
     return member;
   }
 
+  public MerchantType merchantType() {
+    MerchantType member = new MerchantType();
+    member.setModelTypeName("merchant_type");
+    member.setName("merchant_type");
+    member.setMemberName("merchantType");
+    member.setReferDirection(true);
+    member.setRelationName("merchantType");
+    append(member);
+    return member;
+  }
+
   public Platform platform() {
     Platform member = new Platform();
     member.setModelTypeName("platform");

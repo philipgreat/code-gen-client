@@ -63,6 +63,13 @@ public class MODEL {
     return rst;
   }
 
+  public static MerchantType merchantType() {
+    MerchantType rst = new MerchantType();
+    rst.setModelTypeName("merchant_type");
+    rst.setBeanPath(new BeanPath().name("merchant_type"));
+    return rst;
+  }
+
   public static Merchant merchant() {
     Merchant rst = new Merchant();
     rst.setModelTypeName("merchant");

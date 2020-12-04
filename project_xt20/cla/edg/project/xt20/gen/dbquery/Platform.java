@@ -91,6 +91,17 @@ public class Platform extends BaseModelBean {
     return member;
   }
 
+  public MerchantType merchantTypeList() {
+    MerchantType member = new MerchantType();
+    member.setModelTypeName("merchant_type");
+    member.setName("platform");
+    member.setMemberName("merchantTypeList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public Merchant merchantList() {
     Merchant member = new Merchant();
     member.setModelTypeName("merchant");

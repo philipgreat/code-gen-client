@@ -6,7 +6,7 @@
 
 
 
-=================1.0 Execute Report (Model Time 201204T1441) @Fri Dec 04 14:42:42 CST 2020, 95 objects and 684 fields===========================
+=================1.0 Execute Report (Model Time 201204T1611) @Fri Dec 04 16:12:24 CST 2020, 96 objects and 692 fields===========================
 from file "/Users/jackytian/git/web-code-generator/sky/modeling/microservice/xt20.xml"
 
 
@@ -148,6 +148,15 @@ Info: Add virtual field [off_times(es)] to <platform>
 	off_time.platform
 
 
+ processing: merchant_type
+
+
+ processing: merchant_type.platform.platform
+
+Info: Add virtual field [merchant_types(es)] to <platform>
+	merchant_type.platform
+
+
  processing: merchant
 
 
@@ -155,6 +164,12 @@ Info: Add virtual field [off_times(es)] to <platform>
 
 Info: Add virtual field [merchants(es)] to <off_time>
 	merchant.off_time
+
+
+ processing: merchant.merchant_type.merchant_type
+
+Info: Add virtual field [merchants(es)] to <merchant_type>
+	merchant.merchant_type
 
 
  processing: merchant.platform.platform
@@ -1325,7 +1340,7 @@ platform{
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(40){
+	references field(41){
 		provinceList	platform(__no_group)--platform;
 		cityList	platform(__no_group)--platform;
 		districtList	platform(__no_group)--platform;
@@ -1333,6 +1348,7 @@ platform{
 		employeeStatusList	platform(__no_group)--platform;
 		invitationTypeList	platform(__no_group)--platform;
 		offTimeList	platform(__no_group)--platform;
+		merchantTypeList	platform(__no_group)--platform;
 		merchantList	platform(__no_group)--platform;
 		personalUserList	platform(__no_group)--platform;
 		individualIdentityList	platform(__no_group)--platform;
@@ -1449,9 +1465,9 @@ employee_status{
 invitation_type{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('邀请同事|邀请商家|邀请用户|分享'), verb: false, required: true,type:string,relationMeta={};
-		string	code('COLLEAGUE|SUPPLIER|CUSTOMER|COMMON'), verb: false, required: true,type:string,relationMeta={};
-		string	description('邀请同事|邀请商家|邀请用户|分享'), verb: false, required: true,type:string,relationMeta={};
+		string	name('邀请同事|邀请商家|邀请用户|代下订单|分享'), verb: false, required: true,type:string,relationMeta={};
+		string	code('COLLEAGUE|SUPPLIER|CUSTOMER|CSRORDER|COMMON'), verb: false, required: true,type:string,relationMeta={};
+		string	description('邀请同事|邀请商家|邀请用户|代下订单|分享'), verb: false, required: true,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: invitationTypeList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
@@ -1478,12 +1494,28 @@ off_time{
 
 } depth=1; isRoot = false
 
+merchant_type{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('PERSONAL|ORGANIZATION'), verb: false, required: true,type:string,relationMeta={};
+		string	code('PERSONAL|ORGANIZATION'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: merchantTypeList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		merchantList	merchant_type(__no_group)--merchant_type;
+	}
+	meta {name=merchant_type, features=status} 
+
+} depth=1; isRoot = false
+
 merchant{
-	fields(7){
+	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('肯德基成都采购中心|张晓丹|妃妤婔婒'), verb: false, required: true,type:string,relationMeta={};
 		off_time	off_time('$(object)'), verb: false, required: true, referenceBy: merchantList,type:off_time,relationMeta={};
 		int	delivery_limit('10000'), verb: false, required: true,type:int,relationMeta={};
+		merchant_type	merchant_type('$(object)'), verb: false, required: true, referenceBy: merchantList,type:merchant_type,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: merchantList,type:platform,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
@@ -1605,10 +1637,12 @@ warehouse{
 } depth=3; isRoot = false
 
 invitation_record{
-	fields(6){
+	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		employee	inviter('$(object)'), verb: false, required: true, referenceBy: invitationRecordListAsInviter,type:employee,relationMeta={};
-		employee	invitee('$(object)'), verb: false, required: true, referenceBy: invitationRecordListAsInvitee,type:employee,relationMeta={};
+		employee	invitee('$(object)'), verb: false, required: false, referenceBy: invitationRecordListAsInvitee,type:employee,relationMeta={};
+		string_china_mobile_phone	mobile('13888888888'), verb: false, required: false,type:string_china_mobile_phone,relationMeta={};
+		string	order_id('MO000001'), verb: false, required: false,type:string,relationMeta={};
 		invitation_type	type('$(object)'), verb: false, required: true, referenceBy: invitationRecordList,type:invitation_type,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
@@ -3034,7 +3068,7 @@ platform{
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(40){
+	references field(41){
 		provinceList	platform(__no_group)--platform;
 		cityList	platform(__no_group)--platform;
 		districtList	platform(__no_group)--platform;
@@ -3042,6 +3076,7 @@ platform{
 		employeeStatusList	platform(__no_group)--platform;
 		invitationTypeList	platform(__no_group)--platform;
 		offTimeList	platform(__no_group)--platform;
+		merchantTypeList	platform(__no_group)--platform;
 		merchantList	platform(__no_group)--platform;
 		personalUserList	platform(__no_group)--platform;
 		individualIdentityList	platform(__no_group)--platform;
@@ -3158,9 +3193,9 @@ employee_status{
 invitation_type{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('邀请同事|邀请商家|邀请用户|分享'), verb: false, required: true,type:string,relationMeta={};
-		string	code('COLLEAGUE|SUPPLIER|CUSTOMER|COMMON'), verb: false, required: true,type:string,relationMeta={};
-		string	description('邀请同事|邀请商家|邀请用户|分享'), verb: false, required: true,type:string,relationMeta={};
+		string	name('邀请同事|邀请商家|邀请用户|代下订单|分享'), verb: false, required: true,type:string,relationMeta={};
+		string	code('COLLEAGUE|SUPPLIER|CUSTOMER|CSRORDER|COMMON'), verb: false, required: true,type:string,relationMeta={};
+		string	description('邀请同事|邀请商家|邀请用户|代下订单|分享'), verb: false, required: true,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: invitationTypeList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
@@ -3187,12 +3222,28 @@ off_time{
 
 } depth=1; isRoot = false
 
+merchant_type{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('PERSONAL|ORGANIZATION'), verb: false, required: true,type:string,relationMeta={};
+		string	code('PERSONAL|ORGANIZATION'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: merchantTypeList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(1){
+		merchantList	merchant_type(__no_group)--merchant_type;
+	}
+	meta {name=merchant_type, features=status} 
+
+} depth=1; isRoot = false
+
 merchant{
-	fields(7){
+	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('肯德基成都采购中心|张晓丹|妃妤婔婒'), verb: false, required: true,type:string,relationMeta={};
 		off_time	off_time('$(object)'), verb: false, required: true, referenceBy: merchantList,type:off_time,relationMeta={};
 		int	delivery_limit('10000'), verb: false, required: true,type:int,relationMeta={};
+		merchant_type	merchant_type('$(object)'), verb: false, required: true, referenceBy: merchantList,type:merchant_type,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: merchantList,type:platform,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
@@ -3314,10 +3365,12 @@ warehouse{
 } depth=3; isRoot = false
 
 invitation_record{
-	fields(6){
+	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		employee	inviter('$(object)'), verb: false, required: true, referenceBy: invitationRecordListAsInviter,type:employee,relationMeta={};
-		employee	invitee('$(object)'), verb: false, required: true, referenceBy: invitationRecordListAsInvitee,type:employee,relationMeta={};
+		employee	invitee('$(object)'), verb: false, required: false, referenceBy: invitationRecordListAsInvitee,type:employee,relationMeta={};
+		string_china_mobile_phone	mobile('13888888888'), verb: false, required: false,type:string_china_mobile_phone,relationMeta={};
+		string	order_id('MO000001'), verb: false, required: false,type:string,relationMeta={};
 		invitation_type	type('$(object)'), verb: false, required: true, referenceBy: invitationRecordList,type:invitation_type,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};

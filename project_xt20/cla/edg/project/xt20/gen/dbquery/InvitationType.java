@@ -18,12 +18,15 @@ public class InvitationType extends BaseModelBean {
   public static EnumAttribute CUSTOMER =
       new EnumAttribute("com.doublechaintech.xt20.invitationtype.InvitationType", "CUSTOMER")
           .chineseName("邀请用户");
+  public static EnumAttribute CSRORDER =
+      new EnumAttribute("com.doublechaintech.xt20.invitationtype.InvitationType", "CSRORDER")
+          .chineseName("代下订单");
   public static EnumAttribute COMMON =
       new EnumAttribute("com.doublechaintech.xt20.invitationtype.InvitationType", "COMMON")
           .chineseName("分享");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {COLLEAGUE, SUPPLIER, CUSTOMER, COMMON};
+    return new EnumAttribute[] {COLLEAGUE, SUPPLIER, CUSTOMER, CSRORDER, COMMON};
   }
 
   // 引用的对象
