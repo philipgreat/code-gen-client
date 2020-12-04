@@ -6,7 +6,7 @@
 
 
 
-=================1.0 Execute Report (Model Time 201203T1018) @Thu Dec 03 10:19:34 CST 2020, 95 objects and 676 fields===========================
+=================1.0 Execute Report (Model Time 201204T1441) @Fri Dec 04 14:42:42 CST 2020, 95 objects and 684 fields===========================
 from file "/Users/jackytian/git/web-code-generator/sky/modeling/microservice/xt20.xml"
 
 
@@ -175,10 +175,16 @@ Info: Add virtual field [personal_users(es)] to <platform>
  processing: individual_identity
 
 
- processing: individual_identity.personal_user.personal_user
+ processing: individual_identity.merchant.merchant
 
-Info: Add virtual field [individual_identitys(es)] to <personal_user>
-	individual_identity.personal_user
+Info: Add virtual field [individual_identitys(es)] to <merchant>
+	individual_identity.merchant
+
+
+ processing: individual_identity.platform.platform
+
+Info: Add virtual field [individual_identitys(es)] to <platform>
+	individual_identity.platform
 
 
  processing: user_working_info
@@ -1096,13 +1102,13 @@ Info: Add virtual field [event_tbds(es)] to <change_request>
 	event_tbd.change_request
 
 
- processing: event_seller_info
+ processing: event_organization_info
 
 
- processing: event_seller_info.change_request.change_request
+ processing: event_organization_info.change_request.change_request
 
-Info: Add virtual field [event_seller_infos(es)] to <change_request>
-	event_seller_info.change_request
+Info: Add virtual field [event_organization_infos(es)] to <change_request>
+	event_organization_info.change_request
 
 
  processing: event_admin_transfer
@@ -1319,7 +1325,7 @@ platform{
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(39){
+	references field(40){
 		provinceList	platform(__no_group)--platform;
 		cityList	platform(__no_group)--platform;
 		districtList	platform(__no_group)--platform;
@@ -1329,6 +1335,7 @@ platform{
 		offTimeList	platform(__no_group)--platform;
 		merchantList	platform(__no_group)--platform;
 		personalUserList	platform(__no_group)--platform;
+		individualIdentityList	platform(__no_group)--platform;
 		organizationIdentityList	platform(__no_group)--platform;
 		employeeList	platform(__no_group)--platform;
 		gasContainerList	platform(__no_group)--platform;
@@ -1481,7 +1488,8 @@ merchant{
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(21){
+	references field(22){
+		individualIdentityList	merchant(__no_group)--merchant;
 		organizationIdentityList	merchant(__no_group)--merchant;
 		warehouseList	merchant(__no_group)--merchant;
 		employeeList	merchant(__no_group)--merchant;
@@ -1518,8 +1526,7 @@ personal_user{
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: personalUserList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(4){
-		individualIdentityList	personal_user(__no_group)--personal_user;
+	references field(3){
 		userWorkingInfoList	user(__no_group)--user;
 		employeeList	person_information(__no_group)--person_information;
 		eventAdminTransferList	new_admin(__no_group)--new_admin;
@@ -1529,17 +1536,23 @@ personal_user{
 } depth=1; isRoot = false
 
 individual_identity{
-	fields(4){
+	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('张喜来|黄波|王煜东|袁明星|周廷志|刘洋'), verb: false, required: false,type:string,relationMeta={};
-		personal_user	personal_user('$(object)'), verb: false, required: true, referenceBy: individualIdentityList,type:personal_user,relationMeta={};
+		string_china_mobile_phone	identity_mobile('13888888888'), verb: false, required: true,type:string_china_mobile_phone,relationMeta={};
+		string	contact_name('张三'), verb: false, required: true,type:string,relationMeta={};
+		string_china_mobile_phone	mobile('13888888888'), verb: false, required: true,type:string_china_mobile_phone,relationMeta={};
+		string	address('天府三街'), verb: false, required: true,type:string,relationMeta={};
+		string_longtext	comment('text()'), verb: false, required: true,type:text,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: individualIdentityList,type:merchant,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: individualIdentityList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(0){
 	}
 	meta {name=individual_identity, features=log} 
 
-} depth=2; isRoot = false
+} depth=3; isRoot = false
 
 user_working_info{
 	fields(5){
@@ -1556,7 +1569,7 @@ user_working_info{
 } depth=4; isRoot = false
 
 organization_identity{
-	fields(10){
+	fields(11){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('双链科技'), verb: false, required: true,type:string,relationMeta={};
 		string_taxpayerid	agency_social_code('91510100MA6C66P74M'), verb: false, required: false,type:string_taxpayerid,relationMeta={};
@@ -1564,6 +1577,7 @@ organization_identity{
 		string_china_mobile_phone	mobile('13888888888'), verb: false, required: true,type:string_china_mobile_phone,relationMeta={};
 		string	address('天府三街'), verb: false, required: true,type:string,relationMeta={};
 		string_image	logo('1.jpg'), verb: false, required: false,type:string_image,relationMeta={};
+		string_longtext	comment('text()'), verb: false, required: true,type:text,relationMeta={};
 		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: organizationIdentityList,type:merchant,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: organizationIdentityList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
@@ -1773,9 +1787,9 @@ check_status{
 action_type{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('空瓶盘库|空瓶入库|生产入库|订单返瓶|确认接收单|商家提交气瓶盘库|客户确认气瓶盘库|外采入库|接收单入库'), verb: false, required: true,type:string,relationMeta={};
-		string	code('CYLINDER_SET|CYLINDER_IN|PRODUCE|ORDER_BACK_CYLINDER|BUYER_CONFIRMED|SELLER_SUBMIT_CYLINDER_SET|CUSTOMER_CONFIRM_CYLINDER_SET|PURCHASE_OUT_OF_SYSTEM|PURCHASE_IN_SYSTEM'), verb: false, required: true,type:string,relationMeta={};
-		string	description('空瓶盘库|空瓶入库|生产入库|订单返瓶|确认接收单|商家提交气瓶盘库|客户确认气瓶盘库|外采入库|接收单入库'), verb: false, required: true,type:string,relationMeta={};
+		string	name('空瓶盘库|空瓶入库|生产入库|配送发货|订单返瓶|确认接收单|商家提交气瓶盘库|客户确认气瓶盘库|外采入库|接收单入库'), verb: false, required: true,type:string,relationMeta={};
+		string	code('CYLINDER_SET|CYLINDER_IN|PRODUCE|SHIP|ORDER_BACK_CYLINDER|BUYER_CONFIRMED|SELLER_SUBMIT_CYLINDER_SET|CUSTOMER_CONFIRM_CYLINDER_SET|PURCHASE_OUT_OF_SYSTEM|PURCHASE_IN_SYSTEM'), verb: false, required: true,type:string,relationMeta={};
+		string	description('空瓶盘库|空瓶入库|生产入库|配送发货|订单返瓶|确认接收单|商家提交气瓶盘库|客户确认气瓶盘库|外采入库|接收单入库'), verb: false, required: true,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: actionTypeList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
@@ -2229,11 +2243,12 @@ gas_line_item{
 } depth=5; isRoot = false
 
 gas_shipping_group{
-	fields(20){
+	fields(21){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		gas_line_item	gas_line_item('$(object)'), verb: false, required: true, referenceBy: gasShippingGroupList,type:gas_line_item,relationMeta={};
 		main_order	main_order('$(object)'), verb: false, required: true, referenceBy: gasShippingGroupList,type:main_order,relationMeta={};
 		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	back_quantity('10000'), verb: false, required: true,type:int,relationMeta={};
 		string	handover_address('天府三街'), verb: false, required: true,type:string,relationMeta={};
 		string	seller_contact_name('张三'), verb: false, required: false,type:string,relationMeta={};
 		string	seller_contact_phone('1213a'), verb: false, required: false,type:string,relationMeta={};
@@ -2467,9 +2482,9 @@ guide_slide{
 change_request_type{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('信息反馈|商户注册|产品附加规格|确认加入|完善信息并入库|修改附加规格|创建交接单|自定义|入库|编辑备注|更新个人信息|完善信息|确认|批准加入|完善信息|生产入库|转移管理员|完善配送|审核加入|修改产品|完善信息|备注|产品附加规格|商户基础信息|修改配送信息|完善信息|修改附加规格|上架|提交客户审核|同意代下|完成审核|自定义产品|配送信息|外采入库|复制产品|修改订单|完善信息|设置商户下班时间|提交新单|审批加入+姓名|设置单次配送最大量|转移管理员|自定义|产品附加规格|下架|完善信息|备注|代客确认|确认交接|完善信息'), verb: false, required: true,type:string,relationMeta={};
-		string	code('MORE_SUPPLIER_PRODUCT|SELLER_REGISTER|EDIT_ADDITIONAL_SPEC_WHEN_INIT|CONFIRM_JOIN|UPDATE_MERCHANT_INFO_WHEN_INBOUND|EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE|CREATE_HANDOVER_TASK|CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT|PRODUCT_INBOUND|EDIT_COMMENT|UPDATE_PERSONAL_INFO|UPDATE_MERCHANT_INFO_FROM_SELLER_HOME|BUYER_BIC_CONFIRM|APPROVE_JOIN_BUYER|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|INBOUND_FROM_HOME|COMPANY_ADMIN_TRANSFER|BUYER_UPDATE_DELIVERY_INFO|BUYER|UPDATE_PRODUCT_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|UPDATE_COLLEAGUE_INFO|EDIT_ADDITIONAL_SPEC_WHEN_QUOTE|UPDATE_COMPANY_INFO|UPDATE_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER|EDIT_ADDITIONAL_SPEC_WHEN_CREATE|PRODUCT_ON_SHELF|SEND_TO_CUSTOMER_AUDIT|CONFIRM_QUOTE|AUDIT_ORDER|CUSTOM_PRODUCT_WHEN_INITIAL|BUYER_DELIVERY_INFO|BUY_INBOUND_FROM_HOME|COPY_PRODUCT|BUYER_UPDATE_ORDER|SELLER_UPDATE_MERCHANT_INFO|UPDATE_MERCHANT_OFF_TIME|CREATE_SPLIT_ORDER|AUDIT_JOIN_APPLY|UPDATE_MERCHANT_DELIVERY_LIMIT|BUYER_ADMIN_TRANSFER|CUSTOM_PRODUCT_WHEN_QUOTE|EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT|PRODUCT_OFF_SHELF|UPDATE_MERCHANT_INFO_WHEN_INVITE|EDIT_BUYER_COLLEAGUE|CONFIRM_AS_CUSTOMER|CONFIRM_DELIVERY_TASK|UPDATE_BUYER_INFO_WHEN_ORDER'), verb: false, required: true,type:string,relationMeta={};
-		string	icon('bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars'), verb: false, required: true,type:string,relationMeta={};
+		string	name('信息反馈|商户注册|产品附加规格|确认加入|完善信息并入库|修改附加规格|创建交接单|自定义|入库|编辑备注|更新个人信息|完善信息|确认|批准加入|完善信息|生产入库|转移管理员|完善配送|审核加入|修改产品|完善信息|备注|产品附加规格|更新信息|商户基础信息|修改配送信息|完善信息|修改附加规格|上架|提交客户审核|完善信息|同意代下|完成审核|自定义产品|配送信息|外采入库|复制产品|修改订单|完善信息|设置商户下班时间|提交新单|审批加入+姓名|设置单次配送最大量|转移管理员|自定义|产品附加规格|下架|完善信息|备注|代客确认|确认交接|完善信息'), verb: false, required: true,type:string,relationMeta={};
+		string	code('MORE_SUPPLIER_PRODUCT|SELLER_REGISTER|EDIT_ADDITIONAL_SPEC_WHEN_INIT|CONFIRM_JOIN|UPDATE_MERCHANT_INFO_WHEN_INBOUND|EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE|CREATE_HANDOVER_TASK|CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT|PRODUCT_INBOUND|EDIT_COMMENT|UPDATE_PERSONAL_INFO|UPDATE_MERCHANT_INFO_FROM_SELLER_HOME|BUYER_BIC_CONFIRM|APPROVE_JOIN_BUYER|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|INBOUND_FROM_HOME|COMPANY_ADMIN_TRANSFER|BUYER_UPDATE_DELIVERY_INFO|BUYER|UPDATE_PRODUCT_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|UPDATE_COLLEAGUE_INFO|EDIT_ADDITIONAL_SPEC_WHEN_QUOTE|BUYER_UPDATE_MERCHANT_INFO|UPDATE_COMPANY_INFO|UPDATE_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER|EDIT_ADDITIONAL_SPEC_WHEN_CREATE|PRODUCT_ON_SHELF|SEND_TO_CUSTOMER_AUDIT|BUYER_UPDATE_INFO_IN_HOME|CONFIRM_QUOTE|AUDIT_ORDER|CUSTOM_PRODUCT_WHEN_INITIAL|BUYER_DELIVERY_INFO|BUY_INBOUND_FROM_HOME|COPY_PRODUCT|BUYER_UPDATE_ORDER|SELLER_UPDATE_MERCHANT_INFO|UPDATE_MERCHANT_OFF_TIME|CREATE_SPLIT_ORDER|AUDIT_JOIN_APPLY|UPDATE_MERCHANT_DELIVERY_LIMIT|BUYER_ADMIN_TRANSFER|CUSTOM_PRODUCT_WHEN_QUOTE|EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT|PRODUCT_OFF_SHELF|UPDATE_MERCHANT_INFO_WHEN_INVITE|EDIT_BUYER_COLLEAGUE|CONFIRM_AS_CUSTOMER|CONFIRM_DELIVERY_TASK|UPDATE_BUYER_INFO_WHEN_ORDER'), verb: false, required: true,type:string,relationMeta={};
+		string	icon('bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars'), verb: false, required: true,type:string,relationMeta={};
 		int	display_order('1|2|3|4|5|6'), verb: false, required: true,type:int,relationMeta={};
 		string_longtext	bind_types('text()'), verb: false, required: true,type:text,relationMeta={};
 		string_longtext	step_configuration('text()'), verb: false, required: true,type:text,relationMeta={};
@@ -2498,7 +2513,7 @@ change_request{
 	}
 	references field(9){
 		eventTbdList	change_request(__no_group)--change_request;
-		eventSellerInfoList	change_request(__no_group)--change_request;
+		eventOrganizationInfoList	change_request(__no_group)--change_request;
 		eventAdminTransferList	change_request(__no_group)--change_request;
 		eventUpdateMerchantOffTimeList	change_request(__no_group)--change_request;
 		eventUpdateMerchantDeliveryLimitList	change_request(__no_group)--change_request;
@@ -2524,21 +2539,21 @@ event_tbd{
 
 } depth=3; isRoot = false
 
-event_seller_info{
+event_organization_info{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('name|单位名称'), verb: false, required: true,type:string,relationMeta={};
-		string	agency_social_code('agency social code|信用代码'), verb: false, required: true,type:string,relationMeta={};
+		string	agency_social_code('agency social code|信用代码'), verb: false, required: false,type:string,relationMeta={};
 		string	contact_name('contact name|联系人'), verb: false, required: true,type:string,relationMeta={};
 		string_china_mobile_phone	contact_mobile('13300001234'), verb: false, required: true,type:string_china_mobile_phone,relationMeta={};
 		string	address('address|单位地址'), verb: false, required: true,type:string,relationMeta={};
 		string_image	logo('logo.jpg'), verb: false, required: true,type:string_image,relationMeta={};
-		change_request	change_request('$(object)'), verb: false, required: true, referenceBy: eventSellerInfoList,type:change_request,relationMeta={};
+		change_request	change_request('$(object)'), verb: false, required: true, referenceBy: eventOrganizationInfoList,type:change_request,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(0){
 	}
-	meta {bind_with_cr_type=SELLER_REGISTER|UPDATE_MERCHANT_INFO_WHEN_INBOUND|UPDATE_MERCHANT_INFO_FROM_SELLER_HOME|SELLER_UPDATE_MERCHANT_INFO|UPDATE_MERCHANT_INFO_WHEN_INVITE, name=event_seller_info, features=event} 
+	meta {bind_with_cr_type=SELLER_REGISTER|UPDATE_MERCHANT_INFO_WHEN_INBOUND|UPDATE_MERCHANT_INFO_FROM_SELLER_HOME|BUYER_UPDATE_MERCHANT_INFO|BUYER_UPDATE_INFO_IN_HOME|SELLER_UPDATE_MERCHANT_INFO|UPDATE_MERCHANT_INFO_WHEN_INVITE, name=event_organization_info, features=event} 
 
 } depth=3; isRoot = false
 
@@ -3019,7 +3034,7 @@ platform{
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(39){
+	references field(40){
 		provinceList	platform(__no_group)--platform;
 		cityList	platform(__no_group)--platform;
 		districtList	platform(__no_group)--platform;
@@ -3029,6 +3044,7 @@ platform{
 		offTimeList	platform(__no_group)--platform;
 		merchantList	platform(__no_group)--platform;
 		personalUserList	platform(__no_group)--platform;
+		individualIdentityList	platform(__no_group)--platform;
 		organizationIdentityList	platform(__no_group)--platform;
 		employeeList	platform(__no_group)--platform;
 		gasContainerList	platform(__no_group)--platform;
@@ -3181,7 +3197,8 @@ merchant{
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(21){
+	references field(22){
+		individualIdentityList	merchant(__no_group)--merchant;
 		organizationIdentityList	merchant(__no_group)--merchant;
 		warehouseList	merchant(__no_group)--merchant;
 		employeeList	merchant(__no_group)--merchant;
@@ -3218,8 +3235,7 @@ personal_user{
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: personalUserList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(4){
-		individualIdentityList	personal_user(__no_group)--personal_user;
+	references field(3){
 		userWorkingInfoList	user(__no_group)--user;
 		employeeList	person_information(__no_group)--person_information;
 		eventAdminTransferList	new_admin(__no_group)--new_admin;
@@ -3229,17 +3245,23 @@ personal_user{
 } depth=1; isRoot = false
 
 individual_identity{
-	fields(4){
+	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('张喜来|黄波|王煜东|袁明星|周廷志|刘洋'), verb: false, required: false,type:string,relationMeta={};
-		personal_user	personal_user('$(object)'), verb: false, required: true, referenceBy: individualIdentityList,type:personal_user,relationMeta={};
+		string_china_mobile_phone	identity_mobile('13888888888'), verb: false, required: true,type:string_china_mobile_phone,relationMeta={};
+		string	contact_name('张三'), verb: false, required: true,type:string,relationMeta={};
+		string_china_mobile_phone	mobile('13888888888'), verb: false, required: true,type:string_china_mobile_phone,relationMeta={};
+		string	address('天府三街'), verb: false, required: true,type:string,relationMeta={};
+		string_longtext	comment('text()'), verb: false, required: true,type:text,relationMeta={};
+		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: individualIdentityList,type:merchant,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: individualIdentityList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(0){
 	}
 	meta {name=individual_identity, features=log} 
 
-} depth=2; isRoot = false
+} depth=3; isRoot = false
 
 user_working_info{
 	fields(5){
@@ -3256,7 +3278,7 @@ user_working_info{
 } depth=4; isRoot = false
 
 organization_identity{
-	fields(10){
+	fields(11){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('双链科技'), verb: false, required: true,type:string,relationMeta={};
 		string_taxpayerid	agency_social_code('91510100MA6C66P74M'), verb: false, required: false,type:string_taxpayerid,relationMeta={};
@@ -3264,6 +3286,7 @@ organization_identity{
 		string_china_mobile_phone	mobile('13888888888'), verb: false, required: true,type:string_china_mobile_phone,relationMeta={};
 		string	address('天府三街'), verb: false, required: true,type:string,relationMeta={};
 		string_image	logo('1.jpg'), verb: false, required: false,type:string_image,relationMeta={};
+		string_longtext	comment('text()'), verb: false, required: true,type:text,relationMeta={};
 		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: organizationIdentityList,type:merchant,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: organizationIdentityList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
@@ -3473,9 +3496,9 @@ check_status{
 action_type{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('空瓶盘库|空瓶入库|生产入库|订单返瓶|确认接收单|商家提交气瓶盘库|客户确认气瓶盘库|外采入库|接收单入库'), verb: false, required: true,type:string,relationMeta={};
-		string	code('CYLINDER_SET|CYLINDER_IN|PRODUCE|ORDER_BACK_CYLINDER|BUYER_CONFIRMED|SELLER_SUBMIT_CYLINDER_SET|CUSTOMER_CONFIRM_CYLINDER_SET|PURCHASE_OUT_OF_SYSTEM|PURCHASE_IN_SYSTEM'), verb: false, required: true,type:string,relationMeta={};
-		string	description('空瓶盘库|空瓶入库|生产入库|订单返瓶|确认接收单|商家提交气瓶盘库|客户确认气瓶盘库|外采入库|接收单入库'), verb: false, required: true,type:string,relationMeta={};
+		string	name('空瓶盘库|空瓶入库|生产入库|配送发货|订单返瓶|确认接收单|商家提交气瓶盘库|客户确认气瓶盘库|外采入库|接收单入库'), verb: false, required: true,type:string,relationMeta={};
+		string	code('CYLINDER_SET|CYLINDER_IN|PRODUCE|SHIP|ORDER_BACK_CYLINDER|BUYER_CONFIRMED|SELLER_SUBMIT_CYLINDER_SET|CUSTOMER_CONFIRM_CYLINDER_SET|PURCHASE_OUT_OF_SYSTEM|PURCHASE_IN_SYSTEM'), verb: false, required: true,type:string,relationMeta={};
+		string	description('空瓶盘库|空瓶入库|生产入库|配送发货|订单返瓶|确认接收单|商家提交气瓶盘库|客户确认气瓶盘库|外采入库|接收单入库'), verb: false, required: true,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: actionTypeList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
@@ -3929,11 +3952,12 @@ gas_line_item{
 } depth=5; isRoot = false
 
 gas_shipping_group{
-	fields(20){
+	fields(21){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		gas_line_item	gas_line_item('$(object)'), verb: false, required: true, referenceBy: gasShippingGroupList,type:gas_line_item,relationMeta={};
 		main_order	main_order('$(object)'), verb: false, required: true, referenceBy: gasShippingGroupList,type:main_order,relationMeta={};
 		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	back_quantity('10000'), verb: false, required: true,type:int,relationMeta={};
 		string	handover_address('天府三街'), verb: false, required: true,type:string,relationMeta={};
 		string	seller_contact_name('张三'), verb: false, required: false,type:string,relationMeta={};
 		string	seller_contact_phone('1213a'), verb: false, required: false,type:string,relationMeta={};
@@ -4167,9 +4191,9 @@ guide_slide{
 change_request_type{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('信息反馈|商户注册|产品附加规格|确认加入|完善信息并入库|修改附加规格|创建交接单|自定义|入库|编辑备注|更新个人信息|完善信息|确认|批准加入|完善信息|生产入库|转移管理员|完善配送|审核加入|修改产品|完善信息|备注|产品附加规格|商户基础信息|修改配送信息|完善信息|修改附加规格|上架|提交客户审核|同意代下|完成审核|自定义产品|配送信息|外采入库|复制产品|修改订单|完善信息|设置商户下班时间|提交新单|审批加入+姓名|设置单次配送最大量|转移管理员|自定义|产品附加规格|下架|完善信息|备注|代客确认|确认交接|完善信息'), verb: false, required: true,type:string,relationMeta={};
-		string	code('MORE_SUPPLIER_PRODUCT|SELLER_REGISTER|EDIT_ADDITIONAL_SPEC_WHEN_INIT|CONFIRM_JOIN|UPDATE_MERCHANT_INFO_WHEN_INBOUND|EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE|CREATE_HANDOVER_TASK|CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT|PRODUCT_INBOUND|EDIT_COMMENT|UPDATE_PERSONAL_INFO|UPDATE_MERCHANT_INFO_FROM_SELLER_HOME|BUYER_BIC_CONFIRM|APPROVE_JOIN_BUYER|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|INBOUND_FROM_HOME|COMPANY_ADMIN_TRANSFER|BUYER_UPDATE_DELIVERY_INFO|BUYER|UPDATE_PRODUCT_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|UPDATE_COLLEAGUE_INFO|EDIT_ADDITIONAL_SPEC_WHEN_QUOTE|UPDATE_COMPANY_INFO|UPDATE_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER|EDIT_ADDITIONAL_SPEC_WHEN_CREATE|PRODUCT_ON_SHELF|SEND_TO_CUSTOMER_AUDIT|CONFIRM_QUOTE|AUDIT_ORDER|CUSTOM_PRODUCT_WHEN_INITIAL|BUYER_DELIVERY_INFO|BUY_INBOUND_FROM_HOME|COPY_PRODUCT|BUYER_UPDATE_ORDER|SELLER_UPDATE_MERCHANT_INFO|UPDATE_MERCHANT_OFF_TIME|CREATE_SPLIT_ORDER|AUDIT_JOIN_APPLY|UPDATE_MERCHANT_DELIVERY_LIMIT|BUYER_ADMIN_TRANSFER|CUSTOM_PRODUCT_WHEN_QUOTE|EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT|PRODUCT_OFF_SHELF|UPDATE_MERCHANT_INFO_WHEN_INVITE|EDIT_BUYER_COLLEAGUE|CONFIRM_AS_CUSTOMER|CONFIRM_DELIVERY_TASK|UPDATE_BUYER_INFO_WHEN_ORDER'), verb: false, required: true,type:string,relationMeta={};
-		string	icon('bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars'), verb: false, required: true,type:string,relationMeta={};
+		string	name('信息反馈|商户注册|产品附加规格|确认加入|完善信息并入库|修改附加规格|创建交接单|自定义|入库|编辑备注|更新个人信息|完善信息|确认|批准加入|完善信息|生产入库|转移管理员|完善配送|审核加入|修改产品|完善信息|备注|产品附加规格|更新信息|商户基础信息|修改配送信息|完善信息|修改附加规格|上架|提交客户审核|完善信息|同意代下|完成审核|自定义产品|配送信息|外采入库|复制产品|修改订单|完善信息|设置商户下班时间|提交新单|审批加入+姓名|设置单次配送最大量|转移管理员|自定义|产品附加规格|下架|完善信息|备注|代客确认|确认交接|完善信息'), verb: false, required: true,type:string,relationMeta={};
+		string	code('MORE_SUPPLIER_PRODUCT|SELLER_REGISTER|EDIT_ADDITIONAL_SPEC_WHEN_INIT|CONFIRM_JOIN|UPDATE_MERCHANT_INFO_WHEN_INBOUND|EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE|CREATE_HANDOVER_TASK|CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT|PRODUCT_INBOUND|EDIT_COMMENT|UPDATE_PERSONAL_INFO|UPDATE_MERCHANT_INFO_FROM_SELLER_HOME|BUYER_BIC_CONFIRM|APPROVE_JOIN_BUYER|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|INBOUND_FROM_HOME|COMPANY_ADMIN_TRANSFER|BUYER_UPDATE_DELIVERY_INFO|BUYER|UPDATE_PRODUCT_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|UPDATE_COLLEAGUE_INFO|EDIT_ADDITIONAL_SPEC_WHEN_QUOTE|BUYER_UPDATE_MERCHANT_INFO|UPDATE_COMPANY_INFO|UPDATE_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER|EDIT_ADDITIONAL_SPEC_WHEN_CREATE|PRODUCT_ON_SHELF|SEND_TO_CUSTOMER_AUDIT|BUYER_UPDATE_INFO_IN_HOME|CONFIRM_QUOTE|AUDIT_ORDER|CUSTOM_PRODUCT_WHEN_INITIAL|BUYER_DELIVERY_INFO|BUY_INBOUND_FROM_HOME|COPY_PRODUCT|BUYER_UPDATE_ORDER|SELLER_UPDATE_MERCHANT_INFO|UPDATE_MERCHANT_OFF_TIME|CREATE_SPLIT_ORDER|AUDIT_JOIN_APPLY|UPDATE_MERCHANT_DELIVERY_LIMIT|BUYER_ADMIN_TRANSFER|CUSTOM_PRODUCT_WHEN_QUOTE|EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT|PRODUCT_OFF_SHELF|UPDATE_MERCHANT_INFO_WHEN_INVITE|EDIT_BUYER_COLLEAGUE|CONFIRM_AS_CUSTOMER|CONFIRM_DELIVERY_TASK|UPDATE_BUYER_INFO_WHEN_ORDER'), verb: false, required: true,type:string,relationMeta={};
+		string	icon('bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars'), verb: false, required: true,type:string,relationMeta={};
 		int	display_order('1|2|3|4|5|6'), verb: false, required: true,type:int,relationMeta={};
 		string_longtext	bind_types('text()'), verb: false, required: true,type:text,relationMeta={};
 		string_longtext	step_configuration('text()'), verb: false, required: true,type:text,relationMeta={};
@@ -4198,7 +4222,7 @@ change_request{
 	}
 	references field(9){
 		eventTbdList	change_request(__no_group)--change_request;
-		eventSellerInfoList	change_request(__no_group)--change_request;
+		eventOrganizationInfoList	change_request(__no_group)--change_request;
 		eventAdminTransferList	change_request(__no_group)--change_request;
 		eventUpdateMerchantOffTimeList	change_request(__no_group)--change_request;
 		eventUpdateMerchantDeliveryLimitList	change_request(__no_group)--change_request;
@@ -4224,21 +4248,21 @@ event_tbd{
 
 } depth=3; isRoot = false
 
-event_seller_info{
+event_organization_info{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('name|单位名称'), verb: false, required: true,type:string,relationMeta={};
-		string	agency_social_code('agency social code|信用代码'), verb: false, required: true,type:string,relationMeta={};
+		string	agency_social_code('agency social code|信用代码'), verb: false, required: false,type:string,relationMeta={};
 		string	contact_name('contact name|联系人'), verb: false, required: true,type:string,relationMeta={};
 		string_china_mobile_phone	contact_mobile('13300001234'), verb: false, required: true,type:string_china_mobile_phone,relationMeta={};
 		string	address('address|单位地址'), verb: false, required: true,type:string,relationMeta={};
 		string_image	logo('logo.jpg'), verb: false, required: true,type:string_image,relationMeta={};
-		change_request	change_request('$(object)'), verb: false, required: true, referenceBy: eventSellerInfoList,type:change_request,relationMeta={};
+		change_request	change_request('$(object)'), verb: false, required: true, referenceBy: eventOrganizationInfoList,type:change_request,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(0){
 	}
-	meta {bind_with_cr_type=SELLER_REGISTER|UPDATE_MERCHANT_INFO_WHEN_INBOUND|UPDATE_MERCHANT_INFO_FROM_SELLER_HOME|SELLER_UPDATE_MERCHANT_INFO|UPDATE_MERCHANT_INFO_WHEN_INVITE, name=event_seller_info, features=event} 
+	meta {bind_with_cr_type=SELLER_REGISTER|UPDATE_MERCHANT_INFO_WHEN_INBOUND|UPDATE_MERCHANT_INFO_FROM_SELLER_HOME|BUYER_UPDATE_MERCHANT_INFO|BUYER_UPDATE_INFO_IN_HOME|SELLER_UPDATE_MERCHANT_INFO|UPDATE_MERCHANT_INFO_WHEN_INVITE, name=event_organization_info, features=event} 
 
 } depth=3; isRoot = false
 

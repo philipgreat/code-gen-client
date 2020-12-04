@@ -133,6 +133,15 @@ public class GasShippingGroup extends BaseModelBean {
     return member;
   }
 
+  public NumberAttribute backQuantity() {
+    NumberAttribute member = new NumberAttribute();
+    member.setModelTypeName("int");
+    // member.setName("backQuantity");
+    member.setName("back_quantity");
+    useMember(member);
+    return member;
+  }
+
   public StringAttribute handoverAddress() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");

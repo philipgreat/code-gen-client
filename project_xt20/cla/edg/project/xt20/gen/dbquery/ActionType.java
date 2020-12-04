@@ -18,6 +18,9 @@ public class ActionType extends BaseModelBean {
   public static EnumAttribute PRODUCE =
       new EnumAttribute("com.doublechaintech.xt20.actiontype.ActionType", "PRODUCE")
           .chineseName("生产入库");
+  public static EnumAttribute SHIP =
+      new EnumAttribute("com.doublechaintech.xt20.actiontype.ActionType", "SHIP")
+          .chineseName("配送发货");
   public static EnumAttribute ORDER_BACK_CYLINDER =
       new EnumAttribute("com.doublechaintech.xt20.actiontype.ActionType", "ORDER_BACK_CYLINDER")
           .chineseName("订单返瓶");
@@ -44,6 +47,7 @@ public class ActionType extends BaseModelBean {
       CYLINDER_SET,
       CYLINDER_IN,
       PRODUCE,
+      SHIP,
       ORDER_BACK_CYLINDER,
       BUYER_CONFIRMED,
       SELLER_SUBMIT_CYLINDER_SET,

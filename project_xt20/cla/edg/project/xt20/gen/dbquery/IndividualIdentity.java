@@ -12,13 +12,24 @@ public class IndividualIdentity extends BaseModelBean {
 
   // 引用的对象
 
-  public PersonalUser personalUser() {
-    PersonalUser member = new PersonalUser();
-    member.setModelTypeName("personal_user");
-    member.setName("personal_user");
-    member.setMemberName("personalUser");
+  public Merchant merchant() {
+    Merchant member = new Merchant();
+    member.setModelTypeName("merchant");
+    member.setName("merchant");
+    member.setMemberName("merchant");
     member.setReferDirection(true);
-    member.setRelationName("personalUser");
+    member.setRelationName("merchant");
+    append(member);
+    return member;
+  }
+
+  public Platform platform() {
+    Platform member = new Platform();
+    member.setModelTypeName("platform");
+    member.setName("platform");
+    member.setMemberName("platform");
+    member.setReferDirection(true);
+    member.setRelationName("platform");
     append(member);
     return member;
   }
@@ -41,6 +52,51 @@ public class IndividualIdentity extends BaseModelBean {
     member.setModelTypeName("string");
     // member.setName("name");
     member.setName("name");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute identityMobile() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string_china_mobile_phone");
+    // member.setName("identityMobile");
+    member.setName("identity_mobile");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute contactName() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("contactName");
+    member.setName("contact_name");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute mobile() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string_china_mobile_phone");
+    // member.setName("mobile");
+    member.setName("mobile");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute address() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("address");
+    member.setName("address");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute comment() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string_longtext");
+    // member.setName("comment");
+    member.setName("comment");
     useMember(member);
     return member;
   }

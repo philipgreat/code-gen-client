@@ -25,17 +25,6 @@ public class PersonalUser extends BaseModelBean {
 
   // 被引用的对象
 
-  public IndividualIdentity individualIdentityList() {
-    IndividualIdentity member = new IndividualIdentity();
-    member.setModelTypeName("individual_identity");
-    member.setName("personal_user");
-    member.setMemberName("individualIdentityList");
-    member.setRelationName("personalUser");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
   public UserWorkingInfo userWorkingInfoList() {
     UserWorkingInfo member = new UserWorkingInfo();
     member.setModelTypeName("user_working_info");

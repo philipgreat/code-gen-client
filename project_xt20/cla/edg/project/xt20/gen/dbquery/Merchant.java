@@ -36,6 +36,17 @@ public class Merchant extends BaseModelBean {
 
   // 被引用的对象
 
+  public IndividualIdentity individualIdentityList() {
+    IndividualIdentity member = new IndividualIdentity();
+    member.setModelTypeName("individual_identity");
+    member.setName("merchant");
+    member.setMemberName("individualIdentityList");
+    member.setRelationName("merchant");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public OrganizationIdentity organizationIdentityList() {
     OrganizationIdentity member = new OrganizationIdentity();
     member.setModelTypeName("organization_identity");

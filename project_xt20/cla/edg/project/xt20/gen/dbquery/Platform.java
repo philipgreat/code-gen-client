@@ -113,6 +113,17 @@ public class Platform extends BaseModelBean {
     return member;
   }
 
+  public IndividualIdentity individualIdentityList() {
+    IndividualIdentity member = new IndividualIdentity();
+    member.setModelTypeName("individual_identity");
+    member.setName("platform");
+    member.setMemberName("individualIdentityList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public OrganizationIdentity organizationIdentityList() {
     OrganizationIdentity member = new OrganizationIdentity();
     member.setModelTypeName("organization_identity");
