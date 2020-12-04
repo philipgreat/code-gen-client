@@ -1,12 +1,11 @@
 
 
-@warning gas_product.threhold_quantity: word 'threhold' seems not found in library
 @warning object definition: event_tbd: word 'tbd' seems not found in library
 @warning object definition: keypair_identity: word 'keypair' seems not found in library
 
 
 
-=================1.0 Execute Report (Model Time 201204T1736) @Fri Dec 04 17:37:03 CST 2020, 96 objects and 692 fields===========================
+=================1.0 Execute Report (Model Time 201204T1743) @Fri Dec 04 17:44:07 CST 2020, 96 objects and 693 fields===========================
 from file "/Users/jackytian/git/web-code-generator/sky/modeling/microservice/xt20.xml"
 
 
@@ -2113,7 +2112,7 @@ gas_product{
 		product_status	status('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:product_status,relationMeta={};
 		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
 		int	target_quantity('1'), verb: false, required: true,type:int,relationMeta={};
-		int	threhold_quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	threshold_quantity('1'), verb: false, required: true,type:int,relationMeta={};
 		int	quantity_per_day('1'), verb: false, required: true,type:int,relationMeta={};
 		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:merchant,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
@@ -2382,12 +2381,13 @@ order_operation_record{
 } depth=5; isRoot = false
 
 icon_configuration{
-	fields(7){
+	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('历史记录'), verb: false, required: true,type:string,relationMeta={};
-		string	code('HISTORY_TASK'), verb: false, required: true,type:string,relationMeta={};
-		string	description('设备详情页的 历史记录 的图标'), verb: false, required: true,type:string,relationMeta={};
-		string_image	icon('icon.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		string	name('快速代下订单|我的报表|盘库|我的客户|销售单|外采入库|我的产品|生产入库|气瓶结存|交接单确认|我的同事|配送任务管理|回瓶确认|设置|快速下单|我的采购单|我的持瓶|盘库确认|交接单确认|我的同事|我的供应商|设置'), verb: false, required: true,type:string,relationMeta={};
+		string	code('SELLER_QUICK_QUOTE|SELLER_REPORT|SELLER_INVENTORY_CHECK|SELLER_CUSTOMER|SELLER_ORDER_LIST|SELLER_INBOUND_BUY|SELLER_PRODUCTS|SELLER_INBOUND_PRODUCE|SELLER_BOTTLE_MANAGEMENT|SELLER_CONFIRM_DELIVERY|SELLER_COLLEAGUE|SELLER_DELIVERY_MANAGE|SELLER_BOTTLE_RETURN|SELLER_MERCHANT_INFO|BUYER_QUICK_ORDER|BUYER_ORDERS|BUYER_BOTTLES|BUYER_BIC|BUYER_DELIVERY_RECEIPT|BUYER_COLLEAGUES|BUYER_SUPPLIERS|BUYER_CONFIGURATION'), verb: false, required: true,type:string,relationMeta={};
+		string	description('卖家首页的 快速代下订单 的图标|卖家首页的 我的报表 的图标|卖家首页的 盘库 的图标|卖家首页的 我的客户 的图标|卖家首页的 销售单 的图标|卖家首页的 外采入库 的图标|卖家首页的 我的产品 的图标|卖家首页的 生产入库 的图标|卖家首页的 气瓶结存 的图标|卖家首页的 交接单确认 的图标|卖家首页的 我的同事 的图标|卖家首页的 配送任务管理 的图标|卖家首页的 回瓶确认 的图标|卖家首页的 设置 的图标|买家首页的 快速下单 的图标|买家首页的 我的采购单 的图标|买家首页的 我的持瓶 的图标|买家首页的 盘库确认 的图标|买家首页的 交接单确认 的图标|买家首页的 我的同事 的图标|买家首页的 我的供应商 的图标|买家首页的 设置 的图标'), verb: false, required: true,type:string,relationMeta={};
+		string	icon('icon_font'), verb: false, required: false,type:string,relationMeta={};
+		string_image	image('icon.jpg'), verb: false, required: false,type:string_image,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: iconConfigurationList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
@@ -3841,7 +3841,7 @@ gas_product{
 		product_status	status('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:product_status,relationMeta={};
 		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
 		int	target_quantity('1'), verb: false, required: true,type:int,relationMeta={};
-		int	threhold_quantity('1'), verb: false, required: true,type:int,relationMeta={};
+		int	threshold_quantity('1'), verb: false, required: true,type:int,relationMeta={};
 		int	quantity_per_day('1'), verb: false, required: true,type:int,relationMeta={};
 		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:merchant,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
@@ -4110,12 +4110,13 @@ order_operation_record{
 } depth=5; isRoot = false
 
 icon_configuration{
-	fields(7){
+	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('历史记录'), verb: false, required: true,type:string,relationMeta={};
-		string	code('HISTORY_TASK'), verb: false, required: true,type:string,relationMeta={};
-		string	description('设备详情页的 历史记录 的图标'), verb: false, required: true,type:string,relationMeta={};
-		string_image	icon('icon.jpg'), verb: false, required: true,type:string_image,relationMeta={};
+		string	name('快速代下订单|我的报表|盘库|我的客户|销售单|外采入库|我的产品|生产入库|气瓶结存|交接单确认|我的同事|配送任务管理|回瓶确认|设置|快速下单|我的采购单|我的持瓶|盘库确认|交接单确认|我的同事|我的供应商|设置'), verb: false, required: true,type:string,relationMeta={};
+		string	code('SELLER_QUICK_QUOTE|SELLER_REPORT|SELLER_INVENTORY_CHECK|SELLER_CUSTOMER|SELLER_ORDER_LIST|SELLER_INBOUND_BUY|SELLER_PRODUCTS|SELLER_INBOUND_PRODUCE|SELLER_BOTTLE_MANAGEMENT|SELLER_CONFIRM_DELIVERY|SELLER_COLLEAGUE|SELLER_DELIVERY_MANAGE|SELLER_BOTTLE_RETURN|SELLER_MERCHANT_INFO|BUYER_QUICK_ORDER|BUYER_ORDERS|BUYER_BOTTLES|BUYER_BIC|BUYER_DELIVERY_RECEIPT|BUYER_COLLEAGUES|BUYER_SUPPLIERS|BUYER_CONFIGURATION'), verb: false, required: true,type:string,relationMeta={};
+		string	description('卖家首页的 快速代下订单 的图标|卖家首页的 我的报表 的图标|卖家首页的 盘库 的图标|卖家首页的 我的客户 的图标|卖家首页的 销售单 的图标|卖家首页的 外采入库 的图标|卖家首页的 我的产品 的图标|卖家首页的 生产入库 的图标|卖家首页的 气瓶结存 的图标|卖家首页的 交接单确认 的图标|卖家首页的 我的同事 的图标|卖家首页的 配送任务管理 的图标|卖家首页的 回瓶确认 的图标|卖家首页的 设置 的图标|买家首页的 快速下单 的图标|买家首页的 我的采购单 的图标|买家首页的 我的持瓶 的图标|买家首页的 盘库确认 的图标|买家首页的 交接单确认 的图标|买家首页的 我的同事 的图标|买家首页的 我的供应商 的图标|买家首页的 设置 的图标'), verb: false, required: true,type:string,relationMeta={};
+		string	icon('icon_font'), verb: false, required: false,type:string,relationMeta={};
+		string_image	image('icon.jpg'), verb: false, required: false,type:string_image,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: iconConfigurationList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
