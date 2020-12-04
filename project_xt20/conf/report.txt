@@ -5,7 +5,7 @@
 
 
 
-=================1.0 Execute Report (Model Time 201204T1743) @Fri Dec 04 17:44:07 CST 2020, 96 objects and 693 fields===========================
+=================1.0 Execute Report (Model Time 201204T1834) @Fri Dec 04 18:35:10 CST 2020, 96 objects and 693 fields===========================
 from file "/Users/jackytian/git/web-code-generator/sky/modeling/microservice/xt20.xml"
 
 
@@ -2018,7 +2018,7 @@ customer_cylinder{
 		merchant	seller('$(object)'), verb: false, required: true, referenceBy: customerCylinderListAsSeller,type:merchant,relationMeta={};
 		merchant	customer('$(object)'), verb: false, required: true, referenceBy: customerCylinderListAsCustomer,type:merchant,relationMeta={};
 		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
-		string	delta('-1'), verb: false, required: true,type:string,relationMeta={};
+		int	delta('0'), verb: false, required: true,type:int,relationMeta={};
 		check_status	status('$(object)'), verb: false, required: true, referenceBy: customerCylinderList,type:check_status,relationMeta={};
 		date_time	last_check_time('date_time()'), verb: false, required: true,type:date_time,relationMeta={};
 		date_time	last_confirm_time('date_time()'), verb: false, required: true,type:date_time,relationMeta={};
@@ -3747,7 +3747,7 @@ customer_cylinder{
 		merchant	seller('$(object)'), verb: false, required: true, referenceBy: customerCylinderListAsSeller,type:merchant,relationMeta={};
 		merchant	customer('$(object)'), verb: false, required: true, referenceBy: customerCylinderListAsCustomer,type:merchant,relationMeta={};
 		int	quantity('1'), verb: false, required: true,type:int,relationMeta={};
-		string	delta('-1'), verb: false, required: true,type:string,relationMeta={};
+		int	delta('0'), verb: false, required: true,type:int,relationMeta={};
 		check_status	status('$(object)'), verb: false, required: true, referenceBy: customerCylinderList,type:check_status,relationMeta={};
 		date_time	last_check_time('date_time()'), verb: false, required: true,type:date_time,relationMeta={};
 		date_time	last_confirm_time('date_time()'), verb: false, required: true,type:date_time,relationMeta={};
