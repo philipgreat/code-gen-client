@@ -173,11 +173,11 @@ public class GasProduct extends BaseModelBean {
     return member;
   }
 
-  public NumberAttribute thresholdQuantity() {
+  public NumberAttribute threholdQuantity() {
     NumberAttribute member = new NumberAttribute();
     member.setModelTypeName("int");
-    // member.setName("thresholdQuantity");
-    member.setName("threshold_quantity");
+    // member.setName("threholdQuantity");
+    member.setName("threhold_quantity");
     useMember(member);
     return member;
   }

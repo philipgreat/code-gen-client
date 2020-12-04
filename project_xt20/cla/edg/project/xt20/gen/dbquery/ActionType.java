@@ -21,6 +21,13 @@ public class ActionType extends BaseModelBean {
   public static EnumAttribute SHIP =
       new EnumAttribute("com.doublechaintech.xt20.actiontype.ActionType", "SHIP")
           .chineseName("配送发货");
+  public static EnumAttribute BUYER_CONFIRM_RECEIPT =
+      new EnumAttribute("com.doublechaintech.xt20.actiontype.ActionType", "BUYER_CONFIRM_RECEIPT")
+          .chineseName("客户确认接收单");
+  public static EnumAttribute SELLER_FORCE_CONFIRM_RECEIPT =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.actiontype.ActionType", "SELLER_FORCE_CONFIRM_RECEIPT")
+          .chineseName("商家代确认接收单");
   public static EnumAttribute ORDER_BACK_CYLINDER =
       new EnumAttribute("com.doublechaintech.xt20.actiontype.ActionType", "ORDER_BACK_CYLINDER")
           .chineseName("订单返瓶");
@@ -48,6 +55,8 @@ public class ActionType extends BaseModelBean {
       CYLINDER_IN,
       PRODUCE,
       SHIP,
+      BUYER_CONFIRM_RECEIPT,
+      SELLER_FORCE_CONFIRM_RECEIPT,
       ORDER_BACK_CYLINDER,
       BUYER_CONFIRMED,
       SELLER_SUBMIT_CYLINDER_SET,

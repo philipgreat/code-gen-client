@@ -6,7 +6,7 @@
 
 
 
-=================1.0 Execute Report (Model Time 201204T1611) @Fri Dec 04 16:12:24 CST 2020, 96 objects and 692 fields===========================
+=================1.0 Execute Report (Model Time 201204T1736) @Fri Dec 04 17:37:03 CST 2020, 96 objects and 692 fields===========================
 from file "/Users/jackytian/git/web-code-generator/sky/modeling/microservice/xt20.xml"
 
 
@@ -1821,9 +1821,9 @@ check_status{
 action_type{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('空瓶盘库|空瓶入库|生产入库|配送发货|订单返瓶|确认接收单|商家提交气瓶盘库|客户确认气瓶盘库|外采入库|接收单入库'), verb: false, required: true,type:string,relationMeta={};
-		string	code('CYLINDER_SET|CYLINDER_IN|PRODUCE|SHIP|ORDER_BACK_CYLINDER|BUYER_CONFIRMED|SELLER_SUBMIT_CYLINDER_SET|CUSTOMER_CONFIRM_CYLINDER_SET|PURCHASE_OUT_OF_SYSTEM|PURCHASE_IN_SYSTEM'), verb: false, required: true,type:string,relationMeta={};
-		string	description('空瓶盘库|空瓶入库|生产入库|配送发货|订单返瓶|确认接收单|商家提交气瓶盘库|客户确认气瓶盘库|外采入库|接收单入库'), verb: false, required: true,type:string,relationMeta={};
+		string	name('空瓶盘库|空瓶入库|生产入库|配送发货|客户确认接收单|商家代确认接收单|订单返瓶|确认接收单|商家提交气瓶盘库|客户确认气瓶盘库|外采入库|接收单入库'), verb: false, required: true,type:string,relationMeta={};
+		string	code('CYLINDER_SET|CYLINDER_IN|PRODUCE|SHIP|BUYER_CONFIRM_RECEIPT|SELLER_FORCE_CONFIRM_RECEIPT|ORDER_BACK_CYLINDER|BUYER_CONFIRMED|SELLER_SUBMIT_CYLINDER_SET|CUSTOMER_CONFIRM_CYLINDER_SET|PURCHASE_OUT_OF_SYSTEM|PURCHASE_IN_SYSTEM'), verb: false, required: true,type:string,relationMeta={};
+		string	description('空瓶盘库|空瓶入库|生产入库|配送发货|客户确认接收单|商家代确认接收单|订单返瓶|确认接收单|商家提交气瓶盘库|客户确认气瓶盘库|外采入库|接收单入库'), verb: false, required: true,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: actionTypeList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
@@ -3549,9 +3549,9 @@ check_status{
 action_type{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('空瓶盘库|空瓶入库|生产入库|配送发货|订单返瓶|确认接收单|商家提交气瓶盘库|客户确认气瓶盘库|外采入库|接收单入库'), verb: false, required: true,type:string,relationMeta={};
-		string	code('CYLINDER_SET|CYLINDER_IN|PRODUCE|SHIP|ORDER_BACK_CYLINDER|BUYER_CONFIRMED|SELLER_SUBMIT_CYLINDER_SET|CUSTOMER_CONFIRM_CYLINDER_SET|PURCHASE_OUT_OF_SYSTEM|PURCHASE_IN_SYSTEM'), verb: false, required: true,type:string,relationMeta={};
-		string	description('空瓶盘库|空瓶入库|生产入库|配送发货|订单返瓶|确认接收单|商家提交气瓶盘库|客户确认气瓶盘库|外采入库|接收单入库'), verb: false, required: true,type:string,relationMeta={};
+		string	name('空瓶盘库|空瓶入库|生产入库|配送发货|客户确认接收单|商家代确认接收单|订单返瓶|确认接收单|商家提交气瓶盘库|客户确认气瓶盘库|外采入库|接收单入库'), verb: false, required: true,type:string,relationMeta={};
+		string	code('CYLINDER_SET|CYLINDER_IN|PRODUCE|SHIP|BUYER_CONFIRM_RECEIPT|SELLER_FORCE_CONFIRM_RECEIPT|ORDER_BACK_CYLINDER|BUYER_CONFIRMED|SELLER_SUBMIT_CYLINDER_SET|CUSTOMER_CONFIRM_CYLINDER_SET|PURCHASE_OUT_OF_SYSTEM|PURCHASE_IN_SYSTEM'), verb: false, required: true,type:string,relationMeta={};
+		string	description('空瓶盘库|空瓶入库|生产入库|配送发货|客户确认接收单|商家代确认接收单|订单返瓶|确认接收单|商家提交气瓶盘库|客户确认气瓶盘库|外采入库|接收单入库'), verb: false, required: true,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: actionTypeList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
