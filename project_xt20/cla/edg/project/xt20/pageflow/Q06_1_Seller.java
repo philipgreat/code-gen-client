@@ -16,7 +16,13 @@ public class Q06_1_Seller extends PieceOfScript {
                 .order_by(MODEL.merchant().name()).asc_by_pinyin()
                 .wants(MODEL.merchant().organizationIdentityList())
 
-
+            .query(MODEL.merchant()).list_of("bottle hold by buyer").pagination().with_string("buyer id").with_string("seller id")
+                .comments("查询被买家持瓶的卖家")
+                .do_it_as()
+                .where(MODEL.merchant().customerCylinderListAsSeller().customer().eq("${buyer id}"),
+                        MODEL.merchant().id().eq("${seller id}").optional())
+                .wants(MODEL.merchant().organizationIdentityList(),
+                        MODEL.merchant().customerCylinderListAsSeller().cylinder())
 
         ;
     }

@@ -78,9 +78,9 @@ public class CustomerCylinder extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute delta() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
+  public NumberAttribute delta() {
+    NumberAttribute member = new NumberAttribute();
+    member.setModelTypeName("int");
     // member.setName("delta");
     member.setName("delta");
     useMember(member);

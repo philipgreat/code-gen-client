@@ -35,8 +35,7 @@ public class CR00_AllTBD implements ChangeRequestSpecFactory {
                 .step("A").zh_CN("提交客户审核").contains_event("tbd")
             .change_request("update delivery info").zh_CN("修改配送信息")
                 .step("A").zh_CN("修改配送信息").contains_event("tbd")
-            .change_request("edit comment").zh_CN("编辑备注")
-                .step("A").zh_CN("编辑备注").contains_event("tbd")
+
             .change_request("edit buyer colleague").zh_CN("备注")
                 .step("A").zh_CN("备注").contains_event("tbd")
             .change_request("buyer BIC confirm").zh_CN("确认")

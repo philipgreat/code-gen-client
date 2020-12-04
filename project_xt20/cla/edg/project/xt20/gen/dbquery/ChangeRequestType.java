@@ -51,9 +51,9 @@ public class ChangeRequestType extends BaseModelBean {
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "PRODUCT_INBOUND")
           .chineseName("入库");
-  public static EnumAttribute EDIT_COMMENT =
+  public static EnumAttribute UPDATE_SUPPLIER =
       new EnumAttribute(
-              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "EDIT_COMMENT")
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "UPDATE_SUPPLIER")
           .chineseName("编辑备注");
   public static EnumAttribute UPDATE_PERSONAL_INFO =
       new EnumAttribute(
@@ -260,7 +260,7 @@ public class ChangeRequestType extends BaseModelBean {
       CREATE_HANDOVER_TASK,
       CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT,
       PRODUCT_INBOUND,
-      EDIT_COMMENT,
+      UPDATE_SUPPLIER,
       UPDATE_PERSONAL_INFO,
       UPDATE_MERCHANT_INFO_FROM_SELLER_HOME,
       BUYER_BIC_CONFIRM,

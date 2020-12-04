@@ -98,6 +98,24 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
             .contains_event("admin transfer").zh_CN("管理员变更")
 
 
+        .change_request("update supplier").zh_CN("编辑备注")
+            .step("A").zh_CN("编辑备注").contains_event("update supplier")
+                .has_field("merchant").zh_CN("用户")
+                    .fill_by_request("merchant id")
+                    .hidden()
+                .has_field("supplier").zh_CN("供应商ID")
+                    .fill_by_request("supplier id")
+                    .hidden()
+                .has_field("supplier name").zh_CN("供应商")
+                    .fill_by_request("supplier id", MODEL.merchant().name())
+                    .display()
+
+                .has_field("comment").zh_CN("备注")
+                    .fill_by_request("relation id", MODEL.supplyRelationship().customerComment())
+                    .optional()
+                    .range(0,40)
+
+
 
         .change_request("update merchant off time").zh_CN("设置商户下班时间")
             .step("A").zh_CN("设置商户下班时间")

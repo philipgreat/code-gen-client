@@ -490,6 +490,13 @@ public class MODEL {
     return rst;
   }
 
+  public static EventUpdateSupplier eventUpdateSupplier() {
+    EventUpdateSupplier rst = new EventUpdateSupplier();
+    rst.setModelTypeName("event_update_supplier");
+    rst.setBeanPath(new BeanPath().name("event_update_supplier"));
+    return rst;
+  }
+
   public static EventUpdateMerchantOffTime eventUpdateMerchantOffTime() {
     EventUpdateMerchantOffTime rst = new EventUpdateMerchantOffTime();
     rst.setModelTypeName("event_update_merchant_off_time");

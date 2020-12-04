@@ -51,6 +51,7 @@ public class Q05_Cylinder extends PieceOfScript {
                 .do_it_as()
                 .where(MODEL.merchantCylinder().merchant().eq("${merchant id}"),
                         MODEL.merchantCylinder().cylinderArea().eq(CylinderArea.PRODUCT))
-       ;
+
+        ;
     }
 }

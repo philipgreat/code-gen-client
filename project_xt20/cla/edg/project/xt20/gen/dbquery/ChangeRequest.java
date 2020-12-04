@@ -69,6 +69,17 @@ public class ChangeRequest extends BaseModelBean {
     return member;
   }
 
+  public EventUpdateSupplier eventUpdateSupplierList() {
+    EventUpdateSupplier member = new EventUpdateSupplier();
+    member.setModelTypeName("event_update_supplier");
+    member.setName("change_request");
+    member.setMemberName("eventUpdateSupplierList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventUpdateMerchantOffTime eventUpdateMerchantOffTimeList() {
     EventUpdateMerchantOffTime member = new EventUpdateMerchantOffTime();
     member.setModelTypeName("event_update_merchant_off_time");
