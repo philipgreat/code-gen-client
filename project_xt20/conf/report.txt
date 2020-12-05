@@ -5,7 +5,7 @@
 
 
 
-=================1.0 Execute Report (Model Time 201204T1834) @Fri Dec 04 18:35:10 CST 2020, 96 objects and 693 fields===========================
+=================1.0 Execute Report (Model Time 201205T1218) @Sat Dec 05 12:19:09 CST 2020, 97 objects and 699 fields===========================
 from file "/Users/jackytian/git/web-code-generator/sky/modeling/microservice/xt20.xml"
 
 
@@ -1140,6 +1140,15 @@ Info: Add virtual field [event_admin_transfers(es)] to <change_request>
 	event_admin_transfer.change_request
 
 
+ processing: event_update_supplier
+
+
+ processing: event_update_supplier.change_request.change_request
+
+Info: Add virtual field [event_update_suppliers(es)] to <change_request>
+	event_update_supplier.change_request
+
+
  processing: event_update_merchant_off_time
 
 
@@ -1448,9 +1457,9 @@ role{
 employee_status{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('正常|已删除|待审核'), verb: false, required: true,type:string,relationMeta={};
-		string	code('NORMAL|REMOVED|TO_BE_APPROVE'), verb: false, required: true,type:string,relationMeta={};
-		string	description('正常|已删除|待审核'), verb: false, required: true,type:string,relationMeta={};
+		string	name('被邀请|正常|已删除|待审核'), verb: false, required: true,type:string,relationMeta={};
+		string	code('INVITED|NORMAL|REMOVED|TO_BE_APPROVE'), verb: false, required: true,type:string,relationMeta={};
+		string	description('被邀请|正常|已删除|待审核'), verb: false, required: true,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: employeeStatusList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
@@ -2517,7 +2526,7 @@ change_request_type{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('信息反馈|商户注册|产品附加规格|确认加入|完善信息并入库|修改附加规格|创建交接单|自定义|入库|编辑备注|更新个人信息|完善信息|确认|批准加入|完善信息|生产入库|转移管理员|完善配送|审核加入|修改产品|完善信息|备注|产品附加规格|更新信息|商户基础信息|修改配送信息|完善信息|修改附加规格|上架|提交客户审核|完善信息|同意代下|完成审核|自定义产品|配送信息|外采入库|复制产品|修改订单|完善信息|设置商户下班时间|提交新单|审批加入+姓名|设置单次配送最大量|转移管理员|自定义|产品附加规格|下架|完善信息|备注|代客确认|确认交接|完善信息'), verb: false, required: true,type:string,relationMeta={};
-		string	code('MORE_SUPPLIER_PRODUCT|SELLER_REGISTER|EDIT_ADDITIONAL_SPEC_WHEN_INIT|CONFIRM_JOIN|UPDATE_MERCHANT_INFO_WHEN_INBOUND|EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE|CREATE_HANDOVER_TASK|CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT|PRODUCT_INBOUND|EDIT_COMMENT|UPDATE_PERSONAL_INFO|UPDATE_MERCHANT_INFO_FROM_SELLER_HOME|BUYER_BIC_CONFIRM|APPROVE_JOIN_BUYER|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|INBOUND_FROM_HOME|COMPANY_ADMIN_TRANSFER|BUYER_UPDATE_DELIVERY_INFO|BUYER|UPDATE_PRODUCT_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|UPDATE_COLLEAGUE_INFO|EDIT_ADDITIONAL_SPEC_WHEN_QUOTE|BUYER_UPDATE_MERCHANT_INFO|UPDATE_COMPANY_INFO|UPDATE_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER|EDIT_ADDITIONAL_SPEC_WHEN_CREATE|PRODUCT_ON_SHELF|SEND_TO_CUSTOMER_AUDIT|BUYER_UPDATE_INFO_IN_HOME|CONFIRM_QUOTE|AUDIT_ORDER|CUSTOM_PRODUCT_WHEN_INITIAL|BUYER_DELIVERY_INFO|BUY_INBOUND_FROM_HOME|COPY_PRODUCT|BUYER_UPDATE_ORDER|SELLER_UPDATE_MERCHANT_INFO|UPDATE_MERCHANT_OFF_TIME|CREATE_SPLIT_ORDER|AUDIT_JOIN_APPLY|UPDATE_MERCHANT_DELIVERY_LIMIT|BUYER_ADMIN_TRANSFER|CUSTOM_PRODUCT_WHEN_QUOTE|EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT|PRODUCT_OFF_SHELF|UPDATE_MERCHANT_INFO_WHEN_INVITE|EDIT_BUYER_COLLEAGUE|CONFIRM_AS_CUSTOMER|CONFIRM_DELIVERY_TASK|UPDATE_BUYER_INFO_WHEN_ORDER'), verb: false, required: true,type:string,relationMeta={};
+		string	code('MORE_SUPPLIER_PRODUCT|SELLER_REGISTER|EDIT_ADDITIONAL_SPEC_WHEN_INIT|CONFIRM_JOIN|UPDATE_MERCHANT_INFO_WHEN_INBOUND|EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE|CREATE_HANDOVER_TASK|CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT|PRODUCT_INBOUND|UPDATE_SUPPLIER|UPDATE_PERSONAL_INFO|UPDATE_MERCHANT_INFO_FROM_SELLER_HOME|BUYER_BIC_CONFIRM|APPROVE_JOIN_BUYER|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|INBOUND_FROM_HOME|COMPANY_ADMIN_TRANSFER|BUYER_UPDATE_DELIVERY_INFO|BUYER|UPDATE_PRODUCT_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|UPDATE_COLLEAGUE_INFO|EDIT_ADDITIONAL_SPEC_WHEN_QUOTE|BUYER_UPDATE_MERCHANT_INFO|UPDATE_COMPANY_INFO|UPDATE_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER|EDIT_ADDITIONAL_SPEC_WHEN_CREATE|PRODUCT_ON_SHELF|SEND_TO_CUSTOMER_AUDIT|BUYER_UPDATE_INFO_IN_HOME|CONFIRM_QUOTE|AUDIT_ORDER|CUSTOM_PRODUCT_WHEN_INITIAL|BUYER_DELIVERY_INFO|BUY_INBOUND_FROM_HOME|COPY_PRODUCT|BUYER_UPDATE_ORDER|SELLER_UPDATE_MERCHANT_INFO|UPDATE_MERCHANT_OFF_TIME|CREATE_SPLIT_ORDER|AUDIT_JOIN_APPLY|UPDATE_MERCHANT_DELIVERY_LIMIT|BUYER_ADMIN_TRANSFER|CUSTOM_PRODUCT_WHEN_QUOTE|EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT|PRODUCT_OFF_SHELF|UPDATE_MERCHANT_INFO_WHEN_INVITE|EDIT_BUYER_COLLEAGUE|CONFIRM_AS_CUSTOMER|CONFIRM_DELIVERY_TASK|UPDATE_BUYER_INFO_WHEN_ORDER'), verb: false, required: true,type:string,relationMeta={};
 		string	icon('bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars'), verb: false, required: true,type:string,relationMeta={};
 		int	display_order('1|2|3|4|5|6'), verb: false, required: true,type:int,relationMeta={};
 		string_longtext	bind_types('text()'), verb: false, required: true,type:text,relationMeta={};
@@ -2545,10 +2554,11 @@ change_request{
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: changeRequestList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(9){
+	references field(10){
 		eventTbdList	change_request(__no_group)--change_request;
 		eventOrganizationInfoList	change_request(__no_group)--change_request;
 		eventAdminTransferList	change_request(__no_group)--change_request;
+		eventUpdateSupplierList	change_request(__no_group)--change_request;
 		eventUpdateMerchantOffTimeList	change_request(__no_group)--change_request;
 		eventUpdateMerchantDeliveryLimitList	change_request(__no_group)--change_request;
 		eventEmployeeApproveList	change_request(__no_group)--change_request;
@@ -2569,7 +2579,7 @@ event_tbd{
 	}
 	references field(0){
 	}
-	meta {bind_with_cr_type=MORE_SUPPLIER_PRODUCT|CONFIRM_JOIN|CREATE_HANDOVER_TASK|CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT|EDIT_COMMENT|UPDATE_PERSONAL_INFO|BUYER_BIC_CONFIRM|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|BUYER_UPDATE_DELIVERY_INFO|BUYER|UPDATE_PRODUCT_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|UPDATE_COMPANY_INFO|UPDATE_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER|PRODUCT_ON_SHELF|SEND_TO_CUSTOMER_AUDIT|CONFIRM_QUOTE|AUDIT_ORDER|CUSTOM_PRODUCT_WHEN_INITIAL|BUYER_DELIVERY_INFO|COPY_PRODUCT|BUYER_UPDATE_ORDER|CREATE_SPLIT_ORDER|CUSTOM_PRODUCT_WHEN_QUOTE|PRODUCT_OFF_SHELF|EDIT_BUYER_COLLEAGUE|CONFIRM_AS_CUSTOMER|CONFIRM_DELIVERY_TASK|UPDATE_BUYER_INFO_WHEN_ORDER, name=event_tbd, features=event} 
+	meta {bind_with_cr_type=MORE_SUPPLIER_PRODUCT|CONFIRM_JOIN|CREATE_HANDOVER_TASK|CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT|UPDATE_PERSONAL_INFO|BUYER_BIC_CONFIRM|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|BUYER_UPDATE_DELIVERY_INFO|BUYER|UPDATE_PRODUCT_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|UPDATE_COMPANY_INFO|UPDATE_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER|PRODUCT_ON_SHELF|SEND_TO_CUSTOMER_AUDIT|CONFIRM_QUOTE|AUDIT_ORDER|CUSTOM_PRODUCT_WHEN_INITIAL|BUYER_DELIVERY_INFO|COPY_PRODUCT|BUYER_UPDATE_ORDER|CREATE_SPLIT_ORDER|CUSTOM_PRODUCT_WHEN_QUOTE|PRODUCT_OFF_SHELF|EDIT_BUYER_COLLEAGUE|CONFIRM_AS_CUSTOMER|CONFIRM_DELIVERY_TASK|UPDATE_BUYER_INFO_WHEN_ORDER, name=event_tbd, features=event} 
 
 } depth=3; isRoot = false
 
@@ -2602,6 +2612,21 @@ event_admin_transfer{
 	references field(0){
 	}
 	meta {bind_with_cr_type=COMPANY_ADMIN_TRANSFER|BUYER_ADMIN_TRANSFER, name=event_admin_transfer, features=event} 
+
+} depth=3; isRoot = false
+
+event_update_supplier{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	merchant('merchant|用户'), verb: false, required: true,type:string,relationMeta={};
+		string	supplier('supplier|供应商ID'), verb: false, required: true,type:string,relationMeta={};
+		string	comment('comment|备注'), verb: false, required: false,type:string,relationMeta={};
+		change_request	change_request('$(object)'), verb: false, required: true, referenceBy: eventUpdateSupplierList,type:change_request,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+	meta {bind_with_cr_type=UPDATE_SUPPLIER, name=event_update_supplier, features=event} 
 
 } depth=3; isRoot = false
 
@@ -3177,9 +3202,9 @@ role{
 employee_status{
 	fields(6){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('正常|已删除|待审核'), verb: false, required: true,type:string,relationMeta={};
-		string	code('NORMAL|REMOVED|TO_BE_APPROVE'), verb: false, required: true,type:string,relationMeta={};
-		string	description('正常|已删除|待审核'), verb: false, required: true,type:string,relationMeta={};
+		string	name('被邀请|正常|已删除|待审核'), verb: false, required: true,type:string,relationMeta={};
+		string	code('INVITED|NORMAL|REMOVED|TO_BE_APPROVE'), verb: false, required: true,type:string,relationMeta={};
+		string	description('被邀请|正常|已删除|待审核'), verb: false, required: true,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: employeeStatusList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
@@ -4246,7 +4271,7 @@ change_request_type{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('信息反馈|商户注册|产品附加规格|确认加入|完善信息并入库|修改附加规格|创建交接单|自定义|入库|编辑备注|更新个人信息|完善信息|确认|批准加入|完善信息|生产入库|转移管理员|完善配送|审核加入|修改产品|完善信息|备注|产品附加规格|更新信息|商户基础信息|修改配送信息|完善信息|修改附加规格|上架|提交客户审核|完善信息|同意代下|完成审核|自定义产品|配送信息|外采入库|复制产品|修改订单|完善信息|设置商户下班时间|提交新单|审批加入+姓名|设置单次配送最大量|转移管理员|自定义|产品附加规格|下架|完善信息|备注|代客确认|确认交接|完善信息'), verb: false, required: true,type:string,relationMeta={};
-		string	code('MORE_SUPPLIER_PRODUCT|SELLER_REGISTER|EDIT_ADDITIONAL_SPEC_WHEN_INIT|CONFIRM_JOIN|UPDATE_MERCHANT_INFO_WHEN_INBOUND|EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE|CREATE_HANDOVER_TASK|CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT|PRODUCT_INBOUND|EDIT_COMMENT|UPDATE_PERSONAL_INFO|UPDATE_MERCHANT_INFO_FROM_SELLER_HOME|BUYER_BIC_CONFIRM|APPROVE_JOIN_BUYER|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|INBOUND_FROM_HOME|COMPANY_ADMIN_TRANSFER|BUYER_UPDATE_DELIVERY_INFO|BUYER|UPDATE_PRODUCT_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|UPDATE_COLLEAGUE_INFO|EDIT_ADDITIONAL_SPEC_WHEN_QUOTE|BUYER_UPDATE_MERCHANT_INFO|UPDATE_COMPANY_INFO|UPDATE_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER|EDIT_ADDITIONAL_SPEC_WHEN_CREATE|PRODUCT_ON_SHELF|SEND_TO_CUSTOMER_AUDIT|BUYER_UPDATE_INFO_IN_HOME|CONFIRM_QUOTE|AUDIT_ORDER|CUSTOM_PRODUCT_WHEN_INITIAL|BUYER_DELIVERY_INFO|BUY_INBOUND_FROM_HOME|COPY_PRODUCT|BUYER_UPDATE_ORDER|SELLER_UPDATE_MERCHANT_INFO|UPDATE_MERCHANT_OFF_TIME|CREATE_SPLIT_ORDER|AUDIT_JOIN_APPLY|UPDATE_MERCHANT_DELIVERY_LIMIT|BUYER_ADMIN_TRANSFER|CUSTOM_PRODUCT_WHEN_QUOTE|EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT|PRODUCT_OFF_SHELF|UPDATE_MERCHANT_INFO_WHEN_INVITE|EDIT_BUYER_COLLEAGUE|CONFIRM_AS_CUSTOMER|CONFIRM_DELIVERY_TASK|UPDATE_BUYER_INFO_WHEN_ORDER'), verb: false, required: true,type:string,relationMeta={};
+		string	code('MORE_SUPPLIER_PRODUCT|SELLER_REGISTER|EDIT_ADDITIONAL_SPEC_WHEN_INIT|CONFIRM_JOIN|UPDATE_MERCHANT_INFO_WHEN_INBOUND|EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE|CREATE_HANDOVER_TASK|CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT|PRODUCT_INBOUND|UPDATE_SUPPLIER|UPDATE_PERSONAL_INFO|UPDATE_MERCHANT_INFO_FROM_SELLER_HOME|BUYER_BIC_CONFIRM|APPROVE_JOIN_BUYER|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|INBOUND_FROM_HOME|COMPANY_ADMIN_TRANSFER|BUYER_UPDATE_DELIVERY_INFO|BUYER|UPDATE_PRODUCT_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|UPDATE_COLLEAGUE_INFO|EDIT_ADDITIONAL_SPEC_WHEN_QUOTE|BUYER_UPDATE_MERCHANT_INFO|UPDATE_COMPANY_INFO|UPDATE_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER|EDIT_ADDITIONAL_SPEC_WHEN_CREATE|PRODUCT_ON_SHELF|SEND_TO_CUSTOMER_AUDIT|BUYER_UPDATE_INFO_IN_HOME|CONFIRM_QUOTE|AUDIT_ORDER|CUSTOM_PRODUCT_WHEN_INITIAL|BUYER_DELIVERY_INFO|BUY_INBOUND_FROM_HOME|COPY_PRODUCT|BUYER_UPDATE_ORDER|SELLER_UPDATE_MERCHANT_INFO|UPDATE_MERCHANT_OFF_TIME|CREATE_SPLIT_ORDER|AUDIT_JOIN_APPLY|UPDATE_MERCHANT_DELIVERY_LIMIT|BUYER_ADMIN_TRANSFER|CUSTOM_PRODUCT_WHEN_QUOTE|EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT|PRODUCT_OFF_SHELF|UPDATE_MERCHANT_INFO_WHEN_INVITE|EDIT_BUYER_COLLEAGUE|CONFIRM_AS_CUSTOMER|CONFIRM_DELIVERY_TASK|UPDATE_BUYER_INFO_WHEN_ORDER'), verb: false, required: true,type:string,relationMeta={};
 		string	icon('bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars'), verb: false, required: true,type:string,relationMeta={};
 		int	display_order('1|2|3|4|5|6'), verb: false, required: true,type:int,relationMeta={};
 		string_longtext	bind_types('text()'), verb: false, required: true,type:text,relationMeta={};
@@ -4274,10 +4299,11 @@ change_request{
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: changeRequestList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(9){
+	references field(10){
 		eventTbdList	change_request(__no_group)--change_request;
 		eventOrganizationInfoList	change_request(__no_group)--change_request;
 		eventAdminTransferList	change_request(__no_group)--change_request;
+		eventUpdateSupplierList	change_request(__no_group)--change_request;
 		eventUpdateMerchantOffTimeList	change_request(__no_group)--change_request;
 		eventUpdateMerchantDeliveryLimitList	change_request(__no_group)--change_request;
 		eventEmployeeApproveList	change_request(__no_group)--change_request;
@@ -4298,7 +4324,7 @@ event_tbd{
 	}
 	references field(0){
 	}
-	meta {bind_with_cr_type=MORE_SUPPLIER_PRODUCT|CONFIRM_JOIN|CREATE_HANDOVER_TASK|CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT|EDIT_COMMENT|UPDATE_PERSONAL_INFO|BUYER_BIC_CONFIRM|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|BUYER_UPDATE_DELIVERY_INFO|BUYER|UPDATE_PRODUCT_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|UPDATE_COMPANY_INFO|UPDATE_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER|PRODUCT_ON_SHELF|SEND_TO_CUSTOMER_AUDIT|CONFIRM_QUOTE|AUDIT_ORDER|CUSTOM_PRODUCT_WHEN_INITIAL|BUYER_DELIVERY_INFO|COPY_PRODUCT|BUYER_UPDATE_ORDER|CREATE_SPLIT_ORDER|CUSTOM_PRODUCT_WHEN_QUOTE|PRODUCT_OFF_SHELF|EDIT_BUYER_COLLEAGUE|CONFIRM_AS_CUSTOMER|CONFIRM_DELIVERY_TASK|UPDATE_BUYER_INFO_WHEN_ORDER, name=event_tbd, features=event} 
+	meta {bind_with_cr_type=MORE_SUPPLIER_PRODUCT|CONFIRM_JOIN|CREATE_HANDOVER_TASK|CUSTOM_PRODUCT_WHEN_QUOTE_BY_PRODUCT|UPDATE_PERSONAL_INFO|BUYER_BIC_CONFIRM|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|BUYER_UPDATE_DELIVERY_INFO|BUYER|UPDATE_PRODUCT_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|UPDATE_COMPANY_INFO|UPDATE_DELIVERY_INFO|UPDATE_MERCHANT_INFO_WHEN_VIEW_BUYER|PRODUCT_ON_SHELF|SEND_TO_CUSTOMER_AUDIT|CONFIRM_QUOTE|AUDIT_ORDER|CUSTOM_PRODUCT_WHEN_INITIAL|BUYER_DELIVERY_INFO|COPY_PRODUCT|BUYER_UPDATE_ORDER|CREATE_SPLIT_ORDER|CUSTOM_PRODUCT_WHEN_QUOTE|PRODUCT_OFF_SHELF|EDIT_BUYER_COLLEAGUE|CONFIRM_AS_CUSTOMER|CONFIRM_DELIVERY_TASK|UPDATE_BUYER_INFO_WHEN_ORDER, name=event_tbd, features=event} 
 
 } depth=3; isRoot = false
 
@@ -4331,6 +4357,21 @@ event_admin_transfer{
 	references field(0){
 	}
 	meta {bind_with_cr_type=COMPANY_ADMIN_TRANSFER|BUYER_ADMIN_TRANSFER, name=event_admin_transfer, features=event} 
+
+} depth=3; isRoot = false
+
+event_update_supplier{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	merchant('merchant|用户'), verb: false, required: true,type:string,relationMeta={};
+		string	supplier('supplier|供应商ID'), verb: false, required: true,type:string,relationMeta={};
+		string	comment('comment|备注'), verb: false, required: false,type:string,relationMeta={};
+		change_request	change_request('$(object)'), verb: false, required: true, referenceBy: eventUpdateSupplierList,type:change_request,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+	meta {bind_with_cr_type=UPDATE_SUPPLIER, name=event_update_supplier, features=event} 
 
 } depth=3; isRoot = false
 

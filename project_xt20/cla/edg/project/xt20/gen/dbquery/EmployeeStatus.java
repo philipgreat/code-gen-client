@@ -9,6 +9,9 @@ public class EmployeeStatus extends BaseModelBean {
     return "com.doublechaintech.xt20.employeestatus.EmployeeStatus";
   }
   // 枚举对象
+  public static EnumAttribute INVITED =
+      new EnumAttribute("com.doublechaintech.xt20.employeestatus.EmployeeStatus", "INVITED")
+          .chineseName("被邀请");
   public static EnumAttribute NORMAL =
       new EnumAttribute("com.doublechaintech.xt20.employeestatus.EmployeeStatus", "NORMAL")
           .chineseName("正常");
@@ -20,7 +23,7 @@ public class EmployeeStatus extends BaseModelBean {
           .chineseName("待审核");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {NORMAL, REMOVED, TO_BE_APPROVE};
+    return new EnumAttribute[] {INVITED, NORMAL, REMOVED, TO_BE_APPROVE};
   }
 
   // 引用的对象
