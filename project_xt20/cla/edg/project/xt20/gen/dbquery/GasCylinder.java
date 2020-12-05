@@ -56,13 +56,13 @@ public class GasCylinder extends BaseModelBean {
     return member;
   }
 
-  public GasContainerCategory gasContainerCategory() {
-    GasContainerCategory member = new GasContainerCategory();
-    member.setModelTypeName("gas_container_category");
-    member.setName("gas_container_category");
-    member.setMemberName("gasContainerCategory");
+  public BottleType bottleType() {
+    BottleType member = new BottleType();
+    member.setModelTypeName("bottle_type");
+    member.setName("bottle_type");
+    member.setMemberName("bottleType");
     member.setReferDirection(true);
-    member.setRelationName("gasContainerCategory");
+    member.setRelationName("bottleType");
     append(member);
     return member;
   }

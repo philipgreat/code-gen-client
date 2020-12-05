@@ -212,11 +212,11 @@ public class Platform extends BaseModelBean {
     return member;
   }
 
-  public GasContainerCategory gasContainerCategoryList() {
-    GasContainerCategory member = new GasContainerCategory();
-    member.setModelTypeName("gas_container_category");
+  public BottleType bottleTypeList() {
+    BottleType member = new BottleType();
+    member.setModelTypeName("bottle_type");
     member.setName("platform");
-    member.setMemberName("gasContainerCategoryList");
+    member.setMemberName("bottleTypeList");
     member.setRelationName("platform");
     member.setReferDirection(false);
     append(member);
@@ -228,6 +228,17 @@ public class Platform extends BaseModelBean {
     member.setModelTypeName("gas_component");
     member.setName("platform");
     member.setMemberName("gasComponentList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public ProductType productTypeList() {
+    ProductType member = new ProductType();
+    member.setModelTypeName("product_type");
+    member.setName("platform");
+    member.setMemberName("productTypeList");
     member.setRelationName("platform");
     member.setReferDirection(false);
     append(member);

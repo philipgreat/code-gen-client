@@ -168,10 +168,10 @@ public class MODEL {
     return rst;
   }
 
-  public static GasContainerCategory gasContainerCategory() {
-    GasContainerCategory rst = new GasContainerCategory();
-    rst.setModelTypeName("gas_container_category");
-    rst.setBeanPath(new BeanPath().name("gas_container_category"));
+  public static BottleType bottleType() {
+    BottleType rst = new BottleType();
+    rst.setModelTypeName("bottle_type");
+    rst.setBeanPath(new BeanPath().name("bottle_type"));
     return rst;
   }
 
@@ -179,6 +179,13 @@ public class MODEL {
     GasComponent rst = new GasComponent();
     rst.setModelTypeName("gas_component");
     rst.setBeanPath(new BeanPath().name("gas_component"));
+    return rst;
+  }
+
+  public static ProductType productType() {
+    ProductType rst = new ProductType();
+    rst.setModelTypeName("product_type");
+    rst.setBeanPath(new BeanPath().name("product_type"));
     return rst;
   }
 

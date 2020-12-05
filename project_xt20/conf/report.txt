@@ -5,7 +5,7 @@
 
 
 
-=================1.0 Execute Report (Model Time 201205T1218) @Sat Dec 05 12:19:09 CST 2020, 97 objects and 699 fields===========================
+=================1.0 Execute Report (Model Time 201205T1502) @Sat Dec 05 15:03:23 CST 2020, 98 objects and 707 fields===========================
 from file "/Users/jackytian/git/web-code-generator/sky/modeling/microservice/xt20.xml"
 
 
@@ -354,13 +354,13 @@ Info: Add virtual field [nominal_pressures(es)] to <platform>
 	nominal_pressure.platform
 
 
- processing: gas_container_category
+ processing: bottle_type
 
 
- processing: gas_container_category.platform.platform
+ processing: bottle_type.platform.platform
 
-Info: Add virtual field [gas_container_categorys(es)] to <platform>
-	gas_container_category.platform
+Info: Add virtual field [bottle_types(es)] to <platform>
+	bottle_type.platform
 
 
  processing: gas_component
@@ -370,6 +370,15 @@ Info: Add virtual field [gas_container_categorys(es)] to <platform>
 
 Info: Add virtual field [gas_components(es)] to <platform>
 	gas_component.platform
+
+
+ processing: product_type
+
+
+ processing: product_type.platform.platform
+
+Info: Add virtual field [product_types(es)] to <platform>
+	product_type.platform
 
 
  processing: check_status
@@ -480,10 +489,10 @@ Info: Add virtual field [gas_cylinders(es)] to <nominal_volume>
 	gas_cylinder.nominal_volume
 
 
- processing: gas_cylinder.gas_container_category.gas_container_category
+ processing: gas_cylinder.bottle_type.bottle_type
 
-Info: Add virtual field [gas_cylinders(es)] to <gas_container_category>
-	gas_cylinder.gas_container_category
+Info: Add virtual field [gas_cylinders(es)] to <bottle_type>
+	gas_cylinder.bottle_type
 
 
  processing: gas_cylinder.platform.platform
@@ -636,6 +645,12 @@ Info: Add virtual field [gas_product_templates(es)] to <fill_volume>
 	gas_product_template.fill_volume
 
 
+ processing: gas_product_template.product_type.product_type
+
+Info: Add virtual field [gas_product_templates(es)] to <product_type>
+	gas_product_template.product_type
+
+
  processing: gas_product_template.platform.platform
 
 Info: Add virtual field [gas_product_templates(es)] to <platform>
@@ -682,6 +697,12 @@ Info: Add virtual field [gas_products(es)] to <gas_product_template>
 
 Info: Add virtual field [gas_products(es)] to <product_status>
 	gas_product.status
+
+
+ processing: gas_product.product_type.product_type
+
+Info: Add virtual field [gas_products(es)] to <product_type>
+	gas_product.product_type
 
 
  processing: gas_product.merchant.merchant
@@ -1348,7 +1369,7 @@ platform{
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(41){
+	references field(42){
 		provinceList	platform(__no_group)--platform;
 		cityList	platform(__no_group)--platform;
 		districtList	platform(__no_group)--platform;
@@ -1367,8 +1388,9 @@ platform{
 		nominalVolumeList	platform(__no_group)--platform;
 		fillVolumeList	platform(__no_group)--platform;
 		nominalPressureList	platform(__no_group)--platform;
-		gasContainerCategoryList	platform(__no_group)--platform;
+		bottleTypeList	platform(__no_group)--platform;
 		gasComponentList	platform(__no_group)--platform;
+		productTypeList	platform(__no_group)--platform;
 		checkStatusList	platform(__no_group)--platform;
 		actionTypeList	platform(__no_group)--platform;
 		productStatusList	platform(__no_group)--platform;
@@ -1781,17 +1803,17 @@ nominal_pressure{
 
 } depth=1; isRoot = false
 
-gas_container_category{
+bottle_type{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('绝热气瓶'), verb: false, required: true,type:string,relationMeta={};
-		platform	platform('$(object)'), verb: false, required: true, referenceBy: gasContainerCategoryList,type:platform,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: bottleTypeList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(1){
-		gasCylinderList	gas_container_category(__no_group)--gas_container_category;
+		gasCylinderList	bottle_type(__no_group)--bottle_type;
 	}
-	meta {name=gas_container_category, features=root} 
+	meta {name=bottle_type, features=root} 
 
 } depth=1; isRoot = false
 
@@ -1807,6 +1829,23 @@ gas_component{
 		gasProductComponentList	component(__no_group)--component;
 	}
 	meta {name=gas_component, features=root} 
+
+} depth=1; isRoot = false
+
+product_type{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('纯气|混合气|散装格'), verb: false, required: true,type:string,relationMeta={};
+		string	code('PURE_GAS|GAS_MIXTURE|BULK_LATTICE'), verb: false, required: true,type:string,relationMeta={};
+		string	description('纯气|混合气|散装格'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: productTypeList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(2){
+		gasProductTemplateList	product_type(__no_group)--product_type;
+		gasProductList	product_type(__no_group)--product_type;
+	}
+	meta {name=product_type, features=status} 
 
 } depth=1; isRoot = false
 
@@ -1966,7 +2005,7 @@ gas_cylinder{
 		fill_medium	fill_medium('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:fill_medium,relationMeta={};
 		nominal_pressure	nominal_pressure('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:nominal_pressure,relationMeta={};
 		nominal_volume	nominal_volume('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:nominal_volume,relationMeta={};
-		gas_container_category	gas_container_category('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:gas_container_category,relationMeta={};
+		bottle_type	bottle_type('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:bottle_type,relationMeta={};
 		string	additional_information('xxx'), verb: false, required: false,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
@@ -2077,11 +2116,12 @@ customer_cylinder_record_evidence{
 } depth=5; isRoot = false
 
 gas_product_template{
-	fields(8){
+	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('食品添加剂氮气-20Mpa-50L-3*5集装格'), verb: false, required: true,type:string,relationMeta={};
 		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateList,type:gas_cylinder,relationMeta={};
 		fill_volume	fill_volume('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateList,type:fill_volume,relationMeta={};
+		product_type	product_type('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateList,type:product_type,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateList,type:platform,relationMeta={};
@@ -2112,7 +2152,7 @@ gas_product_template_component{
 } depth=4; isRoot = false
 
 gas_product{
-	fields(15){
+	fields(16){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('食品添加剂氮气-20Mpa-50L-3*5集装格'), verb: false, required: true,type:string,relationMeta={};
 		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:gas_cylinder,relationMeta={};
@@ -2123,6 +2163,7 @@ gas_product{
 		int	target_quantity('1'), verb: false, required: true,type:int,relationMeta={};
 		int	threshold_quantity('1'), verb: false, required: true,type:int,relationMeta={};
 		int	quantity_per_day('1'), verb: false, required: true,type:int,relationMeta={};
+		product_type	product_type('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:product_type,relationMeta={};
 		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:merchant,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
@@ -3093,7 +3134,7 @@ platform{
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(41){
+	references field(42){
 		provinceList	platform(__no_group)--platform;
 		cityList	platform(__no_group)--platform;
 		districtList	platform(__no_group)--platform;
@@ -3112,8 +3153,9 @@ platform{
 		nominalVolumeList	platform(__no_group)--platform;
 		fillVolumeList	platform(__no_group)--platform;
 		nominalPressureList	platform(__no_group)--platform;
-		gasContainerCategoryList	platform(__no_group)--platform;
+		bottleTypeList	platform(__no_group)--platform;
 		gasComponentList	platform(__no_group)--platform;
+		productTypeList	platform(__no_group)--platform;
 		checkStatusList	platform(__no_group)--platform;
 		actionTypeList	platform(__no_group)--platform;
 		productStatusList	platform(__no_group)--platform;
@@ -3526,17 +3568,17 @@ nominal_pressure{
 
 } depth=1; isRoot = false
 
-gas_container_category{
+bottle_type{
 	fields(4){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('绝热气瓶'), verb: false, required: true,type:string,relationMeta={};
-		platform	platform('$(object)'), verb: false, required: true, referenceBy: gasContainerCategoryList,type:platform,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: bottleTypeList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(1){
-		gasCylinderList	gas_container_category(__no_group)--gas_container_category;
+		gasCylinderList	bottle_type(__no_group)--bottle_type;
 	}
-	meta {name=gas_container_category, features=root} 
+	meta {name=bottle_type, features=root} 
 
 } depth=1; isRoot = false
 
@@ -3552,6 +3594,23 @@ gas_component{
 		gasProductComponentList	component(__no_group)--component;
 	}
 	meta {name=gas_component, features=root} 
+
+} depth=1; isRoot = false
+
+product_type{
+	fields(6){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('纯气|混合气|散装格'), verb: false, required: true,type:string,relationMeta={};
+		string	code('PURE_GAS|GAS_MIXTURE|BULK_LATTICE'), verb: false, required: true,type:string,relationMeta={};
+		string	description('纯气|混合气|散装格'), verb: false, required: true,type:string,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: productTypeList,type:platform,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(2){
+		gasProductTemplateList	product_type(__no_group)--product_type;
+		gasProductList	product_type(__no_group)--product_type;
+	}
+	meta {name=product_type, features=status} 
 
 } depth=1; isRoot = false
 
@@ -3711,7 +3770,7 @@ gas_cylinder{
 		fill_medium	fill_medium('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:fill_medium,relationMeta={};
 		nominal_pressure	nominal_pressure('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:nominal_pressure,relationMeta={};
 		nominal_volume	nominal_volume('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:nominal_volume,relationMeta={};
-		gas_container_category	gas_container_category('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:gas_container_category,relationMeta={};
+		bottle_type	bottle_type('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:bottle_type,relationMeta={};
 		string	additional_information('xxx'), verb: false, required: false,type:string,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: gasCylinderList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
@@ -3822,11 +3881,12 @@ customer_cylinder_record_evidence{
 } depth=5; isRoot = false
 
 gas_product_template{
-	fields(8){
+	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('食品添加剂氮气-20Mpa-50L-3*5集装格'), verb: false, required: true,type:string,relationMeta={};
 		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateList,type:gas_cylinder,relationMeta={};
 		fill_volume	fill_volume('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateList,type:fill_volume,relationMeta={};
+		product_type	product_type('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateList,type:product_type,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateList,type:platform,relationMeta={};
@@ -3857,7 +3917,7 @@ gas_product_template_component{
 } depth=4; isRoot = false
 
 gas_product{
-	fields(15){
+	fields(16){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('食品添加剂氮气-20Mpa-50L-3*5集装格'), verb: false, required: true,type:string,relationMeta={};
 		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:gas_cylinder,relationMeta={};
@@ -3868,6 +3928,7 @@ gas_product{
 		int	target_quantity('1'), verb: false, required: true,type:int,relationMeta={};
 		int	threshold_quantity('1'), verb: false, required: true,type:int,relationMeta={};
 		int	quantity_per_day('1'), verb: false, required: true,type:int,relationMeta={};
+		product_type	product_type('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:product_type,relationMeta={};
 		merchant	merchant('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:merchant,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};

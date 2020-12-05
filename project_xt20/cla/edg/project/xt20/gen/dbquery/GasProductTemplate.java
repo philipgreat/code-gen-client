@@ -34,6 +34,17 @@ public class GasProductTemplate extends BaseModelBean {
     return member;
   }
 
+  public ProductType productType() {
+    ProductType member = new ProductType();
+    member.setModelTypeName("product_type");
+    member.setName("product_type");
+    member.setMemberName("productType");
+    member.setReferDirection(true);
+    member.setRelationName("productType");
+    append(member);
+    return member;
+  }
+
   public Platform platform() {
     Platform member = new Platform();
     member.setModelTypeName("platform");
