@@ -113,6 +113,17 @@ public class ChangeRequest extends BaseModelBean {
     return member;
   }
 
+  public EventSellerAddBuyer eventSellerAddBuyerList() {
+    EventSellerAddBuyer member = new EventSellerAddBuyer();
+    member.setModelTypeName("event_seller_add_buyer");
+    member.setName("change_request");
+    member.setMemberName("eventSellerAddBuyerList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventUpdateAdditionalSpec eventUpdateAdditionalSpecList() {
     EventUpdateAdditionalSpec member = new EventUpdateAdditionalSpec();
     member.setModelTypeName("event_update_additional_spec");
@@ -129,6 +140,39 @@ public class ChangeRequest extends BaseModelBean {
     member.setModelTypeName("event_product_inbound");
     member.setName("change_request");
     member.setMemberName("eventProductInboundList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventProductBaseInfo eventProductBaseInfoList() {
+    EventProductBaseInfo member = new EventProductBaseInfo();
+    member.setModelTypeName("event_product_base_info");
+    member.setName("change_request");
+    member.setMemberName("eventProductBaseInfoList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventContainerInfo eventContainerInfoList() {
+    EventContainerInfo member = new EventContainerInfo();
+    member.setModelTypeName("event_container_info");
+    member.setName("change_request");
+    member.setMemberName("eventContainerInfoList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventProductComponent eventProductComponentList() {
+    EventProductComponent member = new EventProductComponent();
+    member.setModelTypeName("event_product_component");
+    member.setName("change_request");
+    member.setMemberName("eventProductComponentList");
     member.setRelationName("changeRequest");
     member.setReferDirection(false);
     append(member);

@@ -525,6 +525,13 @@ public class MODEL {
     return rst;
   }
 
+  public static EventSellerAddBuyer eventSellerAddBuyer() {
+    EventSellerAddBuyer rst = new EventSellerAddBuyer();
+    rst.setModelTypeName("event_seller_add_buyer");
+    rst.setBeanPath(new BeanPath().name("event_seller_add_buyer"));
+    return rst;
+  }
+
   public static EventUpdateAdditionalSpec eventUpdateAdditionalSpec() {
     EventUpdateAdditionalSpec rst = new EventUpdateAdditionalSpec();
     rst.setModelTypeName("event_update_additional_spec");
@@ -536,6 +543,27 @@ public class MODEL {
     EventProductInbound rst = new EventProductInbound();
     rst.setModelTypeName("event_product_inbound");
     rst.setBeanPath(new BeanPath().name("event_product_inbound"));
+    return rst;
+  }
+
+  public static EventProductBaseInfo eventProductBaseInfo() {
+    EventProductBaseInfo rst = new EventProductBaseInfo();
+    rst.setModelTypeName("event_product_base_info");
+    rst.setBeanPath(new BeanPath().name("event_product_base_info"));
+    return rst;
+  }
+
+  public static EventContainerInfo eventContainerInfo() {
+    EventContainerInfo rst = new EventContainerInfo();
+    rst.setModelTypeName("event_container_info");
+    rst.setBeanPath(new BeanPath().name("event_container_info"));
+    return rst;
+  }
+
+  public static EventProductComponent eventProductComponent() {
+    EventProductComponent rst = new EventProductComponent();
+    rst.setModelTypeName("event_product_component");
+    rst.setBeanPath(new BeanPath().name("event_product_component"));
     return rst;
   }
 

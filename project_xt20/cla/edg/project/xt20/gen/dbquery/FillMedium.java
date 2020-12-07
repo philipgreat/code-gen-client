@@ -36,6 +36,28 @@ public class FillMedium extends BaseModelBean {
     return member;
   }
 
+  public EventContainerInfo eventContainerInfoList() {
+    EventContainerInfo member = new EventContainerInfo();
+    member.setModelTypeName("event_container_info");
+    member.setName("fill_medium");
+    member.setMemberName("eventContainerInfoList");
+    member.setRelationName("fillMedium");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventProductComponent eventProductComponentList() {
+    EventProductComponent member = new EventProductComponent();
+    member.setModelTypeName("event_product_component");
+    member.setName("component");
+    member.setMemberName("eventProductComponentList");
+    member.setRelationName("component");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

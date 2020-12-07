@@ -1,6 +1,7 @@
 package cla.edg.project.xt20.changerequest;
 
 import cla.edg.project.xt20.gen.dbquery.MODEL;
+import cla.edg.project.xt20.gen.dbquery.ProductType;
 import com.terapico.changerequest.builder.ChangeRequestSpecBuilder;
 import com.terapico.changerequest.builder.ChangeRequestSpecFactory;
 import com.terapico.changerequest.builder.FieldType;
@@ -127,6 +128,61 @@ public class CR03_CreateProduct implements ChangeRequestSpecFactory {
                 .has_field("inbound type").zh_CN("入库类型")
                     .values_canbe("produce", "生产入库").or("buy","外购入库")
                     .defaule_value("produce")
+
+        // 初始化产品列表的时候, 添加自定义产品
+        .change_request("custom product when initial").zh_CN("自定义产品")
+            .step("A").zh_CN("自定义产品")
+            .contains_event("product base info").zh_CN("产品基础信息")
+                .has_field("merchant id").zh_CN("卖家ID")
+                    .fill_by_request("merchant id")
+                    .hidden()
+                .has_field("product type").zh_CN("产品类别")
+                    .which_model_of(MODEL.productType())
+                    .values_can_select_from_query_by(null)
+                    .value(ProductType.PURE_GAS.getLiteralName())
+                .has_field("product alias name").zh_CN("产品别名")
+                    .place_holder("请输入产品别名")
+                    .range(0,40).optional()
+                .has_field("product legacy id").zh_CN("产品代码")
+                    .place_holder("请输入产品代码")
+                    .range(0,100).optional()
+                .has_field("product picture").zh_CN("产品图片")
+                    .which_type_of(FieldType.IMAGE)
+                    .optional()
+
+            .contains_event("container info").zh_CN("产品包装物信息")
+                .has_field("fill medium").zh_CN("充装介质")
+                    .which_model_of(MODEL.fillMedium())
+                    .values_can_select_from_query_by(null)
+                    .optional() // 散瓶格没有充装介质
+                .has_field("gas container").zh_CN("包装类别")
+                    .which_model_of(MODEL.gasContainer())
+                    .values_can_select_from_query_by(null)
+                .has_field("nominal volume").zh_CN("公称容积(L)")
+                    .which_type_of(FieldType.DECIMAL)
+                    .range(0, 1000)
+                .has_field("nominal pressure").zh_CN("公称压力(Mpa)")
+                    .which_type_of(FieldType.DECIMAL)
+                    .range(0, 1000)
+                .has_field("fill volume").zh_CN("充装量")
+                    .which_model_of(MODEL.fillVolume())
+                    .values_can_select_from_query_by(null)
+                .has_field("bottle type").zh_CN("气瓶类别")
+                    .which_model_of(MODEL.bottleType())
+                    .values_can_select_from_query_by(null)
+                .has_field("additional info").zh_CN("附件规格")
+                    .range(0, 100).optional()
+                    .place_holder("请输入附加规格")
+
+            .contains_event("product component").zh_CN("充装介质信息")
+                .many_times(1, 6).show_them_all_in_cr()
+                .has_field("component").zh_CN("组分")
+                    .which_model_of(MODEL.fillMedium())
+                    .values_can_select_from_query_by(null)
+                .has_field("rate").zh_CN("组分含量(%)")
+                    .which_type_of(FieldType.DECIMAL)
+                    .range(1,100)
+
                 ;
     }
 

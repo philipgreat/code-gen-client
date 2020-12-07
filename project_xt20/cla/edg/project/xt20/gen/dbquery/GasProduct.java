@@ -202,6 +202,15 @@ public class GasProduct extends BaseModelBean {
     return member;
   }
 
+  public StringAttribute legacyCode() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("legacyCode");
+    member.setName("legacy_code");
+    useMember(member);
+    return member;
+  }
+
   public DateTimeAttribute createTime() {
     DateTimeAttribute member = new DateTimeAttribute();
     member.setModelTypeName("date_time_create");

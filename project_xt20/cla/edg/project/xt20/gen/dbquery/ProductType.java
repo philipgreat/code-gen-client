@@ -60,6 +60,17 @@ public class ProductType extends BaseModelBean {
     return member;
   }
 
+  public EventProductBaseInfo eventProductBaseInfoList() {
+    EventProductBaseInfo member = new EventProductBaseInfo();
+    member.setModelTypeName("event_product_base_info");
+    member.setName("product_type");
+    member.setMemberName("eventProductBaseInfoList");
+    member.setRelationName("productType");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

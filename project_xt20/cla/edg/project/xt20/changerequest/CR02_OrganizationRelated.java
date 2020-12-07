@@ -8,8 +8,9 @@ import com.terapico.changerequest.builder.UIStyle;
 
 public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
     public ChangeRequestSpecBuilder makeSequel(ChangeRequestSpecBuilder builder) {
-        return builder.change_request("seller register").zh_CN("商户注册")
-        .step("A").zh_CN("商户注册")
+        return builder
+        .change_request("buyer update merchant info").zh_CN("更新信息")
+            .step("A").zh_CN("完善信息")
             .contains_event("organization info").zh_CN("商户注册")
                 .has_field("organization id").zh_CN("组织ID")
                     .optional()
@@ -76,11 +77,11 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                 .has_field("agency social code")
                 .must_have()
 
-        .change_request("buyer update merchant info").zh_CN("更新信息")
-            .step("A").zh_CN("完善信息")
+        .change_request("seller register").zh_CN("商户注册")
+            .step("A").zh_CN("商户注册")
             .contains_event("organization info")
                 .has_field("agency social code")
-                .optional()
+                .must_have()
 
 
 
@@ -174,6 +175,31 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
         .change_request("update colleague info").zh_CN("备注")
             .step("A").zh_CN("备注")
             .contains_event("employee approve")
+
+        .change_request("seller add buyer").zh_CN("添加客户")
+            .step("A").zh_CN("添加客户")
+            .contains_event("seller add buyer").zh_CN("添加客户")
+                .has_field("employee id").zh_CN("邀请人")
+                    .fill_by_request("employee id")
+                    .hidden()
+                .has_field("buyer type")
+                    .values_canbe("personal", "个人用气用户").or("enterprise", "企业用气用户")
+                    .defaule_value("personal")
+                .has_field("name").zh_CN("用气用户名称")
+                    .range(1, 100)
+                    .place_holder("请输入用气用户名称")
+                .has_field("agency social code").zh_CN("信用代码")
+                    .range(18,18).optional()
+                    .place_holder("请输入企业信用代码")
+                    .hidden()
+                .has_field("mobile").zh_CN("用户手机号")
+                    .which_type_of(FieldType.MOBILE)
+                    .optional()
+                    .place_holder("请输入客户手机号码")
+                .has_field("comment").zh_CN("备注")
+                    .range(0,100)
+                    .which_type_of(FieldType.MULTI_TEXT)
+                    .place_holder("请输入备注信息")
 
                 ;
     }

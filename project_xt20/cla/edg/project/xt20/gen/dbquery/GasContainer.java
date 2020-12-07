@@ -36,6 +36,17 @@ public class GasContainer extends BaseModelBean {
     return member;
   }
 
+  public EventContainerInfo eventContainerInfoList() {
+    EventContainerInfo member = new EventContainerInfo();
+    member.setModelTypeName("event_container_info");
+    member.setName("gas_container");
+    member.setMemberName("eventContainerInfoList");
+    member.setRelationName("gasContainer");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

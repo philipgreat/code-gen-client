@@ -12,10 +12,7 @@ public class Q02_GasProduct extends PieceOfScript {
                 .do_it_as()
                 .where(MODEL.gasProduct().merchant().eq("${merchant id}"),
                         MODEL.gasProduct().gasProductCacheList().searchText().like("${search key}").optional())
-                .wants(MODEL.gasProduct().cylinder().gasContainer(),
-                        MODEL.gasProduct().fillVolume(),
-                        MODEL.gasProduct().cylinder().fillMedium(),
-                        MODEL.gasProduct().cylinder().nominalPressure())
+                .run_by(this::wantedForProductList)
 
             .query(MODEL.gasProduct()).list_of("merchant by trade time").with_string("merchant id")
                 .comments("按照交易的时间降序,列出买家的产品列表")
@@ -23,8 +20,40 @@ public class Q02_GasProduct extends PieceOfScript {
                 .where(MODEL.gasProduct().gasLineItemList().mainOrder().seller().eq("${merchant id}"))
                 .order_by(MODEL.gasProduct().gasLineItemList().mainOrder().id()).desc()
                 .order_by(MODEL.gasProduct().id()).desc()
+                .run_by(this::wantedForProductList)
 
+
+
+            .query(MODEL.gasProductTemplate()).list_of("all").pagination()
+                .comments("查询所有的产品模板")
+                .do_it_as()
+                .where(MODEL.gasProductTemplate().platform().not_null())
+                .wants(MODEL.gasProductTemplate().cylinder(),
+                        MODEL.gasProductTemplate().fillVolume(),
+                        MODEL.gasProductTemplate().productType(),
+                        MODEL.gasCylinder().nominalPressure(),
+                        MODEL.gasCylinder().fillMedium(),
+                        MODEL.gasCylinder().gasContainer(),
+                        MODEL.gasCylinder().bottleType(),
+                        MODEL.gasCylinder().nominalVolume())
+
+            .query(MODEL.gasProduct()).list_of("merchant in template").with_string("merchant id").with_list("template ids")
+                .comments("查询商户的,使用了指定模板的产品")
+                .do_it_as()
+                .where(MODEL.gasProduct().merchant().eq("${merchant id}"),
+                        MODEL.gasProduct().template().in("${template ids}"))
+                .run_by(this::wantedForProductList)
 
        ;
+    }
+
+    private PageFlowScript wantedForProductList(PageFlowScript script) {
+        return script.wants(MODEL.gasProduct().cylinder().gasContainer(),
+                MODEL.gasProduct().fillVolume(),
+                MODEL.gasProduct().cylinder().nominalPressure(),
+                MODEL.gasCylinder().fillMedium(),
+                MODEL.gasCylinder().gasContainer(),
+                MODEL.gasCylinder().bottleType(),
+                MODEL.gasCylinder().nominalVolume());
     }
 }

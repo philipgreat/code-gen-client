@@ -47,6 +47,17 @@ public class FillVolume extends BaseModelBean {
     return member;
   }
 
+  public EventContainerInfo eventContainerInfoList() {
+    EventContainerInfo member = new EventContainerInfo();
+    member.setModelTypeName("event_container_info");
+    member.setName("fill_volume");
+    member.setMemberName("eventContainerInfoList");
+    member.setRelationName("fillVolume");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

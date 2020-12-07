@@ -81,8 +81,7 @@ public class CR00_AllTBD implements ChangeRequestSpecFactory {
             .change_request("buyer ").zh_CN("审核加入")
                 .step("A").zh_CN("审核加入").contains_event("tbd")
 
-            .change_request("custom product when initial").zh_CN("自定义产品")
-                .step("A").zh_CN("自定义产品").contains_event("tbd")
+
 
 
 
