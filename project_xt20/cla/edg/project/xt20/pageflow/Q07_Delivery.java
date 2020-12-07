@@ -23,7 +23,7 @@ public class Q07_Delivery extends PieceOfScript {
             .query(MODEL.deliverTask()).list_of("delivery receipt confirm").pagination().with_string("merchant id").with_string("search key")
                 .comments("根据筛选条件,查询并合并成 待创建交接单 列表")
                 .do_it_as()
-                .where(MODEL.deliverTask().gasShippingGroupList().seller().not("${merchant id}"), // TODO 记得改回 eq
+                .where(MODEL.deliverTask().gasShippingGroupList().seller().eq("${merchant id}"),
                         MODEL.deliverTask().gasShippingGroupList().shippingStatus().in(ShippingStatus.SELLER_SHIPPING),
                         MODEL.deliverTask().gasShippingGroupList().buyerContactName().like("${search key}")
                         .or(MODEL.deliverTask().gasShippingGroupList().handoverAddress().like("${search key}"),
@@ -48,6 +48,28 @@ public class Q07_Delivery extends PieceOfScript {
                 .wants(MODEL.deliverTask().status(), MODEL.deliverTask().deliverStaff().personInformation(),
                         MODEL.deliverTask().gasShippingGroupList().deliveryReceiptList(),
                         MODEL.deliverTask().gasShippingGroupList().gasLineItem().cylinder().gasContainer())
+
+
+
+            .query(MODEL.mainOrder()).list_of("buyer need receipt").pagination().with_string("buyer id").with_string("seller id").with_string("search key")
+                .comments("查询买家的,需要处理 '交接单确认' 的订单")
+                .do_it_as()
+                .where(MODEL.mainOrder().buyer().eq("${buyer id}"),
+                        MODEL.mainOrder().seller().eq("${seller id}").optional(),
+                        MODEL.mainOrder().gasShippingGroupList().deliveryReceiptList().status().in(DeliveryReceiptStatus.WAITING_BUYER_CONFIRM, DeliveryReceiptStatus.BUYER_CONFIRM_TIMEOUT),
+                        MODEL.mainOrder().seller().name().like("${search key}")
+                        .or(MODEL.mainOrder().seller().organizationIdentityList().name().like("${search key}"),
+                                MODEL.mainOrder().buyerContactName().like("${search key}"),
+                                MODEL.mainOrder().sellerContactName().like("${search key}"),
+                                MODEL.mainOrder().buyerContactPhone().like("${search key}"),
+                                MODEL.mainOrder().sellerContactPhone().like("${search key}")
+                        )
+                )
+                .wants(MODEL.mainOrder().seller().organizationIdentityList(),
+                        MODEL.mainOrder().creator().personInformation(),
+                        MODEL.gasShippingGroup().deliveryReceiptList().status(),
+                        MODEL.gasShippingGroup().gasLineItem().cylinder())
+
         ;
     }
 }

@@ -52,6 +52,15 @@ public class Q05_Cylinder extends PieceOfScript {
                 .where(MODEL.merchantCylinder().merchant().eq("${merchant id}"),
                         MODEL.merchantCylinder().cylinderArea().eq(CylinderArea.PRODUCT))
 
+
+            .query(MODEL.customerCylinder()).list_of("need buyer confirm for seller").with_string("buyer id").with_string("seller id")
+                .comments("查询买家持有的某个卖家的待确认盘瓶记录")
+                .do_it_as()
+                .where(MODEL.customerCylinder().customer().eq("${buyer id}"),
+                        MODEL.customerCylinder().seller().eq("${seller id}"))
+                .wants(MODEL.customerCylinder().seller().supplyRelationshipListAsSupplier(),
+                        MODEL.customerCylinder().cylinder())
+
         ;
     }
 }

@@ -11,9 +11,13 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
         return builder.change_request("seller register").zh_CN("商户注册")
         .step("A").zh_CN("商户注册")
             .contains_event("organization info").zh_CN("商户注册")
-                .has_field("id").zh_CN("ID")
+                .has_field("organization id").zh_CN("组织ID")
                     .optional()
                     .fill_by_request("organization identity id")
+                    .hidden()
+                .has_field("employee id").zh_CN("提交人")
+                    .optional()
+                    .fill_by_request("employee id")
                     .hidden()
                 .has_field("name").zh_CN("单位名称")
                     .place_holder("请输入您的单位名称")
@@ -80,7 +84,7 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
 
 
 
-        .change_request("buyer admin transfer").zh_CN("转移管理员")
+        .change_request("admin transfer").zh_CN("转移管理员")
         .step("A").zh_CN("转移管理员")
             .contains_event("admin transfer").zh_CN("管理员变更")
                 .has_field("merchant id").zh_CN("组织ID")
@@ -89,13 +93,13 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                 .has_field("merchant name").zh_CN("组织名称")
                     .fill_by_request("merchant id", MODEL.merchant().name())
                     .display()
+                .has_field("current admin").zh_CN("当前管理员")
+                    .fill_by_request("personal id", MODEL.personalUser().name())
+                    .display()
+
                 .has_field("new admin").zh_CN("新管理员")
                     .which_model_of(MODEL.personalUser())
                     .values_can_select_from_query_by("wxappService/customerViewSelectColleague/${merchant id}/admin_transfer/+/")
-
-        .change_request("company admin transfer").zh_CN("转移管理员")
-        .step("A").zh_CN("转移管理员")
-            .contains_event("admin transfer").zh_CN("管理员变更")
 
 
         .change_request("update supplier").zh_CN("编辑备注")

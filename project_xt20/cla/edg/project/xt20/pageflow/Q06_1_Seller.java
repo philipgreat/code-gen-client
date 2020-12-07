@@ -2,6 +2,7 @@ package cla.edg.project.xt20.pageflow;
 
 import cla.edg.pageflow.PageFlowScript;
 import cla.edg.pageflow.PieceOfScript;
+import cla.edg.project.xt20.gen.dbquery.CheckStatus;
 import cla.edg.project.xt20.gen.dbquery.MODEL;
 
 public class Q06_1_Seller extends PieceOfScript {
@@ -23,6 +24,17 @@ public class Q06_1_Seller extends PieceOfScript {
                         MODEL.merchant().id().eq("${seller id}").optional())
                 .wants(MODEL.merchant().organizationIdentityList(),
                         MODEL.merchant().customerCylinderListAsSeller().cylinder())
+
+
+            .query(MODEL.merchant()).list_of("need buyer confirm BIC").pagination().with_string("buyer id").with_string("seller id")
+                .comments("根据买家ID, 查询有哪些卖家有'待确认客户持瓶'的事情要处理")
+                .do_it_as()
+                .where(MODEL.merchant().id().eq("${seller id}").optional(),
+                        MODEL.merchant().customerCylinderListAsSeller().customer().eq("${buyer id}"),
+                        MODEL.merchant().customerCylinderListAsSeller().status().in(CheckStatus.WAITING_BUYER_CONFIRM))
+                .wants(MODEL.merchant().customerCylinderListAsSeller().cylinder(),
+                        MODEL.merchant().organizationIdentityList())
+
 
         ;
     }

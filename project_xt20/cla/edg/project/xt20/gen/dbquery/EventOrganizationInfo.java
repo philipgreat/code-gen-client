@@ -36,6 +36,24 @@ public class EventOrganizationInfo extends BaseModelBean {
     return member;
   }
 
+  public StringAttribute organizationId() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("organizationId");
+    member.setName("organization_id");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute employeeId() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("employeeId");
+    member.setName("employee_id");
+    useMember(member);
+    return member;
+  }
+
   public StringAttribute name() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
