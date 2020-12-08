@@ -4,7 +4,6 @@ import cla.edg.pageflow.PageFlowScript;
 import cla.edg.pageflow.PieceOfScript;
 import cla.edg.project.xt20.gen.dbquery.MODEL;
 import cla.edg.project.xt20.gen.dbquery.OrderStatus;
-import cla.edg.project.xt20.gen.dbquery.ShippingStatus;
 
 public class Q08_Order extends PieceOfScript {
     public PageFlowScript makeSequel(PageFlowScript script) {
@@ -25,7 +24,29 @@ public class Q08_Order extends PieceOfScript {
                 // 默认排序: .order_by....
                 .run_by(this::wantsWhenLoadOrderList)
 
+
+            .query(MODEL.mainOrder()).list_of("waiting add to delivery task").pagination().with_string("seller id").with_string("search key")
+                .comments("按照卖家ID查询其待加入配送任务的订单, search key 的目标是收货人信息")
+                .do_it_as()
+                .where(MODEL.mainOrder().seller().eq("${seller id}"),
+                        MODEL.mainOrder().buyerContactName().like("${search key}").optional()
+                        .or(MODEL.mainOrder().buyerContactPhone().like("${search key}").optional()),
+                        MODEL.mainOrder().gasShippingGroupList().deliverTask().is_null()
+                ).order_by(MODEL.mainOrder().id()).asc()
+                .run_by(this::wantsWhenLoadOrderForDeliver)
         ;
+    }
+
+    private PageFlowScript wantsWhenLoadOrderForDeliver(PageFlowScript script) {
+        return script.wants(MODEL.mainOrder().status(),
+                MODEL.mainOrder().buyer().organizationIdentityList(),
+                MODEL.mainOrder().creator().personInformation(),
+                MODEL.mainOrder().shippingType(),
+                MODEL.mainOrder().gasShippingGroupList(),
+                MODEL.mainOrder().gasShippingGroupList().gasLineItem(),
+                MODEL.mainOrder().gasShippingGroupList().gasLineItem().cylinder(),
+                MODEL.mainOrder().gasShippingGroupList().gasLineItem().cylinder().gasContainer()
+                );
     }
 
     private PageFlowScript wantsWhenLoadOrderList(PageFlowScript script) {
@@ -33,6 +54,6 @@ public class Q08_Order extends PieceOfScript {
                 MODEL.mainOrder().buyer().organizationIdentityList(),
                 MODEL.mainOrder().creator().personInformation(),
                 MODEL.mainOrder().shippingType()
-                );
+        );
     }
 }
