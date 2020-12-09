@@ -9,13 +9,13 @@ public class SystemLevelNumber extends BaseModelBean {
     return "com.doublechaintech.xuntuexam.systemlevelnumber.SystemLevelNumber";
   }
   // 枚举对象
-  public static EnumAttribute REVIEW_TIMEOUT =
+  public static EnumAttribute OPENING_PERIOD =
       new EnumAttribute(
-              "com.doublechaintech.xuntuexam.systemlevelnumber.SystemLevelNumber", "REVIEW_TIMEOUT")
-          .chineseName("审核超时(小时)");
+              "com.doublechaintech.xuntuexam.systemlevelnumber.SystemLevelNumber", "OPENING_PERIOD")
+          .chineseName("最大开放时间(小时)");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {REVIEW_TIMEOUT};
+    return new EnumAttribute[] {OPENING_PERIOD};
   }
 
   // 引用的对象

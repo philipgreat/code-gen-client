@@ -161,6 +161,13 @@ public class MODEL {
     return rst;
   }
 
+  public static EventCreateCompetition eventCreateCompetition() {
+    EventCreateCompetition rst = new EventCreateCompetition();
+    rst.setModelTypeName("event_create_competition");
+    rst.setBeanPath(new BeanPath().name("event_create_competition"));
+    return rst;
+  }
+
   public static EventInfoInCr eventInfoInCr() {
     EventInfoInCr rst = new EventInfoInCr();
     rst.setModelTypeName("event_info_in_cr");

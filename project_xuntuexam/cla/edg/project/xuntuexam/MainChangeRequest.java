@@ -17,7 +17,7 @@ public class MainChangeRequest implements ChangeRequestSpecFactory {
         return ChangeRequestSpecBuilder.for_project(Main.TARGET_PROJECT_NAME)
                 .request_base("you_should_handle_CR_here")
 
-                .import_from(new CR01_Example())
+                .import_from(new CR01_Exam())
 
                 .getChangeRequestSpec();
     }

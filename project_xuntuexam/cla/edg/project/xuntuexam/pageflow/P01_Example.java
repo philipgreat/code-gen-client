@@ -10,8 +10,9 @@ public class P01_Example extends PieceOfScript {
         String fileName = "page_[\\d_]+\\.json";
         File baseFolder = new File("/works/jobs/xuntuexam_v1/workspace/code-gen-client/project_xuntuexam/resource/pageflow");
         return script.load_page_flow_from(baseFolder, fileName)
-                .for_request("submit paper")
-                    .reset_params().with_free_json_form()
-       ;
+
+                .for_request("do examing")
+                    .with_string("enter code").variable()
+                ;
     }
 }

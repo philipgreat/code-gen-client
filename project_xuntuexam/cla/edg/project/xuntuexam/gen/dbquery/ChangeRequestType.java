@@ -14,9 +14,14 @@ public class ChangeRequestType extends BaseModelBean {
               "com.doublechaintech.xuntuexam.changerequesttype.ChangeRequestType",
               "CREATE_COMPETITION")
           .chineseName("创建竞赛");
+  public static EnumAttribute CREATE_COMPETITION_ON_STEP =
+      new EnumAttribute(
+              "com.doublechaintech.xuntuexam.changerequesttype.ChangeRequestType",
+              "CREATE_COMPETITION_ON_STEP")
+          .chineseName("创建竞赛");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {CREATE_COMPETITION};
+    return new EnumAttribute[] {CREATE_COMPETITION, CREATE_COMPETITION_ON_STEP};
   }
 
   // 引用的对象

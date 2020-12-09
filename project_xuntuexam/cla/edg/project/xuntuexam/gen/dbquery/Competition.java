@@ -100,6 +100,15 @@ public class Competition extends BaseModelBean {
     return member;
   }
 
+  public StringAttribute organizationName() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("organizationName");
+    member.setName("organization_name");
+    useMember(member);
+    return member;
+  }
+
   public StringAttribute accessCode() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
@@ -132,6 +141,15 @@ public class Competition extends BaseModelBean {
     member.setModelTypeName("date_time_create");
     // member.setName("createTime");
     member.setName("create_time");
+    useMember(member);
+    return member;
+  }
+
+  public NumberAttribute number() {
+    NumberAttribute member = new NumberAttribute();
+    member.setModelTypeName("int");
+    // member.setName("number");
+    member.setName("number");
     useMember(member);
     return member;
   }

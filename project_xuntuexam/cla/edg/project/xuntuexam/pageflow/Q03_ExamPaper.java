@@ -33,6 +33,11 @@ public class Q03_ExamPaper extends PieceOfScript {
                 .where(MODEL.examinationPaper().id().eq("${paper id}"))
                 .wants(MODEL.examinationPaper().examinationAnswerList())
 
+            .query(MODEL.examinationPaper()).list_of("user competition").with_string("competition id").with_string("merchant id")
+                .comments("查询用户的历史成绩")
+                .do_it_as()
+                .where(MODEL.examinationPaper().examinee().eq("${merchant id}"),
+                        MODEL.examinationPaper().competition().eq("${competition id}"))
                 ;
     }
 }

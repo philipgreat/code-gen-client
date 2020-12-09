@@ -4,9 +4,9 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class EventCompetitionInfo extends BaseModelBean {
+public class EventCreateCompetition extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.xuntuexam.eventcompetitioninfo.EventCompetitionInfo";
+    return "com.doublechaintech.xuntuexam.eventcreatecompetition.EventCreateCompetition";
   }
   // 枚举对象
 
@@ -54,15 +54,6 @@ public class EventCompetitionInfo extends BaseModelBean {
     return member;
   }
 
-  public NumberAttribute code() {
-    NumberAttribute member = new NumberAttribute();
-    member.setModelTypeName("int");
-    // member.setName("code");
-    member.setName("code");
-    useMember(member);
-    return member;
-  }
-
   public DateTimeAttribute startTime() {
     DateTimeAttribute member = new DateTimeAttribute();
     member.setModelTypeName("date_time");
@@ -77,6 +68,24 @@ public class EventCompetitionInfo extends BaseModelBean {
     member.setModelTypeName("date_time");
     // member.setName("endTime");
     member.setName("end_time");
+    useMember(member);
+    return member;
+  }
+
+  public NumberAttribute number() {
+    NumberAttribute member = new NumberAttribute();
+    member.setModelTypeName("int");
+    // member.setName("number");
+    member.setName("number");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute scope() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string_longtext");
+    // member.setName("scope");
+    member.setName("scope");
     useMember(member);
     return member;
   }

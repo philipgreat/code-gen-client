@@ -54,7 +54,22 @@ public class Q02_ExamResult extends PieceOfScript {
                 )
 
 
+            .find(MODEL.examinationAnswer()).which("correct").with_string("paper id")
+                .comments("统计试卷中答对的答案")
+                .do_it_as().count()
+                .where(MODEL.examinationAnswer().examinationPaper().eq("${paper id}"),
+                        MODEL.examinationAnswer().answerResult().eq(MODEL.examinationAnswer().rightResult()))
 
+            .find(MODEL.examinationAnswer()).which("of paper").with_string("paper id")
+                .comments("统计试卷中一共有几道题")
+                .do_it_as().count()
+                .where(MODEL.examinationAnswer().examinationPaper().eq("${paper id}"))
+
+            .find(MODEL.examinationAnswer()).which("not answered in paper").with_string("paper id")
+                .comments("统计试卷中一共有几道题还没有答")
+                .do_it_as().count()
+                .where(MODEL.examinationAnswer().examinationPaper().eq("${paper id}"),
+                        MODEL.examinationAnswer().answerResult().is_null())
                 ;
     }
 }
