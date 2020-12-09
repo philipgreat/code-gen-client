@@ -34,6 +34,18 @@ public class Q08_Order extends PieceOfScript {
                         MODEL.mainOrder().gasShippingGroupList().deliverTask().is_null()
                 ).order_by(MODEL.mainOrder().id()).asc()
                 .run_by(this::wantsWhenLoadOrderForDeliver)
+
+            .find(MODEL.mainOrder()).which("for arrange deliver").with_string("order id")
+                .comments("根据ID查询订单,收集其相关信息用于调度安排")
+                .do_it_as()
+                .where(MODEL.mainOrder().id().eq("${order id}"))
+                .run_by(this::wantsWhenLoadOrderForDeliver)
+
+            .query(MODEL.mainOrder()).list_of("added in deliver task").with_string("task id")
+                .comments("查询出所有已经加入指定配送任务的所有订单")
+                .do_it_as()
+                .where(MODEL.mainOrder().gasShippingGroupList().deliverTask().id().eq("${task id}"))
+                .run_by(this::wantsWhenLoadOrderForDeliver)
         ;
     }
 

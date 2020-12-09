@@ -15,6 +15,13 @@ public class Q03_Users extends PieceOfScript {
                         MODEL.personalUser().employeeList().role().not(Role.ADMIN))
                 .order_by(MODEL.personalUser().name()).asc_by_pinyin()
 
+
+            .query(MODEL.personalUser()).list_of("working in merchant").with_string("merchant id")
+                .comments("查询一个组织中,当前不是admin的Person")
+                .do_it_as()
+                .where(MODEL.personalUser().employeeList().merchant().eq("${merchant id}"))
+                .order_by(MODEL.personalUser().name()).asc_by_pinyin()
+
        ;
     }
 }

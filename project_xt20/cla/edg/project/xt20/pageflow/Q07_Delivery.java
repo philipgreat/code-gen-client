@@ -70,6 +70,16 @@ public class Q07_Delivery extends PieceOfScript {
                         MODEL.gasShippingGroup().deliveryReceiptList().status(),
                         MODEL.gasShippingGroup().gasLineItem().cylinder())
 
+
+
+            .find(MODEL.deliverTask()).which("by id").with_string("task id")
+                .comments("根据ID查询配送任务")
+                .do_it_as()
+                .where(MODEL.deliverTask().id().eq("${task id}"))
+                .wants(MODEL.deliverTask().deliverStaff().personInformation(),
+                        MODEL.deliverTask().status(),
+                        MODEL.deliverTask().merchant().organizationIdentityList())
+
         ;
     }
 }
