@@ -47,6 +47,24 @@ public class UserWorkingInfo extends BaseModelBean {
     return member;
   }
 
+  public BooleanAttribute sellerAdReviewed() {
+    BooleanAttribute member = new BooleanAttribute();
+    member.setModelTypeName("bool");
+    // member.setName("sellerAdReviewed");
+    member.setName("seller_ad_reviewed");
+    useMember(member);
+    return member;
+  }
+
+  public BooleanAttribute buyerAdReviewed() {
+    BooleanAttribute member = new BooleanAttribute();
+    member.setModelTypeName("bool");
+    // member.setName("buyerAdReviewed");
+    member.setName("buyer_ad_reviewed");
+    useMember(member);
+    return member;
+  }
+
   public StringAttribute jobRole() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");

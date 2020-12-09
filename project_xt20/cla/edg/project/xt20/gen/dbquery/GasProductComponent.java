@@ -12,13 +12,13 @@ public class GasProductComponent extends BaseModelBean {
 
   // 引用的对象
 
-  public GasComponent component() {
-    GasComponent member = new GasComponent();
-    member.setModelTypeName("gas_component");
-    member.setName("component");
-    member.setMemberName("component");
+  public FillMedium fillMedium() {
+    FillMedium member = new FillMedium();
+    member.setModelTypeName("fill_medium");
+    member.setName("fill_medium");
+    member.setMemberName("fillMedium");
     member.setReferDirection(true);
-    member.setRelationName("component");
+    member.setRelationName("fillMedium");
     append(member);
     return member;
   }
@@ -47,9 +47,18 @@ public class GasProductComponent extends BaseModelBean {
     return member;
   }
 
+  public StringAttribute name() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("name");
+    member.setName("name");
+    useMember(member);
+    return member;
+  }
+
   public NumberAttribute percentage() {
     NumberAttribute member = new NumberAttribute();
-    member.setModelTypeName("double");
+    member.setModelTypeName("int");
     // member.setName("percentage");
     member.setName("percentage");
     useMember(member);

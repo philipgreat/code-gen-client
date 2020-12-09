@@ -223,17 +223,6 @@ public class Platform extends BaseModelBean {
     return member;
   }
 
-  public GasComponent gasComponentList() {
-    GasComponent member = new GasComponent();
-    member.setModelTypeName("gas_component");
-    member.setName("platform");
-    member.setMemberName("gasComponentList");
-    member.setRelationName("platform");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
   public ProductType productTypeList() {
     ProductType member = new ProductType();
     member.setModelTypeName("product_type");

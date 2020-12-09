@@ -58,7 +58,7 @@ public class OrganizationIdentity extends BaseModelBean {
 
   public StringAttribute agencySocialCode() {
     StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string_taxpayerid");
+    member.setModelTypeName("string");
     // member.setName("agencySocialCode");
     member.setName("agency_social_code");
     useMember(member);

@@ -175,13 +175,6 @@ public class MODEL {
     return rst;
   }
 
-  public static GasComponent gasComponent() {
-    GasComponent rst = new GasComponent();
-    rst.setModelTypeName("gas_component");
-    rst.setBeanPath(new BeanPath().name("gas_component"));
-    return rst;
-  }
-
   public static ProductType productType() {
     ProductType rst = new ProductType();
     rst.setModelTypeName("product_type");
