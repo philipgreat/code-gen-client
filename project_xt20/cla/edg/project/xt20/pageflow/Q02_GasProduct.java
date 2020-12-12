@@ -34,7 +34,6 @@ public class Q02_GasProduct extends PieceOfScript {
                         MODEL.gasCylinder().nominalPressure(),
                         MODEL.gasCylinder().fillMedium(),
                         MODEL.gasCylinder().gasContainer(),
-                        MODEL.gasCylinder().bottleType(),
                         MODEL.gasCylinder().nominalVolume())
 
             .query(MODEL.gasProduct()).list_of("merchant in template").with_string("merchant id").with_list("template ids")
@@ -53,7 +52,6 @@ public class Q02_GasProduct extends PieceOfScript {
                 MODEL.gasProduct().cylinder().nominalPressure(),
                 MODEL.gasCylinder().fillMedium(),
                 MODEL.gasCylinder().gasContainer(),
-                MODEL.gasCylinder().bottleType(),
                 MODEL.gasCylinder().nominalVolume());
     }
 }

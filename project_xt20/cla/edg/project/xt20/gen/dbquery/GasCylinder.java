@@ -56,17 +56,6 @@ public class GasCylinder extends BaseModelBean {
     return member;
   }
 
-  public BottleType bottleType() {
-    BottleType member = new BottleType();
-    member.setModelTypeName("bottle_type");
-    member.setName("bottle_type");
-    member.setMemberName("bottleType");
-    member.setReferDirection(true);
-    member.setRelationName("bottleType");
-    append(member);
-    return member;
-  }
-
   public Platform platform() {
     Platform member = new Platform();
     member.setModelTypeName("platform");
@@ -173,15 +162,6 @@ public class GasCylinder extends BaseModelBean {
     member.setModelTypeName("string");
     // member.setName("name");
     member.setName("name");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute additionalInformation() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("additionalInformation");
-    member.setName("additional_information");
     useMember(member);
     return member;
   }

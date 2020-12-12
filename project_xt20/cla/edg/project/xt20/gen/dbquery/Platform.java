@@ -212,17 +212,6 @@ public class Platform extends BaseModelBean {
     return member;
   }
 
-  public BottleType bottleTypeList() {
-    BottleType member = new BottleType();
-    member.setModelTypeName("bottle_type");
-    member.setName("platform");
-    member.setMemberName("bottleTypeList");
-    member.setRelationName("platform");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
   public ProductType productTypeList() {
     ProductType member = new ProductType();
     member.setModelTypeName("product_type");

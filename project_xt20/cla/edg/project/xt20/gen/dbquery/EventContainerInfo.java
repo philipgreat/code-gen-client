@@ -45,17 +45,6 @@ public class EventContainerInfo extends BaseModelBean {
     return member;
   }
 
-  public BottleType bottleType() {
-    BottleType member = new BottleType();
-    member.setModelTypeName("bottle_type");
-    member.setName("bottle_type");
-    member.setMemberName("bottleType");
-    member.setReferDirection(true);
-    member.setRelationName("bottleType");
-    append(member);
-    return member;
-  }
-
   public ChangeRequest changeRequest() {
     ChangeRequest member = new ChangeRequest();
     member.setModelTypeName("change_request");

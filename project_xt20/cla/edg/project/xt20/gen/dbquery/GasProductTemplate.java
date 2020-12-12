@@ -122,6 +122,15 @@ public class GasProductTemplate extends BaseModelBean {
     return member;
   }
 
+  public StringAttribute additionalInformation() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("additionalInformation");
+    member.setName("additional_information");
+    useMember(member);
+    return member;
+  }
+
   public DateTimeAttribute createTime() {
     DateTimeAttribute member = new DateTimeAttribute();
     member.setModelTypeName("date_time_create");

@@ -168,13 +168,6 @@ public class MODEL {
     return rst;
   }
 
-  public static BottleType bottleType() {
-    BottleType rst = new BottleType();
-    rst.setModelTypeName("bottle_type");
-    rst.setBeanPath(new BeanPath().name("bottle_type"));
-    return rst;
-  }
-
   public static ProductType productType() {
     ProductType rst = new ProductType();
     rst.setModelTypeName("product_type");
