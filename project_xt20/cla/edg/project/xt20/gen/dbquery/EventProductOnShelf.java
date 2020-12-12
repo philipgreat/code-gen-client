@@ -4,9 +4,9 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class EventTbd extends BaseModelBean {
+public class EventProductOnShelf extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.xt20.eventtbd.EventTbd";
+    return "com.doublechaintech.xt20.eventproductonshelf.EventProductOnShelf";
   }
   // 枚举对象
 
@@ -32,6 +32,24 @@ public class EventTbd extends BaseModelBean {
     member.setModelTypeName("string");
     // member.setName("id");
     member.setName("id");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute productId() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("productId");
+    member.setName("product_id");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute operation() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("operation");
+    member.setName("operation");
     useMember(member);
     return member;
   }

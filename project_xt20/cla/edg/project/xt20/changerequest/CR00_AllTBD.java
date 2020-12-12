@@ -7,7 +7,11 @@ import com.terapico.changerequest.builder.FieldType;
 import com.terapico.changerequest.builder.UIStyle;
 
 public class CR00_AllTBD implements ChangeRequestSpecFactory {
+    protected boolean debug = false;
     public ChangeRequestSpecBuilder makeSequel(ChangeRequestSpecBuilder builder) {
+        if (!debug) {
+            return builder;
+        }
         return builder.change_request("confirm join").zh_CN("确认加入")
                 .step("A").zh_CN("第一步")
                     .contains_event("tbd").zh_CN("待定义")
@@ -18,10 +22,7 @@ public class CR00_AllTBD implements ChangeRequestSpecFactory {
             .change_request("update company info").zh_CN("商户基础信息")
                 .step("A").zh_CN("商户基础信息").contains_event("tbd")
 
-            .change_request("product off shelf").zh_CN("下架")
-                .step("A").zh_CN("下架").contains_event("tbd")
-            .change_request("product on shelf").zh_CN("上架")
-                .step("A").zh_CN("上架").contains_event("tbd")
+
             .change_request("copy product").zh_CN("复制产品")
                 .step("A").zh_CN("复制产品").contains_event("tbd")
             .change_request("update product info").zh_CN("修改产品")
@@ -53,14 +54,11 @@ public class CR00_AllTBD implements ChangeRequestSpecFactory {
                 .step("A").zh_CN("完善配送").contains_event("tbd")
             .change_request("confirm delivery task").zh_CN("确认交接")
                 .step("A").zh_CN("确认交接").contains_event("tbd")
-            .change_request("update buyer info when order").zh_CN("完善信息")
-                .step("A").zh_CN("完善信息").contains_event("tbd")
+
             .change_request("buyer delivery info").zh_CN("配送信息")
                 .step("A").zh_CN("配送信息").contains_event("tbd")
             .change_request("create split order").zh_CN("提交新单")
                 .step("A").zh_CN("提交新单").contains_event("tbd")
-            .change_request("update buyer info when confirm quote").zh_CN("完善信息")
-                .step("A").zh_CN("完善信息").contains_event("tbd")
 
 
 

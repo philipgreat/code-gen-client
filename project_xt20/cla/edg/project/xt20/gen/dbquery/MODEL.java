@@ -469,10 +469,10 @@ public class MODEL {
     return rst;
   }
 
-  public static EventTbd eventTbd() {
-    EventTbd rst = new EventTbd();
-    rst.setModelTypeName("event_tbd");
-    rst.setBeanPath(new BeanPath().name("event_tbd"));
+  public static EventUpdatePersonalInfo eventUpdatePersonalInfo() {
+    EventUpdatePersonalInfo rst = new EventUpdatePersonalInfo();
+    rst.setModelTypeName("event_update_personal_info");
+    rst.setBeanPath(new BeanPath().name("event_update_personal_info"));
     return rst;
   }
 
@@ -557,6 +557,20 @@ public class MODEL {
     EventProductComponent rst = new EventProductComponent();
     rst.setModelTypeName("event_product_component");
     rst.setBeanPath(new BeanPath().name("event_product_component"));
+    return rst;
+  }
+
+  public static EventProductOnShelf eventProductOnShelf() {
+    EventProductOnShelf rst = new EventProductOnShelf();
+    rst.setModelTypeName("event_product_on_shelf");
+    rst.setBeanPath(new BeanPath().name("event_product_on_shelf"));
+    return rst;
+  }
+
+  public static EventUpdateProductInfo eventUpdateProductInfo() {
+    EventUpdateProductInfo rst = new EventUpdateProductInfo();
+    rst.setModelTypeName("event_update_product_info");
+    rst.setBeanPath(new BeanPath().name("event_update_product_info"));
     return rst;
   }
 

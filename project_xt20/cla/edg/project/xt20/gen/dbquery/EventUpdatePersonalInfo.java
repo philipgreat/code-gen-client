@@ -4,9 +4,9 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class EventOrganizationInfo extends BaseModelBean {
+public class EventUpdatePersonalInfo extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.xt20.eventorganizationinfo.EventOrganizationInfo";
+    return "com.doublechaintech.xt20.eventupdatepersonalinfo.EventUpdatePersonalInfo";
   }
   // 枚举对象
 
@@ -36,29 +36,11 @@ public class EventOrganizationInfo extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute organizationId() {
+  public StringAttribute personalUserId() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
-    // member.setName("organizationId");
-    member.setName("organization_id");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute employeeId() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("employeeId");
-    member.setName("employee_id");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute orderId() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("orderId");
-    member.setName("order_id");
+    // member.setName("personalUserId");
+    member.setName("personal_user_id");
     useMember(member);
     return member;
   }
@@ -72,47 +54,20 @@ public class EventOrganizationInfo extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute agencySocialCode() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("agencySocialCode");
-    member.setName("agency_social_code");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute contactName() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("contactName");
-    member.setName("contact_name");
-    useMember(member);
-    return member;
-  }
-
   public StringAttribute contactMobile() {
     StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string_china_mobile_phone");
+    member.setModelTypeName("string");
     // member.setName("contactMobile");
     member.setName("contact_mobile");
     useMember(member);
     return member;
   }
 
-  public StringAttribute address() {
+  public StringAttribute avatar() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
-    // member.setName("address");
-    member.setName("address");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute logo() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string_image");
-    // member.setName("logo");
-    member.setName("logo");
+    // member.setName("avatar");
+    member.setName("avatar");
     useMember(member);
     return member;
   }

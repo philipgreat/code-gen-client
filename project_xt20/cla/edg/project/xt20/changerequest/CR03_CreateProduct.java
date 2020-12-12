@@ -183,6 +183,46 @@ public class CR03_CreateProduct implements ChangeRequestSpecFactory {
                     .which_type_of(FieldType.DECIMAL)
                     .range(1,100)
 
+
+
+        .change_request("product off shelf").zh_CN("下架")
+            .step("A").zh_CN("下架")
+            .contains_event("product on shelf").zh_CN("产品上架").as("A")
+                .has_field("product id").zh_CN("产品ID")
+                    .fill_by_request("product id", MODEL.gasProduct().id())
+                    .hidden()
+                .has_field("product name").zh_CN("产品名称")
+                    .fill_by_request("product id", MODEL.gasProduct().name())
+                    .display()
+                .has_field("operation").zh_CN("操作")
+                    .values_canbe("on_shelf", "上架").or("off_shelf", "下架")
+                    .defaule_value("off_shelf")
+                    .disabled()
+
+        .change_request("product on shelf").zh_CN("上架")
+            .step("A").zh_CN("上架")
+            .contains_event("product on shelf").zh_CN("产品下架").as("A")
+                .has_field("operation")
+                .defaule_value("on_shelf")
+
+
+
+        .change_request("update product info").zh_CN("更新产品信息")
+            .step("A").zh_CN("更新")
+            .contains_event("update product info").zh_CN("更新产品信息").as("A")
+                .has_field("product id").zh_CN("ID")
+                    .fill_by_request("product id")
+                    .hidden()
+                .has_field("product name").zh_CN("产品名称")
+                    .fill_by_request("product id", MODEL.gasProduct().name())
+                    .range(1, 100)
+                .has_field("legacy code").zh_CN("代码")
+                    .fill_by_request("product id", MODEL.gasProduct().legacyCode())
+                    .optional()
+                    .range(0,100)
+                .has_field("comment").zh_CN("备注")
+                    .optional()
+                    .range(0,100)
                 ;
     }
 

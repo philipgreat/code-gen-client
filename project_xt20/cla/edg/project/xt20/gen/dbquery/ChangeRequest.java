@@ -36,11 +36,11 @@ public class ChangeRequest extends BaseModelBean {
 
   // 被引用的对象
 
-  public EventTbd eventTbdList() {
-    EventTbd member = new EventTbd();
-    member.setModelTypeName("event_tbd");
+  public EventUpdatePersonalInfo eventUpdatePersonalInfoList() {
+    EventUpdatePersonalInfo member = new EventUpdatePersonalInfo();
+    member.setModelTypeName("event_update_personal_info");
     member.setName("change_request");
-    member.setMemberName("eventTbdList");
+    member.setMemberName("eventUpdatePersonalInfoList");
     member.setRelationName("changeRequest");
     member.setReferDirection(false);
     append(member);
@@ -173,6 +173,28 @@ public class ChangeRequest extends BaseModelBean {
     member.setModelTypeName("event_product_component");
     member.setName("change_request");
     member.setMemberName("eventProductComponentList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventProductOnShelf eventProductOnShelfList() {
+    EventProductOnShelf member = new EventProductOnShelf();
+    member.setModelTypeName("event_product_on_shelf");
+    member.setName("change_request");
+    member.setMemberName("eventProductOnShelfList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventUpdateProductInfo eventUpdateProductInfoList() {
+    EventUpdateProductInfo member = new EventUpdateProductInfo();
+    member.setModelTypeName("event_update_product_info");
+    member.setName("change_request");
+    member.setMemberName("eventUpdateProductInfoList");
     member.setRelationName("changeRequest");
     member.setReferDirection(false);
     append(member);

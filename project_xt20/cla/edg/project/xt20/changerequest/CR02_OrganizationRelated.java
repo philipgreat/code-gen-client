@@ -20,6 +20,10 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                     .optional()
                     .fill_by_request("employee id")
                     .hidden()
+                .has_field("order id").zh_CN("相关订单")
+                    .optional()
+                    .fill_by_request("order id")
+                    .hidden()
                 .has_field("name").zh_CN("单位名称")
                     .place_holder("请输入您的单位名称")
                     .fill_by_request("organization identity id", MODEL.organizationIdentity().name())
@@ -200,6 +204,21 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                     .range(0,100)
                     .which_type_of(FieldType.MULTI_TEXT)
                     .place_holder("请输入备注信息")
+
+
+        .change_request("update buyer info when confirm quote").zh_CN("完善信息")
+            .step("A").zh_CN("完善信息")
+            .contains_event("organization info")
+
+        .change_request("update buyer info when order").zh_CN("完善信息")
+            .step("A").zh_CN("完善信息")
+            .contains_event("organization info")
+
+        .change_request("update merchant info when quote").zh_CN("完善信息")
+            .step("A").zh_CN("完善信息")
+            .contains_event("organization info")
+
+
 
                 ;
     }
