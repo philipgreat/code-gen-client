@@ -32,14 +32,6 @@ public class Q05_Cylinder extends PieceOfScript {
                         MODEL.merchantCylinderRecord().cylinderArea().eq(CylinderArea.EMPTY))
                 .wants(MODEL.merchantCylinderRecord().action(), MODEL.merchantCylinderRecord().actor().personInformation())
 
-            .query(MODEL.customerCylinderRecord()).list_of("history").pagination().with_string("merchant id")
-                .comments("查询商户的 客户持瓶盘库 的历史记录")
-                .do_it_as()
-                .where(MODEL.customerCylinderRecord().action().eq(ActionType.CUSTOMER_CONFIRM_CYLINDER_SET),
-                        MODEL.customerCylinderRecord().seller().eq("${merchant id}"))
-                .wants(MODEL.customerCylinderRecord().action(),
-                        MODEL.customerCylinderRecord().actor(),
-                        MODEL.customerCylinderRecord().customer().organizationIdentityList())
 
             .query(MODEL.merchantCylinder()).list_of("empty for merchant").with_string("merchant id")
                 .comments("查询某个商家的所有空瓶记录,(方便开始盘点)")
@@ -60,6 +52,24 @@ public class Q05_Cylinder extends PieceOfScript {
                         MODEL.customerCylinder().seller().eq("${seller id}"))
                 .wants(MODEL.customerCylinder().seller().supplyRelationshipListAsSupplier(),
                         MODEL.customerCylinder().cylinder())
+
+            .query(MODEL.customerCylinderRecord()).list_of("history").pagination().with_string("merchant id")
+                .comments("查询商户的 客户持瓶盘库 的历史记录")
+                .do_it_as()
+                .where(MODEL.customerCylinderRecord().action().eq(ActionType.CUSTOMER_CONFIRM_CYLINDER_SET),
+                        MODEL.customerCylinderRecord().seller().eq("${merchant id}"))
+                .wants(MODEL.customerCylinderRecord().action(),
+                        MODEL.customerCylinderRecord().actor(),
+                        MODEL.customerCylinderRecord().customer().organizationIdentityList())
+
+
+            .query(MODEL.customerCylinder()).list_of("seller").with_string("buyer id").with_string("seller id")
+                .comments("查询买家持有的卖家的气瓶")
+                .do_it_as()
+                .where(MODEL.customerCylinder().customer().eq("${buyer id}"),
+                        MODEL.customerCylinder().seller().eq("${seller id}"))
+
+
 
         ;
     }
