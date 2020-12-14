@@ -336,6 +336,20 @@ public class MODEL {
     return rst;
   }
 
+  public static BottleBack bottleBack() {
+    BottleBack rst = new BottleBack();
+    rst.setModelTypeName("bottle_back");
+    rst.setBeanPath(new BeanPath().name("bottle_back"));
+    return rst;
+  }
+
+  public static ProductBack productBack() {
+    ProductBack rst = new ProductBack();
+    rst.setModelTypeName("product_back");
+    rst.setBeanPath(new BeanPath().name("product_back"));
+    return rst;
+  }
+
   public static MainOrder mainOrder() {
     MainOrder rst = new MainOrder();
     rst.setModelTypeName("main_order");

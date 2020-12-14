@@ -135,6 +135,17 @@ public class GasCylinder extends BaseModelBean {
     return member;
   }
 
+  public BottleBack bottleBackList() {
+    BottleBack member = new BottleBack();
+    member.setModelTypeName("bottle_back");
+    member.setName("cylinder");
+    member.setMemberName("bottleBackList");
+    member.setRelationName("cylinder");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public GasLineItem gasLineItemList() {
     GasLineItem member = new GasLineItem();
     member.setModelTypeName("gas_line_item");

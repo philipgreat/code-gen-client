@@ -124,6 +124,17 @@ public class GasProduct extends BaseModelBean {
     return member;
   }
 
+  public ProductBack productBackList() {
+    ProductBack member = new ProductBack();
+    member.setModelTypeName("product_back");
+    member.setName("proudct");
+    member.setMemberName("productBackList");
+    member.setRelationName("proudct");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public GasLineItem gasLineItemList() {
     GasLineItem member = new GasLineItem();
     member.setModelTypeName("gas_line_item");

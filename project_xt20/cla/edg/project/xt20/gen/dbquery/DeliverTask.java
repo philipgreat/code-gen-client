@@ -47,6 +47,28 @@ public class DeliverTask extends BaseModelBean {
 
   // 被引用的对象
 
+  public BottleBack bottleBackList() {
+    BottleBack member = new BottleBack();
+    member.setModelTypeName("bottle_back");
+    member.setName("task");
+    member.setMemberName("bottleBackList");
+    member.setRelationName("task");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public ProductBack productBackList() {
+    ProductBack member = new ProductBack();
+    member.setModelTypeName("product_back");
+    member.setName("task");
+    member.setMemberName("productBackList");
+    member.setRelationName("task");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public GasShippingGroup gasShippingGroupList() {
     GasShippingGroup member = new GasShippingGroup();
     member.setModelTypeName("gas_shipping_group");
