@@ -87,6 +87,7 @@ public class Q08_Order extends PieceOfScript {
         return script.wants(MODEL.mainOrder().status(),
                 MODEL.mainOrder().shippingType(),
                 MODEL.mainOrder().userCommentsList(),
+                MODEL.mainOrder().gasLineItemList(),
                 MODEL.mainOrder().orderOperationRecordList().action(),
                 MODEL.mainOrder().gasShippingGroupList().gasLineItem().product().cylinder(),
                 MODEL.mainOrder().gasShippingGroupList().gasLineItem().product().fillVolume(),

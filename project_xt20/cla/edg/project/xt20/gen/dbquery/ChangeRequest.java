@@ -58,6 +58,17 @@ public class ChangeRequest extends BaseModelBean {
     return member;
   }
 
+  public EventInboundInfo eventInboundInfoList() {
+    EventInboundInfo member = new EventInboundInfo();
+    member.setModelTypeName("event_inbound_info");
+    member.setName("change_request");
+    member.setMemberName("eventInboundInfoList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventAdminTransfer eventAdminTransferList() {
     EventAdminTransfer member = new EventAdminTransfer();
     member.setModelTypeName("event_admin_transfer");

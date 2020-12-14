@@ -33,10 +33,38 @@ public class SystemLevelImages extends BaseModelBean {
       new EnumAttribute(
               "com.doublechaintech.xt20.systemlevelimages.SystemLevelImages", "ACTION_ICON")
           .chineseName("默认按钮图片");
+  public static EnumAttribute INVITE_COLLEAGUE =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.systemlevelimages.SystemLevelImages", "INVITE_COLLEAGUE")
+          .chineseName("邀请同事");
+  public static EnumAttribute INVITE_CUSTOMER =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.systemlevelimages.SystemLevelImages", "INVITE_CUSTOMER")
+          .chineseName("邀请客户");
+  public static EnumAttribute CSR_ORDER =
+      new EnumAttribute("com.doublechaintech.xt20.systemlevelimages.SystemLevelImages", "CSR_ORDER")
+          .chineseName("代下订单");
+  public static EnumAttribute SHARE_TO_SUPPLIER =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.systemlevelimages.SystemLevelImages", "SHARE_TO_SUPPLIER")
+          .chineseName("分享给供应商");
+  public static EnumAttribute SHARE_APP =
+      new EnumAttribute("com.doublechaintech.xt20.systemlevelimages.SystemLevelImages", "SHARE_APP")
+          .chineseName("分享");
 
   public EnumAttribute[] getEnumNameList() {
     return new EnumAttribute[] {
-      PERSONAL_AVATAR, FACTORY_LOGO, PLATFORM_BANNER, SELLER_BANNER, BUYER_BANNER, ACTION_ICON
+      PERSONAL_AVATAR,
+      FACTORY_LOGO,
+      PLATFORM_BANNER,
+      SELLER_BANNER,
+      BUYER_BANNER,
+      ACTION_ICON,
+      INVITE_COLLEAGUE,
+      INVITE_CUSTOMER,
+      CSR_ORDER,
+      SHARE_TO_SUPPLIER,
+      SHARE_APP
     };
   }
 

@@ -476,6 +476,13 @@ public class MODEL {
     return rst;
   }
 
+  public static EventInboundInfo eventInboundInfo() {
+    EventInboundInfo rst = new EventInboundInfo();
+    rst.setModelTypeName("event_inbound_info");
+    rst.setBeanPath(new BeanPath().name("event_inbound_info"));
+    return rst;
+  }
+
   public static EventAdminTransfer eventAdminTransfer() {
     EventAdminTransfer rst = new EventAdminTransfer();
     rst.setModelTypeName("event_admin_transfer");
