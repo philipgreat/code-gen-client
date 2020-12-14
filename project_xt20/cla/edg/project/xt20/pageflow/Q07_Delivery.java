@@ -49,6 +49,14 @@ public class Q07_Delivery extends PieceOfScript {
                         MODEL.deliverTask().gasShippingGroupList().deliveryReceiptList(),
                         MODEL.deliverTask().gasShippingGroupList().gasLineItem().cylinder().gasContainer())
 
+            .query(MODEL.deliverTask()).list_of("bottle returned").pagination().with_string("merchant id")
+                .comments("查询待'已回厂'的运单")
+                .do_it_as()
+                .where(MODEL.deliverTask().merchant().eq("${merchant id}"),MODEL.deliverTask().status().in(DeliverTaskStatus.COMPLETED))
+                .wants(MODEL.deliverTask().status(), MODEL.deliverTask().deliverStaff().personInformation(),
+                        MODEL.deliverTask().bottleBackList().cylinder().gasContainer(),
+                        MODEL.deliverTask().productBackList().proudct())
+
 
 
             .query(MODEL.mainOrder()).list_of("buyer need receipt").pagination().with_string("buyer id").with_string("seller id").with_string("search key")
@@ -78,6 +86,11 @@ public class Q07_Delivery extends PieceOfScript {
                 .where(MODEL.deliverTask().id().eq("${task id}"))
                 .wants(MODEL.deliverTask().deliverStaff().personInformation(),
                         MODEL.deliverTask().status(),
+                        MODEL.deliverTask().productBackList().proudct().cylinder().gasContainer(),
+                        MODEL.deliverTask().bottleBackList().cylinder().gasContainer(),
+                        MODEL.deliverTask().gasShippingGroupList().gasLineItem().cylinder().gasContainer(),
+                        MODEL.deliverTask().gasShippingGroupList().gasLineItem().product(),
+                        MODEL.deliverTask().gasShippingGroupList().deliveryReceiptList(),
                         MODEL.deliverTask().merchant().organizationIdentityList())
 
         ;
