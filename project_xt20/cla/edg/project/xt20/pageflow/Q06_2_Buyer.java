@@ -20,7 +20,7 @@ public class Q06_2_Buyer extends PieceOfScript {
                 .do_it_as()
                 .where(MODEL.merchant().supplyRelationshipListAsCustomer().supplier().eq("${merchant id}"),
                         MODEL.merchant().organizationIdentityList().name().like("${search key}").optional())
-                .wants(MODEL.merchant().customerCylinderListAsCustomer().cylinder(), MODEL.merchant().organizationIdentityList())
+                .wants(MODEL.merchant().organizationIdentityList())
 
 
         ;

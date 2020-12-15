@@ -22,6 +22,16 @@ public class Q02_GasProduct extends PieceOfScript {
                 .order_by(MODEL.gasProduct().id()).desc()
                 .run_by(this::wantedForProductList)
 
+            .query(MODEL.gasProduct()).list_of("seller by trade time").pagination().with_string("seller id").with_string("buyer id")
+                .comments("按照买家的交易时间倒序,列出卖家的产品列表")
+                .do_it_as()
+                .where(MODEL.gasProduct().merchant().eq("${seller id}")
+                        .or(MODEL.gasProduct().gasLineItemList().mainOrder().buyer().eq("${buyer id}")
+                                .and(MODEL.gasProduct().gasLineItemList().mainOrder().seller().eq("${seller id}"))))
+                .order_by(MODEL.gasProduct().gasLineItemList().mainOrder().lastUpdateTime()).desc()
+                .order_by(MODEL.gasProduct().id()).desc()
+                .run_by(this::wantedForProductList)
+
 
 
             .query(MODEL.gasProductTemplate()).list_of("all").pagination()

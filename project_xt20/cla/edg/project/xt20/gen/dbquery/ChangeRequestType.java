@@ -21,6 +21,10 @@ public class ChangeRequestType extends BaseModelBean {
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "SELLER_ADD_BUYER")
           .chineseName("添加客户");
+  public static EnumAttribute ADD_BUYER_FOR_QUOTE =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "ADD_BUYER_FOR_QUOTE")
+          .chineseName("添加客户");
   public static EnumAttribute CUSTOM_PRODUCT_WHEN_INITIAL =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
@@ -159,6 +163,7 @@ public class ChangeRequestType extends BaseModelBean {
       ADMIN_TRANSFER,
       SELLER_REGISTER,
       SELLER_ADD_BUYER,
+      ADD_BUYER_FOR_QUOTE,
       CUSTOM_PRODUCT_WHEN_INITIAL,
       EDIT_ADDITIONAL_SPEC_WHEN_INIT,
       UPDATE_MERCHANT_INFO_WHEN_INBOUND,
