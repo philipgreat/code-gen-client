@@ -36,6 +36,28 @@ public class NominalPressure extends BaseModelBean {
     return member;
   }
 
+  public GasProductCache gasProductCacheList() {
+    GasProductCache member = new GasProductCache();
+    member.setModelTypeName("gas_product_cache");
+    member.setName("nominal_pressure");
+    member.setMemberName("gasProductCacheList");
+    member.setRelationName("nominalPressure");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public GasProductTemplateCache gasProductTemplateCacheList() {
+    GasProductTemplateCache member = new GasProductTemplateCache();
+    member.setModelTypeName("gas_product_template_cache");
+    member.setName("nominal_pressure");
+    member.setMemberName("gasProductTemplateCacheList");
+    member.setRelationName("nominalPressure");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

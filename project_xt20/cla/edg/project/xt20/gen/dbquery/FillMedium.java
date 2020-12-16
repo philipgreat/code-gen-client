@@ -58,6 +58,28 @@ public class FillMedium extends BaseModelBean {
     return member;
   }
 
+  public GasProductCache gasProductCacheList() {
+    GasProductCache member = new GasProductCache();
+    member.setModelTypeName("gas_product_cache");
+    member.setName("fill_medium");
+    member.setMemberName("gasProductCacheList");
+    member.setRelationName("fillMedium");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public GasProductTemplateCache gasProductTemplateCacheList() {
+    GasProductTemplateCache member = new GasProductTemplateCache();
+    member.setModelTypeName("gas_product_template_cache");
+    member.setName("fill_medium");
+    member.setMemberName("gasProductTemplateCacheList");
+    member.setRelationName("fillMedium");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventContainerInfo eventContainerInfoList() {
     EventContainerInfo member = new EventContainerInfo();
     member.setModelTypeName("event_container_info");

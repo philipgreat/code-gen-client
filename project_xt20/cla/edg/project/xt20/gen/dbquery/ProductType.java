@@ -60,6 +60,28 @@ public class ProductType extends BaseModelBean {
     return member;
   }
 
+  public GasProductCache gasProductCacheList() {
+    GasProductCache member = new GasProductCache();
+    member.setModelTypeName("gas_product_cache");
+    member.setName("product_type");
+    member.setMemberName("gasProductCacheList");
+    member.setRelationName("productType");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public GasProductTemplateCache gasProductTemplateCacheList() {
+    GasProductTemplateCache member = new GasProductTemplateCache();
+    member.setModelTypeName("gas_product_template_cache");
+    member.setName("product_type");
+    member.setMemberName("gasProductTemplateCacheList");
+    member.setRelationName("productType");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventProductBaseInfo eventProductBaseInfoList() {
     EventProductBaseInfo member = new EventProductBaseInfo();
     member.setModelTypeName("event_product_base_info");

@@ -177,6 +177,15 @@ public class GasProduct extends BaseModelBean {
     return member;
   }
 
+  public StringAttribute nickName() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("nickName");
+    member.setName("nick_name");
+    useMember(member);
+    return member;
+  }
+
   public NumberAttribute quantity() {
     NumberAttribute member = new NumberAttribute();
     member.setModelTypeName("int");

@@ -36,6 +36,28 @@ public class GasContainer extends BaseModelBean {
     return member;
   }
 
+  public GasProductCache gasProductCacheList() {
+    GasProductCache member = new GasProductCache();
+    member.setModelTypeName("gas_product_cache");
+    member.setName("gas_container");
+    member.setMemberName("gasProductCacheList");
+    member.setRelationName("gasContainer");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public GasProductTemplateCache gasProductTemplateCacheList() {
+    GasProductTemplateCache member = new GasProductTemplateCache();
+    member.setModelTypeName("gas_product_template_cache");
+    member.setName("gas_container");
+    member.setMemberName("gasProductTemplateCacheList");
+    member.setRelationName("gasContainer");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventContainerInfo eventContainerInfoList() {
     EventContainerInfo member = new EventContainerInfo();
     member.setModelTypeName("event_container_info");

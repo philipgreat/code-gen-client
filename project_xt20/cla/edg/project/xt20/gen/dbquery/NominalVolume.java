@@ -36,6 +36,28 @@ public class NominalVolume extends BaseModelBean {
     return member;
   }
 
+  public GasProductCache gasProductCacheList() {
+    GasProductCache member = new GasProductCache();
+    member.setModelTypeName("gas_product_cache");
+    member.setName("nominal_volume");
+    member.setMemberName("gasProductCacheList");
+    member.setRelationName("nominalVolume");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public GasProductTemplateCache gasProductTemplateCacheList() {
+    GasProductTemplateCache member = new GasProductTemplateCache();
+    member.setModelTypeName("gas_product_template_cache");
+    member.setName("nominal_volume");
+    member.setMemberName("gasProductTemplateCacheList");
+    member.setRelationName("nominalVolume");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

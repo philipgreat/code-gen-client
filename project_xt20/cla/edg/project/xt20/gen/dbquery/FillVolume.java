@@ -47,6 +47,28 @@ public class FillVolume extends BaseModelBean {
     return member;
   }
 
+  public GasProductCache gasProductCacheList() {
+    GasProductCache member = new GasProductCache();
+    member.setModelTypeName("gas_product_cache");
+    member.setName("fill_volume");
+    member.setMemberName("gasProductCacheList");
+    member.setRelationName("fillVolume");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public GasProductTemplateCache gasProductTemplateCacheList() {
+    GasProductTemplateCache member = new GasProductTemplateCache();
+    member.setModelTypeName("gas_product_template_cache");
+    member.setName("fill_volume");
+    member.setMemberName("gasProductTemplateCacheList");
+    member.setRelationName("fillVolume");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventContainerInfo eventContainerInfoList() {
     EventContainerInfo member = new EventContainerInfo();
     member.setModelTypeName("event_container_info");
