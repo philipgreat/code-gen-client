@@ -67,6 +67,17 @@ public class MainOrder extends BaseModelBean {
     return member;
   }
 
+  public Platform platform() {
+    Platform member = new Platform();
+    member.setModelTypeName("platform");
+    member.setName("platform");
+    member.setMemberName("platform");
+    member.setReferDirection(true);
+    member.setRelationName("platform");
+    append(member);
+    return member;
+  }
+
   // 被引用的对象
 
   public UserComments userCommentsList() {

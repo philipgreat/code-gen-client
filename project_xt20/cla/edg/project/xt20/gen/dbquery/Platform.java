@@ -355,6 +355,17 @@ public class Platform extends BaseModelBean {
     return member;
   }
 
+  public MainOrder mainOrderList() {
+    MainOrder member = new MainOrder();
+    member.setModelTypeName("main_order");
+    member.setName("platform");
+    member.setMemberName("mainOrderList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public OrderActionType orderActionTypeList() {
     OrderActionType member = new OrderActionType();
     member.setModelTypeName("order_action_type");
