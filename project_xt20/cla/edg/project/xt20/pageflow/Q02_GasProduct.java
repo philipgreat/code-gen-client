@@ -53,6 +53,13 @@ public class Q02_GasProduct extends PieceOfScript {
                         MODEL.gasProduct().template().in("${template ids}"))
                 .run_by(this::wantedForProductList)
 
+
+            .find(MODEL.gasProduct()).which("for detail").with_string("product id")
+                .comments("加载产品的信息,构建详情页")
+                .do_it_as()
+                .where(MODEL.gasProduct().id().eq("${product id}"))
+                .wants(MODEL.gasProduct().cylinder(), MODEL.gasProduct().status())
+
        ;
     }
 

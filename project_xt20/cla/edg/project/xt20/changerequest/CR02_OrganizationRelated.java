@@ -246,6 +246,16 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
             .contains_event("organization info")
 
 
+        .change_request("seller update customer comment").zh_CN("修改备注")
+            .step("A").zh_CN("完善信息")
+            .contains_event("update comment").zh_CN("客户备注")
+                .has_field("relation id")
+                    .fill_by_request("relation id")
+                    .hidden()
+                .has_field("comment").zh_CN("备注")
+                    .which_type_of(FieldType.MULTI_TEXT)
+                    .fill_by_request("relation id", MODEL.supplyRelationship().customerComment())
+                    .range(0, 200)
 
                 ;
     }

@@ -9,17 +9,17 @@ import cla.edg.project.xt20.gen.dbquery.OrderStatus;
 public class Q08_Order extends PieceOfScript {
     public PageFlowScript makeSequel(PageFlowScript script) {
         return script
-            .query(MODEL.mainOrder()).list_of("seller need process").pagination().with_string("merchant id")
+            .query(MODEL.mainOrder()).list_of("seller need process").pagination().with_string("merchant id").with_string("buyer id")
                 .comments("查询从卖家视角,需要处理的订单")
                 .run_by(spt->queryForSeller(script, OrderStatus.PROCESSING, OrderStatus.BUYER_CONFIRM_TIMEOUT,
                         OrderStatus.WAITING_SELLER_CONFIRM, OrderStatus.WAITING_SELLER_DELIVERY, OrderStatus.SUBMITTED))
-            .query(MODEL.mainOrder()).list_of("seller wait process").pagination().with_string("merchant id")
+            .query(MODEL.mainOrder()).list_of("seller wait process").pagination().with_string("merchant id").with_string("buyer id")
                 .comments("查询从卖家视角,等待买家处理的订单")
                 .run_by(spt->queryForSeller(script, OrderStatus.WAITING_BUYER_CONFIRM, OrderStatus.BUYER_CONFIRM_TIMEOUT))
-            .query(MODEL.mainOrder()).list_of("seller shipping").pagination().with_string("merchant id")
+            .query(MODEL.mainOrder()).list_of("seller shipping").pagination().with_string("merchant id").with_string("buyer id")
                 .comments("查询从卖家视角,运输中订单")
                 .run_by(spt->queryForSeller(script, OrderStatus.WAITING_BUYER_PICK_UP, OrderStatus.SELLER_SHIPPING))
-            .query(MODEL.mainOrder()).list_of("seller finished").pagination().with_string("merchant id")
+            .query(MODEL.mainOrder()).list_of("seller finished").pagination().with_string("merchant id").with_string("buyer id")
                 .comments("查询卖家的已经完成的订单")
                 .run_by(spt->queryForSeller(script, OrderStatus.CANCELLED, OrderStatus.COMPLETED))
 
@@ -72,6 +72,7 @@ public class Q08_Order extends PieceOfScript {
     private PageFlowScript queryForSeller(PageFlowScript script, Object ... status) {
         return script.do_it_as()
                 .where(MODEL.mainOrder().seller().eq("${merchant id}"),
+                        MODEL.mainOrder().buyer().eq("${buyer id}").optional(),
                         MODEL.mainOrder().status().in(status))
                 .run_by(this::wantsWhenLoadOrderList);
     }

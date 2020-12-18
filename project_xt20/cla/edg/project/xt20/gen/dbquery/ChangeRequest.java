@@ -135,6 +135,17 @@ public class ChangeRequest extends BaseModelBean {
     return member;
   }
 
+  public EventUpdateComment eventUpdateCommentList() {
+    EventUpdateComment member = new EventUpdateComment();
+    member.setModelTypeName("event_update_comment");
+    member.setName("change_request");
+    member.setMemberName("eventUpdateCommentList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventUpdateAdditionalSpec eventUpdateAdditionalSpecList() {
     EventUpdateAdditionalSpec member = new EventUpdateAdditionalSpec();
     member.setModelTypeName("event_update_additional_spec");
@@ -206,6 +217,17 @@ public class ChangeRequest extends BaseModelBean {
     member.setModelTypeName("event_update_product_info");
     member.setName("change_request");
     member.setMemberName("eventUpdateProductInfoList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public EventUpdateInventoryParameter eventUpdateInventoryParameterList() {
+    EventUpdateInventoryParameter member = new EventUpdateInventoryParameter();
+    member.setModelTypeName("event_update_inventory_parameter");
+    member.setName("change_request");
+    member.setMemberName("eventUpdateInventoryParameterList");
     member.setRelationName("changeRequest");
     member.setReferDirection(false);
     append(member);

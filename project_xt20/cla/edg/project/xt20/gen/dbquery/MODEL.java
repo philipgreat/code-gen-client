@@ -539,6 +539,13 @@ public class MODEL {
     return rst;
   }
 
+  public static EventUpdateComment eventUpdateComment() {
+    EventUpdateComment rst = new EventUpdateComment();
+    rst.setModelTypeName("event_update_comment");
+    rst.setBeanPath(new BeanPath().name("event_update_comment"));
+    return rst;
+  }
+
   public static EventUpdateAdditionalSpec eventUpdateAdditionalSpec() {
     EventUpdateAdditionalSpec rst = new EventUpdateAdditionalSpec();
     rst.setModelTypeName("event_update_additional_spec");
@@ -585,6 +592,13 @@ public class MODEL {
     EventUpdateProductInfo rst = new EventUpdateProductInfo();
     rst.setModelTypeName("event_update_product_info");
     rst.setBeanPath(new BeanPath().name("event_update_product_info"));
+    return rst;
+  }
+
+  public static EventUpdateInventoryParameter eventUpdateInventoryParameter() {
+    EventUpdateInventoryParameter rst = new EventUpdateInventoryParameter();
+    rst.setModelTypeName("event_update_inventory_parameter");
+    rst.setBeanPath(new BeanPath().name("event_update_inventory_parameter"));
     return rst;
   }
 

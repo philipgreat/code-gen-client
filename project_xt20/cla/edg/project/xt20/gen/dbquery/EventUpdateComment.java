@@ -4,9 +4,9 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class EventUpdateProductInfo extends BaseModelBean {
+public class EventUpdateComment extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.xt20.eventupdateproductinfo.EventUpdateProductInfo";
+    return "com.doublechaintech.xt20.eventupdatecomment.EventUpdateComment";
   }
   // 枚举对象
 
@@ -36,45 +36,18 @@ public class EventUpdateProductInfo extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute productId() {
+  public StringAttribute relationId() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
-    // member.setName("productId");
-    member.setName("product_id");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute operationType() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("operationType");
-    member.setName("operation_type");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute productName() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("productName");
-    member.setName("product_name");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute legacyCode() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("legacyCode");
-    member.setName("legacy_code");
+    // member.setName("relationId");
+    member.setName("relation_id");
     useMember(member);
     return member;
   }
 
   public StringAttribute comment() {
     StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
+    member.setModelTypeName("string_longtext");
     // member.setName("comment");
     member.setName("comment");
     useMember(member);

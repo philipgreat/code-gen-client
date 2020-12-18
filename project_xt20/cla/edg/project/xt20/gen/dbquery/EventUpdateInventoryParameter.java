@@ -4,9 +4,9 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class EventUpdateProductInfo extends BaseModelBean {
+public class EventUpdateInventoryParameter extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.xt20.eventupdateproductinfo.EventUpdateProductInfo";
+    return "com.doublechaintech.xt20.eventupdateinventoryparameter.EventUpdateInventoryParameter";
   }
   // 枚举对象
 
@@ -45,38 +45,29 @@ public class EventUpdateProductInfo extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute operationType() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("operationType");
-    member.setName("operation_type");
+  public NumberAttribute targetQuantity() {
+    NumberAttribute member = new NumberAttribute();
+    member.setModelTypeName("int");
+    // member.setName("targetQuantity");
+    member.setName("target_quantity");
     useMember(member);
     return member;
   }
 
-  public StringAttribute productName() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("productName");
-    member.setName("product_name");
+  public NumberAttribute thresholdQuantity() {
+    NumberAttribute member = new NumberAttribute();
+    member.setModelTypeName("int");
+    // member.setName("thresholdQuantity");
+    member.setName("threshold_quantity");
     useMember(member);
     return member;
   }
 
-  public StringAttribute legacyCode() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("legacyCode");
-    member.setName("legacy_code");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute comment() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("comment");
-    member.setName("comment");
+  public NumberAttribute quantityPerDay() {
+    NumberAttribute member = new NumberAttribute();
+    member.setModelTypeName("int");
+    // member.setName("quantityPerDay");
+    member.setName("quantity_per_day");
     useMember(member);
     return member;
   }
