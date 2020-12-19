@@ -1,12 +1,11 @@
 
 
 @warning product_back.proudct: word 'proudct' seems not found in library
-@warning custom_cylinder_statistic.statis_time: word 'statis' seems not found in library
 @warning object definition: keypair_identity: word 'keypair' seems not found in library
 
 
 
-=================1.0 Execute Report (Model Time 201218T1830) @Fri Dec 18 18:32:15 CST 2020, 109 objects and 824 fields===========================
+=================1.0 Execute Report (Model Time 201219T0956) @Sat Dec 19 09:58:19 CST 2020, 109 objects and 826 fields===========================
 from file "/Users/jackytian/git/web-code-generator/sky/modeling/microservice/xt20.xml"
 
 
@@ -2701,14 +2700,16 @@ custom_order_statistic{
 } depth=0; isRoot = true
 
 custom_cylinder_statistic{
-	fields(8){
+	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	seller_id('M000001'), verb: false, required: true,type:string,relationMeta={};
 		string	seller_name('双链科技'), verb: false, required: true,type:string,relationMeta={};
 		string	buyer_id('M000002'), verb: false, required: true,type:string,relationMeta={};
 		string	buyer_name('xxx'), verb: false, required: true,type:string,relationMeta={};
+		string	cylinder_id('cc'), verb: false, required: true,type:string,relationMeta={};
 		int	quantity('10'), verb: false, required: true,type:int,relationMeta={};
-		date_time	statis_time('2900-01-01T00:00:00'), verb: false, required: false,type:date_time,relationMeta={};
+		date_time	begin_time('2900-01-01T00:00:00'), verb: false, required: true,type:date_time,relationMeta={};
+		date_time	end_time('2900-01-01T00:00:00'), verb: false, required: false,type:date_time,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(0){
@@ -4710,14 +4711,16 @@ custom_order_statistic{
 } depth=0; isRoot = true
 
 custom_cylinder_statistic{
-	fields(8){
+	fields(10){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	seller_id('M000001'), verb: false, required: true,type:string,relationMeta={};
 		string	seller_name('双链科技'), verb: false, required: true,type:string,relationMeta={};
 		string	buyer_id('M000002'), verb: false, required: true,type:string,relationMeta={};
 		string	buyer_name('xxx'), verb: false, required: true,type:string,relationMeta={};
+		string	cylinder_id('cc'), verb: false, required: true,type:string,relationMeta={};
 		int	quantity('10'), verb: false, required: true,type:int,relationMeta={};
-		date_time	statis_time('2900-01-01T00:00:00'), verb: false, required: false,type:date_time,relationMeta={};
+		date_time	begin_time('2900-01-01T00:00:00'), verb: false, required: true,type:date_time,relationMeta={};
+		date_time	end_time('2900-01-01T00:00:00'), verb: false, required: false,type:date_time,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(0){

@@ -61,6 +61,15 @@ public class CustomCylinderStatistic extends BaseModelBean {
     return member;
   }
 
+  public StringAttribute cylinderId() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("cylinderId");
+    member.setName("cylinder_id");
+    useMember(member);
+    return member;
+  }
+
   public NumberAttribute quantity() {
     NumberAttribute member = new NumberAttribute();
     member.setModelTypeName("int");
@@ -70,11 +79,20 @@ public class CustomCylinderStatistic extends BaseModelBean {
     return member;
   }
 
-  public DateTimeAttribute statisTime() {
+  public DateTimeAttribute beginTime() {
     DateTimeAttribute member = new DateTimeAttribute();
     member.setModelTypeName("date_time");
-    // member.setName("statisTime");
-    member.setName("statis_time");
+    // member.setName("beginTime");
+    member.setName("begin_time");
+    useMember(member);
+    return member;
+  }
+
+  public DateTimeAttribute endTime() {
+    DateTimeAttribute member = new DateTimeAttribute();
+    member.setModelTypeName("date_time");
+    // member.setName("endTime");
+    member.setName("end_time");
     useMember(member);
     return member;
   }
