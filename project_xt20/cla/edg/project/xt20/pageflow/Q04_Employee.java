@@ -32,6 +32,14 @@ public class Q04_Employee extends PieceOfScript {
                         MODEL.employee().invitationRecordListAsInvitee().inviter().merchant().organizationIdentityList(),
                         MODEL.employee().invitationRecordListAsInvitee().inviter().personInformation())
 
+
+            .query(MODEL.employee()).list_of("user acting").with_string("user id")
+                .comments("查询用户任职的 employee 列表")
+                .do_it_as()
+                .where(MODEL.employee().personInformation().eq("${user id}"))
+                .wants(MODEL.employee().merchant().organizationIdentityList(),
+                        MODEL.employee().role(),
+                        MODEL.employee().status())
        ;
     }
 }

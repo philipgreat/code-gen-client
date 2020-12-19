@@ -22,6 +22,13 @@ public class Q03_Users extends PieceOfScript {
                 .where(MODEL.personalUser().employeeList().merchant().eq("${merchant id}"))
                 .order_by(MODEL.personalUser().name()).asc_by_pinyin()
 
+
+            .query(MODEL.merchant()).list_of("user working in").with_string("user id")
+                .comments("查找用户任职的公司")
+                .do_it_as()
+                .where(MODEL.merchant().employeeList().personInformation().eq("${user id}"))
+                .wants(MODEL.merchant().organizationIdentityList())
+
        ;
     }
 }

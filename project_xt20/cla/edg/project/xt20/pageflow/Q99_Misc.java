@@ -27,6 +27,21 @@ public class Q99_Misc extends PieceOfScript {
                 .where(MODEL.merchant().id().eq("${id}"))
                 .wants(MODEL.merchant().organizationIdentityList(), MODEL.merchant().merchantType())
 
+
+
+            .query(MODEL.fillMedium()).list_of("candidate")
+                .comments("查询所有的 充装介质 候选值")
+                .do_it_as()
+                .where(MODEL.fillMedium().platform().not_null())
+            .query(MODEL.gasContainer()).list_of("candidate")
+                .comments("查询所有的 包装介质 候选值")
+                .do_it_as()
+                .where(MODEL.gasContainer().platform().not_null())
+            .query(MODEL.gasProductTemplateComponent()).list_of("candidate by fill medium").with_string("fill medium")
+                .comments("查询指定充装介质对应的 质量规格 候选值")
+                .do_it_as()
+                .where(MODEL.gasProductTemplateComponent().fillMedium().eq("${fill medium}"))
+
        ;
     }
 }
