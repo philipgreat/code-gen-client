@@ -186,6 +186,15 @@ public class GasProduct extends BaseModelBean {
     return member;
   }
 
+  public StringAttribute image() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string_image");
+    // member.setName("image");
+    member.setName("image");
+    useMember(member);
+    return member;
+  }
+
   public NumberAttribute quantity() {
     NumberAttribute member = new NumberAttribute();
     member.setModelTypeName("int");

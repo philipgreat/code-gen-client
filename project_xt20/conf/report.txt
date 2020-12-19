@@ -5,7 +5,7 @@
 
 
 
-=================1.0 Execute Report (Model Time 201219T0956) @Sat Dec 19 09:58:19 CST 2020, 109 objects and 826 fields===========================
+=================1.0 Execute Report (Model Time 201219T1411) @Sat Dec 19 14:28:27 CST 2020, 109 objects and 828 fields===========================
 from file "/Users/jackytian/git/web-code-generator/sky/modeling/microservice/xt20.xml"
 
 
@@ -2307,11 +2307,12 @@ customer_cylinder_record_evidence{
 } depth=5; isRoot = false
 
 gas_product_template{
-	fields(10){
+	fields(11){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('食品添加剂氮气-20Mpa-50L-3*5集装格'), verb: false, required: true,type:string,relationMeta={};
 		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateList,type:gas_cylinder,relationMeta={};
 		fill_volume	fill_volume('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateList,type:fill_volume,relationMeta={};
+		string_image	image('*.jpg'), verb: false, required: false,type:string_image,relationMeta={};
 		product_type	product_type('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateList,type:product_type,relationMeta={};
 		string	additional_information('xxx'), verb: false, required: false,type:string,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
@@ -2345,10 +2346,11 @@ gas_product_template_component{
 } depth=4; isRoot = false
 
 gas_product{
-	fields(19){
+	fields(20){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('食品添加剂氮气-20Mpa-50L-3*5集装格'), verb: false, required: true,type:string,relationMeta={};
 		string	nick_name('商家自定义名字'), verb: false, required: false,type:string,relationMeta={};
+		string_image	image('*.jpg'), verb: false, required: false,type:string_image,relationMeta={};
 		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:gas_cylinder,relationMeta={};
 		fill_volume	fill_volume('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:fill_volume,relationMeta={};
 		gas_product_template	template('$(object)'), verb: false, required: false, referenceBy: gasProductList,type:gas_product_template,relationMeta={};
@@ -2383,7 +2385,7 @@ gas_product_component{
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		fill_medium	fill_medium('$(object)'), verb: false, required: true, referenceBy: gasProductComponentList,type:fill_medium,relationMeta={};
 		string	name('液氧99.5%'), verb: false, required: true,type:string,relationMeta={};
-		int	percentage('1'), verb: false, required: true,type:int,relationMeta={};
+		double	percentage('0.1'), verb: false, required: true,type:double,relationMeta={};
 		gas_product	product('$(object)'), verb: false, required: true, referenceBy: gasProductComponentList,type:gas_product,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
@@ -2722,7 +2724,7 @@ icon_configuration{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('样例'), verb: false, required: true,type:string,relationMeta={};
-		string	code('ICON_EXAMPLE'), verb: false, required: true,type:string,relationMeta={};
+		string	code('IC000001'), verb: false, required: true,type:string,relationMeta={};
 		string	description('图标数据样例'), verb: false, required: true,type:string,relationMeta={};
 		string	icon('icon_font'), verb: false, required: false,type:string,relationMeta={};
 		string_image	image('icon.jpg'), verb: false, required: false,type:string_image,relationMeta={};
@@ -4318,11 +4320,12 @@ customer_cylinder_record_evidence{
 } depth=5; isRoot = false
 
 gas_product_template{
-	fields(10){
+	fields(11){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('食品添加剂氮气-20Mpa-50L-3*5集装格'), verb: false, required: true,type:string,relationMeta={};
 		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateList,type:gas_cylinder,relationMeta={};
 		fill_volume	fill_volume('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateList,type:fill_volume,relationMeta={};
+		string_image	image('*.jpg'), verb: false, required: false,type:string_image,relationMeta={};
 		product_type	product_type('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateList,type:product_type,relationMeta={};
 		string	additional_information('xxx'), verb: false, required: false,type:string,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
@@ -4356,10 +4359,11 @@ gas_product_template_component{
 } depth=4; isRoot = false
 
 gas_product{
-	fields(19){
+	fields(20){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('食品添加剂氮气-20Mpa-50L-3*5集装格'), verb: false, required: true,type:string,relationMeta={};
 		string	nick_name('商家自定义名字'), verb: false, required: false,type:string,relationMeta={};
+		string_image	image('*.jpg'), verb: false, required: false,type:string_image,relationMeta={};
 		gas_cylinder	cylinder('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:gas_cylinder,relationMeta={};
 		fill_volume	fill_volume('$(object)'), verb: false, required: true, referenceBy: gasProductList,type:fill_volume,relationMeta={};
 		gas_product_template	template('$(object)'), verb: false, required: false, referenceBy: gasProductList,type:gas_product_template,relationMeta={};
@@ -4394,7 +4398,7 @@ gas_product_component{
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		fill_medium	fill_medium('$(object)'), verb: false, required: true, referenceBy: gasProductComponentList,type:fill_medium,relationMeta={};
 		string	name('液氧99.5%'), verb: false, required: true,type:string,relationMeta={};
-		int	percentage('1'), verb: false, required: true,type:int,relationMeta={};
+		double	percentage('0.1'), verb: false, required: true,type:double,relationMeta={};
 		gas_product	product('$(object)'), verb: false, required: true, referenceBy: gasProductComponentList,type:gas_product,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
@@ -4733,7 +4737,7 @@ icon_configuration{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	name('样例'), verb: false, required: true,type:string,relationMeta={};
-		string	code('ICON_EXAMPLE'), verb: false, required: true,type:string,relationMeta={};
+		string	code('IC000001'), verb: false, required: true,type:string,relationMeta={};
 		string	description('图标数据样例'), verb: false, required: true,type:string,relationMeta={};
 		string	icon('icon_font'), verb: false, required: false,type:string,relationMeta={};
 		string_image	image('icon.jpg'), verb: false, required: false,type:string_image,relationMeta={};

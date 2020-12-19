@@ -122,6 +122,15 @@ public class GasProductTemplate extends BaseModelBean {
     return member;
   }
 
+  public StringAttribute image() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string_image");
+    // member.setName("image");
+    member.setName("image");
+    useMember(member);
+    return member;
+  }
+
   public StringAttribute additionalInformation() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");

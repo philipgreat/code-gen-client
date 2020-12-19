@@ -58,7 +58,7 @@ public class GasProductComponent extends BaseModelBean {
 
   public NumberAttribute percentage() {
     NumberAttribute member = new NumberAttribute();
-    member.setModelTypeName("int");
+    member.setModelTypeName("double");
     // member.setName("percentage");
     member.setName("percentage");
     useMember(member);
