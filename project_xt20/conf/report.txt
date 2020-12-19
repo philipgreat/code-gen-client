@@ -5,7 +5,7 @@
 
 
 
-=================1.0 Execute Report (Model Time 201216T1530) @Wed Dec 16 15:37:06 CST 2020, 105 objects and 788 fields===========================
+=================1.0 Execute Report (Model Time 201219T0956) @Sat Dec 19 09:58:19 CST 2020, 109 objects and 826 fields===========================
 from file "/Users/jackytian/git/web-code-generator/sky/modeling/microservice/xt20.xml"
 
 
@@ -915,6 +915,12 @@ Info: Add virtual field [main_orders(es)] to <employee>
 	main_order.creator
 
 
+ processing: main_order.platform.platform
+
+Info: Add virtual field [main_orders(es)] to <platform>
+	main_order.platform
+
+
  processing: user_comments
 
 
@@ -1102,6 +1108,12 @@ Info: Add virtual field [order_operation_records(es)] to <employee>
 
 Info: Add virtual field [order_operation_records(es)] to <order_action_type>
 	order_operation_record.action
+
+
+ processing: custom_order_statistic
+
+
+ processing: custom_cylinder_statistic
 
 
  processing: icon_configuration
@@ -1299,6 +1311,15 @@ Info: Add virtual field [event_seller_add_buyers(es)] to <change_request>
 	event_seller_add_buyer.change_request
 
 
+ processing: event_update_comment
+
+
+ processing: event_update_comment.change_request.change_request
+
+Info: Add virtual field [event_update_comments(es)] to <change_request>
+	event_update_comment.change_request
+
+
  processing: event_update_additional_spec
 
 
@@ -1396,6 +1417,15 @@ Info: Add virtual field [event_product_on_shelfs(es)] to <change_request>
 
 Info: Add virtual field [event_update_product_infos(es)] to <change_request>
 	event_update_product_info.change_request
+
+
+ processing: event_update_inventory_parameter
+
+
+ processing: event_update_inventory_parameter.change_request.change_request
+
+Info: Add virtual field [event_update_inventory_parameters(es)] to <change_request>
+	event_update_inventory_parameter.change_request
 
 
  processing: event_info_in_cr
@@ -1540,7 +1570,7 @@ platform{
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(40){
+	references field(41){
 		provinceList	platform(__no_group)--platform;
 		cityList	platform(__no_group)--platform;
 		districtList	platform(__no_group)--platform;
@@ -1572,6 +1602,7 @@ platform{
 		gasCylinderList	platform(__no_group)--platform;
 		gasProductTemplateList	platform(__no_group)--platform;
 		gasProductList	platform(__no_group)--platform;
+		mainOrderList	platform(__no_group)--platform;
 		orderActionTypeList	platform(__no_group)--platform;
 		iconConfigurationList	platform(__no_group)--platform;
 		systemLevelConfigurationList	platform(__no_group)--platform;
@@ -1786,12 +1817,13 @@ individual_identity{
 } depth=3; isRoot = false
 
 user_working_info{
-	fields(6){
+	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		personal_user	user('$(object)'), verb: false, required: true, referenceBy: userWorkingInfoList,type:personal_user,relationMeta={};
 		employee	employee('$(object)'), verb: false, required: false, referenceBy: userWorkingInfoList,type:employee,relationMeta={};
 		string_longtext	viewed_ad_pages('text()'), verb: false, required: false,type:text,relationMeta={};
 		string	job_role('买家|卖家'), verb: false, required: true,type:string,relationMeta={};
+		string	supplier('首选供应商|merchant()'), verb: false, required: false,type:string,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(0){
@@ -2391,7 +2423,7 @@ gas_product_cache{
 		nominal_volume	nominal_volume('$(object)'), verb: false, required: true, referenceBy: gasProductCacheList,type:nominal_volume,relationMeta={};
 		fill_volume	fill_volume('$(object)'), verb: false, required: true, referenceBy: gasProductCacheList,type:fill_volume,relationMeta={};
 		product_type	product_type('$(object)'), verb: false, required: true, referenceBy: gasProductCacheList,type:product_type,relationMeta={};
-		string	component('GC000001,GC000002'), verb: false, required: true,type:string,relationMeta={};
+		string	component('O2'), verb: false, required: true,type:string,relationMeta={};
 		string_longtext	search_text('text()'), verb: false, required: true,type:text,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
@@ -2411,7 +2443,7 @@ gas_product_template_cache{
 		nominal_volume	nominal_volume('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateCacheList,type:nominal_volume,relationMeta={};
 		fill_volume	fill_volume('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateCacheList,type:fill_volume,relationMeta={};
 		product_type	product_type('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateCacheList,type:product_type,relationMeta={};
-		string	component('GC000001,GC000002'), verb: false, required: true,type:string,relationMeta={};
+		string	component('O2,N2'), verb: false, required: true,type:string,relationMeta={};
 		string_longtext	search_text('text()'), verb: false, required: true,type:text,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
@@ -2472,7 +2504,7 @@ product_back{
 } depth=5; isRoot = false
 
 main_order{
-	fields(16){
+	fields(17){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		merchant	buyer('$(object)'), verb: false, required: false, referenceBy: mainOrderListAsBuyer,type:merchant,relationMeta={};
 		merchant	seller('$(object)'), verb: false, required: true, referenceBy: mainOrderListAsSeller,type:merchant,relationMeta={};
@@ -2488,6 +2520,7 @@ main_order{
 		employee	creator('$(object)'), verb: false, required: true, referenceBy: mainOrderList,type:employee,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: mainOrderList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(5){
@@ -2644,6 +2677,47 @@ order_operation_record{
 
 } depth=5; isRoot = false
 
+custom_order_statistic{
+	fields(13){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('这个统计的名字'), verb: false, required: true,type:string,relationMeta={};
+		string	type('day|custom'), verb: false, required: true,type:string,relationMeta={};
+		string	seller_id('M000001'), verb: false, required: true,type:string,relationMeta={};
+		string	seller_name('双链科技'), verb: false, required: true,type:string,relationMeta={};
+		string	buyer_id('M000002'), verb: false, required: true,type:string,relationMeta={};
+		string	buyer_name('xxx'), verb: false, required: true,type:string,relationMeta={};
+		string	product_id('GP000001'), verb: false, required: true,type:string,relationMeta={};
+		string	product_name('O2'), verb: false, required: true,type:string,relationMeta={};
+		int	quantity('10'), verb: false, required: true,type:int,relationMeta={};
+		date_time	begin_time('2900-01-01T00:00:00'), verb: false, required: false,type:date_time,relationMeta={};
+		date_time	end_time('2900-01-01T00:00:00'), verb: false, required: false,type:date_time,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+	meta {name=custom_order_statistic, features=log} 
+
+} depth=0; isRoot = true
+
+custom_cylinder_statistic{
+	fields(10){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	seller_id('M000001'), verb: false, required: true,type:string,relationMeta={};
+		string	seller_name('双链科技'), verb: false, required: true,type:string,relationMeta={};
+		string	buyer_id('M000002'), verb: false, required: true,type:string,relationMeta={};
+		string	buyer_name('xxx'), verb: false, required: true,type:string,relationMeta={};
+		string	cylinder_id('cc'), verb: false, required: true,type:string,relationMeta={};
+		int	quantity('10'), verb: false, required: true,type:int,relationMeta={};
+		date_time	begin_time('2900-01-01T00:00:00'), verb: false, required: true,type:date_time,relationMeta={};
+		date_time	end_time('2900-01-01T00:00:00'), verb: false, required: false,type:date_time,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+	meta {name=custom_cylinder_statistic, features=log} 
+
+} depth=0; isRoot = true
+
 icon_configuration{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -2780,9 +2854,9 @@ guide_slide{
 change_request_type{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('转移管理员|商户注册|添加客户|添加客户|自定义产品|产品附加规格|完善信息并入库|修改附加规格|外采入库|完善信息|入库|编辑备注|更新个人信息|完善信息|设置商户下班时间|审批加入+姓名|设置单次配送最大量|批准加入|完善信息|生产入库|产品附加规格|下架|完善信息|更新产品信息|备注|完善信息|产品附加规格|更新信息|修改附加规格|上架|完善信息|完善信息'), verb: false, required: true,type:string,relationMeta={};
-		string	code('ADMIN_TRANSFER|SELLER_REGISTER|SELLER_ADD_BUYER|ADD_BUYER_FOR_QUOTE|CUSTOM_PRODUCT_WHEN_INITIAL|EDIT_ADDITIONAL_SPEC_WHEN_INIT|UPDATE_MERCHANT_INFO_WHEN_INBOUND|EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE|BUY_INBOUND_FROM_HOME|SELLER_UPDATE_MERCHANT_INFO|PRODUCT_INBOUND|UPDATE_SUPPLIER|UPDATE_PERSONAL_INFO|UPDATE_MERCHANT_INFO_FROM_SELLER_HOME|UPDATE_MERCHANT_OFF_TIME|AUDIT_JOIN_APPLY|UPDATE_MERCHANT_DELIVERY_LIMIT|APPROVE_JOIN_BUYER|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|INBOUND_FROM_HOME|EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT|PRODUCT_OFF_SHELF|UPDATE_MERCHANT_INFO_WHEN_INVITE|UPDATE_PRODUCT_INFO|UPDATE_COLLEAGUE_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|EDIT_ADDITIONAL_SPEC_WHEN_QUOTE|BUYER_UPDATE_MERCHANT_INFO|EDIT_ADDITIONAL_SPEC_WHEN_CREATE|PRODUCT_ON_SHELF|BUYER_UPDATE_INFO_IN_HOME|UPDATE_BUYER_INFO_WHEN_ORDER'), verb: false, required: true,type:string,relationMeta={};
-		string	icon('bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars'), verb: false, required: true,type:string,relationMeta={};
+		string	name('转移管理员|商户注册|添加客户|添加客户|自定义产品|产品附加规格|完善信息并入库|修改附加规格|外采入库|完善信息|修改备注|入库|编辑备注|更新个人信息|完善信息|设置商户下班时间|审批加入+姓名|设置单次配送最大量|批准加入|完善信息|生产入库|产品附加规格|下架|备库信息|完善信息|更新产品信息|备注|完善信息|产品附加规格|更新信息|修改附加规格|上架|完善信息|完善信息'), verb: false, required: true,type:string,relationMeta={};
+		string	code('ADMIN_TRANSFER|SELLER_REGISTER|SELLER_ADD_BUYER|ADD_BUYER_FOR_QUOTE|CUSTOM_PRODUCT_WHEN_INITIAL|EDIT_ADDITIONAL_SPEC_WHEN_INIT|UPDATE_MERCHANT_INFO_WHEN_INBOUND|EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE|BUY_INBOUND_FROM_HOME|SELLER_UPDATE_MERCHANT_INFO|SELLER_UPDATE_CUSTOMER_COMMENT|PRODUCT_INBOUND|UPDATE_SUPPLIER|UPDATE_PERSONAL_INFO|UPDATE_MERCHANT_INFO_FROM_SELLER_HOME|UPDATE_MERCHANT_OFF_TIME|AUDIT_JOIN_APPLY|UPDATE_MERCHANT_DELIVERY_LIMIT|APPROVE_JOIN_BUYER|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|INBOUND_FROM_HOME|EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT|PRODUCT_OFF_SHELF|UPDATE_INVENTORY_PARAMETER|UPDATE_MERCHANT_INFO_WHEN_INVITE|UPDATE_PRODUCT_INFO|UPDATE_COLLEAGUE_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|EDIT_ADDITIONAL_SPEC_WHEN_QUOTE|BUYER_UPDATE_MERCHANT_INFO|EDIT_ADDITIONAL_SPEC_WHEN_CREATE|PRODUCT_ON_SHELF|BUYER_UPDATE_INFO_IN_HOME|UPDATE_BUYER_INFO_WHEN_ORDER'), verb: false, required: true,type:string,relationMeta={};
+		string	icon('bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars'), verb: false, required: true,type:string,relationMeta={};
 		int	display_order('1|2|3|4|5|6'), verb: false, required: true,type:int,relationMeta={};
 		string_longtext	bind_types('text()'), verb: false, required: true,type:text,relationMeta={};
 		string_longtext	step_configuration('text()'), verb: false, required: true,type:text,relationMeta={};
@@ -2809,7 +2883,7 @@ change_request{
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: changeRequestList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(17){
+	references field(19){
 		eventUpdatePersonalInfoList	change_request(__no_group)--change_request;
 		eventOrganizationInfoList	change_request(__no_group)--change_request;
 		eventInboundInfoList	change_request(__no_group)--change_request;
@@ -2819,6 +2893,7 @@ change_request{
 		eventUpdateMerchantDeliveryLimitList	change_request(__no_group)--change_request;
 		eventEmployeeApproveList	change_request(__no_group)--change_request;
 		eventSellerAddBuyerList	change_request(__no_group)--change_request;
+		eventUpdateCommentList	change_request(__no_group)--change_request;
 		eventUpdateAdditionalSpecList	change_request(__no_group)--change_request;
 		eventProductInboundList	change_request(__no_group)--change_request;
 		eventProductBaseInfoList	change_request(__no_group)--change_request;
@@ -2826,6 +2901,7 @@ change_request{
 		eventProductComponentList	change_request(__no_group)--change_request;
 		eventProductOnShelfList	change_request(__no_group)--change_request;
 		eventUpdateProductInfoList	change_request(__no_group)--change_request;
+		eventUpdateInventoryParameterList	change_request(__no_group)--change_request;
 		eventInfoInCrList	change_request(__no_group)--change_request;
 	}
 	meta {name=change_request, features=change_request} 
@@ -2977,6 +3053,20 @@ event_seller_add_buyer{
 
 } depth=3; isRoot = false
 
+event_update_comment{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	relation_id('relation id|null'), verb: false, required: true,type:string,relationMeta={};
+		string_longtext	comment('text()'), verb: false, required: true,type:text,relationMeta={};
+		change_request	change_request('$(object)'), verb: false, required: true, referenceBy: eventUpdateCommentList,type:change_request,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+	meta {bind_with_cr_type=SELLER_UPDATE_CUSTOMER_COMMENT, name=event_update_comment, features=event} 
+
+} depth=3; isRoot = false
+
 event_update_additional_spec{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -3074,9 +3164,10 @@ event_product_on_shelf{
 } depth=3; isRoot = false
 
 event_update_product_info{
-	fields(7){
+	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	product_id('product id|ID'), verb: false, required: true,type:string,relationMeta={};
+		string	operation_type('operation type|类型'), verb: false, required: true,type:string,relationMeta={};
 		string	product_name('product name|产品名称'), verb: false, required: true,type:string,relationMeta={};
 		string	legacy_code('legacy code|代码'), verb: false, required: false,type:string,relationMeta={};
 		string	comment('comment|备注'), verb: false, required: false,type:string,relationMeta={};
@@ -3086,6 +3177,22 @@ event_update_product_info{
 	references field(0){
 	}
 	meta {bind_with_cr_type=UPDATE_PRODUCT_INFO, name=event_update_product_info, features=event} 
+
+} depth=3; isRoot = false
+
+event_update_inventory_parameter{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	product_id('product id|ID'), verb: false, required: true,type:string,relationMeta={};
+		int	target_quantity('12345678'), verb: false, required: true,type:int,relationMeta={};
+		int	threshold_quantity('12345678'), verb: false, required: true,type:int,relationMeta={};
+		int	quantity_per_day('12345678'), verb: false, required: true,type:int,relationMeta={};
+		change_request	change_request('$(object)'), verb: false, required: true, referenceBy: eventUpdateInventoryParameterList,type:change_request,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+	meta {bind_with_cr_type=UPDATE_INVENTORY_PARAMETER, name=event_update_inventory_parameter, features=event} 
 
 } depth=3; isRoot = false
 
@@ -3474,7 +3581,7 @@ platform{
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(40){
+	references field(41){
 		provinceList	platform(__no_group)--platform;
 		cityList	platform(__no_group)--platform;
 		districtList	platform(__no_group)--platform;
@@ -3506,6 +3613,7 @@ platform{
 		gasCylinderList	platform(__no_group)--platform;
 		gasProductTemplateList	platform(__no_group)--platform;
 		gasProductList	platform(__no_group)--platform;
+		mainOrderList	platform(__no_group)--platform;
 		orderActionTypeList	platform(__no_group)--platform;
 		iconConfigurationList	platform(__no_group)--platform;
 		systemLevelConfigurationList	platform(__no_group)--platform;
@@ -3720,12 +3828,13 @@ individual_identity{
 } depth=3; isRoot = false
 
 user_working_info{
-	fields(6){
+	fields(7){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		personal_user	user('$(object)'), verb: false, required: true, referenceBy: userWorkingInfoList,type:personal_user,relationMeta={};
 		employee	employee('$(object)'), verb: false, required: false, referenceBy: userWorkingInfoList,type:employee,relationMeta={};
 		string_longtext	viewed_ad_pages('text()'), verb: false, required: false,type:text,relationMeta={};
 		string	job_role('买家|卖家'), verb: false, required: true,type:string,relationMeta={};
+		string	supplier('首选供应商|merchant()'), verb: false, required: false,type:string,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(0){
@@ -4325,7 +4434,7 @@ gas_product_cache{
 		nominal_volume	nominal_volume('$(object)'), verb: false, required: true, referenceBy: gasProductCacheList,type:nominal_volume,relationMeta={};
 		fill_volume	fill_volume('$(object)'), verb: false, required: true, referenceBy: gasProductCacheList,type:fill_volume,relationMeta={};
 		product_type	product_type('$(object)'), verb: false, required: true, referenceBy: gasProductCacheList,type:product_type,relationMeta={};
-		string	component('GC000001,GC000002'), verb: false, required: true,type:string,relationMeta={};
+		string	component('O2'), verb: false, required: true,type:string,relationMeta={};
 		string_longtext	search_text('text()'), verb: false, required: true,type:text,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
@@ -4345,7 +4454,7 @@ gas_product_template_cache{
 		nominal_volume	nominal_volume('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateCacheList,type:nominal_volume,relationMeta={};
 		fill_volume	fill_volume('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateCacheList,type:fill_volume,relationMeta={};
 		product_type	product_type('$(object)'), verb: false, required: true, referenceBy: gasProductTemplateCacheList,type:product_type,relationMeta={};
-		string	component('GC000001,GC000002'), verb: false, required: true,type:string,relationMeta={};
+		string	component('O2,N2'), verb: false, required: true,type:string,relationMeta={};
 		string_longtext	search_text('text()'), verb: false, required: true,type:text,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
@@ -4406,7 +4515,7 @@ product_back{
 } depth=5; isRoot = false
 
 main_order{
-	fields(16){
+	fields(17){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		merchant	buyer('$(object)'), verb: false, required: false, referenceBy: mainOrderListAsBuyer,type:merchant,relationMeta={};
 		merchant	seller('$(object)'), verb: false, required: true, referenceBy: mainOrderListAsSeller,type:merchant,relationMeta={};
@@ -4422,6 +4531,7 @@ main_order{
 		employee	creator('$(object)'), verb: false, required: true, referenceBy: mainOrderList,type:employee,relationMeta={};
 		date_time_create	create_time('createTime()'), verb: false, required: true,type:date_time_create,relationMeta={};
 		date_time_update	last_update_time('updateTime()'), verb: false, required: true,type:date_time_update,relationMeta={};
+		platform	platform('$(object)'), verb: false, required: true, referenceBy: mainOrderList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
 	references field(5){
@@ -4578,6 +4688,47 @@ order_operation_record{
 
 } depth=5; isRoot = false
 
+custom_order_statistic{
+	fields(13){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	name('这个统计的名字'), verb: false, required: true,type:string,relationMeta={};
+		string	type('day|custom'), verb: false, required: true,type:string,relationMeta={};
+		string	seller_id('M000001'), verb: false, required: true,type:string,relationMeta={};
+		string	seller_name('双链科技'), verb: false, required: true,type:string,relationMeta={};
+		string	buyer_id('M000002'), verb: false, required: true,type:string,relationMeta={};
+		string	buyer_name('xxx'), verb: false, required: true,type:string,relationMeta={};
+		string	product_id('GP000001'), verb: false, required: true,type:string,relationMeta={};
+		string	product_name('O2'), verb: false, required: true,type:string,relationMeta={};
+		int	quantity('10'), verb: false, required: true,type:int,relationMeta={};
+		date_time	begin_time('2900-01-01T00:00:00'), verb: false, required: false,type:date_time,relationMeta={};
+		date_time	end_time('2900-01-01T00:00:00'), verb: false, required: false,type:date_time,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+	meta {name=custom_order_statistic, features=log} 
+
+} depth=0; isRoot = true
+
+custom_cylinder_statistic{
+	fields(10){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	seller_id('M000001'), verb: false, required: true,type:string,relationMeta={};
+		string	seller_name('双链科技'), verb: false, required: true,type:string,relationMeta={};
+		string	buyer_id('M000002'), verb: false, required: true,type:string,relationMeta={};
+		string	buyer_name('xxx'), verb: false, required: true,type:string,relationMeta={};
+		string	cylinder_id('cc'), verb: false, required: true,type:string,relationMeta={};
+		int	quantity('10'), verb: false, required: true,type:int,relationMeta={};
+		date_time	begin_time('2900-01-01T00:00:00'), verb: false, required: true,type:date_time,relationMeta={};
+		date_time	end_time('2900-01-01T00:00:00'), verb: false, required: false,type:date_time,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+	meta {name=custom_cylinder_statistic, features=log} 
+
+} depth=0; isRoot = true
+
 icon_configuration{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -4714,9 +4865,9 @@ guide_slide{
 change_request_type{
 	fields(9){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
-		string	name('转移管理员|商户注册|添加客户|添加客户|自定义产品|产品附加规格|完善信息并入库|修改附加规格|外采入库|完善信息|入库|编辑备注|更新个人信息|完善信息|设置商户下班时间|审批加入+姓名|设置单次配送最大量|批准加入|完善信息|生产入库|产品附加规格|下架|完善信息|更新产品信息|备注|完善信息|产品附加规格|更新信息|修改附加规格|上架|完善信息|完善信息'), verb: false, required: true,type:string,relationMeta={};
-		string	code('ADMIN_TRANSFER|SELLER_REGISTER|SELLER_ADD_BUYER|ADD_BUYER_FOR_QUOTE|CUSTOM_PRODUCT_WHEN_INITIAL|EDIT_ADDITIONAL_SPEC_WHEN_INIT|UPDATE_MERCHANT_INFO_WHEN_INBOUND|EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE|BUY_INBOUND_FROM_HOME|SELLER_UPDATE_MERCHANT_INFO|PRODUCT_INBOUND|UPDATE_SUPPLIER|UPDATE_PERSONAL_INFO|UPDATE_MERCHANT_INFO_FROM_SELLER_HOME|UPDATE_MERCHANT_OFF_TIME|AUDIT_JOIN_APPLY|UPDATE_MERCHANT_DELIVERY_LIMIT|APPROVE_JOIN_BUYER|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|INBOUND_FROM_HOME|EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT|PRODUCT_OFF_SHELF|UPDATE_MERCHANT_INFO_WHEN_INVITE|UPDATE_PRODUCT_INFO|UPDATE_COLLEAGUE_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|EDIT_ADDITIONAL_SPEC_WHEN_QUOTE|BUYER_UPDATE_MERCHANT_INFO|EDIT_ADDITIONAL_SPEC_WHEN_CREATE|PRODUCT_ON_SHELF|BUYER_UPDATE_INFO_IN_HOME|UPDATE_BUYER_INFO_WHEN_ORDER'), verb: false, required: true,type:string,relationMeta={};
-		string	icon('bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars'), verb: false, required: true,type:string,relationMeta={};
+		string	name('转移管理员|商户注册|添加客户|添加客户|自定义产品|产品附加规格|完善信息并入库|修改附加规格|外采入库|完善信息|修改备注|入库|编辑备注|更新个人信息|完善信息|设置商户下班时间|审批加入+姓名|设置单次配送最大量|批准加入|完善信息|生产入库|产品附加规格|下架|备库信息|完善信息|更新产品信息|备注|完善信息|产品附加规格|更新信息|修改附加规格|上架|完善信息|完善信息'), verb: false, required: true,type:string,relationMeta={};
+		string	code('ADMIN_TRANSFER|SELLER_REGISTER|SELLER_ADD_BUYER|ADD_BUYER_FOR_QUOTE|CUSTOM_PRODUCT_WHEN_INITIAL|EDIT_ADDITIONAL_SPEC_WHEN_INIT|UPDATE_MERCHANT_INFO_WHEN_INBOUND|EDIT_ADDITIONAL_SPEC_WHEN_CREATE_IN_QUOTE|BUY_INBOUND_FROM_HOME|SELLER_UPDATE_MERCHANT_INFO|SELLER_UPDATE_CUSTOMER_COMMENT|PRODUCT_INBOUND|UPDATE_SUPPLIER|UPDATE_PERSONAL_INFO|UPDATE_MERCHANT_INFO_FROM_SELLER_HOME|UPDATE_MERCHANT_OFF_TIME|AUDIT_JOIN_APPLY|UPDATE_MERCHANT_DELIVERY_LIMIT|APPROVE_JOIN_BUYER|UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE|INBOUND_FROM_HOME|EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT|PRODUCT_OFF_SHELF|UPDATE_INVENTORY_PARAMETER|UPDATE_MERCHANT_INFO_WHEN_INVITE|UPDATE_PRODUCT_INFO|UPDATE_COLLEAGUE_INFO|UPDATE_MERCHANT_INFO_WHEN_QUOTE|EDIT_ADDITIONAL_SPEC_WHEN_QUOTE|BUYER_UPDATE_MERCHANT_INFO|EDIT_ADDITIONAL_SPEC_WHEN_CREATE|PRODUCT_ON_SHELF|BUYER_UPDATE_INFO_IN_HOME|UPDATE_BUYER_INFO_WHEN_ORDER'), verb: false, required: true,type:string,relationMeta={};
+		string	icon('bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars|bars'), verb: false, required: true,type:string,relationMeta={};
 		int	display_order('1|2|3|4|5|6'), verb: false, required: true,type:int,relationMeta={};
 		string_longtext	bind_types('text()'), verb: false, required: true,type:text,relationMeta={};
 		string_longtext	step_configuration('text()'), verb: false, required: true,type:text,relationMeta={};
@@ -4743,7 +4894,7 @@ change_request{
 		platform	platform('$(object)'), verb: false, required: true, referenceBy: changeRequestList,type:platform,relationMeta={};
 		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
 	}
-	references field(17){
+	references field(19){
 		eventUpdatePersonalInfoList	change_request(__no_group)--change_request;
 		eventOrganizationInfoList	change_request(__no_group)--change_request;
 		eventInboundInfoList	change_request(__no_group)--change_request;
@@ -4753,6 +4904,7 @@ change_request{
 		eventUpdateMerchantDeliveryLimitList	change_request(__no_group)--change_request;
 		eventEmployeeApproveList	change_request(__no_group)--change_request;
 		eventSellerAddBuyerList	change_request(__no_group)--change_request;
+		eventUpdateCommentList	change_request(__no_group)--change_request;
 		eventUpdateAdditionalSpecList	change_request(__no_group)--change_request;
 		eventProductInboundList	change_request(__no_group)--change_request;
 		eventProductBaseInfoList	change_request(__no_group)--change_request;
@@ -4760,6 +4912,7 @@ change_request{
 		eventProductComponentList	change_request(__no_group)--change_request;
 		eventProductOnShelfList	change_request(__no_group)--change_request;
 		eventUpdateProductInfoList	change_request(__no_group)--change_request;
+		eventUpdateInventoryParameterList	change_request(__no_group)--change_request;
 		eventInfoInCrList	change_request(__no_group)--change_request;
 	}
 	meta {name=change_request, features=change_request} 
@@ -4911,6 +5064,20 @@ event_seller_add_buyer{
 
 } depth=3; isRoot = false
 
+event_update_comment{
+	fields(5){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	relation_id('relation id|null'), verb: false, required: true,type:string,relationMeta={};
+		string_longtext	comment('text()'), verb: false, required: true,type:text,relationMeta={};
+		change_request	change_request('$(object)'), verb: false, required: true, referenceBy: eventUpdateCommentList,type:change_request,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+	meta {bind_with_cr_type=SELLER_UPDATE_CUSTOMER_COMMENT, name=event_update_comment, features=event} 
+
+} depth=3; isRoot = false
+
 event_update_additional_spec{
 	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
@@ -5008,9 +5175,10 @@ event_product_on_shelf{
 } depth=3; isRoot = false
 
 event_update_product_info{
-	fields(7){
+	fields(8){
 		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
 		string	product_id('product id|ID'), verb: false, required: true,type:string,relationMeta={};
+		string	operation_type('operation type|类型'), verb: false, required: true,type:string,relationMeta={};
 		string	product_name('product name|产品名称'), verb: false, required: true,type:string,relationMeta={};
 		string	legacy_code('legacy code|代码'), verb: false, required: false,type:string,relationMeta={};
 		string	comment('comment|备注'), verb: false, required: false,type:string,relationMeta={};
@@ -5020,6 +5188,22 @@ event_update_product_info{
 	references field(0){
 	}
 	meta {bind_with_cr_type=UPDATE_PRODUCT_INFO, name=event_update_product_info, features=event} 
+
+} depth=3; isRoot = false
+
+event_update_inventory_parameter{
+	fields(7){
+		string	id('AB'), verb: false, required: true,type:id,relationMeta={};
+		string	product_id('product id|ID'), verb: false, required: true,type:string,relationMeta={};
+		int	target_quantity('12345678'), verb: false, required: true,type:int,relationMeta={};
+		int	threshold_quantity('12345678'), verb: false, required: true,type:int,relationMeta={};
+		int	quantity_per_day('12345678'), verb: false, required: true,type:int,relationMeta={};
+		change_request	change_request('$(object)'), verb: false, required: true, referenceBy: eventUpdateInventoryParameterList,type:change_request,relationMeta={};
+		int	version('2147483647'), verb: false, required: true,type:version,relationMeta={};
+	}
+	references field(0){
+	}
+	meta {bind_with_cr_type=UPDATE_INVENTORY_PARAMETER, name=event_update_inventory_parameter, features=event} 
 
 } depth=3; isRoot = false
 
