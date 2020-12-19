@@ -9,13 +9,12 @@ public class IconConfiguration extends BaseModelBean {
     return "com.doublechaintech.xt20.iconconfiguration.IconConfiguration";
   }
   // 枚举对象
-  public static EnumAttribute ICON_EXAMPLE =
-      new EnumAttribute(
-              "com.doublechaintech.xt20.iconconfiguration.IconConfiguration", "ICON_EXAMPLE")
+  public static EnumAttribute IC000001 =
+      new EnumAttribute("com.doublechaintech.xt20.iconconfiguration.IconConfiguration", "IC000001")
           .chineseName("样例");
 
   public EnumAttribute[] getEnumNameList() {
-    return new EnumAttribute[] {ICON_EXAMPLE};
+    return new EnumAttribute[] {IC000001};
   }
 
   // 引用的对象

@@ -66,6 +66,7 @@ public class Q02_GasProduct extends PieceOfScript {
     private PageFlowScript wantedForProductList(PageFlowScript script) {
         return script.wants(MODEL.gasProduct().cylinder().gasContainer(),
                 MODEL.gasProduct().fillVolume(),
+                MODEL.gasProduct().status(),
                 MODEL.gasProduct().cylinder().nominalPressure(),
                 MODEL.gasCylinder().fillMedium(),
                 MODEL.gasCylinder().gasContainer(),
