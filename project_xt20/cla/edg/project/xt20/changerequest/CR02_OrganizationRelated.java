@@ -31,6 +31,7 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                 .has_field("agency social code").zh_CN("信用代码")
                     .place_holder("请输入您的单位信用代码")
                     .fill_by_request("organization identity id", MODEL.organizationIdentity().agencySocialCode())
+                    .values_can_select_from_query_by("wxappService/customerSelectMerchantCreditNo/+/")
                     .range(18,18).optional()
                 .has_field("contact name").zh_CN("联系人")
                     .place_holder("请输入联系人姓名")
@@ -47,7 +48,10 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                 .has_field("logo").zh_CN("单位logo")
                     .which_type_of(FieldType.IMAGE)
                     .fill_by_request("organization identity id", MODEL.organizationIdentity().logo())
-
+                .has_field("comment").zh_CN("备注")
+                    .which_type_of(FieldType.MULTI_TEXT)
+                    .fill_by_request("organization identity id", MODEL.organizationIdentity().comment())
+                    .range(0,200)
 
 
 
@@ -215,6 +219,7 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                     .display()
                 .has_field("agency social code").zh_CN("信用代码")
                     .range(18,18).optional()
+                    .values_can_select_from_query_by("wxappService/customerSelectMerchantCreditNo/+/")
                     .place_holder("请输入企业信用代码")
                     .optional()
                 .has_field("prompt 2")

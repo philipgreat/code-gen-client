@@ -476,6 +476,13 @@ public class MODEL {
     return rst;
   }
 
+  public static CommonEventRecord commonEventRecord() {
+    CommonEventRecord rst = new CommonEventRecord();
+    rst.setModelTypeName("common_event_record");
+    rst.setBeanPath(new BeanPath().name("common_event_record"));
+    return rst;
+  }
+
   public static ChangeRequestType changeRequestType() {
     ChangeRequestType rst = new ChangeRequestType();
     rst.setModelTypeName("change_request_type");

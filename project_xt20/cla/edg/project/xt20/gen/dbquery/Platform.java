@@ -432,6 +432,17 @@ public class Platform extends BaseModelBean {
     return member;
   }
 
+  public CommonEventRecord commonEventRecordList() {
+    CommonEventRecord member = new CommonEventRecord();
+    member.setModelTypeName("common_event_record");
+    member.setName("platform");
+    member.setMemberName("commonEventRecordList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public ChangeRequestType changeRequestTypeList() {
     ChangeRequestType member = new ChangeRequestType();
     member.setModelTypeName("change_request_type");

@@ -117,6 +117,15 @@ public class EventOrganizationInfo extends BaseModelBean {
     return member;
   }
 
+  public StringAttribute comment() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string_longtext");
+    // member.setName("comment");
+    member.setName("comment");
+    useMember(member);
+    return member;
+  }
+
   public NumberAttribute version() {
     NumberAttribute member = new NumberAttribute();
     member.setModelTypeName("int");

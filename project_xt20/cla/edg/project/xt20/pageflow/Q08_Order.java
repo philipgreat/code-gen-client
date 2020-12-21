@@ -39,7 +39,7 @@ public class Q08_Order extends PieceOfScript {
 
 
 
-                .query(MODEL.mainOrder()).list_of("waiting add to delivery task").pagination().with_string("seller id").with_string("search key")
+            .query(MODEL.mainOrder()).list_of("waiting add to delivery task").pagination().with_string("seller id").with_string("search key")
                 .comments("按照卖家ID查询其待加入配送任务的订单, search key 的目标是收货人信息")
                 .do_it_as()
                 .where(MODEL.mainOrder().seller().eq("${seller id}"),
