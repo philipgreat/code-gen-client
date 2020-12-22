@@ -50,6 +50,7 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                     .fill_by_request("organization identity id", MODEL.organizationIdentity().logo())
                 .has_field("comment").zh_CN("备注")
                     .which_type_of(FieldType.MULTI_TEXT)
+                    .optional()
                     .fill_by_request("organization identity id", MODEL.organizationIdentity().comment())
                     .range(0,200)
 
@@ -230,7 +231,7 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                     .optional()
                     .place_holder("请输入客户手机号码")
                 .has_field("comment").zh_CN("备注")
-                    .range(0,100)
+                    .range(0,100).optional()
                     .which_type_of(FieldType.MULTI_TEXT)
                     .place_holder("请输入备注信息")
 
@@ -260,7 +261,7 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                 .has_field("comment").zh_CN("备注")
                     .which_type_of(FieldType.MULTI_TEXT)
                     .fill_by_request("relation id", MODEL.supplyRelationship().customerComment())
-                    .range(0, 200)
+                    .range(0, 200).optional()
 
                 ;
     }

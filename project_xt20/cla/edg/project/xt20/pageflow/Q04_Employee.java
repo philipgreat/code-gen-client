@@ -25,12 +25,12 @@ public class Q04_Employee extends PieceOfScript {
                 .do_it_as()
                 .where(MODEL.employee().merchant().eq("${merchant id}"),
                         MODEL.employee().status().in(EmployeeStatus.TO_BE_APPROVE),
-                        MODEL.employee().invitationRecordListAsInvitee().inviter().not_null())
+                        MODEL.employee().invitation().not_null())
 //                .where(MODEL.employee().invitationRecordListAsInvitee().inviter().not_null()) // 调试用
                 .order_by(MODEL.employee().personInformation().name()).asc_by_pinyin()
                 .wants(MODEL.employee().role(), MODEL.employee().personInformation(),
-                        MODEL.employee().invitationRecordListAsInvitee().inviter().merchant().organizationIdentityList(),
-                        MODEL.employee().invitationRecordListAsInvitee().inviter().personInformation())
+                        MODEL.employee().invitation().inviter().merchant().organizationIdentityList(),
+                        MODEL.employee().invitation().inviter().personInformation())
 
 
             .query(MODEL.employee()).list_of("user acting").with_string("user id")

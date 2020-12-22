@@ -74,9 +74,7 @@ public class Q07_Delivery extends PieceOfScript {
                         )
                 )
                 .wants(MODEL.mainOrder().seller().organizationIdentityList(),
-                        MODEL.mainOrder().creator().personInformation(),
-                        MODEL.gasShippingGroup().deliveryReceiptList().status(),
-                        MODEL.gasShippingGroup().gasLineItem().cylinder())
+                        MODEL.mainOrder().creator().personInformation())
 
 
 
