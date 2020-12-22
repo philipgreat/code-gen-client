@@ -56,6 +56,17 @@ public class Employee extends BaseModelBean {
     return member;
   }
 
+  public InvitationRecord invitation() {
+    InvitationRecord member = new InvitationRecord();
+    member.setModelTypeName("invitation_record");
+    member.setName("invitation");
+    member.setMemberName("invitation");
+    member.setReferDirection(true);
+    member.setRelationName("invitation");
+    append(member);
+    return member;
+  }
+
   public Platform platform() {
     Platform member = new Platform();
     member.setModelTypeName("platform");
@@ -80,22 +91,11 @@ public class Employee extends BaseModelBean {
     return member;
   }
 
-  public InvitationRecord invitationRecordListAsInviter() {
+  public InvitationRecord invitationRecordList() {
     InvitationRecord member = new InvitationRecord();
     member.setModelTypeName("invitation_record");
     member.setName("inviter");
-    member.setMemberName("invitationRecordListAsInviter");
-    member.setRelationName("inviter");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public InvitationRecord invitationRecordListAsInvitee() {
-    InvitationRecord member = new InvitationRecord();
-    member.setModelTypeName("invitation_record");
-    member.setName("invitee");
-    member.setMemberName("invitationRecordListAsInvitee");
+    member.setMemberName("invitationRecordList");
     member.setRelationName("inviter");
     member.setReferDirection(false);
     append(member);

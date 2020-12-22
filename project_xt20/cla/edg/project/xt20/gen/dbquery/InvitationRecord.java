@@ -23,13 +23,13 @@ public class InvitationRecord extends BaseModelBean {
     return member;
   }
 
-  public Employee invitee() {
-    Employee member = new Employee();
-    member.setModelTypeName("employee");
-    member.setName("invitee");
-    member.setMemberName("invitee");
+  public Merchant merchant() {
+    Merchant member = new Merchant();
+    member.setModelTypeName("merchant");
+    member.setName("merchant");
+    member.setMemberName("merchant");
     member.setReferDirection(true);
-    member.setRelationName("invitee");
+    member.setRelationName("merchant");
     append(member);
     return member;
   }
@@ -46,6 +46,17 @@ public class InvitationRecord extends BaseModelBean {
   }
 
   // 被引用的对象
+
+  public Employee employeeList() {
+    Employee member = new Employee();
+    member.setModelTypeName("employee");
+    member.setName("invitation");
+    member.setMemberName("employeeList");
+    member.setRelationName("invitation");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
 
   // 普通属性
 

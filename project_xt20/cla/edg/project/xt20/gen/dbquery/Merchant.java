@@ -80,6 +80,17 @@ public class Merchant extends BaseModelBean {
     return member;
   }
 
+  public InvitationRecord invitationRecordList() {
+    InvitationRecord member = new InvitationRecord();
+    member.setModelTypeName("invitation_record");
+    member.setName("merchant");
+    member.setMemberName("invitationRecordList");
+    member.setRelationName("merchant");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public Employee employeeList() {
     Employee member = new Employee();
     member.setModelTypeName("employee");
