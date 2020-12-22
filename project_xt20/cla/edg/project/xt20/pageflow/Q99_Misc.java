@@ -42,6 +42,14 @@ public class Q99_Misc extends PieceOfScript {
                 .do_it_as()
                 .where(MODEL.gasProductTemplateComponent().fillMedium().eq("${fill medium}"))
 
+
+            .find(MODEL.invitationRecord()).which("by id").with_string("id")
+                .comments("加载邀请详情")
+                .do_it_as()
+                .where(MODEL.invitationRecord().id().eq("${id}"))
+                .wants(MODEL.invitationRecord().inviter().personInformation(),
+                        MODEL.invitationRecord().inviter().merchant().organizationIdentityList())
+
        ;
     }
 }

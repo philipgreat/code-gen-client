@@ -28,9 +28,7 @@ public class Q04_Employee extends PieceOfScript {
                         MODEL.employee().invitation().not_null())
 //                .where(MODEL.employee().invitationRecordListAsInvitee().inviter().not_null()) // 调试用
                 .order_by(MODEL.employee().personInformation().name()).asc_by_pinyin()
-                .wants(MODEL.employee().role(), MODEL.employee().personInformation(),
-                        MODEL.employee().invitation().inviter().merchant().organizationIdentityList(),
-                        MODEL.employee().invitation().inviter().personInformation())
+                .wants(MODEL.employee().role(), MODEL.employee().personInformation())
 
 
             .query(MODEL.employee()).list_of("user acting").with_string("user id")

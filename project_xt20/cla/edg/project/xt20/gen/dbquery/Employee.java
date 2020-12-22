@@ -56,17 +56,6 @@ public class Employee extends BaseModelBean {
     return member;
   }
 
-  public InvitationRecord invitation() {
-    InvitationRecord member = new InvitationRecord();
-    member.setModelTypeName("invitation_record");
-    member.setName("invitation");
-    member.setMemberName("invitation");
-    member.setReferDirection(true);
-    member.setRelationName("invitation");
-    append(member);
-    return member;
-  }
-
   public Platform platform() {
     Platform member = new Platform();
     member.setModelTypeName("platform");
@@ -241,6 +230,15 @@ public class Employee extends BaseModelBean {
     member.setModelTypeName("string");
     // member.setName("id");
     member.setName("id");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute invitation() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("invitation");
+    member.setName("invitation");
     useMember(member);
     return member;
   }

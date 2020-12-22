@@ -47,17 +47,6 @@ public class InvitationRecord extends BaseModelBean {
 
   // 被引用的对象
 
-  public Employee employeeList() {
-    Employee member = new Employee();
-    member.setModelTypeName("employee");
-    member.setName("invitation");
-    member.setMemberName("employeeList");
-    member.setRelationName("invitation");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
   // 普通属性
 
   public StringAttribute id() {

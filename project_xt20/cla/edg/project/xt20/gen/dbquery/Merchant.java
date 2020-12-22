@@ -58,6 +58,17 @@ public class Merchant extends BaseModelBean {
     return member;
   }
 
+  public UserWorkingInfo userWorkingInfoList() {
+    UserWorkingInfo member = new UserWorkingInfo();
+    member.setModelTypeName("user_working_info");
+    member.setName("supplier");
+    member.setMemberName("userWorkingInfoList");
+    member.setRelationName("supplier");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public OrganizationIdentity organizationIdentityList() {
     OrganizationIdentity member = new OrganizationIdentity();
     member.setModelTypeName("organization_identity");

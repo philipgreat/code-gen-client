@@ -34,6 +34,17 @@ public class UserWorkingInfo extends BaseModelBean {
     return member;
   }
 
+  public Merchant supplier() {
+    Merchant member = new Merchant();
+    member.setModelTypeName("merchant");
+    member.setName("supplier");
+    member.setMemberName("supplier");
+    member.setReferDirection(true);
+    member.setRelationName("supplier");
+    append(member);
+    return member;
+  }
+
   // 被引用的对象
 
   // 普通属性
@@ -61,15 +72,6 @@ public class UserWorkingInfo extends BaseModelBean {
     member.setModelTypeName("string");
     // member.setName("jobRole");
     member.setName("job_role");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute supplier() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("supplier");
-    member.setName("supplier");
     useMember(member);
     return member;
   }
