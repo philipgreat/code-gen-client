@@ -36,6 +36,28 @@ public class District extends BaseModelBean {
 
   // 被引用的对象
 
+  public MainOrder mainOrderList() {
+    MainOrder member = new MainOrder();
+    member.setModelTypeName("main_order");
+    member.setName("handover_district");
+    member.setMemberName("mainOrderList");
+    member.setRelationName("handoverDistrict");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public GasShippingGroup gasShippingGroupList() {
+    GasShippingGroup member = new GasShippingGroup();
+    member.setModelTypeName("gas_shipping_group");
+    member.setName("handover_district");
+    member.setMemberName("gasShippingGroupList");
+    member.setRelationName("handoverDistrict");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

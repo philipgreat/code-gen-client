@@ -56,7 +56,7 @@ public class Q08_Order extends PieceOfScript {
                 .run_by(this::wantsWhenLoadOrderForDeliver)
 
             .find(MODEL.mainOrder()).which("for detail").with_string("order id")
-                .comments("根据ID查询订单,收集其相关信息用于调度安排")
+                .comments("根据ID查询订单,收集其相关信息用于展示详情")
                 .do_it_as()
                 .where(MODEL.mainOrder().id().eq("${order id}"))
                 .run_by(this::wantsWhenLoadOrderForDetail)
@@ -90,10 +90,8 @@ public class Q08_Order extends PieceOfScript {
                 MODEL.mainOrder().userCommentsList(),
                 MODEL.mainOrder().gasLineItemList(),
                 MODEL.mainOrder().orderOperationRecordList().action(),
-                MODEL.mainOrder().gasShippingGroupList().gasLineItem().product().cylinder(),
-                MODEL.mainOrder().gasShippingGroupList().gasLineItem().product().fillVolume(),
-                MODEL.mainOrder().gasShippingGroupList().gasLineItem().product().productType(),
-                MODEL.mainOrder().gasShippingGroupList().gasLineItem().product().gasProductComponentList(),
+                MODEL.mainOrder().handoverDistrict().city().province(),
+                MODEL.mainOrder().gasShippingGroupList().gasLineItem().product(),
                 MODEL.mainOrder().gasShippingGroupList().gasLineItem().cylinder().gasContainer(),
                 MODEL.mainOrder().buyer().organizationIdentityList(),
                 MODEL.mainOrder().creator().personInformation()

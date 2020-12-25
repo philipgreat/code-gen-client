@@ -45,6 +45,17 @@ public class MainOrder extends BaseModelBean {
     return member;
   }
 
+  public District handoverDistrict() {
+    District member = new District();
+    member.setModelTypeName("district");
+    member.setName("handover_district");
+    member.setMemberName("handoverDistrict");
+    member.setReferDirection(true);
+    member.setRelationName("handoverDistrict");
+    append(member);
+    return member;
+  }
+
   public DeliverType shippingType() {
     DeliverType member = new DeliverType();
     member.setModelTypeName("deliver_type");
