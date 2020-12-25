@@ -66,6 +66,12 @@ public class Q08_Order extends PieceOfScript {
                 .do_it_as()
                 .where(MODEL.mainOrder().gasShippingGroupList().deliverTask().id().eq("${task id}"))
                 .run_by(this::wantsWhenLoadOrderForDeliver)
+
+
+            .query(MODEL.orderOperationRecord()).list_of("order").with_string("order id")
+                .comments("查询订单的执行记录")
+                .do_it_as()
+                .where(MODEL.orderOperationRecord().mainOrder().eq("${order id}"))
         ;
     }
 
@@ -99,12 +105,11 @@ public class Q08_Order extends PieceOfScript {
     }
     private PageFlowScript wantsWhenLoadOrderForDeliver(PageFlowScript script) {
         return script.wants(MODEL.mainOrder().status(),
-                MODEL.mainOrder().buyer().organizationIdentityList(),
-                MODEL.mainOrder().creator().personInformation(),
                 MODEL.mainOrder().shippingType(),
-                MODEL.mainOrder().gasShippingGroupList(),
-                MODEL.mainOrder().gasShippingGroupList().gasLineItem(),
-                MODEL.mainOrder().gasShippingGroupList().gasLineItem().cylinder(),
+                MODEL.mainOrder().buyer().organizationIdentityList(),
+                MODEL.mainOrder().buyer().individualIdentityList(),
+                MODEL.mainOrder().creator().personInformation(),
+                MODEL.mainOrder().gasShippingGroupList().gasLineItem().product(),
                 MODEL.mainOrder().gasShippingGroupList().gasLineItem().cylinder().gasContainer()
                 );
     }

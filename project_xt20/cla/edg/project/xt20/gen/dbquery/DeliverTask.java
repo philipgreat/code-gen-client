@@ -91,11 +91,20 @@ public class DeliverTask extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute name() {
+  public DateTimeAttribute handoverDate() {
+    DateTimeAttribute member = new DateTimeAttribute();
+    member.setModelTypeName("date");
+    // member.setName("handoverDate");
+    member.setName("handover_date");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute handoverTime() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
-    // member.setName("name");
-    member.setName("name");
+    // member.setName("handoverTime");
+    member.setName("handover_time");
     useMember(member);
     return member;
   }
