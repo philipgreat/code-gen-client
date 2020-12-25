@@ -19,13 +19,16 @@ public class Q99_Misc extends PieceOfScript {
                 .do_it_as()
                 .where(MODEL.userWorkingInfo().id().eq("${id}"))
                 .wants(MODEL.userWorkingInfo().employee().personInformation(),
-                        MODEL.userWorkingInfo().employee().merchant().organizationIdentityList())
+                        MODEL.userWorkingInfo().employee().merchant().organizationIdentityList(),
+                        MODEL.userWorkingInfo().employee().merchant().individualIdentityList())
 
             .find(MODEL.merchant()).which("by id").with_string("id")
                 .comments("根据ID加载商户信息")
                 .do_it_as()
                 .where(MODEL.merchant().id().eq("${id}"))
-                .wants(MODEL.merchant().organizationIdentityList(), MODEL.merchant().merchantType())
+                .wants(MODEL.merchant().organizationIdentityList(),
+                        MODEL.merchant().individualIdentityList(),
+                        MODEL.merchant().merchantType())
 
 
 

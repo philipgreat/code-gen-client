@@ -1,6 +1,7 @@
 package cla.edg.project.xt20.changerequest;
 
 import cla.edg.project.xt20.gen.dbquery.MODEL;
+import cla.edg.project.xt20.gen.dbquery.MerchantType;
 import com.terapico.changerequest.builder.ChangeRequestSpecBuilder;
 import com.terapico.changerequest.builder.ChangeRequestSpecFactory;
 import com.terapico.changerequest.builder.FieldType;
@@ -208,8 +209,8 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                     .fill_by_request("employee id")
                     .hidden()
                 .has_field("buyer type").zh_CN("用户类型")
-                    .values_canbe("personal", "个人用气用户").or("enterprise", "企业用气用户")
-                    .defaule_value("personal")
+                    .values_canbe(MerchantType.PERSONAL.getLiteralName(), "个人用气用户").or(MerchantType.ORGANIZATION.getLiteralName(), "企业用气用户")
+                    .defaule_value(MerchantType.PERSONAL.getLiteralName())
 
 
                 .has_field("name").zh_CN("用户名称")

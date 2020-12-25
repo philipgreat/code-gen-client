@@ -60,6 +60,14 @@ public class Q02_GasProduct extends PieceOfScript {
                 .where(MODEL.gasProduct().id().eq("${product id}"))
                 .wants(MODEL.gasProduct().cylinder(), MODEL.gasProduct().status())
 
+
+            .find(MODEL.gasProductTemplate()).which("added into merchant lib").with_string("id")
+                .comments("查询用户刚刚添加的模板产品的信息")
+                .do_it_as()
+                .where(MODEL.gasProductTemplate().id().eq("${id}"))
+                .wants(MODEL.gasProductTemplate().gasProductList().cylinder())
+
+
        ;
     }
 
