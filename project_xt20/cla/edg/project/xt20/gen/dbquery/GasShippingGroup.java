@@ -218,7 +218,7 @@ public class GasShippingGroup extends BaseModelBean {
 
   public DateTimeAttribute handoverDate() {
     DateTimeAttribute member = new DateTimeAttribute();
-    member.setModelTypeName("date");
+    member.setModelTypeName("date_time");
     // member.setName("handoverDate");
     member.setName("handover_date");
     useMember(member);
