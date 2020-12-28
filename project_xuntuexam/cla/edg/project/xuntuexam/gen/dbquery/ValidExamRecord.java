@@ -96,6 +96,15 @@ public class ValidExamRecord extends BaseModelBean {
     return member;
   }
 
+  public NumberAttribute usedSeconds() {
+    NumberAttribute member = new NumberAttribute();
+    member.setModelTypeName("int");
+    // member.setName("usedSeconds");
+    member.setName("used_seconds");
+    useMember(member);
+    return member;
+  }
+
   public DateTimeAttribute lastUpdateTime() {
     DateTimeAttribute member = new DateTimeAttribute();
     member.setModelTypeName("date_time_update");

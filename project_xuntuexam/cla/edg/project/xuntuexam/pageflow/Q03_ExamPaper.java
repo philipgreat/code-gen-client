@@ -16,7 +16,9 @@ public class Q03_ExamPaper extends PieceOfScript {
                         MODEL.examinationPaper().competition().eq("${competition id}"),
                         MODEL.examinationPaper().examPaperStatus().not(ExamPaperStatus.CANCELLED)
                 )
-                .wants(MODEL.examinationPaper().competition())
+                .wants(MODEL.examinationPaper().competition(),
+                        MODEL.examinationPaper().examPaperStatus(),
+                        MODEL.examinationPaper().examinationAnswerList())
 
             .find(MODEL.examinationPaper()).which("doing in competition").with_string("competition id").with_string("merchant id")
                 .comments("根据用户和竞赛,找到还未答完的试卷")
@@ -33,11 +35,28 @@ public class Q03_ExamPaper extends PieceOfScript {
                 .where(MODEL.examinationPaper().id().eq("${paper id}"))
                 .wants(MODEL.examinationPaper().examinationAnswerList())
 
+            .find(MODEL.examinationPaper()).which("best in competition of user").with_string("competition id").with_string("merchant id")
+                .comments("找出用户在某个竞赛中的最好成绩")
+                .do_it_as()
+                .where(MODEL.examinationPaper().examinee().eq("${merchant id}"),
+                        MODEL.examinationPaper().competition().eq("${competition id}"))
+                .order_by(MODEL.examinationPaper().score()).desc()
+                .order_by("TIMESTAMPDIFF(SECOND, T1.create_time,T1.last_update_time) asc")
+
             .query(MODEL.examinationPaper()).list_of("user competition").with_string("competition id").with_string("merchant id")
                 .comments("查询用户的历史成绩")
                 .do_it_as()
                 .where(MODEL.examinationPaper().examinee().eq("${merchant id}"),
                         MODEL.examinationPaper().competition().eq("${competition id}"))
+
+
+            .query(MODEL.examinationQuestion()).list_of("all").pagination()
+                .comments("加载所有的题目")
+                .do_it_as()
+                .where(MODEL.examinationQuestion().platform().not_null())
+                .wants(MODEL.examinationQuestion().questionCategory())
                 ;
+
+
     }
 }

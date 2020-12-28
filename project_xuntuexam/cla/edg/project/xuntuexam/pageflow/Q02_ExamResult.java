@@ -25,7 +25,8 @@ public class Q02_ExamResult extends PieceOfScript {
                 .do_it_as()
                 .where(MODEL.validExamRecord().competition().eq("${competition id}"))
                 .order_by(MODEL.validExamRecord().score()).desc()
-                .order_by(MODEL.validExamRecord().lastUpdateTime()).asc()
+                .order_by(MODEL.validExamRecord().usedSeconds()).desc()
+                .order_by(MODEL.validExamRecord().id()).desc()
                 .top_5()
                 .wants(MODEL.validExamRecord().examinee().personalUserList())
 
@@ -34,7 +35,8 @@ public class Q02_ExamResult extends PieceOfScript {
                 .do_it_as()
                 .where(MODEL.validExamRecord().competition().eq("${competition id}"))
                 .order_by(MODEL.validExamRecord().score()).desc()
-                .order_by(MODEL.validExamRecord().lastUpdateTime()).asc()
+                .order_by(MODEL.validExamRecord().usedSeconds()).desc()
+                .order_by(MODEL.validExamRecord().id()).desc()
                 .wants(MODEL.validExamRecord().examinee().personalUserList())
 
             .find(MODEL.validExamRecord()).which("user in competition").with_string("competition id").with_string("merchant id")
@@ -45,12 +47,12 @@ public class Q02_ExamResult extends PieceOfScript {
                 .wants(MODEL.validExamRecord().examinationPaper().competition(),
                         MODEL.validExamRecord().examinee().personalUserList())
 
-            .find(MODEL.validExamRecord()).which("for competition").with_string("competition id").with_integer("score").with_date("finish time")
+            .find(MODEL.validExamRecord()).which("for competition").with_string("competition id").with_integer("score").with_date("used time")
                 .comments("统计某个考试中,排名在我之前(根据之前查询出来的分数和完成时间)的有效成绩数量")
                 .do_it_as().count()
                 .where(MODEL.validExamRecord().competition().eq("${competition id}"),
                         MODEL.validExamRecord().score().bigger("${score}")
-                        .or(MODEL.validExamRecord().score().eq("${score}").and(MODEL.validExamRecord().endTime().before("${finish time}")))
+                        .or(MODEL.validExamRecord().score().eq("${score}").and(MODEL.validExamRecord().usedSeconds().less("${used time}")))
                 )
 
 
@@ -70,6 +72,13 @@ public class Q02_ExamResult extends PieceOfScript {
                 .do_it_as().count()
                 .where(MODEL.examinationAnswer().examinationPaper().eq("${paper id}"),
                         MODEL.examinationAnswer().answerResult().is_null())
+
+            .find(MODEL.examinationAnswer()).which("answered in paper").with_string("paper id")
+                .comments("统计试卷中已经回答了几道题")
+                .do_it_as().count()
+                .where(MODEL.examinationAnswer().examinationPaper().eq("${paper id}"),
+                        MODEL.examinationAnswer().answerResult().not_null()
+                                .or(MODEL.examinationAnswer().answerResult().eq("")))
                 ;
     }
 }
