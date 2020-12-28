@@ -223,6 +223,17 @@ public class Employee extends BaseModelBean {
     return member;
   }
 
+  public EventAdminTransfer eventAdminTransferList() {
+    EventAdminTransfer member = new EventAdminTransfer();
+    member.setModelTypeName("event_admin_transfer");
+    member.setName("new_admin");
+    member.setMemberName("eventAdminTransferList");
+    member.setRelationName("newAdmin");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

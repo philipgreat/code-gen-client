@@ -12,9 +12,9 @@ public class EventAdminTransfer extends BaseModelBean {
 
   // 引用的对象
 
-  public PersonalUser newAdmin() {
-    PersonalUser member = new PersonalUser();
-    member.setModelTypeName("personal_user");
+  public Employee newAdmin() {
+    Employee member = new Employee();
+    member.setModelTypeName("employee");
     member.setName("new_admin");
     member.setMemberName("newAdmin");
     member.setReferDirection(true);

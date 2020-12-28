@@ -125,7 +125,7 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                     .display()
 
                 .has_field("new admin").zh_CN("新管理员")
-                    .which_model_of(MODEL.personalUser())
+                    .which_model_of(MODEL.employee())
                     .values_can_select_from_query_by("wxappService/customerViewSelectColleague/${merchant id}/admin_transfer/+/")
 
 
