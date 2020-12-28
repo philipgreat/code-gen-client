@@ -20,6 +20,16 @@ public class Q04_Employee extends PieceOfScript {
                 .wants(MODEL.employee().role(), MODEL.employee().personInformation())
 
 
+            .query(MODEL.employee()).list_of("merchant").with_string("merchant id")
+                .comments("查询某个公司内的所有正式同事")
+                .do_it_as()
+                .where(MODEL.employee().merchant().eq("${merchant id}"),
+                        MODEL.employee().status().in(EmployeeStatus.NORMAL))
+//                .where(MODEL.employee().id().not_null()) // 调试用
+                .order_by(MODEL.employee().personInformation().name()).asc_by_pinyin()
+                .wants(MODEL.employee().role(), MODEL.employee().personInformation())
+
+
             .query(MODEL.employee()).list_of("colleague need approve").with_string("merchant id")
                 .comments("查询用户在某个公司内的需要被approve的同事")
                 .do_it_as()
@@ -38,6 +48,8 @@ public class Q04_Employee extends PieceOfScript {
                 .wants(MODEL.employee().merchant().organizationIdentityList(),
                         MODEL.employee().role(),
                         MODEL.employee().status())
+
+
        ;
     }
 }
