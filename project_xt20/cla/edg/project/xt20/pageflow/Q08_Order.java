@@ -99,6 +99,8 @@ public class Q08_Order extends PieceOfScript {
                 MODEL.mainOrder().handoverDistrict().city().province(),
                 MODEL.mainOrder().gasShippingGroupList().gasLineItem().product(),
                 MODEL.mainOrder().gasShippingGroupList().gasLineItem().cylinder().gasContainer(),
+                MODEL.mainOrder().gasShippingGroupList().deliveryReceiptList(),
+                MODEL.mainOrder().gasShippingGroupList().deliverTask(),
                 MODEL.mainOrder().buyer().organizationIdentityList(),
                 MODEL.mainOrder().creator().personInformation()
         );

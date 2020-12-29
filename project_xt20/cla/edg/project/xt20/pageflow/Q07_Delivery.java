@@ -44,7 +44,8 @@ public class Q07_Delivery extends PieceOfScript {
             .query(MODEL.deliverTask()).list_of("confirm bottle return").pagination().with_string("merchant id")
                 .comments("查询待'回瓶确认'的运单")
                 .do_it_as()
-                .where(MODEL.deliverTask().merchant().eq("${merchant id}"),MODEL.deliverTask().status().in(DeliverTaskStatus.RETURNING))
+                .where(MODEL.deliverTask().merchant().eq("${merchant id}"),
+                        MODEL.deliverTask().status().in(DeliverTaskStatus.RETURNING))
                 .wants(MODEL.deliverTask().status(), MODEL.deliverTask().deliverStaff().personInformation(),
                         MODEL.deliverTask().gasShippingGroupList().deliveryReceiptList(),
                         MODEL.deliverTask().gasShippingGroupList().gasLineItem().cylinder().gasContainer())
@@ -96,7 +97,17 @@ public class Q07_Delivery extends PieceOfScript {
                 .comments("查询出某个配送任务下, 某个订单的所有 shipping group")
                 .do_it_as()
                 .where(MODEL.gasShippingGroup().mainOrder().eq("${order id}"),
-                        MODEL.gasShippingGroup().deliverTask().eq("${task id}"))
+                        MODEL.gasShippingGroup().deliverTask().eq("${task id}"),
+                        MODEL.gasShippingGroup().shippingStatus().in(ShippingStatus.SELLER_SHIPPING, ShippingStatus.WAITING_BUYER_PICK_UP))
+
+
+            .query(MODEL.deliveryReceipt()).list_of("wait confirm").with_string("order id").with_string("task id")
+                .comments("查询订单中,指定task中,待确认收货的交接单")
+                .do_it_as()
+                .where(MODEL.deliveryReceipt().mainOrder().eq("${order id}"),
+                        MODEL.deliveryReceipt().status().in(DeliveryReceiptStatus.WAITING_BUYER_CONFIRM, DeliveryReceiptStatus.WAITING_BUYER_CONFIRM),
+                        MODEL.deliveryReceipt().gasShippingGroup().deliverTask().eq("${task id}").optional())
+
 
         ;
     }
