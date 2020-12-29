@@ -162,7 +162,7 @@ public class DeliveryReceipt extends BaseModelBean {
 
   public DateTimeAttribute confirmTime() {
     DateTimeAttribute member = new DateTimeAttribute();
-    member.setModelTypeName("date");
+    member.setModelTypeName("date_time");
     // member.setName("confirmTime");
     member.setName("confirm_time");
     useMember(member);

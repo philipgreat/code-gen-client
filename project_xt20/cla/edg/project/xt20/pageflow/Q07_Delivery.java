@@ -91,6 +91,13 @@ public class Q07_Delivery extends PieceOfScript {
                         MODEL.deliverTask().gasShippingGroupList().deliveryReceiptList(),
                         MODEL.deliverTask().merchant().organizationIdentityList())
 
+
+            .query(MODEL.gasShippingGroup()).list_of("view as deliver task").with_string("order id").with_string("task id")
+                .comments("查询出某个配送任务下, 某个订单的所有 shipping group")
+                .do_it_as()
+                .where(MODEL.gasShippingGroup().mainOrder().eq("${order id}"),
+                        MODEL.gasShippingGroup().deliverTask().eq("${task id}"))
+
         ;
     }
 }

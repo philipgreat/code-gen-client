@@ -11,7 +11,7 @@ public class DeliverTaskStatus extends BaseModelBean {
   // 枚举对象
   public static EnumAttribute PENDING =
       new EnumAttribute("com.doublechaintech.xt20.delivertaskstatus.DeliverTaskStatus", "PENDING")
-          .chineseName("待执行");
+          .chineseName("待配送");
   public static EnumAttribute SHIPPING =
       new EnumAttribute("com.doublechaintech.xt20.delivertaskstatus.DeliverTaskStatus", "SHIPPING")
           .chineseName("配送中");
