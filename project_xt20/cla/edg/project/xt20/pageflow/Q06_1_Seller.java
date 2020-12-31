@@ -12,7 +12,7 @@ public class Q06_1_Seller extends PieceOfScript {
             .query(MODEL.merchant()).list_of("supplier").pagination().with_string("merchant id").with_string("search key")
                 .comments("查询一个买家对应的所有供应商")
                 .do_it_as()
-                .where(MODEL.merchant().supplyRelationshipListAsCustomer().customer().eq("${merchant id}"),
+                .where(MODEL.merchant().supplyRelationshipListAsSupplier().customer().eq("${merchant id}"),
                         MODEL.merchant().organizationIdentityList().name().like("${search key}").optional())
                 .order_by(MODEL.merchant().name()).asc_by_pinyin()
                 .wants(MODEL.merchant().organizationIdentityList())

@@ -50,7 +50,7 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                     .which_type_of(FieldType.IMAGE)
                     .fill_by_request("organization identity id", MODEL.organizationIdentity().logo())
                 .has_field("comment").zh_CN("备注")
-                    .which_type_of(FieldType.MULTI_TEXT)
+                    .which_type_of(FieldType.MULTI_TEXT).input_at_next_line()
                     .optional()
                     .fill_by_request("organization identity id", MODEL.organizationIdentity().comment())
                     .range(0,200)
@@ -192,7 +192,7 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                 .has_field("approve comment").zh_CN("说明")
                     .optional()
                     .place_holder("如有其他说明,请在此填写")
-                    .which_type_of(FieldType.MULTI_TEXT)
+                    .which_type_of(FieldType.MULTI_TEXT).input_at_next_line()
 
         .change_request("audit join apply").zh_CN("审批加入+姓名")
             .step("A").zh_CN("批准加入")
@@ -233,7 +233,7 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                     .place_holder("请输入客户手机号码")
                 .has_field("comment").zh_CN("备注")
                     .range(0,100).optional()
-                    .which_type_of(FieldType.MULTI_TEXT)
+                    .which_type_of(FieldType.MULTI_TEXT).input_at_next_line()
                     .place_holder("请输入备注信息")
 
         .change_request("add buyer for quote").zh_CN("添加客户")
@@ -260,7 +260,7 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                     .fill_by_request("relation id")
                     .hidden()
                 .has_field("comment").zh_CN("备注")
-                    .which_type_of(FieldType.MULTI_TEXT)
+                    .which_type_of(FieldType.MULTI_TEXT).input_at_next_line()
                     .fill_by_request("relation id", MODEL.supplyRelationship().customerComment())
                     .range(0, 200).optional()
 
