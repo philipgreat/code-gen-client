@@ -45,6 +45,7 @@ public class Q08_Order extends PieceOfScript {
                 .where(MODEL.mainOrder().seller().eq("${seller id}"),
                         MODEL.mainOrder().buyerContactName().like("${search key}").optional()
                         .or(MODEL.mainOrder().buyerContactPhone().like("${search key}").optional()),
+                        MODEL.mainOrder().status().in(OrderStatus.WAITING_SELLER_DELIVERY, OrderStatus.SELLER_SHIPPING),
                         MODEL.mainOrder().gasShippingGroupList().deliverTask().is_null()
                 ).order_by(MODEL.mainOrder().id()).asc()
                 .run_by(this::wantsWhenLoadOrderForDeliver)

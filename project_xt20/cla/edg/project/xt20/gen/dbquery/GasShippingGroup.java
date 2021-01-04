@@ -191,7 +191,7 @@ public class GasShippingGroup extends BaseModelBean {
 
   public StringAttribute sellerContactPhone() {
     StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
+    member.setModelTypeName("string_china_mobile_phone");
     // member.setName("sellerContactPhone");
     member.setName("seller_contact_phone");
     useMember(member);
@@ -209,7 +209,7 @@ public class GasShippingGroup extends BaseModelBean {
 
   public StringAttribute buyerContactPhone() {
     StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
+    member.setModelTypeName("string_china_mobile_phone");
     // member.setName("buyerContactPhone");
     member.setName("buyer_contact_phone");
     useMember(member);
