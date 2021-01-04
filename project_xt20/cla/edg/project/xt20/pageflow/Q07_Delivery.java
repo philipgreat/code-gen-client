@@ -40,6 +40,12 @@ public class Q07_Delivery extends PieceOfScript {
                 .do_it_as()
                 .where(MODEL.deliverTask().merchant().eq("${merchant id}"),MODEL.deliverTask().status().in("${status}"))
                 .wants(MODEL.deliverTask().status(), MODEL.deliverTask().deliverStaff().personInformation())
+            .query(MODEL.deliverTask()).list_of("my deliver task").pagination().with_string("user id")
+                .comments("查询当前用户相关的待执行运单")
+                .do_it_as()
+                .where(MODEL.deliverTask().deliverStaff().personInformation().eq("${user id}"),
+                        MODEL.deliverTask().status().in(DeliverTaskStatus.PENDING))
+                .wants(MODEL.deliverTask().status(), MODEL.deliverTask().deliverStaff().personInformation())
 
             .query(MODEL.deliverTask()).list_of("confirm bottle return").pagination().with_string("merchant id")
                 .comments("查询待'回瓶确认'的运单")
