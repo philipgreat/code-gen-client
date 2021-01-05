@@ -23,13 +23,13 @@ public class GuideSlide extends BaseModelBean {
     return member;
   }
 
-  public MobileApp app() {
-    MobileApp member = new MobileApp();
-    member.setModelTypeName("mobile_app");
-    member.setName("app");
-    member.setMemberName("app");
+  public Platform platform() {
+    Platform member = new Platform();
+    member.setModelTypeName("platform");
+    member.setName("platform");
+    member.setMemberName("platform");
     member.setReferDirection(true);
-    member.setRelationName("app");
+    member.setRelationName("platform");
     append(member);
     return member;
   }

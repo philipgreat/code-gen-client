@@ -210,7 +210,7 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                     .hidden()
                 .has_field("buyer type").zh_CN("用户类型")
                     .values_canbe(MerchantType.PERSONAL.getLiteralName(), "个人用气用户").or(MerchantType.ORGANIZATION.getLiteralName(), "企业用气用户")
-                    .defaule_value(MerchantType.PERSONAL.getLiteralName())
+                    .defaule_value(MerchantType.ORGANIZATION.getLiteralName())
 
 
                 .has_field("name").zh_CN("用户名称")

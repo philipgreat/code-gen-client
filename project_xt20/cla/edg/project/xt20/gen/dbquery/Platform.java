@@ -432,6 +432,17 @@ public class Platform extends BaseModelBean {
     return member;
   }
 
+  public GuideSlide guideSlideList() {
+    GuideSlide member = new GuideSlide();
+    member.setModelTypeName("guide_slide");
+    member.setName("platform");
+    member.setMemberName("guideSlideList");
+    member.setRelationName("platform");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public CommonEventRecord commonEventRecordList() {
     CommonEventRecord member = new CommonEventRecord();
     member.setModelTypeName("common_event_record");

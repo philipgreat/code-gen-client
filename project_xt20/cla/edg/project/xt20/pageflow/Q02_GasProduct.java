@@ -11,7 +11,9 @@ public class Q02_GasProduct extends PieceOfScript {
                 .comments("查询卖家的所有现有产品")
                 .do_it_as()
                 .where(MODEL.gasProduct().merchant().eq("${merchant id}"),
-                        MODEL.gasProduct().gasProductCacheList().searchText().like("${search key}").optional())
+                        MODEL.gasProduct().name().like("${search key}").optional().or(
+                                MODEL.gasProduct().nickName().like("${search key}").optional()
+                        ))
                 .run_by(this::wantedForProductList)
 
             .query(MODEL.gasProduct()).list_of("merchant by trade time").with_string("merchant id")
