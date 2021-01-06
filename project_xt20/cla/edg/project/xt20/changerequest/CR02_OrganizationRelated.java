@@ -47,7 +47,7 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                     .fill_by_request("merchant id", MODEL.organizationIdentity().address())
                     .range(1,100)
                 .has_field("logo").zh_CN("单位logo")
-                    .which_type_of(FieldType.IMAGE)
+                    .which_type_of(FieldType.IMAGE).optional()
                     .fill_by_request("organization identity id", MODEL.organizationIdentity().logo())
                 .has_field("comment").zh_CN("备注")
                     .which_type_of(FieldType.MULTI_TEXT).input_at_next_line()

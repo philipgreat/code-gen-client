@@ -44,7 +44,10 @@ public class Q08_Order extends PieceOfScript {
                 .do_it_as()
                 .where(MODEL.mainOrder().seller().eq("${seller id}"),
                         MODEL.mainOrder().buyerContactName().like("${search key}").optional()
-                        .or(MODEL.mainOrder().buyerContactPhone().like("${search key}").optional()),
+                        .or(MODEL.mainOrder().buyerContactPhone().like("${search key}").optional(),
+                                MODEL.mainOrder().handoverAddress().like("${search key}").optional(),
+                                MODEL.mainOrder().gasLineItemList().product().nickName().like("${search key}").optional(),
+                                MODEL.mainOrder().gasLineItemList().product().name().like("${search key}").optional()),
                         MODEL.mainOrder().status().in(OrderStatus.WAITING_SELLER_DELIVERY, OrderStatus.SELLER_SHIPPING),
                         MODEL.mainOrder().gasShippingGroupList().deliverTask().is_null()
                 ).order_by(MODEL.mainOrder().id()).asc()
@@ -112,6 +115,7 @@ public class Q08_Order extends PieceOfScript {
                 MODEL.mainOrder().buyer().organizationIdentityList(),
                 MODEL.mainOrder().buyer().individualIdentityList(),
                 MODEL.mainOrder().creator().personInformation(),
+                MODEL.mainOrder().gasShippingGroupList().deliverTask().status(),
                 MODEL.mainOrder().gasShippingGroupList().gasLineItem().product(),
                 MODEL.mainOrder().gasShippingGroupList().gasLineItem().cylinder().gasContainer()
                 );
