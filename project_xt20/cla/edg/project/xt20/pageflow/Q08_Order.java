@@ -15,7 +15,7 @@ public class Q08_Order extends PieceOfScript {
                         OrderStatus.WAITING_SELLER_CONFIRM, OrderStatus.WAITING_SELLER_DELIVERY, OrderStatus.SUBMITTED))
             .query(MODEL.mainOrder()).list_of("seller wait process").pagination().with_string("merchant id").with_string("buyer id")
                 .comments("查询从卖家视角,等待买家处理的订单")
-                .run_by(spt->queryForSeller(script, OrderStatus.WAITING_BUYER_CONFIRM, OrderStatus.BUYER_CONFIRM_TIMEOUT))
+                .run_by(spt->queryForSeller(script, OrderStatus.WAITING_BUYER_CONFIRM))
             .query(MODEL.mainOrder()).list_of("seller shipping").pagination().with_string("merchant id").with_string("buyer id")
                 .comments("查询从卖家视角,运输中订单")
                 .run_by(spt->queryForSeller(script, OrderStatus.WAITING_BUYER_PICK_UP, OrderStatus.SELLER_SHIPPING))
