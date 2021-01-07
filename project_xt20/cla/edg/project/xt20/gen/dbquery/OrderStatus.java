@@ -9,6 +9,9 @@ public class OrderStatus extends BaseModelBean {
     return "com.doublechaintech.xt20.orderstatus.OrderStatus";
   }
   // 枚举对象
+  public static EnumAttribute DRAFT =
+      new EnumAttribute("com.doublechaintech.xt20.orderstatus.OrderStatus", "DRAFT")
+          .chineseName("草稿");
   public static EnumAttribute PROCESSING =
       new EnumAttribute("com.doublechaintech.xt20.orderstatus.OrderStatus", "PROCESSING")
           .chineseName("处理中");
@@ -44,6 +47,7 @@ public class OrderStatus extends BaseModelBean {
 
   public EnumAttribute[] getEnumNameList() {
     return new EnumAttribute[] {
+      DRAFT,
       PROCESSING,
       WAITING_BUYER_CONFIRM,
       BUYER_CONFIRM_TIMEOUT,
