@@ -44,7 +44,8 @@ public class Q04_Employee extends PieceOfScript {
             .query(MODEL.employee()).list_of("user acting").with_string("user id")
                 .comments("查询用户任职的 employee 列表")
                 .do_it_as()
-                .where(MODEL.employee().personInformation().eq("${user id}"))
+                .where(MODEL.employee().personInformation().eq("${user id}"),
+                        MODEL.employee().status().in(EmployeeStatus.NORMAL, EmployeeStatus.TO_BE_APPROVE))
                 .wants(MODEL.employee().merchant().organizationIdentityList(),
                         MODEL.employee().role(),
                         MODEL.employee().status())

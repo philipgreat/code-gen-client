@@ -120,6 +120,11 @@ public class Q07_Delivery extends PieceOfScript {
                 .do_it_as()
                 .where(MODEL.gasShippingGroup().mainOrder().eq("${order id}"),
                         MODEL.gasShippingGroup().deliverTask().eq("${task id}"))
+
+            .query(MODEL.gasShippingGroup()).list_of("order").with_string("order id")
+                .comments("按照订单ID查询shipping group")
+                .do_it_as()
+                .where(MODEL.gasShippingGroup().mainOrder().eq("${order id}"))
         ;
     }
 }

@@ -54,18 +54,18 @@ public class EventUpdatePersonalInfo extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute contactMobile() {
+  public StringAttribute nickName() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
-    // member.setName("contactMobile");
-    member.setName("contact_mobile");
+    // member.setName("nickName");
+    member.setName("nick_name");
     useMember(member);
     return member;
   }
 
   public StringAttribute avatar() {
     StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
+    member.setModelTypeName("string_image");
     // member.setName("avatar");
     member.setName("avatar");
     useMember(member);
