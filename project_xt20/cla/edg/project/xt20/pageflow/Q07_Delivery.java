@@ -111,7 +111,7 @@ public class Q07_Delivery extends PieceOfScript {
                 .comments("查询订单中,指定task中,待确认收货的交接单")
                 .do_it_as()
                 .where(MODEL.deliveryReceipt().mainOrder().eq("${order id}"),
-                        MODEL.deliveryReceipt().status().in(DeliveryReceiptStatus.WAITING_BUYER_CONFIRM, DeliveryReceiptStatus.WAITING_BUYER_CONFIRM),
+                        MODEL.deliveryReceipt().status().in(DeliveryReceiptStatus.WAITING_BUYER_CONFIRM, DeliveryReceiptStatus.BUYER_CONFIRM_TIMEOUT),
                         MODEL.deliveryReceipt().gasShippingGroup().deliverTask().eq("${task id}").optional())
 
 
