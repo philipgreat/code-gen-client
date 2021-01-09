@@ -146,6 +146,17 @@ public class ChangeRequest extends BaseModelBean {
     return member;
   }
 
+  public EventUpdateIndividualIdentity eventUpdateIndividualIdentityList() {
+    EventUpdateIndividualIdentity member = new EventUpdateIndividualIdentity();
+    member.setModelTypeName("event_update_individual_identity");
+    member.setName("change_request");
+    member.setMemberName("eventUpdateIndividualIdentityList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventUpdateAdditionalSpec eventUpdateAdditionalSpecList() {
     EventUpdateAdditionalSpec member = new EventUpdateAdditionalSpec();
     member.setModelTypeName("event_update_additional_spec");

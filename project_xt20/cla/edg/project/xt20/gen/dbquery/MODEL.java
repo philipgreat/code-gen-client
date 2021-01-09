@@ -567,6 +567,13 @@ public class MODEL {
     return rst;
   }
 
+  public static EventUpdateIndividualIdentity eventUpdateIndividualIdentity() {
+    EventUpdateIndividualIdentity rst = new EventUpdateIndividualIdentity();
+    rst.setModelTypeName("event_update_individual_identity");
+    rst.setBeanPath(new BeanPath().name("event_update_individual_identity"));
+    return rst;
+  }
+
   public static EventUpdateAdditionalSpec eventUpdateAdditionalSpec() {
     EventUpdateAdditionalSpec rst = new EventUpdateAdditionalSpec();
     rst.setModelTypeName("event_update_additional_spec");

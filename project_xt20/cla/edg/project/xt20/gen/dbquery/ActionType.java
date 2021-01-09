@@ -48,6 +48,9 @@ public class ActionType extends BaseModelBean {
   public static EnumAttribute PURCHASE_IN_SYSTEM =
       new EnumAttribute("com.doublechaintech.xt20.actiontype.ActionType", "PURCHASE_IN_SYSTEM")
           .chineseName("接收单入库");
+  public static EnumAttribute PICKUP =
+      new EnumAttribute("com.doublechaintech.xt20.actiontype.ActionType", "PICKUP")
+          .chineseName("自提");
 
   public EnumAttribute[] getEnumNameList() {
     return new EnumAttribute[] {
@@ -62,7 +65,8 @@ public class ActionType extends BaseModelBean {
       SELLER_SUBMIT_CYLINDER_SET,
       CUSTOMER_CONFIRM_CYLINDER_SET,
       PURCHASE_OUT_OF_SYSTEM,
-      PURCHASE_IN_SYSTEM
+      PURCHASE_IN_SYSTEM,
+      PICKUP
     };
   }
 

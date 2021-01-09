@@ -217,16 +217,13 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                     .range(1, 100)
                     .place_holder("请输入用气用户名称")
                 .has_field("prompt 1")
-                    .value("企业用户请填写信用代码")
+                    .value("个人用户可不填信用代码")
                     .display()
                 .has_field("agency social code").zh_CN("信用代码")
                     .range(18,18).optional()
                     .values_can_select_from_query_by("wxappService/customerSelectMerchantCreditNo/+/")
                     .place_holder("请输入企业信用代码")
                     .optional()
-                .has_field("prompt 2")
-                    .value("个人用户请填写手机号")
-                    .display()
                 .has_field("mobile").zh_CN("用户手机号")
                     .which_type_of(FieldType.MOBILE)
                     .optional()
@@ -264,7 +261,34 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                     .fill_by_request("relation id", MODEL.supplyRelationship().customerComment())
                     .range(0, 200).optional()
 
+
+
+
+        .change_request("fulfill individual identity").zh_CN("完善个人认证信息")
+            .step("A").zh_CN("完善信息")
+            .contains_event("update individual identity").zh_CN("个人认证信息")
+                .has_field("name").zh_CN("名称")
+                    .fill_by_request("individual identity id", MODEL.individualIdentity().name())
+                    .range(0,40)
+                .has_field("identity mobile").zh_CN("电话号码")
+                    .fill_by_request("individual identity id", MODEL.individualIdentity().identityMobile())
+                    .which_type_of(FieldType.MOBILE)
+                .has_field("contact name").zh_CN("联系人")
+                    .fill_by_request("individual identity id", MODEL.individualIdentity().contactName())
+                    .range(1,20).optional()
+                .has_field("address").zh_CN("地址")
+                    .fill_by_request("individual identity id", MODEL.individualIdentity().address())
+                    .range(0,200).optional()
+                .has_field("comment").zh_CN("备注")
+                    .which_type_of(FieldType.MULTI_TEXT).input_at_next_line().optional()
+                    .fill_by_request("organization identity id", MODEL.individualIdentity().comment())
+                    .range(0,200)
+
+        .change_request("update individual identity").zh_CN("更新认证信息")
+            .step("A").zh_CN("完善信息")
+            .contains_event("update individual identity")
                 ;
+
     }
 
 }
