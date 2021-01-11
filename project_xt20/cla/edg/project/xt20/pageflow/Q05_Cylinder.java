@@ -72,6 +72,11 @@ public class Q05_Cylinder extends PieceOfScript {
                 .wants(MODEL.customerCylinder().cylinder())
 
 
+            .query(MODEL.gasCylinder()).list_of("absent in customer").with_string("supplier id").with_string("customer id")
+                .comments("查找供应商在客户那里没有记录的气瓶列表")
+                .do_it_as()
+                .where(MODEL.gasCylinder().gasProductList().merchant().eq("${supplier id}"),
+                        NOT_EXISTS(MODEL.gasCylinder().customerCylinderList().customer().eq("${customer id}")))
 
         ;
     }

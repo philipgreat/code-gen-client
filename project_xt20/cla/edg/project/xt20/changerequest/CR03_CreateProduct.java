@@ -154,7 +154,7 @@ public class CR03_CreateProduct implements ChangeRequestSpecFactory {
                 .has_field("fill medium").zh_CN("充装介质")
                     .which_model_of(MODEL.fillMedium())
                     .values_can_select_from_query_by(null)
-                    .optional() // 散瓶格没有充装介质
+                    .optional() // 托盘没有充装介质
                 .has_field("gas container").zh_CN("包装类别")
                     .which_model_of(MODEL.gasContainer())
                     .values_can_select_from_query_by(null)
