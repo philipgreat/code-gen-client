@@ -201,6 +201,28 @@ public class Employee extends BaseModelBean {
     return member;
   }
 
+  public DeliveryReceiptTicket deliveryReceiptTicketListAsCreator() {
+    DeliveryReceiptTicket member = new DeliveryReceiptTicket();
+    member.setModelTypeName("delivery_receipt_ticket");
+    member.setName("creator");
+    member.setMemberName("deliveryReceiptTicketListAsCreator");
+    member.setRelationName("creator");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public DeliveryReceiptTicket deliveryReceiptTicketListAsConfirmer() {
+    DeliveryReceiptTicket member = new DeliveryReceiptTicket();
+    member.setModelTypeName("delivery_receipt_ticket");
+    member.setName("confirmer");
+    member.setMemberName("deliveryReceiptTicketListAsConfirmer");
+    member.setRelationName("creator");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public DeliveryReceiptEvidence deliveryReceiptEvidenceList() {
     DeliveryReceiptEvidence member = new DeliveryReceiptEvidence();
     member.setModelTypeName("delivery_receipt_evidence");

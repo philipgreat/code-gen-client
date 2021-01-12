@@ -62,6 +62,17 @@ public class DeliveryReceiptStatus extends BaseModelBean {
     return member;
   }
 
+  public DeliveryReceiptTicket deliveryReceiptTicketList() {
+    DeliveryReceiptTicket member = new DeliveryReceiptTicket();
+    member.setModelTypeName("delivery_receipt_ticket");
+    member.setName("status");
+    member.setMemberName("deliveryReceiptTicketList");
+    member.setRelationName("status");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

@@ -16,7 +16,7 @@ public class ChangeRequestType extends BaseModelBean {
   public static EnumAttribute SELLER_REGISTER =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "SELLER_REGISTER")
-          .chineseName("商户注册");
+          .chineseName("1/3 商户信息");
   public static EnumAttribute SELLER_ADD_BUYER =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "SELLER_ADD_BUYER")
@@ -87,7 +87,7 @@ public class ChangeRequestType extends BaseModelBean {
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
               "UPDATE_MERCHANT_OFF_TIME")
-          .chineseName("设置商户下班时间");
+          .chineseName("设置企业下班时间");
   public static EnumAttribute AUDIT_JOIN_APPLY =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "AUDIT_JOIN_APPLY")

@@ -4,32 +4,21 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class DeliveryReceipt extends BaseModelBean {
+public class DeliveryReceiptTicket extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.xt20.deliveryreceipt.DeliveryReceipt";
+    return "com.doublechaintech.xt20.deliveryreceiptticket.DeliveryReceiptTicket";
   }
   // 枚举对象
 
   // 引用的对象
 
-  public GasShippingGroup gasShippingGroup() {
-    GasShippingGroup member = new GasShippingGroup();
-    member.setModelTypeName("gas_shipping_group");
-    member.setName("gas_shipping_group");
-    member.setMemberName("gasShippingGroup");
+  public DeliverTask deliverTask() {
+    DeliverTask member = new DeliverTask();
+    member.setModelTypeName("deliver_task");
+    member.setName("deliver_task");
+    member.setMemberName("deliverTask");
     member.setReferDirection(true);
-    member.setRelationName("gasShippingGroup");
-    append(member);
-    return member;
-  }
-
-  public GasLineItem gasLineItem() {
-    GasLineItem member = new GasLineItem();
-    member.setModelTypeName("gas_line_item");
-    member.setName("gas_line_item");
-    member.setMemberName("gasLineItem");
-    member.setReferDirection(true);
-    member.setRelationName("gasLineItem");
+    member.setRelationName("deliverTask");
     append(member);
     return member;
   }
@@ -100,18 +89,29 @@ public class DeliveryReceipt extends BaseModelBean {
     return member;
   }
 
-  public DeliveryReceiptTicket ticket() {
-    DeliveryReceiptTicket member = new DeliveryReceiptTicket();
-    member.setModelTypeName("delivery_receipt_ticket");
+  // 被引用的对象
+
+  public DeliveryReceipt deliveryReceiptList() {
+    DeliveryReceipt member = new DeliveryReceipt();
+    member.setModelTypeName("delivery_receipt");
     member.setName("ticket");
-    member.setMemberName("ticket");
-    member.setReferDirection(true);
+    member.setMemberName("deliveryReceiptList");
     member.setRelationName("ticket");
+    member.setReferDirection(false);
     append(member);
     return member;
   }
 
-  // 被引用的对象
+  public DeliveryReceiptEvidence deliveryReceiptEvidenceList() {
+    DeliveryReceiptEvidence member = new DeliveryReceiptEvidence();
+    member.setModelTypeName("delivery_receipt_evidence");
+    member.setName("record");
+    member.setMemberName("deliveryReceiptEvidenceList");
+    member.setRelationName("record");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
 
   // 普通属性
 
@@ -120,33 +120,6 @@ public class DeliveryReceipt extends BaseModelBean {
     member.setModelTypeName("string");
     // member.setName("id");
     member.setName("id");
-    useMember(member);
-    return member;
-  }
-
-  public NumberAttribute quantity() {
-    NumberAttribute member = new NumberAttribute();
-    member.setModelTypeName("int");
-    // member.setName("quantity");
-    member.setName("quantity");
-    useMember(member);
-    return member;
-  }
-
-  public NumberAttribute backQuantity() {
-    NumberAttribute member = new NumberAttribute();
-    member.setModelTypeName("int");
-    // member.setName("backQuantity");
-    member.setName("back_quantity");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute comment() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string_longtext");
-    // member.setName("comment");
-    member.setName("comment");
     useMember(member);
     return member;
   }

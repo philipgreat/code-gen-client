@@ -135,6 +135,17 @@ public class MainOrder extends BaseModelBean {
     return member;
   }
 
+  public DeliveryReceiptTicket deliveryReceiptTicketList() {
+    DeliveryReceiptTicket member = new DeliveryReceiptTicket();
+    member.setModelTypeName("delivery_receipt_ticket");
+    member.setName("main_order");
+    member.setMemberName("deliveryReceiptTicketList");
+    member.setRelationName("mainOrder");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public OrderOperationRecord orderOperationRecordList() {
     OrderOperationRecord member = new OrderOperationRecord();
     member.setModelTypeName("order_operation_record");

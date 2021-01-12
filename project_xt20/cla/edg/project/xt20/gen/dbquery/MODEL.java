@@ -385,6 +385,13 @@ public class MODEL {
     return rst;
   }
 
+  public static DeliveryReceiptTicket deliveryReceiptTicket() {
+    DeliveryReceiptTicket rst = new DeliveryReceiptTicket();
+    rst.setModelTypeName("delivery_receipt_ticket");
+    rst.setBeanPath(new BeanPath().name("delivery_receipt_ticket"));
+    return rst;
+  }
+
   public static DeliveryReceiptEvidence deliveryReceiptEvidence() {
     DeliveryReceiptEvidence rst = new DeliveryReceiptEvidence();
     rst.setModelTypeName("delivery_receipt_evidence");

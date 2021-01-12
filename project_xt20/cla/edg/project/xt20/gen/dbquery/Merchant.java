@@ -311,6 +311,28 @@ public class Merchant extends BaseModelBean {
     return member;
   }
 
+  public DeliveryReceiptTicket deliveryReceiptTicketListAsSeller() {
+    DeliveryReceiptTicket member = new DeliveryReceiptTicket();
+    member.setModelTypeName("delivery_receipt_ticket");
+    member.setName("seller");
+    member.setMemberName("deliveryReceiptTicketListAsSeller");
+    member.setRelationName("seller");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
+  public DeliveryReceiptTicket deliveryReceiptTicketListAsBuyer() {
+    DeliveryReceiptTicket member = new DeliveryReceiptTicket();
+    member.setModelTypeName("delivery_receipt_ticket");
+    member.setName("buyer");
+    member.setMemberName("deliveryReceiptTicketListAsBuyer");
+    member.setRelationName("seller");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

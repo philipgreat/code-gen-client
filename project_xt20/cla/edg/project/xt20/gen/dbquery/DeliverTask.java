@@ -80,6 +80,17 @@ public class DeliverTask extends BaseModelBean {
     return member;
   }
 
+  public DeliveryReceiptTicket deliveryReceiptTicketList() {
+    DeliveryReceiptTicket member = new DeliveryReceiptTicket();
+    member.setModelTypeName("delivery_receipt_ticket");
+    member.setName("deliver_task");
+    member.setMemberName("deliveryReceiptTicketList");
+    member.setRelationName("deliverTask");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

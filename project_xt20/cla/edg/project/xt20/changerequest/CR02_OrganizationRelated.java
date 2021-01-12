@@ -103,7 +103,7 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                 .has_field("agency social code")
                 .must_have()
 
-        .change_request("seller register").zh_CN("商户注册")
+        .change_request("seller register").zh_CN("1/3 商户信息")
             .step("A").zh_CN("商户注册")
             .contains_event("organization info")
                 .has_field("agency social code")
@@ -148,9 +148,9 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
 
 
 
-        .change_request("update merchant off time").zh_CN("设置商户下班时间")
-            .step("A").zh_CN("设置商户下班时间")
-            .contains_event("update merchant off time").zh_CN("设置商户下班时间")
+        .change_request("update merchant off time").zh_CN("设置企业下班时间")
+            .step("A").zh_CN("设置企业下班时间")
+            .contains_event("update merchant off time").zh_CN("设置企业下班时间")
                 .has_field("merchant id").zh_CN("组织ID")
                     .fill_by_request("merchant id")
                     .hidden()

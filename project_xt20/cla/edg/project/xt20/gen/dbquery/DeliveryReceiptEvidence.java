@@ -12,9 +12,9 @@ public class DeliveryReceiptEvidence extends BaseModelBean {
 
   // 引用的对象
 
-  public DeliveryReceipt record() {
-    DeliveryReceipt member = new DeliveryReceipt();
-    member.setModelTypeName("delivery_receipt");
+  public DeliveryReceiptTicket record() {
+    DeliveryReceiptTicket member = new DeliveryReceiptTicket();
+    member.setModelTypeName("delivery_receipt_ticket");
     member.setName("record");
     member.setMemberName("record");
     member.setReferDirection(true);
