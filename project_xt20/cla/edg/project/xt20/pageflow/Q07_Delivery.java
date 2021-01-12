@@ -24,7 +24,7 @@ public class Q07_Delivery extends PieceOfScript {
                 .comments("根据筛选条件,查询并合并成 待创建交接单 列表")
                 .do_it_as()
                 .where(MODEL.deliverTask().gasShippingGroupList().seller().eq("${merchant id}"),
-                        MODEL.deliverTask().gasShippingGroupList().shippingStatus().in(ShippingStatus.SELLER_SHIPPING),
+                        MODEL.deliverTask().gasShippingGroupList().shippingStatus().in(ShippingStatus.SELLER_SHIPPING, ShippingStatus.WAITING_BUYER_PICK_UP),
                         MODEL.deliverTask().gasShippingGroupList().buyerContactName().like("${search key}")
                         .or(MODEL.deliverTask().gasShippingGroupList().handoverAddress().like("${search key}"),
                                 MODEL.deliverTask().gasShippingGroupList().buyerContactPhone().like("${search key}")

@@ -12,7 +12,7 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
         return builder
         .change_request("buyer update merchant info").zh_CN("更新信息")
             .step("A").zh_CN("完善信息")
-            .contains_event("organization info").zh_CN("商户注册")
+            .contains_event("organization info").zh_CN("商户信息")
                 .has_field("organization id").zh_CN("组织ID")
                     .optional()
                     .fill_by_request("organization identity id")
@@ -44,7 +44,7 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                     .which_type_of(FieldType.MOBILE)
                 .has_field("address").zh_CN("单位地址")
                     .place_holder("请输入单位所在地址")
-                    .fill_by_request("merchant id", MODEL.organizationIdentity().address())
+                    .fill_by_request("organization identity id", MODEL.organizationIdentity().address())
                     .range(1,100)
                 .has_field("logo").zh_CN("单位logo")
                     .which_type_of(FieldType.IMAGE).optional()
