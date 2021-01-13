@@ -92,6 +92,15 @@ public class GuideSlide extends BaseModelBean {
     return member;
   }
 
+  public BooleanAttribute enabled() {
+    BooleanAttribute member = new BooleanAttribute();
+    member.setModelTypeName("bool");
+    // member.setName("enabled");
+    member.setName("enabled");
+    useMember(member);
+    return member;
+  }
+
   public NumberAttribute version() {
     NumberAttribute member = new NumberAttribute();
     member.setModelTypeName("int");
