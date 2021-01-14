@@ -115,6 +115,11 @@ public class ChangeRequestType extends BaseModelBean {
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
               "EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT")
           .chineseName("产品附加规格");
+  public static EnumAttribute BUYER_PERFECT_ENTITY_INFO =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
+              "BUYER_PERFECT_ENTITY_INFO")
+          .chineseName("完善信息信息");
   public static EnumAttribute PRODUCT_OFF_SHELF =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "PRODUCT_OFF_SHELF")
@@ -203,6 +208,7 @@ public class ChangeRequestType extends BaseModelBean {
       UPDATE_BUYER_INFO_WHEN_CONFIRM_QUOTE,
       INBOUND_FROM_HOME,
       EDIT_ADDITIONAL_SPEC_WHEN_REVIEW_INIT,
+      BUYER_PERFECT_ENTITY_INFO,
       PRODUCT_OFF_SHELF,
       UPDATE_INVENTORY_PARAMETER,
       UPDATE_MERCHANT_INFO_WHEN_INVITE,

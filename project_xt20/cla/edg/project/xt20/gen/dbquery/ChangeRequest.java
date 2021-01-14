@@ -157,6 +157,17 @@ public class ChangeRequest extends BaseModelBean {
     return member;
   }
 
+  public EventEntityInfo eventEntityInfoList() {
+    EventEntityInfo member = new EventEntityInfo();
+    member.setModelTypeName("event_entity_info");
+    member.setName("change_request");
+    member.setMemberName("eventEntityInfoList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventUpdateAdditionalSpec eventUpdateAdditionalSpecList() {
     EventUpdateAdditionalSpec member = new EventUpdateAdditionalSpec();
     member.setModelTypeName("event_update_additional_spec");

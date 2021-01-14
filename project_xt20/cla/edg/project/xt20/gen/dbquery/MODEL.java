@@ -581,6 +581,13 @@ public class MODEL {
     return rst;
   }
 
+  public static EventEntityInfo eventEntityInfo() {
+    EventEntityInfo rst = new EventEntityInfo();
+    rst.setModelTypeName("event_entity_info");
+    rst.setBeanPath(new BeanPath().name("event_entity_info"));
+    return rst;
+  }
+
   public static EventUpdateAdditionalSpec eventUpdateAdditionalSpec() {
     EventUpdateAdditionalSpec rst = new EventUpdateAdditionalSpec();
     rst.setModelTypeName("event_update_additional_spec");
