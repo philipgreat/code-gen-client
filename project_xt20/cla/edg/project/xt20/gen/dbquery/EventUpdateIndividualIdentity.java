@@ -36,6 +36,15 @@ public class EventUpdateIndividualIdentity extends BaseModelBean {
     return member;
   }
 
+  public StringAttribute identityId() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("identityId");
+    member.setName("identity_id");
+    useMember(member);
+    return member;
+  }
+
   public StringAttribute name() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
@@ -50,6 +59,15 @@ public class EventUpdateIndividualIdentity extends BaseModelBean {
     member.setModelTypeName("string_china_mobile_phone");
     // member.setName("identityMobile");
     member.setName("identity_mobile");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute mobile() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string_china_mobile_phone");
+    // member.setName("mobile");
+    member.setName("mobile");
     useMember(member);
     return member;
   }
