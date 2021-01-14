@@ -32,6 +32,7 @@ public class MainChangeRequest implements ChangeRequestSpecFactory {
                 .import_from(new CR01_Users())
                 .import_from(new CR02_OrganizationRelated())
                 .import_from(new CR03_CreateProduct())
+                .import_from(new CR04_Order())
 
                 .getChangeRequestSpec();
     }

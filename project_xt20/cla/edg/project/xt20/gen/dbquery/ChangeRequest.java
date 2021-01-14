@@ -256,6 +256,17 @@ public class ChangeRequest extends BaseModelBean {
     return member;
   }
 
+  public EventAcceptProof eventAcceptProofList() {
+    EventAcceptProof member = new EventAcceptProof();
+    member.setModelTypeName("event_accept_proof");
+    member.setName("change_request");
+    member.setMemberName("eventAcceptProofList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventInfoInCr eventInfoInCrList() {
     EventInfoInCr member = new EventInfoInCr();
     member.setModelTypeName("event_info_in_cr");

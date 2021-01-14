@@ -279,7 +279,7 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                     .which_type_of(FieldType.MOBILE)
                     .disabled()
                 .has_field("mobile").zh_CN("联系电话")
-                    .fill_by_request("individual identity id", MODEL.individualIdentity().contactName())
+                    .fill_by_request("individual identity id", MODEL.individualIdentity().mobile())
                     .which_type_of(FieldType.MOBILE)
                 .has_field("contact name").zh_CN("联系人")
                     .fill_by_request("individual identity id", MODEL.individualIdentity().contactName())

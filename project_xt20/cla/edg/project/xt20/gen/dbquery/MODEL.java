@@ -644,6 +644,13 @@ public class MODEL {
     return rst;
   }
 
+  public static EventAcceptProof eventAcceptProof() {
+    EventAcceptProof rst = new EventAcceptProof();
+    rst.setModelTypeName("event_accept_proof");
+    rst.setBeanPath(new BeanPath().name("event_accept_proof"));
+    return rst;
+  }
+
   public static EventInfoInCr eventInfoInCr() {
     EventInfoInCr rst = new EventInfoInCr();
     rst.setModelTypeName("event_info_in_cr");

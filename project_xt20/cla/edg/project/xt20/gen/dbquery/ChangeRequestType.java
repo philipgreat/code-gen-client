@@ -134,6 +134,11 @@ public class ChangeRequestType extends BaseModelBean {
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
               "UPDATE_MERCHANT_INFO_WHEN_INVITE")
           .chineseName("完善信息");
+  public static EnumAttribute PROOF_FOR_ACCEPT_FOR_BUYER =
+      new EnumAttribute(
+              "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
+              "PROOF_FOR_ACCEPT_FOR_BUYER")
+          .chineseName("代收凭证");
   public static EnumAttribute UPDATE_PRODUCT_INFO =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType", "UPDATE_PRODUCT_INFO")
@@ -212,6 +217,7 @@ public class ChangeRequestType extends BaseModelBean {
       PRODUCT_OFF_SHELF,
       UPDATE_INVENTORY_PARAMETER,
       UPDATE_MERCHANT_INFO_WHEN_INVITE,
+      PROOF_FOR_ACCEPT_FOR_BUYER,
       UPDATE_PRODUCT_INFO,
       UPDATE_COLLEAGUE_INFO,
       UPDATE_MERCHANT_INFO_WHEN_QUOTE,
