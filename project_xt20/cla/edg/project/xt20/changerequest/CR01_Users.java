@@ -23,7 +23,7 @@ public class CR01_Users implements ChangeRequestSpecFactory {
                     .range(0,40).optional()
                 .has_field("avatar").zh_CN("头像")
                     .fill_by_request("current user id", MODEL.personalUser().avatar())
-                    .which_type_of(FieldType.IMAGE)
+                    .which_type_of(FieldType.IMAGE).optional()
 
                 ;
     }
