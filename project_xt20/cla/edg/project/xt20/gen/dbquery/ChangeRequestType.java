@@ -128,7 +128,7 @@ public class ChangeRequestType extends BaseModelBean {
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",
               "UPDATE_INVENTORY_PARAMETER")
-          .chineseName("备库信息");
+          .chineseName("安全库存设置");
   public static EnumAttribute UPDATE_MERCHANT_INFO_WHEN_INVITE =
       new EnumAttribute(
               "com.doublechaintech.xt20.changerequesttype.ChangeRequestType",

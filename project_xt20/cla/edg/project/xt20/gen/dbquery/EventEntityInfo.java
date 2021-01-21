@@ -72,24 +72,6 @@ public class EventEntityInfo extends BaseModelBean {
     return member;
   }
 
-  public StringAttribute identifyMobile() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string_china_mobile_phone");
-    // member.setName("identifyMobile");
-    member.setName("identify_mobile");
-    useMember(member);
-    return member;
-  }
-
-  public StringAttribute verifyCode() {
-    StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string");
-    // member.setName("verifyCode");
-    member.setName("verify_code");
-    useMember(member);
-    return member;
-  }
-
   public StringAttribute contactName() {
     StringAttribute member = new StringAttribute();
     member.setModelTypeName("string");
