@@ -28,7 +28,7 @@ public class CR04_Order implements ChangeRequestSpecFactory {
                     .disabled()
                 .has_field("address").zh_CN("详细地址")
                     .fill_by_request("order id", MODEL.mainOrder().handoverAddress())
-
+                    .optional()
                 .has_field("proof").zh_CN("上传凭证")
                     .which_type_of(FieldType.IMAGES)
                     .place_holder("请上传凭证")

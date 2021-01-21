@@ -51,7 +51,7 @@ public class Main {
 	public static String OUTPUT_PAGEFLOW_FOLDER_NAME = "xt20_client_src";
 	// 生成目标项目的 项目名, 通常与模型文件的项目名一致
 	public static String TARGET_PROJECT_NAME = "xt20";
-	// 生成目标项目的 组织名, 通常与模型文件的组织名一致
+	// 生成目标项目的 企业名, 通常与模型文件的企业名一致
 	public static String TARGET_ORGANIZATION_NAME = "doublechaintech";
 	// 生成的项目的基本包名, 通常是 com.<TARGET_ORGANIZATION_NAME>.<TARGET_PROJECT_NAME>
 	public static String TARGET_BASE_PACKAGE_NAME = "com." + TARGET_ORGANIZATION_NAME +"." + TARGET_PROJECT_NAME;
