@@ -83,7 +83,7 @@ public class EventEntityInfo extends BaseModelBean {
 
   public StringAttribute contactMobile() {
     StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string_china_mobile_phone");
+    member.setModelTypeName("string");
     // member.setName("contactMobile");
     member.setName("contact_mobile");
     useMember(member);

@@ -78,6 +78,24 @@ public class NominalPressure extends BaseModelBean {
     return member;
   }
 
+  public NumberAttribute numericValue() {
+    NumberAttribute member = new NumberAttribute();
+    member.setModelTypeName("double");
+    // member.setName("numericValue");
+    member.setName("numeric_value");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute unitName() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("unitName");
+    member.setName("unit_name");
+    useMember(member);
+    return member;
+  }
+
   public NumberAttribute version() {
     NumberAttribute member = new NumberAttribute();
     member.setModelTypeName("int");

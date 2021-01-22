@@ -65,7 +65,7 @@ public class EventUpdateIndividualIdentity extends BaseModelBean {
 
   public StringAttribute mobile() {
     StringAttribute member = new StringAttribute();
-    member.setModelTypeName("string_china_mobile_phone");
+    member.setModelTypeName("string");
     // member.setName("mobile");
     member.setName("mobile");
     useMember(member);

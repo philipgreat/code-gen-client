@@ -240,6 +240,33 @@ public class MainOrder extends BaseModelBean {
     return member;
   }
 
+  public DateTimeAttribute submitTime() {
+    DateTimeAttribute member = new DateTimeAttribute();
+    member.setModelTypeName("date_time");
+    // member.setName("submitTime");
+    member.setName("submit_time");
+    useMember(member);
+    return member;
+  }
+
+  public DateTimeAttribute deliverTime() {
+    DateTimeAttribute member = new DateTimeAttribute();
+    member.setModelTypeName("date_time");
+    // member.setName("deliverTime");
+    member.setName("deliver_time");
+    useMember(member);
+    return member;
+  }
+
+  public DateTimeAttribute closeTime() {
+    DateTimeAttribute member = new DateTimeAttribute();
+    member.setModelTypeName("date_time");
+    // member.setName("closeTime");
+    member.setName("close_time");
+    useMember(member);
+    return member;
+  }
+
   public DateTimeAttribute lastUpdateTime() {
     DateTimeAttribute member = new DateTimeAttribute();
     member.setModelTypeName("date_time_update");
