@@ -67,6 +67,7 @@ public class Main {
 				.put("parent_class_package", getPackageName(Main.TARGET_PAGEFLOW_JAVA_PARENT_CLASS_FULL_NAME))
 				.put("resource_base_folder", "/works/jobs/xt20_v1/workspace/code-gen-client/project_xt20/resource")
 				.put("bean_name", Main.TARGET_PAGEFLOW_JAVA_BEAN_NAME)
+				.put("transaction_config", "noRollbackFor={ErrorMessageException.class, FatalMessageException.class}")
 				.into_map(String.class);
 
 		generatePageFlow(new MainPageFlow().withEnv(envVars));

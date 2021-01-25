@@ -14,10 +14,10 @@ public class CylinderArea extends BaseModelBean {
           .chineseName("空瓶");
   public static EnumAttribute PRODUCT =
       new EnumAttribute("com.doublechaintech.xt20.cylinderarea.CylinderArea", "PRODUCT")
-          .chineseName("实瓶");
+          .chineseName("实/满瓶");
   public static EnumAttribute DELIVERY =
       new EnumAttribute("com.doublechaintech.xt20.cylinderarea.CylinderArea", "DELIVERY")
-          .chineseName("实瓶在途");
+          .chineseName("实/满瓶在途");
   public static EnumAttribute BACK =
       new EnumAttribute("com.doublechaintech.xt20.cylinderarea.CylinderArea", "BACK")
           .chineseName("回瓶在途");

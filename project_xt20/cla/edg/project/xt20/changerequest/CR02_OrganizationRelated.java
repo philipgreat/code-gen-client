@@ -8,7 +8,9 @@ import com.terapico.changerequest.builder.FieldType;
 import com.terapico.changerequest.builder.UIStyle;
 
 public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
+
     public ChangeRequestSpecBuilder makeSequel(ChangeRequestSpecBuilder builder) {
+		// @formatter:off
         return builder
         .change_request("buyer update merchant info").zh_CN("更新信息")
             .step("A").zh_CN("完善企业信息")

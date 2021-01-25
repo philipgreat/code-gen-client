@@ -41,7 +41,9 @@ public class MainPageFlow extends BasePageFlowDescriptionScript {
                 .parent_class_package(envVars.get("parent_class_package"))
                 .bean_name(envVars.get("bean_name"))
                 .resource_base_folder(envVars.get("resource_base_folder"))
+                .addTag("transaction_config", envVars.get("transaction_config"))
                 .addTag("change_request", "true");
+
         return this;
     }
 }
