@@ -6,9 +6,12 @@ import cla.edg.pageflow.PieceOfScript;
 import cla.edg.project.xt20.gen.dbquery.MODEL;
 import cla.edg.project.xt20.gen.dbquery.OrderStatus;
 
+// @formatter:off
 public class Q08_Order extends PieceOfScript {
+  // @formatter:off
     public PageFlowScript makeSequel(PageFlowScript script) {
-        return script
+        // @formatter:off
+        return script// @formatter:off
             .query(MODEL.mainOrder()).list_of("seller need process").pagination().with_string("merchant id").with_string("buyer id")
                 .comments("查询从卖家视角,需要处理的订单")
                 .run_by(spt->queryForSeller(script, OrderStatus.PROCESSING, OrderStatus.BUYER_CONFIRM_TIMEOUT,
@@ -36,6 +39,11 @@ public class Q08_Order extends PieceOfScript {
             .query(MODEL.mainOrder()).list_of("buyer finished").pagination().with_string("merchant id")
                 .comments("查询买家的已经完成的订单")
                 .run_by(spt->queryForBuyer(script, OrderStatus.CANCELLED, OrderStatus.COMPLETED))
+
+            .query(MODEL.mainOrder()).list_of("buyer need confirm").pagination().with_string("merchant id")
+                .comments("查询从买家视角来看,待确认的订单")
+                .run_by(spt->queryForBuyer(script, OrderStatus.WAITING_BUYER_CONFIRM, OrderStatus.BUYER_CONFIRM_TIMEOUT))
+
 
 
 
