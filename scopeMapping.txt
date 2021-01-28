@@ -1,0 +1,7 @@
+all:javaweb/report.jsp,javaweb/java_app_index.jsp,react/dva_app_index.jsp,database/mysql.jsp,database/h2.jsp,taro/taro_index.jsp,jsp/jsp_app_index.jsp
+bizcore:javaweb/report.jsp,javaweb/java_app_index.jsp,database/mysql.jsp
+bizui:javaweb/report.jsp,react/dva_app_index.jsp
+report:javaweb/report.jsp
+mysql:database/mysql.jsp
+h2:database/h2.jsp
+cla:gen_script/gen_script_db_index.jsp

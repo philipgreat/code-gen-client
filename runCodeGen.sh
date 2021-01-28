@@ -1,0 +1,1 @@
+java -jar -Djava.net.preferIPv4Stack=true -Dskynet.commonfiles=wxapp:/works/git/base-nice-router-taro,bizcore:/works/git/skynet-common-app-framework,bizui:/works/git/skynet-react-framework -DgenerateTargetMapping=wxapp:/sky/taro  -DskipFiles=.git*,.vscode code-gen-client.jar
