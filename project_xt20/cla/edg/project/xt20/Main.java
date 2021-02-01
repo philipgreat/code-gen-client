@@ -106,6 +106,8 @@ public class Main {
         generator.setChangeRequestSpec(script);
         generator.setProjectName(TARGET_PROJECT_NAME);
         generator.setOrgName(TARGET_ORGANIZATION_NAME);
+        generator.setScopeName((String) script.get("config").get("bean_name"));
+
         List<GenrationResult> files = generator.runJob();
 
         generator.saveToFiles( Utils.put("ALL", new File(OUTPUT_JAVA_FOLDER))
