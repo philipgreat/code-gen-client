@@ -28,8 +28,8 @@ public class Xt20Splitter {
         // .withEnglish()
         .ofEnv();
 
-    //    String mode = "all";
-    String mode = "java";
+    String mode = "all";
+    //    String mode = "java";
     //	String mode = "form";
     //	String mode = "data";
     //	String mode = "query";

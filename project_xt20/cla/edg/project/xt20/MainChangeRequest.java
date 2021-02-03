@@ -15,6 +15,9 @@ public class MainChangeRequest implements ChangeRequestSpecFactory {
         return this;
     }
 
+    public String config(String var){
+        return envVars.get(var);
+    }
     @Override
     public Map<String, Map<String, Object>> getSpec() {
         return getScript();
@@ -26,6 +29,7 @@ public class MainChangeRequest implements ChangeRequestSpecFactory {
             prjName = Main.TARGET_PROJECT_NAME;
         }
         return ChangeRequestSpecBuilder.for_project(prjName)
+                .config(envVars)
                 .request_base("you_should_handle_CR_here")
 
                 .import_from(new CR00_AllTBD())
