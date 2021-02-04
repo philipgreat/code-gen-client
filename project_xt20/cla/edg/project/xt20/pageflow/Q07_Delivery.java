@@ -62,7 +62,7 @@ public class Q07_Delivery extends PieceOfScript {
                 .where(MODEL.deliverTask().merchant().eq("${merchant id}"),MODEL.deliverTask().status().in(DeliverTaskStatus.COMPLETED))
                 .wants(MODEL.deliverTask().status(), MODEL.deliverTask().deliverStaff().personInformation(),
                         MODEL.deliverTask().bottleBackList().cylinder().gasContainer(),
-                        MODEL.deliverTask().productBackList().proudct())
+                        MODEL.deliverTask().productBackList().product())
 
 
 
@@ -91,7 +91,7 @@ public class Q07_Delivery extends PieceOfScript {
                 .where(MODEL.deliverTask().id().eq("${task id}"))
                 .wants(MODEL.deliverTask().deliverStaff().personInformation(),
                         MODEL.deliverTask().status(),
-                        MODEL.deliverTask().productBackList().proudct().cylinder().gasContainer(),
+                        MODEL.deliverTask().productBackList().product().cylinder().gasContainer(),
                         MODEL.deliverTask().bottleBackList().cylinder().gasContainer(),
                         MODEL.deliverTask().gasShippingGroupList().gasLineItem().cylinder().gasContainer(),
                         MODEL.deliverTask().gasShippingGroupList().gasLineItem().product(),
