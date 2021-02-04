@@ -10,7 +10,7 @@ import java.lang.reflect.Field;
 public class CR06_RepairTask implements ChangeRequestSpecFactory {
     public ChangeRequestSpecBuilder makeSequel(ChangeRequestSpecBuilder builder) {
         return builder.change_request("repair application").zh_CN("报修单")
-                .step("step 1").zh_CN("第一步")
+                .step("step 1").zh_CN("故障信息")
                     .contains_event("machine info").zh_CN("设备信息")
                         .has_field("machine name").zh_CN("设备")
                             .disabled()
@@ -25,8 +25,8 @@ public class CR06_RepairTask implements ChangeRequestSpecFactory {
                             .disabled()
                             .fill_by_request("machine id", MODEL.machine().machineLocation())
                     .contains_event("fault info").zh_CN("故障信息")
-                        .has_field("repair now")
-                            .value(true).which_type_of(FieldType.BOOLEAN)
+                        .has_field("repair now").zh_CN("立即维修")
+                            .value("true").which_type_of(FieldType.BOOLEAN)
                             .hidden()
                         .has_field("work job id").zh_CN("工单")
                             .optional()
@@ -62,7 +62,7 @@ public class CR06_RepairTask implements ChangeRequestSpecFactory {
                 .change_request("appointment application").zh_CN("预约单")
                     .contains_event("machine info")
                     .contains_event("fault info").zh_CN("故障信息")
-                        .has_field("repair now").value(false)
+                        .has_field("repair now").value("false")
                         .has_field("required time").unhidden()
 
                 .change_request("update repair application").zh_CN("完善报修单")

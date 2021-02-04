@@ -69,6 +69,17 @@ public class ChangeRequest extends BaseModelBean {
     return member;
   }
 
+  public EventInfoInCr eventInfoInCrList() {
+    EventInfoInCr member = new EventInfoInCr();
+    member.setModelTypeName("event_info_in_cr");
+    member.setName("change_request");
+    member.setMemberName("eventInfoInCrList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventSimpleType eventSimpleTypeList() {
     EventSimpleType member = new EventSimpleType();
     member.setModelTypeName("event_simple_type");
@@ -256,17 +267,6 @@ public class ChangeRequest extends BaseModelBean {
     return member;
   }
 
-  public EventInfoInCr eventInfoInCrList() {
-    EventInfoInCr member = new EventInfoInCr();
-    member.setModelTypeName("event_info_in_cr");
-    member.setName("change_request");
-    member.setMemberName("eventInfoInCrList");
-    member.setRelationName("changeRequest");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
   // 普通属性
 
   public StringAttribute id() {
@@ -301,6 +301,15 @@ public class ChangeRequest extends BaseModelBean {
     member.setModelTypeName("string_client_ip");
     // member.setName("remoteIp");
     member.setName("remote_ip");
+    useMember(member);
+    return member;
+  }
+
+  public StringAttribute cityByIp() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("cityByIp");
+    member.setName("city_by_ip");
     useMember(member);
     return member;
   }

@@ -343,6 +343,13 @@ public class MODEL {
     return rst;
   }
 
+  public static EventInfoInCr eventInfoInCr() {
+    EventInfoInCr rst = new EventInfoInCr();
+    rst.setModelTypeName("event_info_in_cr");
+    rst.setBeanPath(new BeanPath().name("event_info_in_cr"));
+    return rst;
+  }
+
   public static EventSimpleType eventSimpleType() {
     EventSimpleType rst = new EventSimpleType();
     rst.setModelTypeName("event_simple_type");
@@ -459,13 +466,6 @@ public class MODEL {
     EventRepairFeedback rst = new EventRepairFeedback();
     rst.setModelTypeName("event_repair_feedback");
     rst.setBeanPath(new BeanPath().name("event_repair_feedback"));
-    return rst;
-  }
-
-  public static EventInfoInCr eventInfoInCr() {
-    EventInfoInCr rst = new EventInfoInCr();
-    rst.setModelTypeName("event_info_in_cr");
-    rst.setBeanPath(new BeanPath().name("event_info_in_cr"));
     return rst;
   }
 

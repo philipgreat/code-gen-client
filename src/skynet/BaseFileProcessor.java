@@ -153,7 +153,7 @@ public  class BaseFileProcessor {
 			log("Exception when format " + curFilePath);
 			log(orgContent);
 			e.printStackTrace();
-			throw new RuntimeException(e);
+			// throw new RuntimeException("Exception when format " + curFilePath, e);
 		}
 	}
 

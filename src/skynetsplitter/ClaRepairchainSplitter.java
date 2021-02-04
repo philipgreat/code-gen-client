@@ -1,6 +1,5 @@
 package skynetsplitter;
 
-import clariones.tool.builder.utils.DBUtil;
 import skynet.*;
 
 public class ClaRepairchainSplitter {
