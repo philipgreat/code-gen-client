@@ -54,6 +54,15 @@ public class WechatMiniappIdentity extends BaseModelBean {
     return member;
   }
 
+  public StringAttribute unionId() {
+    StringAttribute member = new StringAttribute();
+    member.setModelTypeName("string");
+    // member.setName("unionId");
+    member.setName("union_id");
+    useMember(member);
+    return member;
+  }
+
   public DateTimeAttribute createTime() {
     DateTimeAttribute member = new DateTimeAttribute();
     member.setModelTypeName("date_time_create");

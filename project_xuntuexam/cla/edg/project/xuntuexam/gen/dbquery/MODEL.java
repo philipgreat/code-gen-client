@@ -147,6 +147,13 @@ public class MODEL {
     return rst;
   }
 
+  public static EventInfoInCr eventInfoInCr() {
+    EventInfoInCr rst = new EventInfoInCr();
+    rst.setModelTypeName("event_info_in_cr");
+    rst.setBeanPath(new BeanPath().name("event_info_in_cr"));
+    return rst;
+  }
+
   public static EventCompetitionInfo eventCompetitionInfo() {
     EventCompetitionInfo rst = new EventCompetitionInfo();
     rst.setModelTypeName("event_competition_info");
@@ -165,13 +172,6 @@ public class MODEL {
     EventCreateCompetition rst = new EventCreateCompetition();
     rst.setModelTypeName("event_create_competition");
     rst.setBeanPath(new BeanPath().name("event_create_competition"));
-    return rst;
-  }
-
-  public static EventInfoInCr eventInfoInCr() {
-    EventInfoInCr rst = new EventInfoInCr();
-    rst.setModelTypeName("event_info_in_cr");
-    rst.setBeanPath(new BeanPath().name("event_info_in_cr"));
     return rst;
   }
 

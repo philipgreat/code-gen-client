@@ -36,6 +36,17 @@ public class ChangeRequest extends BaseModelBean {
 
   // 被引用的对象
 
+  public EventInfoInCr eventInfoInCrList() {
+    EventInfoInCr member = new EventInfoInCr();
+    member.setModelTypeName("event_info_in_cr");
+    member.setName("change_request");
+    member.setMemberName("eventInfoInCrList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventCompetitionInfo eventCompetitionInfoList() {
     EventCompetitionInfo member = new EventCompetitionInfo();
     member.setModelTypeName("event_competition_info");
@@ -63,17 +74,6 @@ public class ChangeRequest extends BaseModelBean {
     member.setModelTypeName("event_create_competition");
     member.setName("change_request");
     member.setMemberName("eventCreateCompetitionList");
-    member.setRelationName("changeRequest");
-    member.setReferDirection(false);
-    append(member);
-    return member;
-  }
-
-  public EventInfoInCr eventInfoInCrList() {
-    EventInfoInCr member = new EventInfoInCr();
-    member.setModelTypeName("event_info_in_cr");
-    member.setName("change_request");
-    member.setMemberName("eventInfoInCrList");
     member.setRelationName("changeRequest");
     member.setReferDirection(false);
     append(member);

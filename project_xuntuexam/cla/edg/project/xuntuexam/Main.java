@@ -61,9 +61,20 @@ public class Main {
 	public static String TARGET_PAGEFLOW_JAVA_BEAN_NAME = "wxappService";
 
 	public static void main(String[] args) throws Exception {
-		generatePageFlow(new MainPageFlow());
+		Map<String, String> envVars = Utils.put("base_package_name", Main.TARGET_BASE_PACKAGE_NAME)
+				.put("project_name", Main.TARGET_PROJECT_NAME)
+				.put("parent_class_name", getClassName(Main.TARGET_PAGEFLOW_JAVA_PARENT_CLASS_FULL_NAME))
+				.put("parent_class_package", getPackageName(Main.TARGET_PAGEFLOW_JAVA_PARENT_CLASS_FULL_NAME))
+				.put("resource_base_folder", "/works/jobs/xuntuexam_v1/workspace/code-gen-client/project_xuntuexam/resource")
+				.put("bean_name", Main.TARGET_PAGEFLOW_JAVA_BEAN_NAME)
+//				.put("transaction_config", "noRollbackFor={ErrorMessageException.class, FatalMessageException.class}")
+				.put("transaction_config", "disable")
+				.into_map(String.class);
 
-        generateChangeRequestForm(new MainChangeRequest().getSpec());
+		generatePageFlow(new MainPageFlow().withEnv(envVars));
+
+		generateChangeRequestForm(new MainChangeRequest().withEnv(envVars).getSpec());
+
 
 //        generateWorkProcessor(new MainWorkProcessor().getBuilder());
 	}
@@ -97,10 +108,21 @@ public class Main {
         generator.setChangeRequestSpec(script);
         generator.setProjectName(TARGET_PROJECT_NAME);
         generator.setOrgName(TARGET_ORGANIZATION_NAME);
+		generator.setScopeName((String) script.get("config").get("bean_name"));
+
         List<GenrationResult> files = generator.runJob();
 
         generator.saveToFiles( Utils.put("ALL", new File(OUTPUT_JAVA_FOLDER))
                 .put("changeRequest.xml", new File(OUTPUT_MODEL_FOLDER)).into_map(File.class), files); // "changeRequest.xml"
     }
 
+	protected static String getClassName(String fullClassName) {
+		int pos = fullClassName.lastIndexOf(".");
+		return pos > 0 ? fullClassName.substring(pos + 1) : fullClassName;
+	}
+
+	protected static String getPackageName(String fullClassName) {
+		int pos = fullClassName.lastIndexOf(".");
+		return pos > 0 ? fullClassName.substring(0, pos) : fullClassName;
+	}
 }

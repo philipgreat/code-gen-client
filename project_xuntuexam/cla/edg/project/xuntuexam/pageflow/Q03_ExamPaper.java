@@ -55,6 +55,15 @@ public class Q03_ExamPaper extends PieceOfScript {
                 .do_it_as()
                 .where(MODEL.examinationQuestion().platform().not_null())
                 .wants(MODEL.examinationQuestion().questionCategory())
+
+
+            .query(MODEL.examinationPaper()).list_of("prepared empty for competition").with_string("competition id")
+                .comments("查询竞赛的已经创建的空试卷")
+                .do_it_as()
+                .where(MODEL.examinationPaper().competition().eq("${competition id}"),
+                        MODEL.examinationPaper().examinee().is_null())
+                .top_10()
+                .wants(MODEL.examinationPaper().examPaperStatus())
                 ;
 
 

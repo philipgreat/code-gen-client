@@ -38,6 +38,7 @@ public class CR01_Exam implements ChangeRequestSpecFactory {
                         .has_field("scope").zh_CN("题目类别")
                             .which_model_of(MODEL.questionCategory())
                             .values_can_select_from_query_by(null)
+                            .input_at_next_line()
                         .has_field("number").zh_CN("题目数量")
                             .which_type_of(FieldType.INTEGER)
                             .place_holder("出几道题")
