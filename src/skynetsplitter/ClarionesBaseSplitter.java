@@ -1,0 +1,85 @@
+package skynetsplitter;
+
+import skynet.*;
+
+public abstract class ClarionesBaseSplitter {
+
+    protected static final int SECOND_IN_MS = 1000;
+
+    protected void doCodeGeneration(String mode) throws Exception {
+        String modelName = getModelName();
+        String projectFolder = getProjectFolderName();
+        System.setProperty("skynet.output.basefolder", getWorkSpaceFolder(projectFolder));
+        System.setProperty("skynet.output.basefolder.specs", getFormSpecOutpurFolder(projectFolder));
+        // 生成项目相关脚本, 例如 page-flow, event-ripple, graph-query 的脚本
+        System.setProperty(
+                "skynet.output.basefolder.scripts", getProjectScriptOutputFolder(projectFolder, modelName));
+
+        //        DBUtil.main(null);
+        //        if (true){
+        //            return ;
+        //        }
+        CodeGenContext.start()
+                // .skipMysqlImport()
+                .withModel(modelName)
+                .mysqlExecPath("/usr/local/mysql/bin/mysql")
+                .mysqlDumpExecPath("/usr/local/mysql/bin/mysqldump")
+                // .withEnglish()
+                .ofEnv();
+
+
+        if (mode.equals("all")) {
+            run(new FullTask());
+            Thread.sleep(3 * SECOND_IN_MS);
+            run(new MySQLGenTask());
+            run(new PrepareDBQueryScriptTask());
+            run(new ReactTask());
+        }
+        if (mode.equals("java")) {
+            run(new JavaTask());
+            run(new PrepareDBQueryScriptTask());
+        }
+        if (mode.equals("form")) {
+            run(new UiFormTask());
+            run(new UiFormGenTask());
+        }
+        if (mode.equals("data")) {
+            run(new MySQLGenTask());
+        }
+        if (mode.equals("query")) {
+            run(new PrepareDBQueryScriptTask());
+            //			run(new BigdataTask());
+        }
+        if (mode.equals("admin-ui")) {
+            run(new ReactTask());
+        }
+    }
+
+    protected abstract String getProjectFolderName();
+
+    protected abstract String getModelName();
+
+    protected void run(CodeGenTask task) throws Exception {
+
+        task.doStart();
+        task.doTask();
+        task.end();
+    }
+
+    protected String getProjectScriptOutputFolder(String projectFolder, String modelName) {
+        // /works/jobs/project_script/workspace/project-script/project_yrzx/cla/edg/project/yrzx/gen
+        // return String.format("/works/jobs/project_script/workspace/project-script/project_%s",
+        // projectFolder);
+        return String.format(
+                "/works/jobs/%s/workspace/code-gen-client/project_%s", projectFolder, modelName);
+    }
+
+    protected String getFormSpecOutpurFolder(String projectFolder) {
+        return String.format(
+                "/works/jobs/%s/workspace/web-code-generator/sky/WEB-INF/src", projectFolder);
+    }
+
+    protected String getWorkSpaceFolder(String projectFolder) {
+        return String.format("/works/jobs/%s/workspace", projectFolder);
+    }
+}

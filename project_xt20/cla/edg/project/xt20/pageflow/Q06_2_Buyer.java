@@ -19,7 +19,8 @@ public class Q06_2_Buyer extends PieceOfScript {
                 .comments("查询一个卖家对应的所有买家,便于管理")
                 .do_it_as()
                 .where(MODEL.merchant().supplyRelationshipListAsCustomer().supplier().eq("${merchant id}"),
-                        MODEL.merchant().organizationIdentityList().name().like("${search key}").optional())
+                        MODEL.merchant().name().like("${search key}").optional()
+                                .or(MODEL.merchant().supplyRelationshipListAsCustomer().supplierComment().like("${search key}").optional()))
                 .wants(MODEL.merchant().organizationIdentityList())
 
 

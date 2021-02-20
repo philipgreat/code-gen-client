@@ -80,6 +80,7 @@ public class Main {
 	private static void generateWorkProcessor(WorkProcessorBuilder builder) throws Exception {
 		ProcessorGenerator generator = new ProcessorGenerator();
 		generator.setFolderName(OUTPUT_PAGEFLOW_FOLDER_NAME);
+		generator.setProjectName(TARGET_PROJECT_NAME);
 		generator.setBasePackageName(builder.getBasePackage());
 
 		generator.setAllSpec(builder.build());
