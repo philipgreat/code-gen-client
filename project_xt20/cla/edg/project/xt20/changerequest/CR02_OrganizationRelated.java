@@ -195,6 +195,7 @@ public class CR02_OrganizationRelated implements ChangeRequestSpecFactory {
                     .place_holder("请输入备注")
                 .has_field("approve comment").zh_CN("说明")
                     .optional()
+                    .hidden()
                     .place_holder("如有其他说明,请在此填写")
                     .which_type_of(FieldType.MULTI_TEXT).input_at_next_line()
 

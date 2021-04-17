@@ -29,9 +29,16 @@ public class Q08_Order extends PieceOfScript {
 
             .query(MODEL.mainOrder()).list_of("buyer need process").pagination().with_string("merchant id")
                 .comments("查询从买家视角来看,需要处理的订单")
-                .run_by(spt->queryForBuyer(script, OrderStatus.PROCESSING, OrderStatus.WAITING_BUYER_CONFIRM, OrderStatus.BUYER_CONFIRM_TIMEOUT))
+                //.run_by(spt->queryForBuyer(script, OrderStatus.PROCESSING, OrderStatus.WAITING_BUYER_CONFIRM, OrderStatus.BUYER_CONFIRM_TIMEOUT))
+                .do_it_as()
+                .where(MODEL.mainOrder().buyer().eq("${merchant id}"),
+                        MODEL.mainOrder().status().in(OrderStatus.WAITING_BUYER_CONFIRM, OrderStatus.BUYER_CONFIRM_TIMEOUT)
+                        .or(MODEL.mainOrder().status().in(OrderStatus.PROCESSING)
+                                .and(MODEL.mainOrder().creator().merchant().eq("${merchant id}"))
+                        )
+                ).run_by(this::wantsWhenLoadOrderList)
             .query(MODEL.mainOrder()).list_of("buyer wait process").pagination().with_string("merchant id")
-                .comments("查询从买家视角来看,等待买家处理(不含运输)的订单")
+                .comments("查询从买家视角来看,等待卖家处理(不含运输)的订单")
                 .run_by(spt->queryForBuyer(script, OrderStatus.SUBMITTED, OrderStatus.WAITING_SELLER_CONFIRM, OrderStatus.WAITING_SELLER_DELIVERY))
             .query(MODEL.mainOrder()).list_of("buyer shipping").pagination().with_string("merchant id")
                 .comments("查询从买家视角来看,运输中的订单")
