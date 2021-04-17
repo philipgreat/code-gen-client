@@ -45,7 +45,14 @@ public class SaveAllFileProcessor extends BaseFileProcessor {
     }
 
     private void ensureEntry(String line, ZipOutputStream zos, String prefix) throws IOException {
-        String fileName = prefix + "/" + getFileName(line);
+        String fileName = getFileName(line);
+
+        String filePrefix = filePrefix(fileName);
+        if (filePrefix != null){
+            prefix = filePrefix;
+        }
+
+        fileName = prefix + "/" + fileName;
 
         String[] parts = fileName.trim().split("/");
         String current = null;
@@ -72,5 +79,24 @@ public class SaveAllFileProcessor extends BaseFileProcessor {
             createdPath.add(current);
         }
 
+    }
+
+    private String filePrefix(String pFileName) {
+        String generateTargetMapping = System.getProperty("filePathPrefixConfig");
+
+        if (generateTargetMapping != null && !generateTargetMapping.trim().isEmpty()){
+            String[] parts = generateTargetMapping.split(",");
+
+            for (String part: parts){
+                String[] targets = part.split(":");
+                String file = targets[0];
+                String prefix = targets[1];
+
+                if (pFileName.startsWith(file)){
+                    return prefix;
+                }
+            }
+        }
+        return null;
     }
 }
