@@ -115,7 +115,7 @@ public class Q04_Task extends PieceOfScript {
                     .run_by(this::wantedForMaintenanceTaskList)
 
                 .query(MODEL.maintenanceTask()).list_of("in process by user").pagination().with_string("user id").with_string("factory id").with_string("machine id")
-                    .comments("查询用户参与的,但是不需要立即处理的工单, 以工厂或者机器设备为过滤条件")
+                    .comments("查询当前用户参与的,但是不需要立即处理的工单, 以工厂或者机器设备为过滤条件")
                     .do_it_as()
                     .where(MODEL.maintenanceTask().maintenanceTaskAssignmentList().employee().personalUser().eq("${user id}"),
                             MODEL.maintenanceTask().status().not_in(MaintenanceTaskStatus.FINISHED_AS_REPAIRED, MaintenanceTaskStatus.FINISHED_AS_DAMAGED, MaintenanceTaskStatus.PROCESS_MANUALLY),
@@ -193,6 +193,57 @@ public class Q04_Task extends PieceOfScript {
                     .do_it_as()
                     .where(MODEL.workPosition().employeeList().personalUser().eq("${user id}"),
                             MODEL.workPosition().employeeList().maintenanceTaskAssignmentList().maintenanceTask().machine().eq("${machine id}"))
+
+
+                // 工单列表, 要么是所有的设备相关工单,要么是某个设备的工单. 分为: 待处理,处理中,已关闭,其他.
+
+                .query(MODEL.maintenanceTask()).list_of("user need process").pagination().with_string("user id").with_string("machine id").with_string("factory id")
+                    .comments("查询用户的所有待其处理的维修工单")
+                    .do_it_as()
+                    .where(MODEL.maintenanceTask().maintenanceTaskAssignmentList().employee().personalUser().eq("${user id}"),
+                            MODEL.maintenanceTask().machine().eq("${machine id}").optional(),
+                            MODEL.maintenanceTask().machine().factory().eq("${factory id}").optional(),
+                            MODEL.maintenanceTask().maintenanceTaskAssignmentList().finished().eq(false),
+                            MODEL.maintenanceTask().maintenanceTaskAssignmentList().valid().eq(true),
+                            MODEL.maintenanceTask().status().not_in(MaintenanceTaskStatus.FINISHED_AS_REPAIRED, MaintenanceTaskStatus.FINISHED_AS_DAMAGED))
+                    .order_by(MODEL.maintenanceTask().id()).desc()
+                    .run_by(this::wantedForMaintenanceTaskList)
+
+                .query(MODEL.maintenanceTask()).list_of("user processing").pagination().with_string("user id").with_string("machine id").with_string("factory id")
+                    .comments("查询用户参与处理的,未关闭的所有维修工单")
+                    .do_it_as()
+                    .where(MODEL.maintenanceTask().repairApplication().submitter().personalUser().eq("${user id}")
+                                    .or(MODEL.maintenanceTask().maintenanceTaskAssignmentList().employee().personalUser().eq("${user id}")),
+                            MODEL.maintenanceTask().machine().eq("${machine id}").optional(),
+                            MODEL.maintenanceTask().machine().factory().eq("${factory id}").optional(),
+                            MODEL.maintenanceTask().maintenanceTaskAssignmentList().valid().eq(true),
+                            MODEL.maintenanceTask().status().not_in(MaintenanceTaskStatus.FINISHED_AS_REPAIRED, MaintenanceTaskStatus.FINISHED_AS_DAMAGED))
+                    .order_by(MODEL.maintenanceTask().id()).desc()
+                    .run_by(this::wantedForMaintenanceTaskList)
+
+                .query(MODEL.maintenanceTask()).list_of("closed which user taken").pagination().with_string("user id").with_string("machine id").with_string("factory id")
+                    .comments("查询用户参与处理的,已完成维修的所有维修工单")
+                    .do_it_as()
+                    .where(MODEL.maintenanceTask().repairApplication().submitter().personalUser().eq("${user id}")
+                                    .or(MODEL.maintenanceTask().maintenanceTaskAssignmentList().employee().personalUser().eq("${user id}")),
+                            MODEL.maintenanceTask().machine().eq("${machine id}").optional(),
+                            MODEL.maintenanceTask().machine().factory().eq("${factory id}").optional(),
+                            MODEL.maintenanceTask().maintenanceTaskAssignmentList().valid().eq(true),
+                            MODEL.maintenanceTask().status().in(MaintenanceTaskStatus.FINISHED_AS_REPAIRED))
+                    .order_by(MODEL.maintenanceTask().id()).desc()
+                    .run_by(this::wantedForMaintenanceTaskList)
+
+                .query(MODEL.maintenanceTask()).list_of("abnormal which user taken").pagination().with_string("user id").with_string("machine id").with_string("factory id")
+                    .comments("查询用户参与处理的,未关闭的所有维修工单")
+                    .do_it_as()
+                    .where(MODEL.maintenanceTask().repairApplication().submitter().personalUser().eq("${user id}")
+                                    .or(MODEL.maintenanceTask().maintenanceTaskAssignmentList().employee().personalUser().eq("${user id}")),
+                            MODEL.maintenanceTask().machine().eq("${machine id}").optional(),
+                            MODEL.maintenanceTask().machine().factory().eq("${factory id}").optional(),
+                            MODEL.maintenanceTask().maintenanceTaskAssignmentList().valid().eq(true),
+                            MODEL.maintenanceTask().status().in(MaintenanceTaskStatus.FINISHED_AS_DAMAGED, MaintenanceTaskStatus.PROCESS_MANUALLY))
+                    .order_by(MODEL.maintenanceTask().id()).desc()
+                    .run_by(this::wantedForMaintenanceTaskList)
                 ;
     }
 

@@ -44,7 +44,7 @@ public class CR03_Machine implements ChangeRequestSpecFactory {
                             .value("设备二维码编号，请扫描未使用过的设备铭牌二维码")
                             .display()
                         .has_field("qr code").zh_CN("二维码")
-                            .range(1,48)
+                            .range(1,512)
 
 
 

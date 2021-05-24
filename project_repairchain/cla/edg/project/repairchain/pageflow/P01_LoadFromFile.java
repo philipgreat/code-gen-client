@@ -27,6 +27,8 @@ public class P01_LoadFromFile extends PieceOfScript {
 
                     .for_request("start work job")
                         .got_page("work job")   // 因为现在工具不好画自己到自己, 所以图上画了一个到其他页面的链接, 然后这里重载结果页面
+                    .for_request("finish work job")
+                        .got_page("work job")
 //                    .for_request("view agency factory detail")
 //                        .reset_params().with_string("agent id")
 //                        .with_string("factory id")

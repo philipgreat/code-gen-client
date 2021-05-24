@@ -34,6 +34,11 @@ public class Q07_Misc extends PieceOfScript {
                         .do_it_as()
                         .where(MODEL.agent().factoryAgencyList().factory().machineList().id().eq("${machine id}"))
 
-                ;
+                    .find(MODEL.agent()).which("by factory").with_string("factory id")
+                        .comments("查找工厂的代理商")
+                        .do_it_as()
+                        .where(MODEL.agent().factoryAgencyList().factory().id().eq("${factory id}"))
+
+                    ;
     }
 }

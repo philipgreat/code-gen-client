@@ -595,10 +595,10 @@ public class MODEL {
     return rst;
   }
 
-  public static KeypairIdentity keypairIdentity() {
-    KeypairIdentity rst = new KeypairIdentity();
-    rst.setModelTypeName("keypair_identity");
-    rst.setBeanPath(new BeanPath().name("keypair_identity"));
+  public static KeyPairIdentity keyPairIdentity() {
+    KeyPairIdentity rst = new KeyPairIdentity();
+    rst.setModelTypeName("key_pair_identity");
+    rst.setBeanPath(new BeanPath().name("key_pair_identity"));
     return rst;
   }
 

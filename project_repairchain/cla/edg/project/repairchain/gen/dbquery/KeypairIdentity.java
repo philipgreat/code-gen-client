@@ -4,9 +4,9 @@ import java.util.Map;
 
 import cla.edg.modelbean.*;
 
-public class KeypairIdentity extends BaseModelBean {
+public class KeyPairIdentity extends BaseModelBean {
   public String getFullClassName() {
-    return "com.doublechaintech.repairchain.keypairidentity.KeypairIdentity";
+    return "com.doublechaintech.repairchain.keypairidentity.KeyPairIdentity";
   }
   // 枚举对象
 
