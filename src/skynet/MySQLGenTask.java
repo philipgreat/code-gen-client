@@ -64,8 +64,8 @@ public class MySQLGenTask extends CodeGenTask {
 	protected String getSourceSQLFilePath(){
 		String sourcePath = super.getDestPath(TASK_NAME);
 //     /works/jobs/teachain_v1/workspace/teachain-biz-suite/bizcore/teachain_mysql.sql
-     return sourcePath + "WEB-INF/" + getModel() + "_core_src/META-INF/" + getModel() + "_mysql.sql";
-//		return sourcePath + getModel() + "_mysql.sql";
+//     return sourcePath + "WEB-INF/" + getModel() + "_core_src/META-INF/" + getModel() + "_mysql.sql";
+		return sourcePath + getModel() + "_mysql.sql";
 	}
 	protected String getBackupSQLFilePath(){
 		String sourcePath = super.getDestPath(TASK_NAME);

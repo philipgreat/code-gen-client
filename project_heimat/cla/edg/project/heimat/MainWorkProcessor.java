@@ -19,8 +19,8 @@ public class MainWorkProcessor {
         }
         return WorkProcessorBuilder.start()
             .basePackage(prjName)
-            .import_from(new OrderProcess())
-           .import_from(new ShippingProcess())
+//            .import_from(new OrderProcess())
+//           .import_from(new ShippingProcess())
                 ;
     }
 }
