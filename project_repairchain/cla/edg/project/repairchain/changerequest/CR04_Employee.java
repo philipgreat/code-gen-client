@@ -83,6 +83,21 @@ public class CR04_Employee implements ChangeRequestSpecFactory {
                     .has_field("vcode").zh_CN("验证码")
                         .range(4,8)
 
+            .change_request("update employee info").zh_CN("更新人员信息")
+                .contains_event("update employee info").zh_CN("更新人员信息")
+                    .has_field("user id").zh_CN("用户ID")
+                        .fill_by_request("user id")
+                        .hidden()
+                    .has_field("employee id").zh_CN("员工ID")
+                        .fill_by_request("employee id")
+                        .disabled()
+                    .has_field("name").zh_CN("姓名")
+                        .range(1,40)
+                        .fill_by_request("user id", MODEL.personalUser().name())
+                    .has_field("avatar").zh_CN("照片")
+                        .which_type_of(FieldType.IMAGE)
+                        .fill_by_request("user id", MODEL.personalUser().avatar())
+
                 ;
     }
 

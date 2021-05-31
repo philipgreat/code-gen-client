@@ -179,6 +179,17 @@ public class ChangeRequest extends BaseModelBean {
     return member;
   }
 
+  public EventUpdateEmployeeInfo eventUpdateEmployeeInfoList() {
+    EventUpdateEmployeeInfo member = new EventUpdateEmployeeInfo();
+    member.setModelTypeName("event_update_employee_info");
+    member.setName("change_request");
+    member.setMemberName("eventUpdateEmployeeInfoList");
+    member.setRelationName("changeRequest");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   public EventBindInfo eventBindInfoList() {
     EventBindInfo member = new EventBindInfo();
     member.setModelTypeName("event_bind_info");

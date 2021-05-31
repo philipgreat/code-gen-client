@@ -413,6 +413,13 @@ public class MODEL {
     return rst;
   }
 
+  public static EventUpdateEmployeeInfo eventUpdateEmployeeInfo() {
+    EventUpdateEmployeeInfo rst = new EventUpdateEmployeeInfo();
+    rst.setModelTypeName("event_update_employee_info");
+    rst.setBeanPath(new BeanPath().name("event_update_employee_info"));
+    return rst;
+  }
+
   public static EventBindInfo eventBindInfo() {
     EventBindInfo rst = new EventBindInfo();
     rst.setModelTypeName("event_bind_info");
