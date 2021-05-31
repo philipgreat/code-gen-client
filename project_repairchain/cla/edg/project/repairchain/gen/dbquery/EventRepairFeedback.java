@@ -12,6 +12,17 @@ public class EventRepairFeedback extends BaseModelBean {
 
   // 引用的对象
 
+  public MachineStatus machineState() {
+    MachineStatus member = new MachineStatus();
+    member.setModelTypeName("machine_status");
+    member.setName("machine_state");
+    member.setMemberName("machineState");
+    member.setReferDirection(true);
+    member.setRelationName("machineState");
+    append(member);
+    return member;
+  }
+
   public Employee assignTo() {
     Employee member = new Employee();
     member.setModelTypeName("employee");

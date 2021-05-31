@@ -171,7 +171,7 @@ public class Q04_Task extends PieceOfScript {
                     .where(MODEL.maintenanceTaskAssignment().maintenanceTask().eq("${task id}"),
                             MODEL.maintenanceTaskAssignment().createOnStatus().eq("${type}").optional(),
                             MODEL.maintenanceTaskAssignment().finished().eq(false),
-                            MODEL.maintenanceTaskAssignment().employee().personalUser().eq("${user id}"))
+                            MODEL.maintenanceTaskAssignment().employee().personalUser().eq("${user id}").optional())
 
                 .query(MODEL.maintenanceTaskAssignment()).which("opening in task by type").with_string("task id").with_string("type")
                     .comments("找到某个 工单 的, 类型和用户 匹配的 assignment")

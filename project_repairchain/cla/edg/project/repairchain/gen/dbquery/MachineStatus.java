@@ -94,6 +94,17 @@ public class MachineStatus extends BaseModelBean {
     return member;
   }
 
+  public EventRepairFeedback eventRepairFeedbackList() {
+    EventRepairFeedback member = new EventRepairFeedback();
+    member.setModelTypeName("event_repair_feedback");
+    member.setName("machine_state");
+    member.setMemberName("eventRepairFeedbackList");
+    member.setRelationName("machineState");
+    member.setReferDirection(false);
+    append(member);
+    return member;
+  }
+
   // 普通属性
 
   public StringAttribute id() {

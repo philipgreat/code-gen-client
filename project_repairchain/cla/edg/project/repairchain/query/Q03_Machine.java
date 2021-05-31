@@ -48,7 +48,11 @@ public class Q03_Machine extends PieceOfScript {
                         .where(MODEL.machine().qrCodeList().eq("${qrcode id}"))
                         .run_by(this::wantsForMachineList)
 
-
+                    .find(MODEL.machine()).which("can operate by user").with_string("user id").with_string("machine id")
+                        .comments("根据用户ID和machine, 查找他是否可以操作这个机器")
+                        .do_it_as()
+                        .where(MODEL.machine().factory().employeeList().personalUser().eq("${user id}"),
+                                MODEL.machine().id().eq("${machine id}"))
                 ;
     }
 

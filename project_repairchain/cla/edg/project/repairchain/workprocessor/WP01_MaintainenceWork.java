@@ -97,7 +97,10 @@ public class WP01_MaintainenceWork implements WorkProcessorScript {
             .in_status("work delivered").zh_CN("已交单")
                 .comments("维修工已经完成指派给自己的工单任务, 提交完成, 等待主管审批")
                 .once_enter().go_to("need review")
+                .on_event("repairing report").zh_CN("维修记录").stay_here()
 
+            .as_role("repair worker")
+                .can_do("repairing report")
 
             .in_status("need review").zh_CN("待主管核验")
                 .comments("待审核. 等待维修侧主管审核维修记录, 如果超时要升级. 如果确实不能维修, 要标明")
@@ -113,6 +116,7 @@ public class WP01_MaintainenceWork implements WorkProcessorScript {
                     .when("need rework").zh_CN("待返工").reach_condition("reject by repair manager")
                     .when("cannot repair").zh_CN("无法修理").go_to("cannot repair")
                     .when_success().go_to("need confirm")
+                .on_event("repairing report").zh_CN("维修记录").stay_here()
 
                 .when_condition("reject by repair manager").zh_CN("维修主管审核失败").go_to("in repairing")
                 .when_condition("escalation").zh_CN("紧迫程度提升").go_to("need review")
@@ -120,15 +124,17 @@ public class WP01_MaintainenceWork implements WorkProcessorScript {
                 .as_role("line worker").can_do_nothing()
                 .as_role("line leader").can_do_nothing()
                 .as_role("repair leader").can_do("review repair report")
-                .as_role("repair worker").can_do_nothing()
+                .as_role("repair worker").can_do("repairing report")
 
 
             .in_status("need confirm").zh_CN("待确认")
                 .on_event("confirmed").zh_CN("确认修复")
                     .when_success().go_to("fixed")
                     .when("not fix").zh_CN("未修复").go_to("need process")
+                .on_event("repairing report").zh_CN("维修记录").stay_here()
 
                 .as_role("line worker").can_do("confirm fixed")
+                .as_role("repair worker").can_do("repairing report")
 
             .in_status("fixed").zh_CN("已修复")
                 .comments("已修复. 结单,写日志等.")

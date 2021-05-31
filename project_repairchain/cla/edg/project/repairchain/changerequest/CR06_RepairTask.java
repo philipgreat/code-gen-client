@@ -1,6 +1,7 @@
 package cla.edg.project.repairchain.changerequest;
 
 import cla.edg.project.repairchain.gen.dbquery.MODEL;
+import cla.edg.project.repairchain.gen.dbquery.MachineStatus;
 import com.terapico.changerequest.builder.ChangeRequestSpecBuilder;
 import com.terapico.changerequest.builder.ChangeRequestSpecFactory;
 import com.terapico.changerequest.builder.FieldType;
@@ -135,14 +136,15 @@ public class CR06_RepairTask implements ChangeRequestSpecFactory {
                         .has_field("treatment").zh_CN("故障处理方法")
                             .which_type_of(FieldType.MULTI_TEXT)
                             .range(1,500)
+                            .defaule_value("进行维修")
                             .place_holder("请填写故障处理方法")
 
                 .change_request("report damage").zh_CN("报告损毁")
                     .step("A").zh_CN("报告损毁")
                     .contains_event("task work record").zh_CN("损毁记录")
                         .has_field("treatment")
-                        .value("无法修理")
-                        .disabled()
+                        .defaule_value("设备损毁,无法维修")
+
 
                 .change_request("audit repair").zh_CN("审核修理结果")
                     .step("A").zh_CN("审核修理结果")
@@ -162,6 +164,10 @@ public class CR06_RepairTask implements ChangeRequestSpecFactory {
                         .has_field("repair result").zh_CN("修理结果")
                             .values_canbe("pass", "已修好").or("fail", "未修好")
                             .defaule_value("pass")
+                        .has_field("machine state").zh_CN("设备状态")
+                            .which_model_of(MODEL.machineStatus())
+                            .values_can_select_from_query_by(null)
+                            .defaule_value(MachineStatus.RUNNING.getLiteralName())
                         .has_field("assign to").zh_CN("负责人")
                             .which_model_of(MODEL.employee()).optional()
                             .values_can_select_from_query_by("${task id}")
