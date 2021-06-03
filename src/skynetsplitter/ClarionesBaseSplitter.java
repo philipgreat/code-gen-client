@@ -1,12 +1,8 @@
 package skynetsplitter;
 
-import clariones.tool.builder.GenrationResult;
-import setup.ProjectSetup;
 import skynet.*;
 
-import java.io.File;
 import java.util.Date;
-import java.util.List;
 
 public abstract class ClarionesBaseSplitter {
 
@@ -65,27 +61,8 @@ public abstract class ClarionesBaseSplitter {
         if (mode.equals("admin-ui")) {
             run(new ReactTask());
         }
-        if (mode.equals("project-script")){
-            genProjectScript();
-            return;
-        }
     }
 
-    public void genProjectScript() throws Exception {
-        String modelName = getModelName();
-        ProjectSetup setup = new ProjectSetup();
-        // 生成到哪里
-        String outputBaseFolder = "/works/jobs/"+getProjectFolderName()+"/workspace";
-        setup.setProjectFolder(outputBaseFolder);
-        // 项目名称
-        setup.setPackageName("com.doublechaintech."+ modelName);
-        List<GenrationResult> list = setup.runJob();
-        // 执行
-        String baseFolder = outputBaseFolder+"/code-gen-client/project_"+ modelName;
-        setup.saveToFiles(new File(baseFolder), list);
-        // 完成
-        return;
-    }
     protected abstract String getProjectFolderName();
 
     protected abstract String getModelName();
