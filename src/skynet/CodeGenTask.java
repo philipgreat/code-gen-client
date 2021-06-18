@@ -117,6 +117,7 @@ public class CodeGenTask {
 		pathMap.put("react", "bizui");
 		pathMap.put("bigdata", "databrain");
 		pathMap.put("taro", "nice-router-taro");
+		pathMap.put("springcloud", "springcloud");
 
 		String path = pathMap.get(outputName);
 		if (path != null) {
@@ -184,6 +185,8 @@ public class CodeGenTask {
 	static final String WXA_RENDER = "dssc_lab/wxa_render_index.jsp";
 
 	static final String TARO = "taro/taro_index.jsp";
+
+	static final String SPRING_CLOUD = "springcloud/index.jsp";
 
 	// form 元数据
 	static final String UI_FORM_SPEC = "uiform/ui_form_spec_index.jsp";
@@ -265,6 +268,8 @@ public class CodeGenTask {
 			componentMap.put("prepare_db_query_script", PREPARE_DB_QUERY_SCRIPT);
 
 			componentMap.put("mobile_app_backend", MOBILE_APP_BACKEND);
+
+			componentMap.put("springcloud", SPRING_CLOUD);
 		}
 	}
 
