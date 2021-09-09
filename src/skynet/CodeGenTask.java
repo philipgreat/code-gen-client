@@ -104,6 +104,7 @@ public class CodeGenTask {
 	protected String subDestFolder(String outputName){
 		
 		Map<String, String > pathMap = new HashMap<String,String>();
+		pathMap.put("mysql", "data");
 		pathMap.put("jsp", "bizcore");
 		pathMap.put("java", "bizcore/");
 		pathMap.put("dict", "./");

@@ -51,6 +51,10 @@ public class MySQLGenTask extends CodeGenTask {
 		String output = executeCommand();
 		//System.out.println(output);
 		log("Import data for "+getModel()+" done!");
+		
+		
+		
+		
 	}
 	
 	protected  void backupOldData() throws IOException{
@@ -60,18 +64,23 @@ public class MySQLGenTask extends CodeGenTask {
 		//System.out.println(output);
 		log("Backup data for "+getModel()+" done!");
 	}
-	
+	protected String sourcePath(){
+		String sourcePath = super.getDestPath(TASK_NAME);
+
+		return sourcePath;
+
+	}
 	protected String getSourceSQLFilePath(){
 		String sourcePath = super.getDestPath(TASK_NAME);
 		
-		return sourcePath+"WEB-INF/"+getModel()+"_core_src/META-INF/"+getModel()+"_mysql.sql";
+		return sourcePath+"/"+getModel()+"_mysql.sql";
 		
 	}
 	protected String getBackupSQLFilePath(){
 		String sourcePath = super.getDestPath(TASK_NAME);
 		DateFormat format=new SimpleDateFormat("yyyyMMddHHmmss");
 		
-		return sourcePath+"WEB-INF/"+getModel()+"_core_src/META-INF/"+getModel()+"_mysql_"+format.format(new Date())+".sql";
+		return sourcePath+"/"+getModel()+"_mysql_"+format.format(new Date())+".sql";
 		
 	}
 	
@@ -147,8 +156,8 @@ public class MySQLGenTask extends CodeGenTask {
 		//return output.toString();
 
 	}
-	
-	private static void inheritIO(final InputStream src, final PrintStream dest) {
+
+	protected static void inheritIO(final InputStream src, final PrintStream dest) {
 	    new Thread(new Runnable() {
 	        public void run() {
 	            Scanner sc = new Scanner(src);

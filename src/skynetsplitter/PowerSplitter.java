@@ -2,53 +2,37 @@ package skynetsplitter;
 
 import java.util.Arrays;
 
-import skynet.CodeGenContext;
-import skynet.CodeGenTask;
-import skynet.FullTask;
-import skynet.ReactTask;
+import skynet.*;
 
 
 public class PowerSplitter {
 	
 	
 	public static void main(String[] args) throws Exception {
-		CodeGenContext context = CodeGenContext.start();
-		
-		context.withURLPrefix("http://t420.doublechaintech.cn:2080/sky/");
-		
-		
-		
-		
-		
+		CodeGenContext context = CodeGenContext.start()
+				//.withXP()
+				.withNop();
+				//.withXP();
+		//context.withURLPrefix("http://t420.doublechaintech.cn:2080/sky/");
 		//String models[]= {"ugc","cms","oms","payment","search","inventory","iam","pim"};
 		
 		if(args.length<1) {
 			logln("Please add models to arguments");
-			return;
+			//return;
 		}/**/
 		
-		String models[]= args;
-		//String models[]= {"bank"};
-
-		//String models[]= {"mini"};
-		//String models[]= {"lsc"};
-		//String models[]= {"retailscm"};
-		//String models[]= {"cms"};
-		//String models[]= {"pim"};
-		//String models[]= {"ugc","inventory"};
-		//String models[]= {"demodata"};
-		//String models[]= {"his"};
-		
-		
-		
+		//String models[]= args;
+		String models[]= {"finsys"};
 		
 		Arrays.stream(models).forEach(model->{
 			context.withModel(model);
 			
 			CodeGenTask tasks[]=new CodeGenTask[] {
-					new FullTask(),
-					new ReactTask()
-					//new MySQLGenTask()
+					new BackendFullTask(),
+					//new JavaTask(),
+					//new JSPTask(),
+					//new ReactTask(),
+					new MySQLGenTask()
 					};
 			
 			Arrays.stream(tasks).forEach(task->{
@@ -57,6 +41,7 @@ public class PowerSplitter {
 				} catch (Exception e) {
 					System.err.println(e.getMessage());
 				}
+
 			});
 			
 		});
@@ -221,7 +206,20 @@ for(String model:models) {
 	logln("cd ~/githome/"+model+"-biz-suite/bizcore&& gradle copyJars && cd ../../");
 	logln("cd ~/githome/"+model+"-biz-suite/ && rsync -avz   bizcore/* philipz@philip.doublechaintech.cn:~/resin-3.1.12/webapps/"+model+"/");
 	
-}*/
+}
+//String models[]= {"mini"};
+		//String models[]= {"lsc"};
+		//String models[]= {"retailscm"};
+		//String models[]= {"cms"};
+		//String models[]= {"pim"};
+		//String models[]= {"ugc","inventory"};
+		//String models[]= {"demodata"};
+		//String models[]= {"his"};
+		
+		
+*
+*
+*/
 
 
 //System.out.println(context.forEnglish());

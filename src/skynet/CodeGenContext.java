@@ -13,7 +13,7 @@ public class CodeGenContext {
 	public static final String USE_ENGLISH_PARAM="skynet.english";
 	public static final String TRANSLATE_PARAM="skynet.translate";
 	public static final String CODE_ENGINE_URL_PREFIX="skynet.engine.url.prefix";
-	
+	public static final String DRY_RUN="dry-run";
 	//public static final String MODEL_PARAM="skynet.model";
 	//public static final String MODEL_PARAM="skynet.model";
 	
@@ -27,6 +27,15 @@ public class CodeGenContext {
 		
 		
 		
+	}
+	public  CodeGenContext dryRun() {
+		set(DRY_RUN,"true");
+		return this;
+
+	}
+	public  boolean isDryRun() {
+		return Boolean.parseBoolean(get("DRY_RUN","false"));
+
 	}
 	public  CodeGenContext withModel(String model) {
 		set(MODEL_PARAM,model);
@@ -64,6 +73,10 @@ public class CodeGenContext {
 	}
 	public  CodeGenContext withXP() {
 		set(ENV_PARAM,"xp");
+		return this;
+	}
+	public  CodeGenContext withNop() {
+		
 		return this;
 	}
 	public  CodeGenContext withEnglish() {
