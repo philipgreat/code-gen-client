@@ -35,8 +35,8 @@ public class AndroidCodeSplitter extends CodeSplitter{
 		}
 		//set tokens for each processor, make them know each other
 		for (BaseFileProcessor processor : processors) {
-			processor.addBreakingTokens(tokens);;
-		}
+			processor.addBreakingTokens(tokens);
+        }
 		//process each line
 		while ((line = reader.readLine()) != null) {
 			for (BaseFileProcessor processor : processors) {

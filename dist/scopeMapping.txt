@@ -1,0 +1,4 @@
+all:javaweb/report.jsp,javaweb/java_app_index.jsp,react/dva_app_index.jsp
+bizcore:javaweb/report.jsp,javaweb/java_app_index.jsp
+bizui:javaweb/report.jsp,react/dva_app_index.jsp
+report:javaweb/report.jsp

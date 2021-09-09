@@ -5,9 +5,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
 public class Test {
-
+	
+	public void testArray() {
+		
+		String [] source = {"a","b","c"};
+		Object []objs = source;
+		
+		
+		
+	}
 	public static Map<String, Long> countVotes(String[] votes) {
 		Map<String, Long> counterMap = new HashMap<>();
 
@@ -23,6 +30,9 @@ public class Test {
 		if(value != 0) {
 			return value;
 		}
+		
+		
+		
 		return c1.getKey().compareTo(c2.getKey());
 		
 		
@@ -31,7 +41,7 @@ public class Test {
 
 	public static Comparator<Map.Entry<String, Long>> comparingByValueThenName() {
 		//return (Comparator<Map.Entry<String, Long>>) (c1, c2) -> compare(c1, c2);
-		return (Comparator<Map.Entry<String, Long>>) (c1, c2) -> {
+		return (c1, c2) -> {
 			int value = c1.getValue().compareTo(c2.getValue());
 			if(value != 0) {
 				return value;
@@ -64,7 +74,6 @@ public class Test {
 	}
 	public static void main(String[] args) {
 
-		String[] votes = new String[] { "Glenn", "Emily", "Emily", "Glenn" };
-		System.out.println(parseLong("10000000"));
+		System.out.println(String.join("," ,"/codeGen/bank/all".split("/")));
 	}
 }
