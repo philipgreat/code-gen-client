@@ -9,22 +9,11 @@ public class PowerSplitter {
 	
 	
 	public static void main(String[] args) throws Exception {
-<<<<<<< HEAD
 		CodeGenContext context = CodeGenContext.start()
 				//.withXP()
 				.withNop();
 				//.withXP();
 		//context.withURLPrefix("http://t420.doublechaintech.cn:2080/sky/");
-=======
-		CodeGenContext context = CodeGenContext.start().withXP().skipMysqlImport();
-		
-		context.withURLPrefix("http://t420.doublechaintech.cn:2080/sky/");
-		
-		
-		
-		
-		
->>>>>>> 49a68e8fd9060e876869410ea9a4464399d0c94f
 		//String models[]= {"ugc","cms","oms","payment","search","inventory","iam","pim"};
 		
 		if(args.length<1) {
@@ -32,45 +21,18 @@ public class PowerSplitter {
 			//return;
 		}/**/
 		
-<<<<<<< HEAD
 		//String models[]= args;
 		String models[]= {"finsys"};
-=======
-
-		//String models[]= args;
-		String[] models = {"bank"};
-		//String models[]= {"bank"};
-
-		//String models[]= {"mini"};
-		//String models[]= {"lsc"};
-		//String models[]= {"retailscm"};
-		//String models[]= {"cms"};
-		//String models[]= {"pim"};
-		//String models[]= {"ugc","inventory"};
-		//String models[]= {"demodata"};
-		//String models[]= {"his"};
-		
-		
-		
->>>>>>> 49a68e8fd9060e876869410ea9a4464399d0c94f
 		
 		Arrays.stream(models).forEach(model->{
 			context.withModel(model);
 			
-<<<<<<< HEAD
 			CodeGenTask tasks[]=new CodeGenTask[] {
 					new BackendFullTask(),
 					//new JavaTask(),
 					//new JSPTask(),
 					//new ReactTask(),
 					new MySQLGenTask()
-=======
-			CodeGenTask[] tasks =new CodeGenTask[] {
-
-					new FullTask(),
-					new ReactTask()
-					//new MySQLGenTask()
->>>>>>> 49a68e8fd9060e876869410ea9a4464399d0c94f
 					};
 			
 			Arrays.stream(tasks).forEach(task->{

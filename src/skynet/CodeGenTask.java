@@ -107,17 +107,10 @@ public class CodeGenTask {
 		return modelName + "-biz-suite";
 
 	}
-<<<<<<< HEAD
 	protected String subDestFolder(String outputName){
 		
 		Map<String, String > pathMap = new HashMap<String,String>();
 		pathMap.put("mysql", "data");
-=======
-
-	protected String subDestFolder(String outputName) {
-
-		Map<String, String> pathMap = new HashMap<String, String>();
->>>>>>> 49a68e8fd9060e876869410ea9a4464399d0c94f
 		pathMap.put("jsp", "bizcore");
 		pathMap.put("java", "bizcore/");
 		pathMap.put("dict", "./");
