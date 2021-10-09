@@ -26,8 +26,8 @@ public class JackyXt20Splitter {
                 // .withEnglish()
                 .ofEnv()
         ;
-      String mode = "view";
-//        String mode = "all";
+//      String mode = "view";
+        String mode = "all";
 //	String mode = "java";
 //        String mode = "springcloud";
 //	String mode = "form";

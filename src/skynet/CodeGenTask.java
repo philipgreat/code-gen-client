@@ -270,6 +270,8 @@ public class CodeGenTask {
 			componentMap.put("mobile_app_backend", MOBILE_APP_BACKEND);
 
 			componentMap.put("springcloud", SPRING_CLOUD);
+			componentMap.put("view", "javaweb/view/index.jsp");
+			componentMap.put("meta", "javaweb/java_meta.jsp");
 		}
 	}
 
