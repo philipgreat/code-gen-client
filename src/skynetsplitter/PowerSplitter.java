@@ -22,17 +22,18 @@ public class PowerSplitter {
 		}/**/
 		
 		//String models[]= args;
-		String models[]= {"finsys"};
+		String models[]= {"cmes"};
 		
 		Arrays.stream(models).forEach(model->{
 			context.withModel(model);
 			
 			CodeGenTask tasks[]=new CodeGenTask[] {
-					new BackendFullTask(),
-					//new JavaTask(),
+					//new BackendFullTask(),
+					new JavaTask(),
 					//new JSPTask(),
 					//new ReactTask(),
-					new MySQLGenTask()
+					//new MySQLGenTask()
+					//new PurePojoTask()
 					};
 			
 			Arrays.stream(tasks).forEach(task->{

@@ -180,6 +180,7 @@ public class CodeGenTask {
 	static final String REACT_XP = "react/dva_app_index_xp.jsp";
 
 	static final String POJO_WORK = "javaweb/java_basic_index.jsp";
+	static final String PURE_POJO_WORK = "javaweb/java_pojo.jsp";
 	static final String JAVA = "javaweb/java_app_index.jsp";
 	static final String JAVA_XP = "javaweb/java_app_index_xp.jsp";
 	static final String WXA_RENDER = "dssc_lab/wxa_render_index.jsp";
@@ -242,6 +243,9 @@ public class CodeGenTask {
 			componentMap.put("jsp", JSP);
 			componentMap.put("react", getFinalPath(REACT));
 			componentMap.put("pojo_work", POJO_WORK);
+			componentMap.put("pure_pojo_work", PURE_POJO_WORK);
+
+
 
 			componentMap.put("java", getFinalPath(JAVA));
 

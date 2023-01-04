@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="google-java-format-1.3-all-deps">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/google-java-format-1.3-all-deps.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/google-java-format-1.3-all-deps.jar!/" />
+    </SOURCES>
+  </library>
+</component>

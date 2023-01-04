@@ -1,10 +1,6 @@
 package skynetsplitter;
 
-import clariones.tool.builder.GenrationResult;
-import setup.ProjectSetup;
 
-import java.io.File;
-import java.util.List;
 
 public class ClaHeimatSplitter extends ClarionesBaseSplitter{
 
