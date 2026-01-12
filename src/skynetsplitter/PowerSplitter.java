@@ -22,8 +22,9 @@ public class PowerSplitter {
 		}/**/
 		
 		//String models[]= args;
-		String models[]= {"cmes"};
-		
+		String models[]= {"teachain"};
+		//String models[]= {"retailscm"};
+
 		Arrays.stream(models).forEach(model->{
 			context.withModel(model);
 			
@@ -31,7 +32,7 @@ public class PowerSplitter {
 					//new BackendFullTask(),
 					new JavaTask(),
 					//new JSPTask(),
-					//new ReactTask(),
+					new ReactTask(),
 					//new MySQLGenTask()
 					//new PurePojoTask()
 					};

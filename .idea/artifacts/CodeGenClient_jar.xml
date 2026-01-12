@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CodeGenClient:jar">
+    <output-path>$PROJECT_DIR$/classes/artifacts/CodeGenClient_jar</output-path>
+    <root id="archive" name="CodeGenClient.jar">
+      <element id="module-output" name="CodeGenClient" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/google-java-format-1.3-all-deps.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

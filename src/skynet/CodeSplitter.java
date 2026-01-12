@@ -184,6 +184,7 @@ public class CodeSplitter {
         Map<String, String[]> scopeMapping = createMapping();
 
         httpserver.createContext("/codegen", new GenCodeHandler(scopeMapping, genServer));
+        httpserver.createContext("/", new QueryInfoHandler());
         httpserver.start();
     }
 
